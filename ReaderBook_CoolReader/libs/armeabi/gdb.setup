@@ -1,0 +1,2 @@
+set solib-search-path ./obj/local/armeabi
+directory e:/ndk/platforms/android-19/arch-arm/usr/include -I jni/../../crengine/include jni/../../thirdparty/libpng jni/../../thirdparty/freetype/include jni/../../thirdparty/libjpeg jni/../../thirdparty/antiword jni/../../thirdparty/chmlib/src e:/ndk/sources/cxx-stl/system/include

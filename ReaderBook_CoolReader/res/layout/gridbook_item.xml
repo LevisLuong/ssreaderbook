@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/grid_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="11dp"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        >
+    </TextView>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="12dp">
+
+        <ImageView
+            android:id="@+id/grid_item_cover"
+            android:layout_width="72dp"
+            android:layout_height="108dp"
+            android:paddingBottom="4dp"
+            android:paddingLeft="2.7dp"
+            android:paddingTop="3dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/book_exam">
+        </ImageView>
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="108dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/book_shadow">
+        </ImageView>
+
+
+        <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/grid_item_new"-->
+        <!--android:src="@drawable/book_new"-->
+        <!--android:layout_gravity="top|right"-->
+        <!-->-->
+        <!--</ImageView>-->
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/toolbar_lnTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#80000000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/toolbar_btnback"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:src="@drawable/ic_back_arrow_white"/>
+
+            <TextView
+                android:id="@+id/toolbar_txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:text="ads"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/toolbar_txtPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/afc_10dp"
+                android:layout_marginRight="@dimen/afc_10dp"
+                android:text="6/200"
+                android:textColor="@android:color/white"
+                />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/toolbar_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/toolbar_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/toolbar_lnBottom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#80000000">
+
+        <ImageButton
+            android:id="@+id/toolbar_btnAutoScroll"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_autoscroll"/>
+
+        <ImageButton
+            android:id="@+id/toolbar_btnChangeOri"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_ori"
+            />
+        <ImageButton
+            android:id="@+id/toolbar_btnDayNight"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_night"
+            />
+
+
+        <ImageButton
+            android:id="@+id/toolbar_btnBookMark"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_bookmarks"/>
+
+
+        <ImageButton
+            android:id="@+id/toolbar_btnTOC"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_list_toc"/>
+
+
+        <ImageButton
+            android:id="@+id/toolbar_btnSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_menu_setting"/>
+    </LinearLayout>
+</LinearLayout>

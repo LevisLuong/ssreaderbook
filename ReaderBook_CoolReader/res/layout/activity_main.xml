@@ -1,0 +1,72 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context="vn.seasoft.readerbook.MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/apptheme_color"
+            android:text="Các sách mới"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <RelativeLayout
+            android:id="@+id/fmmain_containernewbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context="vn.seasoft.readerbook.MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/apptheme_color"
+            android:text="Sách đọc nhiều"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <RelativeLayout
+            android:id="@+id/fmmain_containerhotbook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context="vn.seasoft.readerbook.MainActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/apptheme_color"
+            android:text="Các sách đã đọc"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+
+        <RelativeLayout
+            android:id="@+id/fmmain_containerread"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</LinearLayout>

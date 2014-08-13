@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../lb_AmbilWarna/AmbilWarna.iml" filepath="$PROJECT_DIR$/../lb_AmbilWarna/AmbilWarna.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ReaderBook_CoolReader.iml" filepath="$PROJECT_DIR$/ReaderBook_CoolReader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_UrlImageViewHelper/UrlImageViewHelper.iml" filepath="$PROJECT_DIR$/../lb_UrlImageViewHelper/UrlImageViewHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_holoeverywhere/lb_holyeverywhere.iml" filepath="$PROJECT_DIR$/../lb_holoeverywhere/lb_holyeverywhere.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_horizontallistview/main.iml" filepath="$PROJECT_DIR$/../lb_horizontallistview/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_nineolddroid/lb_nineolddroid.iml" filepath="$PROJECT_DIR$/../lb_nineolddroid/lb_nineolddroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../preferences/preferences.iml" filepath="$PROJECT_DIR$/../preferences/preferences.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../slider/slider.iml" filepath="$PROJECT_DIR$/../slider/slider.iml" />
+    </modules>
+  </component>
+</project>
+
