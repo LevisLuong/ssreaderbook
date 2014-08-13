@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- Application theme. -->
+
+    <color name="transparent">#00000000</color>
+
+    <style name="TextAppearance.Widget.EditText" parent="@android:style/TextAppearance.Widget.EditText">
+    </style>
+
+    <style name="TapZoneGridItem">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:layout_margin">5dip</item>
+        <item name="android:background">#60808080</item>
+    </style>
+
+    <style name="TapZoneGridCell">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:padding">3dip</item>
+        <item name="android:layout_margin">3dip</item>
+        <item name="android:background">#60808080</item>
+    </style>
+
+    <style name="TapZoneGridCellText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:layout_margin">2dip</item>
+    </style>
+
+    <style name="TapZoneGridCellTextSecond">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:padding">2dip</item>
+        <item name="android:layout_margin">2dip</item>
+    </style>
+
+    <style name="reader_action_bar_dropdown" parent="@style/wrap">
+        <item name="android:layout_gravity">top|right|center</item>
+        <item name="android:background">@drawable/menu_dropdown_panel_light</item>
+        <item name="android:layout_width">@dimen/view_options_width</item>
+    </style>
+
+    <style name="wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="HoloThemeLightDarkActionbar" parent="Holo.Theme.Light.DarkActionBar">
+
+    </style>
+
+    <style name="HoloThemeWithSliderMenu" parent="Holo.Theme.Slider.Light.DarkActionBar">
+
+    </style>
+
+
+</resources>

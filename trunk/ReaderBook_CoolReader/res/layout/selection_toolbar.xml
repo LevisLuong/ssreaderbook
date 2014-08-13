@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Option item layout for CR3 options dialog
+-->
+<LinearLayout
+    android:id="@+id/sel_body"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="true"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popping_bg"
+        android:baselineAligned="true"
+        android:orientation="horizontal"
+        >
+
+        <ImageButton
+            android:id="@+id/selection_copy"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/options_selection_action_copy"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:src="@drawable/ic_menu_copy"/>
+        />
+
+        <ImageButton
+            android:id="@+id/selection_dict"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/options_selection_action_dictionary"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:src="@drawable/ic_menu_sort_alphabetically"/>
+        />
+
+        <ImageButton
+            android:id="@+id/selection_bookmark"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/options_selection_action_bookmark"
+            android:src="@drawable/ic_menu_star"/>
+        />
+
+        <ImageButton
+            android:id="@+id/selection_email"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/options_selection_action_mail"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:src="@drawable/ic_menu_compose"/>
+        />
+
+        <ImageButton
+            android:id="@+id/selection_find"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/dlg_button_find"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:src="@drawable/ic_menu_search"/>
+        />
+
+        <ImageButton
+            android:id="@+id/selection_cancel"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dip"
+            android:layout_marginLeft="1dip"
+            android:layout_marginRight="1dip"
+            android:layout_marginTop="2dip"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/dlg_button_cancel"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:src="@drawable/ic_menu_close_clear_cancel"/>
+        />
+    </LinearLayout>
+
+</LinearLayout>

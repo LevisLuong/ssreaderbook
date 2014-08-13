@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout
+    style="@style/reader_action_bar_dropdown"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/view_options_paddingBottom"
+    android:paddingLeft="@dimen/view_options_paddingLeft"
+    android:paddingRight="@dimen/view_options_paddingRight"
+    android:paddingTop="@dimen/view_options_paddingTop">
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/afc_10dp"
+            android:text="Kích cỡ chữ"
+            android:textSize="@dimen/view_options_label_text_size"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/optionmenu_btnSizeFontSmaller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_font_size_decrease"/>
+
+            <Button
+                android:id="@+id/optionmenu_btnSizeFontBigger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_font_size_increase"/>
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/afc_10dp"
+            android:text="Font chữ"
+            android:textSize="@dimen/view_options_label_text_size"/>
+
+        <Spinner
+            android:id="@+id/optionmenu_spinFontFace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            >
+        </Spinner>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/afc_10dp"
+            android:text="Giãn dòng"
+            android:textSize="@dimen/view_options_label_text_size"/>
+
+        <Spinner
+            android:id="@+id/optionmenu_spinLineSpace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+        </Spinner>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/afc_10dp"
+            android:text="Màu chữ"
+            android:textSize="@dimen/view_options_label_text_size"/>
+
+        <ImageView
+            android:id="@+id/optionmenu_imgFontColor"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/standard_dp"
+            android:background="@color/apptheme_color"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/afc_10dp"
+            android:text="Hình nền"
+            android:textSize="@dimen/view_options_label_text_size"/>
+
+        <Spinner
+            android:id="@+id/optionmenu_spinBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/standard_dp"/>
+
+    </TableRow>
+</TableLayout>
