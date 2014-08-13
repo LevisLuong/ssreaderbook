@@ -2,7 +2,9 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android" name="Android">
-      <configuration />
+      <configuration>
+        <option name="UPDATE_PROPERTY_FILES" value="true" />
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -14,9 +16,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="lb_nineolddroid" />
-    <orderEntry type="module" module-name="AmbilWarna" />
     <orderEntry type="module" module-name="preferences" />
-    <orderEntry type="module" module-name="UrlImageViewHelper" />
     <orderEntry type="module" module-name="slider" />
     <orderEntry type="module" module-name="lb_holoeverywhere" />
     <orderEntry type="module-library">
@@ -29,7 +29,9 @@
         <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="lb_AmbilWarna" />
     <orderEntry type="module" module-name="lb_horizontallistview" />
+    <orderEntry type="module" module-name="lb_UrlImageViewHelper" />
   </component>
 </module>
 
