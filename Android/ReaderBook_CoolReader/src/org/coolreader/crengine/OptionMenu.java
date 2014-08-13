@@ -397,7 +397,6 @@ public class OptionMenu extends LinearLayout {
     BackgroundTextureInfo[] textures;
 
 
-
     public class AdapterBackground extends BaseAdapter {
 
         public AdapterBackground() {
