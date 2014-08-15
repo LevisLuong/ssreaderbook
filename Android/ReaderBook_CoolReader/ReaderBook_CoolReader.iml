@@ -4,6 +4,7 @@
     <facet type="android" name="Android">
       <configuration>
         <option name="UPDATE_PROPERTY_FILES" value="true" />
+        <option name="ENABLE_PRE_DEXING" value="false" />
       </configuration>
     </facet>
   </component>
@@ -32,6 +33,7 @@
     <orderEntry type="module" module-name="lb_AmbilWarna" />
     <orderEntry type="module" module-name="lb_horizontallistview" />
     <orderEntry type="module" module-name="lb_UrlImageViewHelper" />
+    <orderEntry type="module" module-name="lb_SubSamplingScaleImageView" />
   </component>
 </module>
 

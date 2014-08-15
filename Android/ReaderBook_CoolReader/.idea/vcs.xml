@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
     <mapping directory="$PROJECT_DIR$/../lb_AmbilWarna" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../lb_SubSamplingScaleImageView" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_UrlImageViewHelper" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_holoeverywhere" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_horizontallistview" vcs="svn" />

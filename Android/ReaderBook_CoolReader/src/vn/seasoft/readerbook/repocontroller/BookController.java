@@ -76,7 +76,7 @@ public class BookController {
 
     public List<Book> getSearchBook(String key) {
         try {
-            return Dao.queryBuilder().where().like("title", "%" + key + "%").query();
+            return Dao.queryBuilder().where().like("title", "%" + key + "%").or().like("author", "%" + key + "%").query();
         } catch (SQLException e) {
             e.printStackTrace();
         }

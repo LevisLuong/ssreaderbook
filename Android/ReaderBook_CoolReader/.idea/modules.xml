@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ReaderBook_CoolReader.iml" filepath="$PROJECT_DIR$/ReaderBook_CoolReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" filepath="$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_SubSamplingScaleImageView/lb_SubSamplingScaleImageView.iml" filepath="$PROJECT_DIR$/../lb_SubSamplingScaleImageView/lb_SubSamplingScaleImageView.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_UrlImageViewHelper/lb_UrlImageViewHelper.iml" filepath="$PROJECT_DIR$/../lb_UrlImageViewHelper/lb_UrlImageViewHelper.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" filepath="$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" filepath="$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" />

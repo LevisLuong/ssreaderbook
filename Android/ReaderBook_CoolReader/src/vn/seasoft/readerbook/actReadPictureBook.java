@@ -3,10 +3,15 @@ package vn.seasoft.readerbook;
 import android.content.Intent;
 import android.graphics.*;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.util.Log;
 import org.holoeverywhere.app.Activity;
+import org.holoeverywhere.app.Fragment;
+import org.holoeverywhere.widget.ViewPager;
 import vn.seasoft.readerbook.widget.CurlPage;
 import vn.seasoft.readerbook.widget.CurlView;
+import vn.seasoft.readerbook.widget.ViewPagerFragment;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,17 +26,18 @@ import java.util.zip.ZipInputStream;
  * Time: 2:45 PM
  */
 public class actReadPictureBook extends Activity {
-    private CurlView mCurlView;
+    private ViewPager mViewpager;
     List<Bitmap> lstBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.view_pager);
+
         onNewIntent(getIntent());
-        mCurlView = new CurlView(this);
-        mCurlView.setPageProvider(new PageProvider());
-        mCurlView.setViewMode(CurlView.SHOW_ONE_PAGE);
-        setContentView(mCurlView);
+        mViewpager = (ViewPager) findViewById(R.id.pager);
+        ScreenSlidePagerAdapter pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mViewpager.setAdapter(pagerAdapter);
     }
 
     @Override
@@ -44,13 +50,28 @@ public class actReadPictureBook extends Activity {
     @Override
     public void onPause() {
         super.onPause();
-        mCurlView.onPause();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        mCurlView.onResume();
+    }
+
+    private class ScreenSlidePagerAdapter extends FragmentPagerAdapter {
+
+        public ScreenSlidePagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return new ViewPagerFragment(lstBitmap.get(position));
+        }
+
+        @Override
+        public int getCount() {
+            return lstBitmap.size();
+        }
     }
 
     @Override
@@ -76,7 +97,7 @@ public class actReadPictureBook extends Activity {
         }
     }
 
-        public class PageProvider implements CurlView.PageProvider {
+    public class PageProvider implements CurlView.PageProvider {
 
         private Bitmap loadBitmap(int width, int height, int index) {
             Bitmap b = Bitmap.createBitmap(width, height,
