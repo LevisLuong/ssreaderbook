@@ -2,7 +2,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.davemorrissey.labs.subscaleview.ScaleImageView
+    <it.sephiroth.android.library.imagezoom.ImageViewTouch
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
