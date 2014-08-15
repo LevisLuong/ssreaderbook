@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.widget.ListView;
@@ -18,9 +19,6 @@ import vn.seasoft.readerbook.ResultObjects.Result_GetSearchBook;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.adapter.SearchBookAdapter;
 import vn.seasoft.readerbook.dialog.dlgInfoBook;
-import vn.seasoft.readerbook.model.Book;
-
-import java.util.List;
 
 /**
  * User: XuanTrung
@@ -32,18 +30,23 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
     ListView listview;
     SearchBookAdapter adapter;
     int index = 1;
+    String query;
+
+    View footerLoadmore;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_book);
         mContext = this;
+        handleIntent(getIntent());
         // get the action bar
         ActionBar actionBar = getSupportActionBar();
         // Enabling Back navigation on Action Bar icon
         actionBar.setDisplayHomeAsUpEnabled(true);
-
+        footerLoadmore = getLayoutInflater().inflate(R.layout.loadmore_hlistview, null, false);
         listview = (ListView) findViewById(R.id.listview);
-        adapter = new SearchBookAdapter(mContext);
+        listview.addFooterView(footerLoadmore);
+        adapter = new SearchBookAdapter(mContext, query);
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -52,20 +55,30 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
                 dlg.show((Activity) mContext);
             }
         });
-        handleIntent(getIntent());
+        listview.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int lastInScreen = firstVisibleItem + visibleItemCount;
+                if ((lastInScreen == totalItemCount) && adapter.canLoadMoreData()) {
+                    SSReaderApplication.getRequestServer(mContext).SearchBook(query, adapter.loadMoreData());
+                }
+            }
+        });
+
+        GlobalData.ShowProgressDialog(mContext, R.string.loading);
+        SSReaderApplication.getRequestServer(this, this).SearchBook(query, index);
     }
 
 
     private void handleIntent(Intent intent) {
-        String query =
+        query =
                 intent.getStringExtra(SearchManager.QUERY);
         Log.i("Search book", "String query: " + query);
-
-        List<Book> lstSearchDatabase = (new Book()).getSearchBook(query);
-        adapter.addData(lstSearchDatabase);
-
-        GlobalData.ShowProgressDialog(mContext, R.string.loading);
-        SSReaderApplication.getRequestServer(this, this).SearchBook(query, index);
     }
 
     @Override
@@ -79,7 +92,10 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
         GlobalData.DissmissProgress();
         if (urlMethod.equals(COMMAND_API.SEARCH_BOOK)) {
             Result_GetSearchBook data = (Result_GetSearchBook) resultData;
-            adapter.addData(data.lstBooks);
+            adapter.SetListBooks(data.lstBooks);
+            if (!adapter.isHaveNew()) {
+                listview.removeFooterView(footerLoadmore);
+            }
         }
     }
 }
