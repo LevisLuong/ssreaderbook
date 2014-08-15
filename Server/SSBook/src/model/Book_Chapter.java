@@ -234,4 +234,36 @@ public class Book_Chapter {
 		}
 		return null;
 	}
+	
+	public int getIdAuto() {
+		int id = 0;
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbssbook' AND TABLE_NAME = 'book_chapter'";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt("AUTO_INCREMENT");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return id;
+	}
 }

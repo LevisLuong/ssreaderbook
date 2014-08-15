@@ -7,17 +7,6 @@
 <title>Quan ly SSBook</title>
 </head>
 <body>
-	<h1>
-		<a href="managebookcategory.jsp">Quan ly Danh muc</a>
-	</h1>
-	<h1>
-		<a href="addbookcategory.jsp">Them danh muc</a>
-	</h1>
-	<h1>
-		<a href="managebook.jsp">Quan ly sach</a>
-	</h1>
-	<h1>
-		<a href="addbook.jsp">Them sach</a>
-	</h1>
+	<h1>FGfndUJrd8E2>/m</h1>
 </body>
 </html>

@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import Others.config;
-import model.Book_Category;
+import org.apache.commons.io.FileUtils;
+
+import model.Book;
 import model.Book_Chapter;
+import Others.SSUtil;
+import Others.config;
 
 /**
  * Servlet implementation class EditBookChapter
@@ -95,14 +98,14 @@ public class EditBookChapter extends HttpServlet {
 		// gets absolute path of the web application
 		// constructs path of the directory to save uploaded file
 		String filename = "";
+		String uploadPath = config.getUrlBookDir(request)
+				+ config.UPLOAD_BOOK_DIR + File.separator
+				+ bc.getIdbook();
 		if (filePart != null) {
 			try {
-				String uploadPath = config.getUrlBookDir(request)
-						+ config.UPLOAD_BOOK_DIR + File.separator
-						+ bc.getIdbook();
-
 				// creates the save directory if it does not exists
 				File fileSaveDir = new File(uploadPath);
+				FileUtils.cleanDirectory(fileSaveDir);
 				if (!fileSaveDir.exists()) {
 					fileSaveDir.mkdirs();
 				}
@@ -115,11 +118,20 @@ public class EditBookChapter extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-
-		bc.setChapter(chapter);
+		
 		if (!filename.equals("")) {
-			bc.setFilename(filename);
+			//Check picture category
+			Book b = (new Book()).getById(bc.getIdbook());
+			if (b.getIdcategory() == 8) {
+				bc.setFilename(SSUtil.unZipIt(uploadPath + File.separator + filename,
+						uploadPath + File.separator + bc.getIdbook_chapter()));
+			} else {
+				bc.setFilename(filename);
+			}
 		}
+		
+		bc.setChapter(chapter);
+		
 
 		out.println("<html>");
 		out.println("<head>");

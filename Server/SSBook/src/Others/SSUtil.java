@@ -1,8 +1,14 @@
 package Others;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class SSUtil {
 	public static String humanReadableByteCount(long bytes, boolean si) {
@@ -38,5 +44,70 @@ public class SSUtil {
 			e.printStackTrace();
 		}
 		return md5;
+	}
+
+	/**
+	 * Unzip it
+	 * 
+	 * @param zipFile
+	 *            input zip file
+	 * @param output
+	 *            zip file output folder
+	 */
+	public static String unZipIt(String zipFile, String outputFolder) {
+		String arr = "";
+		byte[] buffer = new byte[1024];
+
+		try {
+
+			// create output directory is not exists
+			File folder = new File(outputFolder);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+
+			// get the zip file content
+			ZipInputStream zis = new ZipInputStream(
+					new FileInputStream(zipFile));
+			// get the zipped file list entry
+			ZipEntry ze = null;
+			while ((ze = zis.getNextEntry()) != null) {
+				String fileName = ze.getName();
+				File newFile = new File(outputFolder + File.separator
+						+ fileName);
+
+				System.out.println("file unzip : " + newFile.getAbsoluteFile());
+
+				// create all non exists folders
+				// else you will hit FileNotFoundException for compressed folder
+				new File(newFile.getParent()).mkdirs();
+
+				FileOutputStream fos = new FileOutputStream(newFile);
+
+				int len;
+				while ((len = zis.read(buffer)) > 0) {
+					fos.write(buffer, 0, len);
+				}
+
+				fos.close();
+				if (arr.equals("")) {
+					arr = fileName;
+				} else {
+					arr = arr + "," + fileName;
+				}
+
+			}
+
+			zis.closeEntry();
+			zis.close();
+
+			System.out.println("Done");
+			// Delete zip file
+			File f = new File(zipFile);
+			f.delete();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return arr;
 	}
 }

@@ -55,7 +55,12 @@ public class TableListBookChapter extends HttpServlet {
 
 				out.println("<td>" + bookchap.getIdbook_chapter() + "</td>");
 				out.println("<td>" + bookchap.getChapter() + "</td>");
-				out.println("<td>" + bookchap.getFilename() + "</td>");
+				out.println("<td><a href='.." + File.separator
+						+ config.UPLOAD_BOOK_DIR + File.separator
+						+ bookchap.getIdbook() + File.separator
+						+ bookchap.getFilename() + "'>"
+						+ bookchap.getFilename() + "</a></td>");
+				out.println("<td>" + bookchap.getFilesize() + "</td>");
 				out.println("<td  class=\"options-width\">"
 						+ "<form action=\"DeleteBookChapter\" method=post>"
 						+ "<input type=hidden name=idbookchapter value="

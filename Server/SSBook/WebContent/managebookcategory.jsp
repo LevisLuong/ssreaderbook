@@ -64,8 +64,8 @@
 											<th class="table-header-repeat line-left"><a href="">Id</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="">Tên Danh mục</a></th>
-											<th class="table-header-repeat line-left"><a
-												href="">Số lượng sách</a></th>
+											<th class="table-header-repeat line-left"><a href="">Số
+													lượng sách</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="">Chức năng</a></th>
 										</tr>
