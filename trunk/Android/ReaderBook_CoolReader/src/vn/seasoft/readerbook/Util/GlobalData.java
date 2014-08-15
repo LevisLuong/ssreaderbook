@@ -46,4 +46,8 @@ public class GlobalData {
     public static String getUrlBook(Book_Chapter bookchap) {
         return Config.IP_BOOKS_FILE_SERVER + bookchap.getIdbook() + "/" + bookchap.getFilename();
     }
+
+    public static String getUrlPictureBook(int idbook, int idbookchapter) {
+        return Config.IP_BOOKS_FILE_SERVER + idbook + "/" + idbookchapter + "/";
+    }
 }

@@ -70,31 +70,37 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(adapter.getItem(i)));
-                download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                    @Override
-                    public void onDownloadComplete(String urlResultMood) {
-                        book.addNewData();
-                        adapter.setRead(i);
-                        adapter.setDownloaded(i);
-                        adapter.notifyDataSetChanged();
-                        if (book.getIdcategory() == 8) {
-                            Intent t = new Intent(getActivity(), actReadPictureBook.class);
-                            t.putExtra("file", urlResultMood);
-                            mContext.startActivity(t);
-                        } else {
+                if (book.getIdcategory() == 8) {
+                    book.addNewData();
+                    adapter.setRead(i);
+                    adapter.setDownloaded(i);
+                    adapter.notifyDataSetChanged();
+                    Intent t = new Intent(getActivity(), actReadPictureBook.class);
+                    t.putExtra("arrbook", adapter.getItem(i).getFilename());
+                    t.putExtra("idbook", adapter.getItem(i).getIdbook());
+                    t.putExtra("idbookchapter", adapter.getItem(i).getIdbook_chapter());
+                    mContext.startActivity(t);
+                } else {
+                    AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(adapter.getItem(i)));
+                    download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+                        @Override
+                        public void onDownloadComplete(String urlResultMood) {
+                            book.addNewData();
+                            adapter.setRead(i);
+                            adapter.setDownloaded(i);
+                            adapter.notifyDataSetChanged();
                             Intent t = new Intent(mContext, CoolReader.class);
                             t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
                             mContext.startActivity(t);
                         }
-                    }
 
-                    @Override
-                    public void onCanceled() {
+                        @Override
+                        public void onCanceled() {
 
-                    }
-                });
-                download.startDownload();
+                        }
+                    });
+                    download.startDownload();
+                }
             }
         });
         SwipeDismissList swiplist = new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
@@ -160,32 +166,37 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
                             break;
                         }
                     }
-                    AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(curBookRead));
-                    download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                        @Override
-                        public void onDownloadComplete(String urlResultMood) {
-                            book.addNewData();
-                            curBookRead.setCurrentread(true);
-                            curBookRead.setIsDownloaded(true);
-                            curBookRead.updateData();
-                            if (book.getIdcategory() == 8) {
-                                Intent t = new Intent(getActivity(), actReadPictureBook.class);
-                                t.putExtra("file", urlResultMood);
-                                mContext.startActivity(t);
-                            } else {
+                    if (book.getIdcategory() == 8) {
+                        book.addNewData();
+                        curBookRead.setCurrentread(true);
+                        curBookRead.setIsDownloaded(true);
+                        curBookRead.updateData();
+                        Intent t = new Intent(getActivity(), actReadPictureBook.class);
+                        t.putExtra("arrbook", curBookRead.getFilename());
+                        t.putExtra("idbook", curBookRead.getIdbook());
+                        t.putExtra("idbookchapter", curBookRead.getIdbook_chapter());
+                        mContext.startActivity(t);
+                    } else {
+                        AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(curBookRead));
+                        download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+                            @Override
+                            public void onDownloadComplete(String urlResultMood) {
+                                book.addNewData();
+                                curBookRead.setCurrentread(true);
+                                curBookRead.setIsDownloaded(true);
+                                curBookRead.updateData();
                                 Intent t = new Intent(mContext, CoolReader.class);
                                 t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
                                 mContext.startActivity(t);
                             }
 
-                        }
+                            @Override
+                            public void onCanceled() {
 
-                        @Override
-                        public void onCanceled() {
-
-                        }
-                    });
-                    download.startDownload();
+                            }
+                        });
+                        download.startDownload();
+                    }
                 }
             }
         });

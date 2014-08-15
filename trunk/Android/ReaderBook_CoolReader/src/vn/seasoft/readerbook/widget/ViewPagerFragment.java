@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.davemorrissey.labs.subscaleview.ScaleImageView;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import org.holoeverywhere.app.Fragment;
 import vn.seasoft.readerbook.R;
 
@@ -38,9 +38,7 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.view_pager_page, container, false);
-        ScaleImageView imageView = (ScaleImageView) rootView.findViewById(R.id.imageView);
-        imageView.setImageBitmap(bitmap);
-        imageView.animateScale(1.0f);
+        SubsamplingScaleImageView imageView = (SubsamplingScaleImageView) rootView.findViewById(R.id.imageView);
         return rootView;
     }
 
