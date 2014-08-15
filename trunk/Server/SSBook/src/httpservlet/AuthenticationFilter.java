@@ -37,7 +37,7 @@ public class AuthenticationFilter implements Filter {
 
 		if (uri.contains("api") || uri.contains("css") || uri.contains("jquery")
 				|| uri.contains("images") || uri.endsWith("login.jsp")
-				|| uri.endsWith("Login") || uri.endsWith("CopyPass")) {
+				|| uri.endsWith("Login") || uri.endsWith("index.jsp")) {
 			chain.doFilter(request, response);
 			return;
 		}

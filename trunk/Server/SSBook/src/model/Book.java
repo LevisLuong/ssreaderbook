@@ -61,14 +61,6 @@ public class Book {
 		this.summary = summary;
 	}
 
-	public int getIdCategory() {
-		return idcategory;
-	}
-
-	public void setIdCategory(int idCategory) {
-		this.idcategory = idCategory;
-	}
-
 	public int getIdcategory() {
 		return idcategory;
 	}
@@ -222,7 +214,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
@@ -305,7 +297,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
@@ -349,7 +341,8 @@ public class Book {
 				sql = sql + "AND idcategory = ?";
 			}
 			if (!keysearch.equals("")) {
-				sql = sql + " AND title LIKE '%" + keysearch + "%'";
+				sql = sql + " AND (title LIKE '%" + keysearch
+						+ "%' OR author LIKE '%" + keysearch + "%')";
 			}
 
 			int offset = (page - 1) * DatasOnPage;
@@ -366,7 +359,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
@@ -404,7 +397,7 @@ public class Book {
 		try {
 			conn = new Database();
 			String sql = "SELECT * FROM book WHERE idcategory = ? AND isdeleted = 0 ";
-			sql = sql + " ORDER BY idbook";
+			sql = sql + " ORDER BY title";
 			ps = conn.Get_Connection().prepareStatement(sql);
 			ps.setInt(1, category);
 			rs = ps.executeQuery();
@@ -414,7 +407,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
@@ -457,7 +450,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
@@ -500,7 +493,7 @@ public class Book {
 				book.setAuthor(rs.getString("author"));
 				book.setTitle(rs.getString("title"));
 				book.setSummary(rs.getString("summary"));
-				book.setIdCategory(rs.getInt("idcategory"));
+				book.setIdcategory(rs.getInt("idcategory"));
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));

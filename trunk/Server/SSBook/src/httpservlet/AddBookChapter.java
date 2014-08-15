@@ -1,8 +1,12 @@
 package httpservlet;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -71,7 +75,7 @@ public class AddBookChapter extends HttpServlet {
 
 		String chapter = request.getParameter("chapter");
 		int idbook = Integer.parseInt(request.getParameter("idbook"));
-
+		Book_Chapter bc = new Book_Chapter();
 		Part filePart = request.getPart("filename"); // Book
 		// save cover
 		// gets absolute path of the web application
@@ -90,11 +94,18 @@ public class AddBookChapter extends HttpServlet {
 			// save file upload
 			filename = getFileName(filePart);
 			filePart.write(uploadPath + File.separator + filename);
+			// Check picture category
+			Book b = (new Book()).getById(idbook);
+			if (b.getIdcategory() == 8) {
+				bc.setFilename(SSUtil.unZipIt(uploadPath + File.separator
+						+ filename,
+						uploadPath + File.separator + bc.getIdAuto()));
+			} else {
+				bc.setFilename(filename);
+			}
 		}
-		Book_Chapter bc = new Book_Chapter();
 		bc.setChapter(chapter);
 		bc.setIdbook(idbook);
-		bc.setFilename(filename);
 		System.out.println("File size: " + filePart.getSize());
 		System.out.println("File size s: "
 				+ SSUtil.humanReadableByteCount(filePart.getSize(), true));
