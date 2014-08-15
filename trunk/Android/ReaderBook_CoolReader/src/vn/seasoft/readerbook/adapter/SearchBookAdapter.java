@@ -62,18 +62,22 @@ public class SearchBookAdapter extends BaseAdapter {
 
     public boolean SetListBooks(List<Book> _lst) {
         boolean isNew = false;
-        isLoading = false;
         index = tempIndex;
         if (index == 1) {
             isNew = true;
         }
-        lstBooks.addAll(_lst);
-
+        for (Book book : _lst) {
+            Book checkBook = (new Book()).getByID(book.getIdbook());
+            if (checkBook == null) {
+                lstBooks.add(book);
+            }
+        }
         if (_lst.size() < 10) {
             isHaveNew = false;
         } else {
             isHaveNew = true;
         }
+        isLoading = false;
         notifyDataSetChanged();
         return isNew;
     }

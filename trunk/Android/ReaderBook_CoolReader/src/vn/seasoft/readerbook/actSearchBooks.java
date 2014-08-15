@@ -88,14 +88,29 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
     }
 
     @Override
-    public void onGetData(ResultObject resultData, String urlMethod, int id) {
+    protected void onDestroy() {
+        super.onDestroy();
+        adapter = null;
+        listview.setAdapter(null);
+    }
+
+    @Override
+    public void onGetData(final ResultObject resultData, final String urlMethod, int id) {
         GlobalData.DissmissProgress();
-        if (urlMethod.equals(COMMAND_API.SEARCH_BOOK)) {
-            Result_GetSearchBook data = (Result_GetSearchBook) resultData;
-            adapter.SetListBooks(data.lstBooks);
-            if (!adapter.isHaveNew()) {
-                listview.removeFooterView(footerLoadmore);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (urlMethod.equals(COMMAND_API.SEARCH_BOOK)) {
+                    Result_GetSearchBook data = (Result_GetSearchBook) resultData;
+                    adapter.SetListBooks(data.lstBooks);
+                    if (!adapter.isHaveNew()) {
+                        listview.removeFooterView(footerLoadmore);
+                    }
+                    adapter.notifyDataSetChanged();
+                    listview.requestLayout();
+                }
             }
-        }
+        });
+
     }
 }

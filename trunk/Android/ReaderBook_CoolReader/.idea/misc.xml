@@ -87,6 +87,108 @@
     </configuration>
   </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/../lb_AmbilWarna">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../lb_UrlImageViewHelper">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../lb_holoeverywhere">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../lb_horizontallistview">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../lb_nineolddroid">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../preferences">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../slider">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>

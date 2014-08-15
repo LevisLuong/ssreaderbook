@@ -1426,7 +1426,6 @@ public class BaseActivity extends Activity implements Settings {
             props.applyDefault(ReaderView.PROP_EMBEDDED_FONTS, "0");
             props.applyDefault(ReaderView.PROP_TXT_OPTION_PREFORMATTED, "0");
 
-
             props.applyDefault(ReaderView.PROP_DEF_ALIGN, "text-align: justify");
             props.applyDefault(ReaderView.PROP_DEF_IDENT, "text-indent: 1.2em");
 
@@ -1504,7 +1503,6 @@ public class BaseActivity extends Activity implements Settings {
         private static final String SETTINGS_FILE_NAME = "cr3.ini";
         private static boolean DEBUG_RESET_OPTIONS = false;
 
-        //xuan trung need edit
         //Load exist file setting
         private Properties loadSettings() {
             File[] dataDirs = Engine.getDataDirectories(null, false, true);
