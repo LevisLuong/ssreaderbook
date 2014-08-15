@@ -13,7 +13,6 @@ import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.model.Book;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,31 +22,76 @@ import java.util.List;
  */
 public class SearchBookAdapter extends BaseAdapter {
     Context context;
-    List<Book> lstBook;
+    List<Book> lstBooks;
 
-    public SearchBookAdapter(Context _ct) {
+    int index;
+    boolean isLoading;
+    boolean isHaveNew;
+    int tempIndex;
+
+    public SearchBookAdapter(Context _ct, String strquery) {
         context = _ct;
-        lstBook = new ArrayList<Book>();
+        isLoading = true;
+        isHaveNew = true;
+        index = 1;
+        tempIndex = 1;
+        lstBooks = (new Book()).getSearchBook(strquery);
     }
 
-    public void addData(List<Book> _lst) {
-        lstBook.addAll(_lst);
-        notifyDataSetChanged();
+    public boolean canLoadMoreData() {
+        return (!isLoading && isHaveNew);
     }
+
+    public boolean isHaveNew() {
+        return isHaveNew;
+    }
+
+    public int loadMoreData() {
+        isLoading = true;
+        index++;
+        tempIndex = index;
+        return tempIndex;
+    }
+
+    public int reloadData() {
+        isLoading = true;
+        tempIndex = index;
+        return index;
+    }
+
+
+    public boolean SetListBooks(List<Book> _lst) {
+        boolean isNew = false;
+        isLoading = false;
+        index = tempIndex;
+        if (index == 1) {
+            isNew = true;
+        }
+        lstBooks.addAll(_lst);
+
+        if (_lst.size() < 10) {
+            isHaveNew = false;
+        } else {
+            isHaveNew = true;
+        }
+        notifyDataSetChanged();
+        return isNew;
+    }
+
 
     @Override
     public int getCount() {
-        return lstBook.size();
+        return lstBooks.size();
     }
 
     @Override
     public Book getItem(int i) {
-        return lstBook.get(i);
+        return lstBooks.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return lstBook.get(i).getIdbook();
+        return lstBooks.get(i).getIdbook();
     }
 
     @Override
@@ -61,7 +105,7 @@ public class SearchBookAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        Book book = lstBook.get(i);
+        Book book = lstBooks.get(i);
         if (book != null) {
             UrlImageViewHelper.setUrlDrawable(holder.searchbookcover, GlobalData.getUrlImageCover(book), R.drawable.book_exam);
             holder.searchbooktitle.setText(Html.fromHtml("<b>Tựa sách: </b>") + book.getTitle());
