@@ -56,12 +56,13 @@ public class BookService {
 	@POST
 	@Path("/GetBooksByCategory")
 	@Produces("application/json;charset=utf-8")
-	public String getBooksByCategory(@FormParam("idcategory") int idcategory) {
+	public String getBooksByCategory(@FormParam("idcategory") int idcategory,
+			@FormParam("index") int index) {
 		System.out.println("id category: " + idcategory);
 		String bookjson = null;
 		try {
-			ArrayList<Book> books = (new Book())
-					.getAllBookByCategory(idcategory);
+			ArrayList<Book> books = (new Book()).getAllBookByCategory(
+					idcategory, index);
 			bookjson = convertToJson(books);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
@@ -89,13 +90,16 @@ public class BookService {
 	@POST
 	@Path("/GetChapterBook")
 	@Produces("application/json;charset=utf-8")
-	public String GetChapterBook(@FormParam("idbook") int idbook) {
+	public String GetChapterBook(@FormParam("idbook") int idbook,
+			@FormParam("index") int index) {
 		String bookjson = null;
 		try {
 			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
-					.getByIdBook(idbook);
+					.getByIdBook(idbook, index);
 			// update countview book
-			(new Book()).getById(idbook).updateCountView();
+			if (index == 1) {
+				(new Book()).getById(idbook).updateCountView();
+			}
 			// convert array chapter to json
 			bookjson = convertToJson(bookchaps);
 			System.out.println("book to json: " + bookjson);

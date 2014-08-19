@@ -44,7 +44,7 @@ public class TableListBookChapter extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			Book_Chapter bookchapQuery = new Book_Chapter();
 			ArrayList<Book_Chapter> bookchaps = new ArrayList<Book_Chapter>();
-			bookchaps = bookchapQuery.getByIdBook(idBook);
+			bookchaps = bookchapQuery.getByIdBook(idBook,0);
 			int i = 1;
 			for (Book_Chapter bookchap : bookchaps) {
 				if (i % 2 == 0) {
