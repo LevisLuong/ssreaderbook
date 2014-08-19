@@ -10,6 +10,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.io.FileUtils;
+
 public class SSUtil {
 	public static String humanReadableByteCount(long bytes, boolean si) {
 		int unit = si ? 1000 : 1024;
@@ -62,6 +64,12 @@ public class SSUtil {
 
 			// create output directory is not exists
 			File folder = new File(outputFolder);
+			try {
+				FileUtils.cleanDirectory(folder);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			if (!folder.exists()) {
 				folder.mkdir();
 			}

@@ -105,7 +105,6 @@ public class EditBookChapter extends HttpServlet {
 			try {
 				// creates the save directory if it does not exists
 				File fileSaveDir = new File(uploadPath);
-				FileUtils.cleanDirectory(fileSaveDir);
 				if (!fileSaveDir.exists()) {
 					fileSaveDir.mkdirs();
 				}

@@ -47,7 +47,7 @@ public class DeleteBookChapter extends HttpServlet {
 		int idbook = b.getIdbook();
 		if (b != null) {
 			if (b.deleteBook_Chapter() == 1) {
-
+				
 			} else {
 
 			}

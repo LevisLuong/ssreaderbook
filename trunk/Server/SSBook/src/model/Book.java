@@ -389,7 +389,8 @@ public class Book {
 		}
 	}
 
-	public ArrayList<Book> getAllBookByCategory(int category) throws Exception {
+	public ArrayList<Book> getAllBookByCategory(int category, int page)
+			throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		Database conn = null;
 		PreparedStatement ps = null;
@@ -398,6 +399,10 @@ public class Book {
 			conn = new Database();
 			String sql = "SELECT * FROM book WHERE idcategory = ? AND isdeleted = 0 ";
 			sql = sql + " ORDER BY title";
+			if (page != 0) {
+				int offset = (page - 1) * DatasOnPage;
+				sql = sql + " LIMIT " + offset + "," + DatasOnPage;
+			}
 			ps = conn.Get_Connection().prepareStatement(sql);
 			ps.setInt(1, category);
 			rs = ps.executeQuery();

@@ -194,7 +194,7 @@ public class Book_Chapter {
 		return null;
 	}
 
-	public ArrayList<Book_Chapter> getByIdBook(int idBook) {
+	public ArrayList<Book_Chapter> getByIdBook(int idBook,int page) {
 		Database conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -202,6 +202,10 @@ public class Book_Chapter {
 			ArrayList<Book_Chapter> lstBookChap = new ArrayList<Book_Chapter>();
 			String sql = "SELECT * FROM book_chapter WHERE idbook = ? AND isdeleted = 0 ";
 			sql = sql + "ORDER BY idbook_chapter";
+			if (page != 0) {
+				int offset = (page - 1) * Book.DatasOnPage;
+				sql = sql + " LIMIT " + offset + "," + Book.DatasOnPage;
+			}
 			conn = new Database();
 			ps = conn.Get_Connection().prepareStatement(sql);
 			ps.setInt(1, idBook);
