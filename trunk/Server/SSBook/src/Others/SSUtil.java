@@ -84,7 +84,8 @@ public class SSUtil {
 				fileName = fileName.substring(fileName.lastIndexOf("/") + 1,
 						fileName.length());
 				System.out.println("file unzip: " + fileName);
-				if (fileName.endsWith("jpg") || fileName.endsWith("png")) {
+				if (fileName.endsWith("jpg") || fileName.endsWith("png")
+						|| fileName.endsWith("JPG") || fileName.endsWith("PNG")) {
 					File newFile = new File(outputFolder + File.separator
 							+ fileName);
 					System.out.println("file path unzip : "
