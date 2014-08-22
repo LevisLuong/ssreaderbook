@@ -119,6 +119,7 @@ public class EditBookChapter extends HttpServlet {
 		}
 		
 		if (!filename.equals("")) {
+			bc.setFilesize(SSUtil.humanReadableByteCount(filePart.getSize(), true));
 			//Check picture category
 			Book b = (new Book()).getById(bc.getIdbook());
 			if (b.getIdcategory() == 8) {

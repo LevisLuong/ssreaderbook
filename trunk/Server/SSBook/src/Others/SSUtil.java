@@ -81,29 +81,33 @@ public class SSUtil {
 			ZipEntry ze = null;
 			while ((ze = zis.getNextEntry()) != null) {
 				String fileName = ze.getName();
-				File newFile = new File(outputFolder + File.separator
-						+ fileName);
+				fileName = fileName.substring(fileName.lastIndexOf("/") + 1,
+						fileName.length());
+				System.out.println("file unzip: " + fileName);
+				if (fileName.endsWith("jpg") || fileName.endsWith("png")) {
+					File newFile = new File(outputFolder + File.separator
+							+ fileName);
+					System.out.println("file path unzip : "
+							+ newFile.getAbsoluteFile());
 
-				System.out.println("file unzip : " + newFile.getAbsoluteFile());
+					// create all non exists folders
+					// else you will hit FileNotFoundException for compressed
+					// folder
+					// new File(newFile.getParent()).mkdirs();
+					FileOutputStream fos = new FileOutputStream(newFile);
+					int len;
+					while ((len = zis.read(buffer)) > 0) {
+						fos.write(buffer, 0, len);
+					}
 
-				// create all non exists folders
-				// else you will hit FileNotFoundException for compressed folder
-				new File(newFile.getParent()).mkdirs();
+					fos.close();
+					if (arr.equals("")) {
+						arr = fileName;
+					} else {
+						arr = arr + "," + fileName;
+					}
 
-				FileOutputStream fos = new FileOutputStream(newFile);
-
-				int len;
-				while ((len = zis.read(buffer)) > 0) {
-					fos.write(buffer, 0, len);
 				}
-
-				fos.close();
-				if (arr.equals("")) {
-					arr = fileName;
-				} else {
-					arr = arr + "," + fileName;
-				}
-
 			}
 
 			zis.closeEntry();
