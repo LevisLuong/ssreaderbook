@@ -62,15 +62,15 @@
 									<table border="0" width="100%" cellpadding="0" cellspacing="0"
 										id="product-table">
 										<tr>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="">ID Chapter</a></th>
+											<th class="table-header-repeat line-left"><a
+												href="">ID</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="">Tên Chapter</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
+											<th class="table-header-repeat line-left"><a
 												href="">Tên File</a></th>
 											<th class="table-header-repeat line-left"><a href="">Kích
 													thước file</a></th>
-											<th class="table-header-options "><a href="">Chức
+											<th class="table-header-repeat line-left"><a href="">Chức
 													năng</a></th>
 										</tr>
 										<jsp:include page="TableListBookChapter" />
