@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/delete"
+        android:title="Xóa bộ nhớ tạm"/>
+    <item
+        android:id="@+id/back"
+        android:title="Quay lại"/>
+</menu>

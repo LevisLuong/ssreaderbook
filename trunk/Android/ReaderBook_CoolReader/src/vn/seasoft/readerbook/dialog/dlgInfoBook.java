@@ -41,6 +41,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     Context mContext;
     Book book;
     BookChapterAdapter adapter;
+    View footerLoadmore;
 
     public dlgInfoBook(Context _context, Book _book) {
         setDialogType(DialogType.AlertDialog);
@@ -67,42 +68,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoChapter = (LinearLayout) root.findViewById(R.id.dlginfo_chapter);
         dlginfoContainer = (RelativeLayout) root.findViewById(R.id.dlginfo_container);
         dlginfoListview = new ListView(mContext);
-        dlginfoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
-                if (book.getIdcategory() == 8) {
-                    book.addNewData();
-                    adapter.setRead(i);
-                    adapter.setDownloaded(i);
-                    adapter.notifyDataSetChanged();
-                    Intent t = new Intent(getActivity(), actReadPictureBook.class);
-                    t.putExtra("arrbook", adapter.getItem(i).getFilename());
-                    t.putExtra("idbook", adapter.getItem(i).getIdbook());
-                    t.putExtra("idbookchapter", adapter.getItem(i).getIdbook_chapter());
-                    mContext.startActivity(t);
-                } else {
-                    AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(adapter.getItem(i)));
-                    download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                        @Override
-                        public void onDownloadComplete(String urlResultMood) {
-                            book.addNewData();
-                            adapter.setRead(i);
-                            adapter.setDownloaded(i);
-                            adapter.notifyDataSetChanged();
-                            Intent t = new Intent(mContext, CoolReader.class);
-                            t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
-                            mContext.startActivity(t);
-                        }
-
-                        @Override
-                        public void onCanceled() {
-
-                        }
-                    });
-                    download.startDownload();
-                }
-            }
-        });
+        adapter = new BookChapterAdapter(mContext);
         SwipeDismissList swiplist = new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
             @Override
             public SwipeDismissList.Undoable onDismiss(AbsListView listView, int position) {
@@ -114,7 +80,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
 
     void addViewContainer(RelativeLayout container, View addview) {
         container.removeAllViews();
-
         container.addView(addview);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
@@ -124,6 +89,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.book_info_dialog, container, false);
+        footerLoadmore = inflater.inflate(R.layout.loadmore_layout, null, false);
         assignViews(v);
         UrlImageViewHelper.setUrlDrawable(dlginfoImgcover, GlobalData.getUrlImageCover(book));
         dlginfoTxtTitle.setText(book.getTitle());
@@ -133,15 +99,70 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoTxtCategory.setText(book_category);
 
         addViewContainer(dlginfoContainer, new ProgressBar(mContext));
+
+        dlginfoListview.addFooterView(footerLoadmore);
+        dlginfoListview.setAdapter(adapter);
+        dlginfoListview.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int lastInScreen = firstVisibleItem + visibleItemCount;
+                if ((lastInScreen == totalItemCount) && adapter.canLoadMoreData()) {
+                    System.out.println("Load more books");
+                    SSReaderApplication.getRequestServer(mContext).getBookChapter(book.getIdbook(), adapter.loadMoreData());
+                }
+            }
+        });
+        dlginfoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
+                if (i < adapter.getCount()) {
+                    if (book.getIdcategory() == 8) {
+                        book.addNewData();
+                        adapter.setRead(i);
+                        adapter.setDownloaded(i);
+                        adapter.notifyDataSetChanged();
+                        Intent t = new Intent(getActivity(), actReadPictureBook.class);
+                        t.putExtra("arrbook", adapter.getItem(i).getFilename());
+                        t.putExtra("idbook", adapter.getItem(i).getIdbook());
+                        t.putExtra("idbookchapter", adapter.getItem(i).getIdbook_chapter());
+                        mContext.startActivity(t);
+                    } else {
+                        AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(adapter.getItem(i)));
+                        download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+                            @Override
+                            public void onDownloadComplete(String urlResultMood) {
+                                book.addNewData();
+                                adapter.setRead(i);
+                                adapter.setDownloaded(i);
+                                adapter.notifyDataSetChanged();
+                                Intent t = new Intent(mContext, CoolReader.class);
+                                t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
+                                mContext.startActivity(t);
+                            }
+
+                            @Override
+                            public void onCanceled() {
+
+                            }
+                        });
+                        download.startDownload();
+                    }
+                }
+            }
+        });
         //load from database
         List<Book_Chapter> lstBookDatabase = (new Book_Chapter()).getByidBook(book.getIdbook());
         if (!lstBookDatabase.isEmpty()) {
-            adapter = new BookChapterAdapter(mContext, lstBookDatabase);
-            dlginfoListview.setAdapter(adapter);
+            adapter.setFromDataBase(lstBookDatabase);
             addViewContainer(dlginfoContainer, dlginfoListview);
         }
         //update from server
-        SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook());
+        SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook(), adapter.loadMoreData());
         return v;
     }
 
@@ -211,16 +232,16 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             @Override
             public void onClick(View view) {
                 addViewContainer(dlginfoContainer, new ProgressBar(mContext));
-                SSReaderApplication.getRequestServer(mContext).getBookChapter(book.getIdbook());
+                SSReaderApplication.getRequestServer(mContext).getBookChapter(book.getIdbook(), adapter.reloadData());
             }
         }));
 
         //load from database
         List<Book_Chapter> lstBookDatabase = (new Book_Chapter()).getByidBook(book.getIdbook());
         if (!lstBookDatabase.isEmpty()) {
-            adapter = new BookChapterAdapter(mContext, lstBookDatabase);
-            dlginfoListview.setAdapter(adapter);
+            adapter.setFromDataBase(lstBookDatabase);
             addViewContainer(dlginfoContainer, dlginfoListview);
+            dlginfoListview.removeFooterView(footerLoadmore);
         }
     }
 
@@ -229,9 +250,13 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         GlobalData.DissmissProgress();
         if (urlMethod.equals(COMMAND_API.GET_BOOK_CHAPTER)) {
             Result_GetBookChapter data = (Result_GetBookChapter) resultData;
-            adapter = new BookChapterAdapter(mContext, data.lstBookChaps);
-            dlginfoListview.setAdapter(adapter);
-            addViewContainer(dlginfoContainer, dlginfoListview);
+            if (adapter.SetListBooks(data.lstBookChaps)) {
+                addViewContainer(dlginfoContainer, dlginfoListview);
+            }
+
+            if (!adapter.isHaveNew()) {
+                dlginfoListview.removeFooterView(footerLoadmore);
+            }
         }
     }
 }

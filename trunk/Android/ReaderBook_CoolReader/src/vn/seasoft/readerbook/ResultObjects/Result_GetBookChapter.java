@@ -26,7 +26,7 @@ public class Result_GetBookChapter implements ResultObject {
                 bc.setIdbook_chapter(Obj.getInt("idbook_chapter"));
                 bc.setChapter(Obj.getString("chapter"));
                 bc.setIdbook(Obj.getInt("idbook"));
-                bc.setFilename(Obj.getString("filename"));
+                bc.setFilename(Obj.getString("filename").replace(" ","%20"));
                 if (!Obj.isNull("filesize")) {
                     bc.setFilesize(Obj.getString("filesize"));
                 }

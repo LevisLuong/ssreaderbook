@@ -30,9 +30,10 @@ public class Request_Server extends RequestObject {
         request.requestStringToServer(new Result_GetNewest(), COMMAND_API.GET_NEWEST);
     }
 
-    public void getBookByCategory(int idcategory) {
+    public void getBookByCategory(int idcategory, int index) {
         request.initParam();
         request.addParam("idcategory", idcategory);
+        request.addParam("index", index);
         request.requestStringToServer(new Result_GetBookByCategory(), COMMAND_API.GET_BOOK_BY_CATEGORY);
     }
 
@@ -43,9 +44,10 @@ public class Request_Server extends RequestObject {
         request.requestStringToServer(new Result_GetSearchBook(), COMMAND_API.SEARCH_BOOK);
     }
 
-    public void getBookChapter(int idbook) {
+    public void getBookChapter(int idbook, int index) {
         request.initParam();
         request.addParam("idbook", idbook);
+        request.addParam("index", index);
         request.requestStringToServer(new Result_GetBookChapter(), COMMAND_API.GET_BOOK_CHAPTER);
     }
 }

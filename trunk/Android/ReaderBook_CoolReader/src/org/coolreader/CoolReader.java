@@ -645,7 +645,7 @@ public class CoolReader extends BaseActivity {
 //		menu.clear();
 //	    MenuInflater inflater = getMenuInflater();
 //	    if ( currentView==mReaderView ) {
-//	    	inflater.inflate(R.menu.cr3_reader_menu, menu);
+//	    	inflater.inflate(R.menu.reader_menu, menu);
 //	    	MenuItem item = menu.findItem(R.id.cr3_mi_toggle_document_styles);
 //	    	if ( item!=null )
 //	    		item.setTitle(mReaderView.getDocumentStylesEnabled() ? R.string.mi_book_styles_disable : R.string.mi_book_styles_enable);

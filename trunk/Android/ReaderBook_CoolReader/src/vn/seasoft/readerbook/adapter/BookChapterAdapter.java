@@ -12,6 +12,7 @@ import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.model.Book_Chapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,14 +24,66 @@ public class BookChapterAdapter extends BaseAdapter {
     Context context;
     List<Book_Chapter> lstBookChap;
 
-    public BookChapterAdapter(Context _ct, List<Book_Chapter> _lstBookChap) {
+    int index;
+    boolean isLoading;
+    boolean isHaveNew;
+
+    int tempIndex;
+
+    public BookChapterAdapter(Context _ct) {
         context = _ct;
-        lstBookChap = _lstBookChap;
+        lstBookChap = new ArrayList<Book_Chapter>();
+
+        isLoading = true;
+        isHaveNew = true;
+        index = 0;
+        tempIndex = 0;
     }
 
-    public void addData(List<Book_Chapter> _lst) {
-        lstBookChap.addAll(_lst);
+    public boolean canLoadMoreData() {
+        return (!isLoading && isHaveNew);
+    }
+
+    public boolean isHaveNew() {
+        return isHaveNew;
+    }
+
+    public int loadMoreData() {
+        isLoading = true;
+        index++;
+        tempIndex = index;
+        return tempIndex;
+    }
+
+    public int reloadData() {
+        isLoading = true;
+        tempIndex = index;
+        return index;
+    }
+
+    public void setFromDataBase(List<Book_Chapter> _lst) {
+        lstBookChap = _lst;
         notifyDataSetChanged();
+
+    }
+
+    public boolean SetListBooks(List<Book_Chapter> _lst) {
+        boolean isNew = false;
+        isLoading = false;
+        index = tempIndex;
+        if (index == 1) {
+            lstBookChap = _lst;
+            isNew = true;
+        } else {
+            lstBookChap.addAll(_lst);
+        }
+        if (_lst.size() < 10) {
+            isHaveNew = false;
+        } else {
+            isHaveNew = true;
+        }
+        notifyDataSetChanged();
+        return isNew;
     }
 
     public List<Book_Chapter> getList() {
@@ -97,10 +150,9 @@ public class BookChapterAdapter extends BaseAdapter {
 
     public void deleteBook(int position) {
         Book_Chapter book_chapter = lstBookChap.get(position);
-        if (SSUtil.deleteBook(GlobalData.getUrlBook(book_chapter))) {
-            book_chapter.setIsDownloaded(false);
-            book_chapter.updateData();
-        }
+        SSUtil.deleteBook(GlobalData.getUrlBook(book_chapter));
+        book_chapter.setIsDownloaded(false);
+        book_chapter.updateData();
         notifyDataSetChanged();
     }
 

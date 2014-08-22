@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -34,9 +35,6 @@ import vn.seasoft.readerbook.widget.BookshelfView;
 import vn.seasoft.readerbook.widget.Rotate3dAnimation;
 import vn.seasoft.readerbook.widget.ViewError;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * User: XuanTrung
  * Date: 6/5/2014
@@ -50,20 +48,18 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
     GridBookAdapter adapter;
 
     Context mContext;
-    List<Book> lstbooks;
     ViewError viewError;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = getActivity();
-        lstbooks = new ArrayList<Book>();
-        adapter = new GridBookAdapter(mContext, lstbooks);
+        adapter = new GridBookAdapter(mContext);
         int idcategory = getArguments().getInt("idbookcategory");
         book_category = (new Book_Category()).getByID(idcategory);
         if (!book_category.getIdcategory().equals(0)) {
             GlobalData.ShowProgressDialog(mContext, R.string.loading);
-            SSReaderApplication.getRequestServer(mContext, this).getBookByCategory(book_category.getIdcategory());
+            SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmListBook.this).getBookByCategory(book_category.getIdcategory(), adapter.loadMoreData());
         }
         getSupportActionBar().setSubtitle(book_category.getCategory());
         viewError = new ViewError(mContext, new View.OnClickListener() {
@@ -71,7 +67,7 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
             public void onClick(View view) {
                 if (!book_category.getIdcategory().equals(0)) {
                     GlobalData.ShowProgressDialog(mContext, R.string.loading);
-                    SSReaderApplication.getRequestServer(mContext).getBookByCategory(book_category.getIdcategory());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmListBook.this).getBookByCategory(book_category.getIdcategory(), adapter.reloadData());
                 }
             }
         });
@@ -99,12 +95,27 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
                 dlg.show(getSupportActivity());
             }
         });
+        listbook.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                int lastInScreen = firstVisibleItem + visibleItemCount;
+                if ((lastInScreen == totalItemCount) && adapter.canLoadMoreData()) {
+                    System.out.println("Load more books");
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmListBook.this).getBookByCategory(book_category.getIdcategory(), adapter.loadMoreData());
+                }
+            }
+        });
         listbook.setAdapter(adapter);
 
-        if (book_category.getIdcategory().equals(0)) {
-            lstbooks = (new Book()).getAllData();
-            adapter.setData(lstbooks);
-        }
+//        if (book_category.getIdcategory().equals(0)) {
+//            lstbooks = (new Book()).getAllData();
+//            adapter.setData(lstbooks);
+//        }
         return rootView;
     }
 
@@ -357,13 +368,10 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
         rootView.removeView(viewError);
         if (urlMethod.equals(COMMAND_API.GET_BOOK_BY_CATEGORY)) {
             final Result_GetBookByCategory data = (Result_GetBookByCategory) resultData;
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    lstbooks = data.lstBooks;
-                    adapter.setData(lstbooks);
-                }
-            });
+            adapter.SetListBooks(data.lstBooks);
+            if (!adapter.isHaveNew()) {
+
+            }
         }
     }
 }

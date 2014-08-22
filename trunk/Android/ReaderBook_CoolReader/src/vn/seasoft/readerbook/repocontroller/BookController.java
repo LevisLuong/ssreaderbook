@@ -66,7 +66,7 @@ public class BookController {
 
     public List<Book> getAll() {
         try {
-            return Dao.queryForAll();
+            return Dao.queryBuilder().orderBy("date_created", false).query();
         } catch (SQLException e) {
             // TODO: Exception Handling
             e.printStackTrace();

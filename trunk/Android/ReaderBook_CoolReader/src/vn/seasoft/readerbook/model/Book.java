@@ -3,6 +3,7 @@ package vn.seasoft.readerbook.model;
 import com.j256.ormlite.field.DatabaseField;
 import vn.seasoft.readerbook.Util.GlobalData;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -32,6 +33,9 @@ public class Book {
     Integer countview;
     @DatabaseField
     Boolean isnew;
+    @DatabaseField
+    Date date_created;
+
 
     public void setIdbook(Integer idbook) {
         this.idbook = idbook;
@@ -105,8 +109,17 @@ public class Book {
         this.isnew = isnew;
     }
 
+    public Date getDate_created() {
+        return date_created;
+    }
+
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
+    }
+
     /*Method for book*/
     public int addNewData() {
+        setDate_created(new Date());
         Book b = getByID(this.idbook);
         if (b == null) {
             return GlobalData.repo.book.create(this);
@@ -116,6 +129,7 @@ public class Book {
     }
 
     public int updateData() {
+        setDate_created(new Date());
         return GlobalData.repo.book.update(this);
     }
 

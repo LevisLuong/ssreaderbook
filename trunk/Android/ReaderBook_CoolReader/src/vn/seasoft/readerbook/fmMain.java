@@ -3,6 +3,7 @@ package vn.seasoft.readerbook;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,6 +71,32 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
         fmmainLvhotbook = new HListView(mContext);
         fmmainLvhotbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
         setListenerListview();
+
+    }
+
+    public void setAutoScrool() {
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                int listViewSize = fmmainLvhotbook.getAdapter().getCount();
+
+
+//                for (int index = 0; index < listViewSize; index++) {
+//
+//                    try {
+//                        // it helps scrolling to stay smooth as possible (by experiment)
+//                        Thread.sleep(60);
+//                    } catch (InterruptedException e) {
+//
+//                    }
+//                    if (index == listViewSize - 1) {
+//                        index = 0;
+//                        fmmainLvhotbook.setSelection(0);
+//                    }
+//                }
+            }
+        }).start();
     }
 
     void setListenerListview() {
@@ -117,7 +144,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvNewBook.canLoadMoreData()) {
                     System.out.println("Load more data newbook");
-                    SSReaderApplication.getRequestServer(mContext).getNewest(adapterlvNewBook.loadMoreData());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getNewest(adapterlvNewBook.loadMoreData());
                 }
             }
         });
@@ -142,7 +169,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvHotBook.canLoadMoreData()) {
                     System.out.println("Load more data hotbook");
-                    SSReaderApplication.getRequestServer(mContext).getMostBook(adapterlvHotBook.loadMoreData());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getMostBook(adapterlvHotBook.loadMoreData());
                 }
             }
         });
@@ -233,7 +260,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 @Override
                 public void onClick(View view) {
                     addViewContainer(fmmainContainerhotbook, new ProgressBar(mContext));
-                    SSReaderApplication.getRequestServer(mContext).getMostBook(adapterlvHotBook.reloadData());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getMostBook(adapterlvHotBook.reloadData());
 
                 }
             }));
@@ -243,7 +270,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 @Override
                 public void onClick(View view) {
                     addViewContainer(fmmainContainernewbook, new ProgressBar(mContext));
-                    SSReaderApplication.getRequestServer(mContext).getNewest(adapterlvNewBook.reloadData());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getNewest(adapterlvNewBook.reloadData());
 
                 }
             }));
@@ -255,6 +282,21 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 ((MainActivity) getActivity()).addItemSliderMenu(bc);
             }
         }
+    }
+
+    public void scrollRight(final HListView h) {
+        fmmainLvhotbook.smoothScrollToPositionFromLeft(adapterlvHotBook.getCount(), 0, 10000);
+        new CountDownTimer(1000, 10) {
+
+            public void onTick(long millisUntilFinished) {
+                System.out.println("millisUntilFinished :" + millisUntilFinished);
+                h.scrollTo((int) (1010 - millisUntilFinished), 0);
+            }
+
+            public void onFinish() {
+
+            }
+        }.start();
     }
 
     @Override
@@ -271,6 +313,8 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             Result_GetMostRead data = (Result_GetMostRead) resultData;
             if (adapterlvHotBook.SetListBooks(data.lstBooks)) {
                 addViewContainer(fmmainContainerhotbook, fmmainLvhotbook);
+//                fmmainLvhotbook.smoothScrollToPositionFromLeft(adapterlvHotBook.getCount(), 0, 10000);
+//                scrollRight(fmmainLvhotbook);
             }
             if (!adapterlvHotBook.isHaveNew()) {
                 fmmainLvhotbook.removeFooterView(footerLoadmore);
@@ -280,6 +324,8 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             Result_GetNewest data = (Result_GetNewest) resultData;
             if (adapterlvNewBook.SetListBooks(data.lstBooks)) {
                 addViewContainer(fmmainContainernewbook, fmmainLvnewbook);
+//                fmmainLvnewbook.smoothScrollToPositionFromLeft(adapterlvNewBook.getCount(), 0, 10000);
+//                scrollRight(fmmainLvnewbook);
             }
             if (!adapterlvNewBook.isHaveNew()) {
                 fmmainLvnewbook.removeFooterView(footerLoadmore);
