@@ -68,7 +68,7 @@
 												href="">Tên Chapter</a></th>
 											<th class="table-header-repeat line-left"><a
 												href="">Tên File</a></th>
-											<th class="table-header-repeat line-left"><a href="">Kích
+											<th class="table-header-repeat line-left minwidth-1"><a href="">Kích
 													thước file</a></th>
 											<th class="table-header-repeat line-left"><a href="">Chức
 													năng</a></th>
