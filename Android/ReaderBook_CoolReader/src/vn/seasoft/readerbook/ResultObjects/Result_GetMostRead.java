@@ -30,7 +30,7 @@ public class Result_GetMostRead implements ResultObject {
                 book.setIdcategory(Obj.getInt("idcategory"));
                 book.setCountview(Obj.getInt("countview"));
                 if (!Obj.isNull("imagecover"))
-                    book.setImagecover(Obj.getString("imagecover"));
+                    book.setImagecover(Obj.getString("imagecover").replace(" ", "%20"));
                 lstBooks.add(book);
             }
         } catch (JSONException e) {

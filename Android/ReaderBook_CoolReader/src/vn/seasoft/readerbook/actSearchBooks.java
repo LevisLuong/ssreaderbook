@@ -43,7 +43,7 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
         ActionBar actionBar = getSupportActionBar();
         // Enabling Back navigation on Action Bar icon
         actionBar.setDisplayHomeAsUpEnabled(true);
-        footerLoadmore = getLayoutInflater().inflate(R.layout.loadmore_hlistview, null, false);
+        footerLoadmore = getLayoutInflater().inflate(R.layout.loadmore_layout, null, false);
         listview = (ListView) findViewById(R.id.listview);
         listview.addFooterView(footerLoadmore);
         adapter = new SearchBookAdapter(mContext, query);
@@ -51,8 +51,10 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                dlgInfoBook dlg = new dlgInfoBook(mContext, adapter.getItem(i));
-                dlg.show((Activity) mContext);
+                if (i < adapter.getCount()) {
+                    dlgInfoBook dlg = new dlgInfoBook(mContext, adapter.getItem(i));
+                    dlg.show((Activity) mContext);
+                }
             }
         });
         listview.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -65,7 +67,7 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapter.canLoadMoreData()) {
-                    SSReaderApplication.getRequestServer(mContext).SearchBook(query, adapter.loadMoreData());
+                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) mContext).SearchBook(query, adapter.loadMoreData());
                 }
             }
         });

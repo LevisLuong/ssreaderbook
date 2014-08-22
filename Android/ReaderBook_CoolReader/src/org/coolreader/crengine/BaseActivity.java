@@ -213,7 +213,6 @@ public class BaseActivity extends Activity implements Settings {
             backlight = -1;
         setScreenBacklightLevel(backlight);
 
-
         bindSyncService();
         bindCRDBService();
     }

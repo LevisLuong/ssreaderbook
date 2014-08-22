@@ -3,8 +3,14 @@
                 android:layout_height="match_parent">
 
     <it.sephiroth.android.library.imagezoom.ImageViewTouch
-        android:id="@+id/imageView"
+        android:id="@+id/viewpage_imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <org.holoeverywhere.widget.ProgressBar
+        android:id="@+id/viewpage_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
 </RelativeLayout>

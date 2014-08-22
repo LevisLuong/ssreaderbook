@@ -13,10 +13,10 @@ public class ErrorType {
     public static void getErrorMessage(final Context c, final int errortype) {
         switch (errortype) {
             case ERROR_TIMEOUT:
-                Toast.makeText(c, R.string.error_timeout,Toast.LENGTH_LONG).show();
+                Toast.makeText(c, R.string.error_timeout, Toast.LENGTH_SHORT).show();
                 break;
             case NO_NETWORK_CONNECTION:
-                Toast.makeText(c, R.string.error_connect,Toast.LENGTH_LONG).show();
+                Toast.makeText(c, R.string.error_connect, Toast.LENGTH_SHORT).show();
                 break;
             case SERVER_ERROR:
                 break;

@@ -12,6 +12,7 @@ import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,14 +24,60 @@ public class GridBookAdapter extends BaseAdapter {
     private Context context;
     private List<Book> books;
 
-    public GridBookAdapter(Context context, List<Book> books) {
+    int index;
+    boolean isLoading;
+    boolean isHaveNew;
+
+    int tempIndex;
+
+    public GridBookAdapter(Context context) {
         this.context = context;
-        this.books = books;
+        this.books = new ArrayList<Book>();
+
+        isLoading = true;
+        isHaveNew = true;
+        index = 0;
+        tempIndex = 0;
     }
 
-    public void setData(List<Book> _books) {
-        this.books = _books;
+    public boolean canLoadMoreData() {
+        return (!isLoading && isHaveNew);
+    }
+
+    public boolean isHaveNew() {
+        return isHaveNew;
+    }
+
+    public int loadMoreData() {
+        isLoading = true;
+        index++;
+        tempIndex = index;
+        return tempIndex;
+    }
+
+    public int reloadData() {
+        isLoading = true;
+        tempIndex = index;
+        return index;
+    }
+
+    public boolean SetListBooks(List<Book> _lst) {
+        boolean isNew = false;
+        isLoading = false;
+        index = tempIndex;
+        if (index == 1) {
+            books = _lst;
+            isNew = true;
+        } else {
+            books.addAll(_lst);
+        }
+        if (_lst.size() < 10) {
+            isHaveNew = false;
+        } else {
+            isHaveNew = true;
+        }
         notifyDataSetChanged();
+        return isNew;
     }
 
     @Override

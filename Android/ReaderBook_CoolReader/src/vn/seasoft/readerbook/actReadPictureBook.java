@@ -5,14 +5,15 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewCallback;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import org.holoeverywhere.app.Activity;
+import org.holoeverywhere.widget.ProgressBar;
+import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.widget.ImageViewTouchViewPager;
 
@@ -36,6 +37,7 @@ public class actReadPictureBook extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.view_pager);
         onNewIntent(getIntent());
         mViewpager = (ImageViewTouchViewPager) findViewById(R.id.pager);
@@ -82,17 +84,18 @@ public class actReadPictureBook extends Activity {
             View itemView = getLayoutInflater().inflate(R.layout.view_pager_page,
                     container, false);
             final ImageViewTouch imv_Object = (ImageViewTouch) itemView
-                    .findViewById(R.id.imageView);
+                    .findViewById(R.id.viewpage_imageView);
+            final ProgressBar progressBar = (ProgressBar) itemView.findViewById(R.id.viewpage_progress);
             String url = GlobalData.getUrlPictureBook(idbook, idbookchapter) + lstPicture.get(position);
             imv_Object.setScaleType(ImageView.ScaleType.FIT_XY);
-            UrlImageViewHelper.setUrlDrawable(imv_Object, url,
-                    R.drawable.book_exam, UrlImageViewHelper.CACHE_DURATION_ONE_WEEK, new UrlImageViewCallback() {
+            UrlImageViewHelper.setUrlDrawable(imv_Object, url, R.drawable.ic_menu_autoscroll, UrlImageViewHelper.CACHE_DURATION_THREE_DAYS, new UrlImageViewCallback() {
 
-                        @Override
-                        public void onLoaded(ImageView imageView, Bitmap loadedBitmap, String url, boolean loadedFromCache) {
-                            imv_Object.zoomTo(1.0f, 20);
-                        }
-                    });
+                @Override
+                public void onLoaded(ImageView imageView, Bitmap loadedBitmap, String url, boolean loadedFromCache) {
+                    imv_Object.zoomTo(1.0f, 20);
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
             ((ViewPager) container).addView(itemView);
             return itemView;
         }
@@ -108,6 +111,28 @@ public class actReadPictureBook extends Activity {
             // TODO Auto-generated method stub
             super.startUpdate(container);
 
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.reader_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.delete:
+                UrlImageViewHelper.cleanup(this);
+                Toast.makeText(this, "Đã xóa bộ nhớ tạm", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.back:
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
