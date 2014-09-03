@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import org.holoeverywhere.widget.ProgressBar;
 import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.model.Book;
@@ -101,6 +102,11 @@ public class GridBookAdapter extends BaseAdapter {
             holder.griditemlabel.setText(book.getTitle());
             UrlImageViewHelper.setUrlDrawable(holder.griditemcover, GlobalData.getUrlImageCover(book), R.drawable.book_exam);
         }
+        if (isHaveNew && (position == (books.size() - 1))) {
+            holder.griditemProgress.setVisibility(View.VISIBLE);
+        } else {
+            holder.griditemProgress.setVisibility(View.GONE);
+        }
         return convertView;
     }
 
@@ -120,11 +126,13 @@ public class GridBookAdapter extends BaseAdapter {
     private class ViewHolder {
         public final TextView griditemlabel;
         public final ImageView griditemcover;
+        public final ProgressBar griditemProgress;
         public final View root;
 
         public ViewHolder(View root) {
             griditemlabel = (TextView) root.findViewById(R.id.grid_item_label);
             griditemcover = (ImageView) root.findViewById(R.id.grid_item_cover);
+            griditemProgress = (ProgressBar) root.findViewById(R.id.grid_item_progress);
             this.root = root;
         }
     }

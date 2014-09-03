@@ -11,6 +11,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.widget.ListView;
+import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
@@ -110,6 +111,10 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
                     }
                     adapter.notifyDataSetChanged();
                     listview.requestLayout();
+
+                    if (adapter.getCount() == 0) {
+                        Toast.makeText(mContext, "Không tìm thấy kết quả nào !", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });

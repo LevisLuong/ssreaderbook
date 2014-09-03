@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Sách truyện hay</string>
+    <string name="app_name">Sách Của Tui</string>
     <string name="action_settings">"Cài đặt"</string>
 
     <string name="loading">Đang lấy thông tin từ máy chủ</string>
@@ -7,12 +7,6 @@
     <string name="error_timeout">Kết nối quá lâu. Vui lòng thử lại</string>
     <string name="progress_formatting">Đang định dạng sách</string>
     <string name="progress_loading">"Đang tải sách"</string>
-
-
-
-
-
-
 
     <string name="mi_search">"Tìm kiếm"</string>
     <string name="mi_exit">"Thoát"</string>

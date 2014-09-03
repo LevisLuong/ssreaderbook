@@ -1,6 +1,9 @@
 package vn.seasoft.readerbook.Util;
 
+import android.content.Context;
+import android.os.Build;
 import android.os.Environment;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.io.File;
@@ -52,5 +55,22 @@ public class SSUtil {
     public static boolean deleteBook(String urlfile){
         File file = SSUtil.downloadBook(urlfile);
         return file.delete();
+    }
+    public static String loadIDDevice(final Context c) {
+        final TelephonyManager mTelephonyMgr = (TelephonyManager) c
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = mTelephonyMgr.getDeviceId();
+        if (imei == null || imei.equals("000000000000000") || imei.equals("")) {
+            imei = "35"
+                    + // we make this look like a valid IMEI
+                    Build.BOARD.length() % 10 + Build.BRAND.length() % 10
+                    + Build.CPU_ABI.length() % 10 + Build.DEVICE.length() % 10
+                    + Build.DISPLAY.length() % 10 + Build.HOST.length() % 10
+                    + Build.ID.length() % 10 + Build.MANUFACTURER.length() % 10
+                    + Build.MODEL.length() % 10 + Build.PRODUCT.length() % 10
+                    + Build.TAGS.length() % 10 + Build.TYPE.length() % 10
+                    + Build.USER.length() % 10; // 13 digits
+        }
+        return imei;
     }
 }

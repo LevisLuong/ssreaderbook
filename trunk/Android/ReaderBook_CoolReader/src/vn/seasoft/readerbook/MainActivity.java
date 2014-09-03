@@ -82,4 +82,15 @@ public class MainActivity extends Activity {
         sliderMenu.add(bc.getCategory(), fmListBook.class, bundle, SliderMenu.BLUE);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SSReaderApplication.getRequestServer(this).setUserOnline();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SSReaderApplication.getRequestServer(this).setUserOffline();
+    }
 }
