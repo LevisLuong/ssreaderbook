@@ -115,7 +115,7 @@ public class HttpServicesConnection {
                                     errorCode = response.getInt("errorcode");
                                 }
                                 if (errorCode == 0) { // No error
-                                    if (mCallback != null) {
+                                    if (mCallback != null && result != null) {
                                         result.setData(response);
                                         mCallback.onGetData(result, urlMethod, id);
                                     }

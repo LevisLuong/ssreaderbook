@@ -4,6 +4,7 @@ import android.content.Context;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.RequestObject;
 import vn.seasoft.readerbook.ResultObjects.*;
+import vn.seasoft.readerbook.Util.SSUtil;
 
 public class Request_Server extends RequestObject {
     Context mContext;
@@ -11,6 +12,16 @@ public class Request_Server extends RequestObject {
     public Request_Server(Context context) {
         super(context);
         mContext = context;
+    }
+    public void setUserOnline() {
+        request.initParam();
+        request.addParam("imei", SSUtil.loadIDDevice(mContext));
+        request.requestStringToServer(null, COMMAND_API.SET_USER_ONLINE);
+    }
+    public void setUserOffline() {
+        request.initParam();
+        request.addParam("imei", SSUtil.loadIDDevice(mContext));
+        request.requestStringToServer(null, COMMAND_API.SET_USER_OFFLINE);
     }
 
     public void getCategoryBook() {
