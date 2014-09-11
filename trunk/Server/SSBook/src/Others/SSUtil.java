@@ -7,8 +7,11 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+
+import model.User_Online;
 
 import org.apache.commons.io.FileUtils;
 
@@ -68,7 +71,6 @@ public class SSUtil {
 				FileUtils.cleanDirectory(folder);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 			if (!folder.exists()) {
 				folder.mkdir();
@@ -122,5 +124,31 @@ public class SSUtil {
 			ex.printStackTrace();
 		}
 		return arr;
+	}
+
+	public String convertToChart(List<Integer> lst) {
+		// {
+		// "cols": [
+		// {"id":"","label":"Topping","pattern":"","type":"string"},
+		// {"id":"","label":"Slices","pattern":"","type":"number"}
+		// ],
+		// "rows": [
+		// {"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},
+		// {"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},
+		// {"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},
+		// {"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},
+		// {"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}
+		// ]
+		// }
+		String result = "{\"cols\": [{\"id\":\"\",\"label\":\"Topping\",\"pattern\":\"\",\"type\":\"string\"}, {\"id\":\"\",\"label\":\"Slices\",\"pattern\":\"\",\"type\":\"number\"} ],\"rows\": [";
+		for (int i = 0; i < lst.size(); i++) {
+			String row = String
+					.format("{\"c\":[{\"v\":\"%s\",\"f\":null},{\"v\":%d,\"f\":null}]},",
+							(i + 1) + "", lst.get(i));
+			result = result + row;
+		}
+		result = result + "]}";
+		System.out.println("convert to char : " + result);
+		return result;
 	}
 }

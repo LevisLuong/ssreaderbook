@@ -53,11 +53,12 @@ public class Login extends HttpServlet {
 		String user = request.getParameter("user");
 		String pass = request.getParameter("pass");
 		pass = SSUtil.md5(pass);
-		User userQuery = new User();
-		if (userQuery.login(user, pass)) {
+		User userQuery = new User().login(user, pass);
+		if (userQuery != null) {
 			HttpSession session = request.getSession();
 			// setting session to expiry in 30 mins
-			session.setAttribute("username", user);
+			session.setAttribute("username", userQuery.getUsername());
+			session.setAttribute("role", userQuery.getRole());
 			session.setMaxInactiveInterval(30 * 60);
 			response.sendRedirect("managebookcategory.jsp");
 		} else {

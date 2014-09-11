@@ -7,6 +7,14 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Quản lý danh mục" />
 </jsp:include>
+<script type="text/javascript">
+	function confirmSubmit(id) {
+		if (confirm("Bạn có chắc muốn xóa danh mục này?")) {
+			window.location="DeleteBookCategory?idbook="+id;
+		}
+		return false;
+	}
+</script>
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="1" />
@@ -49,7 +57,7 @@
 									<table border="0" width="100%" cellpadding="0" cellspacing="0">
 										<tr>
 											<td class="blue-left">Thêm danh mục: <a
-												href="addbookcategory.jsp">An vao day de them danh muc</a></td>
+												href="addbookcategory.jsp">Ấn vào đây để thêm danh mục mới</a></td>
 											<td class="blue-right"><a class="close-blue"><img
 													src="images/table/icon_close_blue.gif" alt="" /></a></td>
 										</tr>

@@ -77,6 +77,7 @@ public class TableListBook extends HttpServlet {
 		Book bookQuery = new Book();
 		ArrayList<Book> books = new ArrayList<Book>();
 		try {
+			int role = (int) request.getSession().getAttribute("role");
 			books = bookQuery.searchBook(typesearch, key, category, page,
 					typeOrder);
 			int i = 1;
@@ -93,11 +94,11 @@ public class TableListBook extends HttpServlet {
 					summary = summary.substring(0, 100) + "...";
 				}
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
-						+ book.getIdBook() + "\">" + book.getIdBook()
-						+ "</a></td>");
+						+ book.getIdBook() + "&titlebook=" + book.getTitle()
+						+ "\">" + book.getIdBook() + "</a></td>");
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
-						+ book.getIdBook() + "\">" + book.getTitle()
-						+ "</a></td>");
+						+ book.getIdBook() + "&titlebook=" + book.getTitle()
+						+ "\">" + book.getTitle() + "</a></td>");
 				out.println("<td>" + book.getAuthor() + "</td>");
 				out.println("<td>" + summary + "</td>");
 				out.println("<td ><p align='center'><img border=\"0\" src=\".."
@@ -114,15 +115,17 @@ public class TableListBook extends HttpServlet {
 				if (bc != null) {
 					out.println("<td>" + bc.getCategory() + "</td>");
 				}
-				out.println("<td>"
-						+ "<form action=\"deletebook\" method=post>"
-						+ "<input type=hidden name=idbook value="
-						+ book.getIdBook()
-						+ ">"
-						+ "<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"$(this).closest('form').submit()\"></a>"
-						// "<input type=image class=\"icon-2 info-tooltip\" value='Delete'>"
-						+ "</form>"
-						+ "<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbook.jsp?idbook="
+				if (book.getUploader() == null) {
+					out.println("<td></td>");
+				} else {
+					out.println("<td>" + book.getUploader() + "</td>");
+				}
+				out.println("<td>");
+				if (role == 1) {
+					out.println("<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"confirmSubmit("
+							+ book.getIdBook() + ")\"></a>");
+				}
+				out.println("<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbook.jsp?idbook="
 						+ book.getIdBook() + " \"></a>" + "</td>");
 				out.println("</tr>");
 				i++;

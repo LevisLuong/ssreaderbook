@@ -72,62 +72,86 @@ public class AddBookChapter extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
 		String chapter = request.getParameter("chapter");
 		int idbook = Integer.parseInt(request.getParameter("idbook"));
-		Book_Chapter bc = new Book_Chapter();
-		Part filePart = request.getPart("filename"); // Book
-		// save cover
-		// gets absolute path of the web application
-		// constructs path of the directory to save uploaded file
-		String filename = "";
-		if (filePart != null) {
-			String uploadPath = config.getUrlBookDir(request)
-					+ config.UPLOAD_BOOK_DIR + idbook;
+		Book b = (new Book()).getById(idbook);
+		try {
 
-			// creates the save directory if it does not exists
-			File fileSaveDir = new File(uploadPath);
-			if (!fileSaveDir.exists()) {
-				fileSaveDir.mkdirs();
+			Book_Chapter bc = new Book_Chapter();
+			Part filePart = request.getPart("filename"); // Book
+			// save cover
+			// gets absolute path of the web application
+			// constructs path of the directory to save uploaded file
+			String filename = "";
+			if (filePart != null) {
+				String uploadPath = config.getUrlBookDir(request)
+						+ config.UPLOAD_BOOK_DIR + idbook;
+
+				// creates the save directory if it does not exists
+				File fileSaveDir = new File(uploadPath);
+				if (!fileSaveDir.exists()) {
+					fileSaveDir.mkdirs();
+				}
+
+				// save file upload
+				filename = getFileName(filePart);
+				filePart.write(uploadPath + File.separator + filename);
+				// Check picture category
+				if (b.getIdcategory() == 8) {
+					bc.setFilename(SSUtil.unZipIt(uploadPath + File.separator
+							+ filename,
+							uploadPath + File.separator + bc.getIdAuto()));
+				} else {
+					bc.setFilename(filename);
+				}
 			}
+			bc.setChapter(chapter);
+			bc.setIdbook(idbook);
+			System.out.println("File size: " + filePart.getSize());
+			System.out.println("File size s: "
+					+ SSUtil.humanReadableByteCount(filePart.getSize(), true));
+			bc.setFilesize(SSUtil.humanReadableByteCount(filePart.getSize(),
+					true));
 
-			// save file upload
-			filename = getFileName(filePart);
-			filePart.write(uploadPath + File.separator + filename);
-			// Check picture category
-			Book b = (new Book()).getById(idbook);
-			if (b.getIdcategory() == 8) {
-				bc.setFilename(SSUtil.unZipIt(uploadPath + File.separator
-						+ filename,
-						uploadPath + File.separator + bc.getIdAuto()));
+			out.println("<html>");
+			out.println("<head>");
+			out.println("  <meta http-equiv=\"refresh\" content=\"3;url=addbookchapter.jsp?idbook="
+					+ idbook + "&titlebook=" + b.getTitle() + "\" />");
+			out.println(" </head>");
+			out.println(" <body>");
+			if (bc.addBook_Chapter() == 1) {
+				// add success
+				out.println("<p align=\"center\"><font color=red>Thêm chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
 			} else {
-				bc.setFilename(filename);
+				// add fail
+				out.println("<p align=\"center\"><font color=red>Thêm chapter thất bại.</font></p>");
 			}
-		}
-		bc.setChapter(chapter);
-		bc.setIdbook(idbook);
-		System.out.println("File size: " + filePart.getSize());
-		System.out.println("File size s: "
-				+ SSUtil.humanReadableByteCount(filePart.getSize(), true));
-		bc.setFilesize(SSUtil.humanReadableByteCount(filePart.getSize(), true));
-
-		out.println("<html>");
-		out.println("<head>");
-		out.println("  <meta http-equiv=\"refresh\" content=\"3;url=addbookchapter.jsp?idbook="
-				+ idbook + "\" />");
-		out.println(" </head>");
-		out.println(" <body>");
-		if (bc.addBook_Chapter() == 1) {
-			// add success
-			out.println("<p align=\"center\"><font color=red>Thêm chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
-		} else {
+			out.println("<p align=\"center\"><font color=red><a href='addbookchapter.jsp?idbook="
+					+ idbook
+					+ "&titlebook="
+					+ b.getTitle()
+					+ "'>Click vào đây để thêm tiếp</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			out.println("<html>");
+			out.println("<head>");
+			out.println(" </head>");
+			out.println(" <body>");
 			// add fail
-			out.println("<p align=\"center\"><font color=red>Thêm chapter thất bại.</font></p>");
+			out.println("<p align=\"center\"><font color=red>Thêm chapter thất bại. Vui lòng kiểm tra và thử lại !</font></p>");
+			out.println("<p align=\"center\"><font color=red><a href='addbookchapter.jsp?idbook="
+					+ idbook
+					+ "&titlebook="
+					+ b.getTitle()
+					+ "'>Click vào đây để up lại</a></font></p>");
+			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <code>"
+					+ e.getMessage() + "</code></p>");
+			out.println(" </body>");
+			out.println("</html>");
 		}
-		out.println("<p align=\"center\"><font color=red><a href='addbookchapter.jsp?idbook="
-				+ idbook + "'>Click vào đây để chuyển tiếp</a></font></p>");
-		out.println(" </body>");
-		out.println("</html>");
 	}
 
 }

@@ -6,11 +6,12 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Thêm sách" />
 </jsp:include>
+<link rel="stylesheet" href="css/uploadbar.css" type="text/css" />
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="2" />
 	</jsp:include>
-
+	<script type="text/javascript" src="js/jsAddBook.js"></script>
 	<!-- start content-outer -->
 	<div id="content-outer">
 		<!-- start content -->
@@ -20,19 +21,6 @@
 			<div id="page-heading">
 				<h1>Thêm Sách</h1>
 			</div>
-
-			<%
-				if (request.getParameter("success") != null) {
-			%>
-			<p align=center>
-				<font>Thêm sách thành công. Tự chuyển trang sau
-					${param.success} giây</font>
-			</p>
-			<%
-				} else {
-			%>
-
-
 			<table border="0" width="100%" cellpadding="0" cellspacing="0"
 				id="content-table">
 				<tr>
@@ -51,13 +39,20 @@
 					<td>
 						<!--  start content-table-inner -->
 						<div id="content-table-inner">
-
 							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<div id="output"></div>
+									<!--progress bar-->
+									<div id="progressbox" style="display: none;">
+										<div id="progressbar"></div>
+										<div id="statustxt">0%</div>
+									</div>
+								</tr>
 								<tr valign="top">
 									<td>
 										<!-- start id-form -->
-										<form action="addbook" method="POST"
-											enctype="multipart/form-data">
+										<form id="MyUploadForm" onsubmit="return false"
+											action="addbook" method="POST" enctype="multipart/form-data">
 											<table border="0" cellpadding="0" cellspacing="0"
 												id="id-form">
 												<tr>
@@ -83,11 +78,11 @@
 
 												<tr>
 													<th>Upload hình cover:</th>
-													<td><input type="file" name="imagecover"
-														class="file_1" /></td>
+													<td><input type="file" id="inputFile"
+														name="imagecover" class="file_1" /></td>
 													<td>
 														<div class="bubble-left"></div>
-														<div class="bubble-inner">JPEG, PNG, GIF 5MB max per
+														<div class="bubble-inner">JPEG, PNG, GIF 2MB max per
 															image</div>
 														<div class="bubble-right"></div>
 													</td>
@@ -105,6 +100,7 @@
 									</td>
 									<td></td>
 								</tr>
+
 								<tr>
 									<td><img src="images/shared/blank.gif" width="695"
 										height="1" alt="blank" /></td>
@@ -125,10 +121,6 @@
 					<th class="sized bottomright"></th>
 				</tr>
 			</table>
-
-			<%
-				}
-			%>
 			<div class="clear">&nbsp;</div>
 
 		</div>

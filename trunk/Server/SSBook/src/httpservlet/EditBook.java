@@ -84,8 +84,9 @@ public class EditBook extends HttpServlet {
 			out.write("</td><td></td></tr><tr><th>Upload hình cover:</th>"
 					+ "<td>"
 					+ book.getImagecover()
-					+ "<input type='file' name='imagecover' class='file_1' /></td><td><div class='bubble-left'></div><div class='bubble-inner'>JPEG, PNG, GIF 5MB max perimage</div><div class='bubble-right'></div></td></tr><tr><th>&nbsp;</th><td valign='top'><input type='submit' value='Chấp nhận' class='form-submit' /> <input type='reset' value='' class='form-reset' /></td><td></td></tr>"
-					+ "<input type=hidden name=idbook value='"+ book.getIdBook() +"'>");
+					+ "<input type='file' id='inputFile' name='imagecover' class='file_1' /></td><td><div class='bubble-left'></div><div class='bubble-inner'>JPEG, PNG, GIF 2MB max perimage</div><div class='bubble-right'></div></td></tr><tr><th>&nbsp;</th><td valign='top'><input type='submit' value='Chấp nhận' class='form-submit' /> <input type='reset' value='' class='form-reset' /></td><td></td></tr>"
+					+ "<input type=hidden name=idbook value='"
+					+ book.getIdBook() + "'>");
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -116,55 +117,69 @@ public class EditBook extends HttpServlet {
 		int idbook = Integer.parseInt(request.getParameter("idbook"));
 
 		Part imgCoverPart = request.getPart("imagecover"); // cover
-		// save cover
-		// gets absolute path of the web application
-		// constructs path of the directory to save uploaded file
-		String coverfilename = "";
-		if (imgCoverPart != null) {
-			try {
-				String uploadCoverPath = config.getUrlBookDir(request)
-						+ config.UPLOAD_BOOK_DIR + idbook + File.separator
-						+ config.UPLOAD_COVERBOOK_DIR;
-
-				// creates the save directory if it does not exists
-				File fileSaveDir = new File(uploadCoverPath);
-				if (!fileSaveDir.exists()) {
-					fileSaveDir.mkdirs();
-				}
-
-				// save file upload
-				coverfilename = getFileName(imgCoverPart);
-				imgCoverPart.write(uploadCoverPath + coverfilename);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-
 		Book book = (new Book()).getById(idbook);
+		try {
+			// save cover
+			// gets absolute path of the web application
+			// constructs path of the directory to save uploaded file
+			String coverfilename = "";
+			if (imgCoverPart != null) {
+				try {
+					String uploadCoverPath = config.getUrlBookDir(request)
+							+ config.UPLOAD_BOOK_DIR + idbook + File.separator
+							+ config.UPLOAD_COVERBOOK_DIR;
 
-		if (!coverfilename.equals("")) {
-			book.setImagecover(coverfilename);
-		}
-		book.setTitle(title);
-		book.setAuthor(author);
-		book.setSummary(summary);
-		book.setIdcategory(idcategory);
+					// creates the save directory if it does not exists
+					File fileSaveDir = new File(uploadCoverPath);
+					if (!fileSaveDir.exists()) {
+						fileSaveDir.mkdirs();
+					}
 
-		out.println("<html>");
-		out.println("<head>");
-		out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebook.jsp\" />");
-		out.println(" </head>");
-		out.println(" <body>");
-		if (book.updateBook() == 1) {
-			// add success
-			out.println("<p align=\"center\"><font color=red>Sửa sách thành công. Tự chuyển trang sau 3 giây</font></p>");
-		} else {
+					// save file upload
+					coverfilename = getFileName(imgCoverPart);
+					imgCoverPart.write(uploadCoverPath + coverfilename);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (!coverfilename.equals("")) {
+				book.setImagecover(coverfilename);
+			}
+			book.setTitle(title);
+			book.setAuthor(author);
+			book.setSummary(summary);
+			book.setIdcategory(idcategory);
+
+			out.println("<html>");
+			out.println("<head>");
+			out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebook.jsp\" />");
+			out.println(" </head>");
+			out.println(" <body>");
+			if (book.updateBook() == 1) {
+				// add success
+				out.println("<p align=\"center\"><font color=red>Sửa sách thành công. Tự chuyển trang sau 3 giây</font></p>");
+			} else {
+				// add fail
+				out.println("<p align=\"center\"><font color=red>Sửa sách thất bại.</font></p>");
+			}
+			out.println("<p align=\"center\"><font color=red><a href='managebook.jsp'>Click vào đây để chuyển tiếp</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			out.println("<html>");
+			out.println("<head>");
+			out.println(" </head>");
+			out.println(" <body>");
 			// add fail
 			out.println("<p align=\"center\"><font color=red>Sửa sách thất bại.</font></p>");
+			out.println("<p align=\"center\"><font color=red><a href='editbook.jsp?idbook="
+					+ idbook + "'>Click vào đây để thử lại</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
 		}
-		out.println("<p align=\"center\"><font color=red><a href='managebook.jsp'>Click vào đây để chuyển tiếp</a></font></p>");
-		out.println(" </body>");
-		out.println("</html>");
 	}
 }

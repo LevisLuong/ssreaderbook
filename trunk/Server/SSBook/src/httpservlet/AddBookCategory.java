@@ -70,5 +70,4 @@ public class AddBookCategory extends HttpServlet {
 		out.println(" </body>");
 		out.println("</html>");
 	}
-
 }

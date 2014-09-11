@@ -53,8 +53,13 @@
 
 			<div class="nav-divider">&nbsp;</div>
 			<div class="showhide-account">
-				<img src="images/shared/nav/nav_myaccount.gif" width="93"
+				<img src="images/shared/nav/nav_myaccount.gif" width="10"
 					height="14" alt="" />
+			</div>
+			<div class="showhide-accountname">
+				<%=
+					session.getAttribute("username")
+				%>
 			</div>
 			<div class="nav-divider">&nbsp;</div>
 			<a href="Logout" id="logout"><img
@@ -64,7 +69,7 @@
 			<!--  start account-content -->
 			<div class="account-content">
 				<div class="account-drop-inner">
-					<a href="" id="acc-settings">Thay đổi mật khẩu</a>
+					<a href="changepass.jsp" id="acc-settings">Thay đổi mật khẩu</a>
 					<div class="clear">&nbsp;</div>
 					<div class="acc-line">&nbsp;</div>
 				</div>
@@ -78,38 +83,55 @@
 		<!--  start nav -->
 		<div class="nav">
 			<div class="table">
+				<!-- Check select menu 1 -->
 				<%
-				if(request.getParameter("select").equals("1")){
+					if (request.getParameter("select").equals("1")) {
 				%>
-					<ul class="current">
-				<%
-				}else{
-				%>
+				<ul class="current">
+					<%
+						} else {
+					%>
 					<ul class="select">
-				<%
-				}
-				%>
-					<li><a href="managebookcategory.jsp"><b>Quản lý danh
-								mục</b> <!--[if IE 7]><!--></a> <!--<![endif]--> <!--[if lte IE 6]></td></tr></table></a><![endif]-->
-					</li>
-				</ul>
+						<%
+							}
+						%>
+						<li><a href="managebookcategory.jsp"><b>Quản lý danh
+									mục</b> <!--[if IE 7]><!--></a> <!--<![endif]--> <!--[if lte IE 6]></td></tr></table></a><![endif]-->
+						</li>
+					</ul>
+					<!-- Check select menu 2 -->
+					<div class="nav-divider">&nbsp;</div>
 
+					<%
+						if (request.getParameter("select").equals("2")) {
+					%>
+					<ul class="current">
+						<%
+							} else {
+						%>
+						<ul class="select">
+							<%
+								}
+							%>
+							<li><a href="managebook.jsp"><b>Quản lý sách</b></a></li>
+						</ul>
+						<%-- <!-- Check select menu 3 -->
 				<div class="nav-divider">&nbsp;</div>
 				
 				<%
-				if(request.getParameter("select").equals("1")){
-				%>
-					<ul class="select">
-				<%
-				}else{
+				if(request.getParameter("select").equals("3")){
 				%>
 					<ul class="current">
 				<%
+				}else{
+				%>
+					<ul class="select">
+				<%
 				}
 				%>
-					<li><a href="managebook.jsp"><b>Quản lý sách</b></a></li>
-				</ul>
-				<div class="clear"></div>
+					<li><a href="TrackingPage.jsp"><b>Trang Thống Kê</b></a></li>
+				</ul> --%>
+						<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
 		</div>

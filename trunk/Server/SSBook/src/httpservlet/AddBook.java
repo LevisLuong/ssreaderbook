@@ -92,51 +92,79 @@ public class AddBook extends HttpServlet {
 
 		System.out.println("title: " + title + ",author:" + author
 				+ ",category:" + idcategory);
-		Book book = new Book();
-		// save cover
-		// gets absolute path of the web application
-		// constructs path of the directory to save uploaded file
-		String coverfilename = "";
-		if (imgCoverPart != null) {
-			try {
-				String uploadCoverPath = config.getUrlBookDir(request)
-						+ config.UPLOAD_BOOK_DIR + book.getIdAuto()
-						+ File.separator + config.UPLOAD_COVERBOOK_DIR;
+		Book book;
+		try {
+			book = new Book();
+			// save cover
+			// gets absolute path of the web application
+			// constructs path of the directory to save uploaded file
+			String coverfilename = "";
+			if (imgCoverPart != null) {
+				try {
+					String uploadCoverPath = config.getUrlBookDir(request)
+							+ config.UPLOAD_BOOK_DIR + book.getIdAuto()
+							+ File.separator + config.UPLOAD_COVERBOOK_DIR;
 
-				// creates the save directory if it does not exists
-				File fileSaveDir = new File(uploadCoverPath);
-				if (!fileSaveDir.exists()) {
-					fileSaveDir.mkdirs();
+					// creates the save directory if it does not exists
+					File fileSaveDir = new File(uploadCoverPath);
+					if (!fileSaveDir.exists()) {
+						fileSaveDir.mkdirs();
+					}
+
+					// save file upload
+					coverfilename = getFileName(imgCoverPart);
+					imgCoverPart.write(uploadCoverPath + coverfilename);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-
-				// save file upload
-				coverfilename = getFileName(imgCoverPart);
-				imgCoverPart.write(uploadCoverPath + coverfilename);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
+
+			book.setImagecover(coverfilename);
+			book.setTitle(title);
+			book.setAuthor(author);
+			book.setSummary(summary);
+			book.setIdcategory(idcategory);
+			book.setUploader((String)request.getSession().getAttribute("username"));
+			
+			out.println("<html>");
+			out.println("<head>");
+			out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebookchapter.jsp?idbook="
+					+ book.getIdAuto()
+					+ "&titlebook="
+					+ book.getTitle()
+					+ "\"/>");
+			out.println(" </head>");
+			out.println(" <body>");
+			if (book.addBook() == 1) {
+				// add success
+				out.println("<p align=\"center\"><font color=red>Thêm sách thành công. Tự chuyển trang sau 3 giây</font></p>");
+			} else {
+				// add fail
+				out.println("<p align=\"center\"><font color=red>Thêm sách thất bại.</font></p>");
+			}
+			out.println("<p align=\"center\"><font color=red><a href='managebookchapter.jsp?idbook="
+					+ book.getIdAuto()
+					+ "&titlebook="
+					+ book.getTitle()
+					+ "'>Click vào đây để chuyển tiếp</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			out.println("<html>");
+			out.println("<head>");
+			out.println(" </head>");
+			out.println(" <body>");
+			// add fail
+			out.println("<p align=\"center\"><font color=red>Thêm Sách thất bại. Vui lòng kiểm tra và thử lại !</font></p>");
+			out.println("<p align=\"center\"><font color=red><a href='addbook.jsp'>Click vào đây để up lại</a></font></p>");
+			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <code>"
+					+ e.getMessage() + "</code></p>");
+			out.println(" </body>");
+			out.println("</html>");
 		}
 
-		book.setImagecover(coverfilename);
-		book.setTitle(title);
-		book.setAuthor(author);
-		book.setSummary(summary);
-		book.setIdcategory(idcategory);
-		out.println("<html>");
-		out.println("<head>");
-		out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebook.jsp\" />");
-		out.println(" </head>");
-		out.println(" <body>");
-		if (book.addBook() == 1) {
-			// add success
-			out.println("<p align=\"center\"><font color=red>Thêm sách thành công. Tự chuyển trang sau 3 giây</font></p>");
-		} else {
-			// add fail
-			out.println("<p align=\"center\"><font color=red>Thêm sách thất bại.</font></p>");
-		}
-		out.println("<p align=\"center\"><font color=red><a href='managebook.jsp'>Click vào đây để chuyển tiếp</a></font></p>");
-		out.println(" </body>");
-		out.println("</html>");
 	}
 }

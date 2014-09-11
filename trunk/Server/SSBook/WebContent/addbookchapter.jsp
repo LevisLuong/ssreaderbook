@@ -6,11 +6,12 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Thêm chapter sách" />
 </jsp:include>
+<link rel="stylesheet" href="css/uploadbar.css" type="text/css" />
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="2" />
 	</jsp:include>
-
+	<script type="text/javascript" src="js/jsAddChapter.js"></script>
 	<!-- start content-outer -->
 	<div id="content-outer">
 		<!-- start content -->
@@ -19,8 +20,8 @@
 
 			<div id="page-heading">
 				<h1>Thêm Chapter</h1>
+				<h2><a href="managebookchapter.jsp?idbook=${param.idbook}&titlebook=${param.titlebook}">${param.titlebook}</a></h2>
 			</div>
-
 
 			<table border="0" width="100%" cellpadding="0" cellspacing="0"
 				id="content-table">
@@ -38,33 +39,36 @@
 				<tr>
 					<td id="tbl-border-left"></td>
 					<td>
-						<!--  start content-table-inner -->
+						<div>test</div> <!--  start content-table-inner -->
 						<div id="content-table-inner">
-
 							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<div id="output"></div>
+									<!--progress bar-->
+									<div id="progressbox" style="display: none;">
+										<div id="progressbar"></div>
+										<div id="statustxt">0%</div>
+									</div>
+								</tr>
 								<tr valign="top">
 									<td>
 										<!-- start id-form -->
-										<form action="AddBookChapter" method="POST"
+										<form id="MyUploadForm" onsubmit="return false"
+											action="AddBookChapter" method="POST"
 											enctype="multipart/form-data">
 											<table border="0" cellpadding="0" cellspacing="0"
 												id="id-form">
+
 												<tr>
 													<th valign="top">Tên Chapter:</th>
 													<td><input type="text" name="chapter" class="inp-form" /></td>
 													<td></td>
 												</tr>
-
 												<tr>
-													<th>Upload Sách:</th>
-													<td><input type="file" name="filename" class="file_1" /></td>
-													<td>
-														<div class="bubble-left"></div>
-														<div class="bubble-inner">Định dạng .EPUB</div>
-														<div class="bubble-right"></div>
-													</td>
+													<th>Upload Chapter:</th>
+													<td><input type="file" name="filename" id="inputFile"
+														class="file_1" /></td>
 												</tr>
-
 												<tr>
 													<th>&nbsp;</th>
 													<td valign="top"><input type=hidden name=idbook
