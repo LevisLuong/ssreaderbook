@@ -1,33 +1,27 @@
 package webservice;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Date;
 
-import javax.ws.rs.Consumes;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Context;
 
 import model.Book;
 import model.Book_Category;
 import model.Book_Chapter;
+import model.User_Online;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
-import com.google.gson.JsonPrimitive;
-import com.google.gson.JsonSerializationContext;
-import com.google.gson.JsonSerializer;
 
 @Path("/")
 public class BookService {
+
+	@Context
+	HttpServletRequest request;
 
 	public String convertToJson(Object obj) {
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -35,6 +29,18 @@ public class BookService {
 		String json = gson.toJson(obj);
 		json = "{\"data\":" + json + "}";
 		return json;
+	}
+
+	public void updateCountUserOnline(String imei) {
+		User_Online uo = (new User_Online()).getUserOnlineByIP(request
+				.getRemoteAddr() + "|" + imei);
+		uo.updateUserOnline();
+	}
+
+	public void AddUserOnline(String imei) {
+		User_Online uo = new User_Online();
+		uo.setIpuser(request.getRemoteAddr() + "|" + imei);
+		uo.addUserOnline();
 	}
 
 	@POST
@@ -96,10 +102,6 @@ public class BookService {
 		try {
 			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
 					.getByIdBook(idbook, index);
-			// update countview book
-			if (index == 1) {
-				(new Book()).getById(idbook).updateCountView();
-			}
 			// convert array chapter to json
 			bookjson = convertToJson(bookchaps);
 			System.out.println("book to json: " + bookjson);
@@ -107,6 +109,18 @@ public class BookService {
 			e.printStackTrace();
 		}
 		return bookjson;
+	}
+
+	@POST
+	@Path("/AddCountBook")
+	@Produces("application/json;charset=utf-8")
+	public String AddCountBook(@FormParam("idbook") int idbook) {
+		try {
+			(new Book()).getById(idbook).updateCountView();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "{}";
 	}
 
 	@POST
@@ -145,5 +159,22 @@ public class BookService {
 			e.printStackTrace();
 		}
 		return bookjson;
+	}
+
+	@POST
+	@Path("/UserOnline")
+	@Produces("application/json;charset=utf-8")
+	public String UserOnline(@FormParam("imei") String imei) {
+		AddUserOnline(imei);
+		return "{}";
+	}
+
+	@POST
+	@Path("/UserLeaveApp")
+	@Produces("application/json;charset=utf-8")
+	public String UserLeft(@FormParam("imei") String imei) {
+		(new User_Online())
+				.deleteUserByIP(request.getRemoteAddr() + "|" + imei);
+		return "{}";
 	}
 }

@@ -6,6 +6,7 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Thêm danh mục" />
 </jsp:include>
+<link rel="stylesheet" href="css/uploadbar.css" type="text/css" />
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="1" />

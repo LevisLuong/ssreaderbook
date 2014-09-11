@@ -31,20 +31,22 @@ public class AuthenticationFilter implements Filter {
 
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-
+		HttpSession session = req.getSession(false);
+		
 		String uri = req.getRequestURI();
 		this.context.log("Requested Resource::" + uri);
-
+		
 		if (uri.contains("api") || uri.contains("css") || uri.contains("jquery")
 				|| uri.contains("images") || uri.endsWith("login.jsp")
 				|| uri.endsWith("Login") || uri.endsWith("index.jsp")) {
 			chain.doFilter(request, response);
 			return;
 		}
-
-		HttpSession session = req.getSession(false);
+		
 		if (session != null) {
 			// pass the request along the filter chain
+			this.context.log("username: " + session.getAttribute("username"));
+			this.context.log("role: " + session.getAttribute("role"));
 			if (session.getAttribute("username") == null) {
 				this.context.log("Unauthorized access request");
 				res.sendRedirect("login.jsp");

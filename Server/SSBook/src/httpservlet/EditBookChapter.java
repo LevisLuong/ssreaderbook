@@ -68,7 +68,7 @@ public class EditBookChapter extends HttpServlet {
 							+ "<th valign='top'>Chapter:</th>"
 							+ "<td><input type='text' name='chapter' value='%s' class='inp-form' /></td></tr><tr>"
 							+ "<th valign='top'>Tên file:</th>"
-							+ "<td>%s<input type='file' name='filename' class='file_1' /></td>"
+							+ "<td>%s<input id='inputFile' type='file' name='filename' class='file_1' /></td>"
 							+ "</tr>"
 							+ "<input type=hidden name=idbookchapter value='%d'>",
 							bc.getChapter(), bc.getFilename(),
@@ -94,63 +94,82 @@ public class EditBookChapter extends HttpServlet {
 		int idbookchapter = Integer.parseInt(request
 				.getParameter("idbookchapter"));
 		Book_Chapter bc = (new Book_Chapter()).getById(idbookchapter);
+		Book b = (new Book()).getById(bc.getIdbook());
 		Part filePart = request.getPart("filename"); // Book
 		// gets absolute path of the web application
 		// constructs path of the directory to save uploaded file
 		String filename = "";
-		String uploadPath = config.getUrlBookDir(request)
-				+ config.UPLOAD_BOOK_DIR + File.separator
-				+ bc.getIdbook();
-		if (filePart != null) {
-			try {
-				// creates the save directory if it does not exists
-				File fileSaveDir = new File(uploadPath);
-				if (!fileSaveDir.exists()) {
-					fileSaveDir.mkdirs();
+		try {
+			String uploadPath = config.getUrlBookDir(request)
+					+ config.UPLOAD_BOOK_DIR + File.separator + bc.getIdbook();
+			if (filePart != null) {
+				try {
+					// creates the save directory if it does not exists
+					File fileSaveDir = new File(uploadPath);
+					if (!fileSaveDir.exists()) {
+						fileSaveDir.mkdirs();
+					}
+
+					// save file upload
+					filename = getFileName(filePart);
+					filePart.write(uploadPath + File.separator + filename);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-
-				// save file upload
-				filename = getFileName(filePart);
-				filePart.write(uploadPath + File.separator + filename);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
-		}
-		
-		if (!filename.equals("")) {
-			bc.setFilesize(SSUtil.humanReadableByteCount(filePart.getSize(), true));
-			//Check picture category
-			Book b = (new Book()).getById(bc.getIdbook());
-			if (b.getIdcategory() == 8) {
-				bc.setFilename(SSUtil.unZipIt(uploadPath + File.separator + filename,
-						uploadPath + File.separator + bc.getIdbook_chapter()));
+
+			if (!filename.equals("")) {
+				bc.setFilesize(SSUtil.humanReadableByteCount(
+						filePart.getSize(), true));
+				// Check picture category
+				if (b.getIdcategory() == 8) {
+					bc.setFilename(SSUtil.unZipIt(
+							uploadPath + File.separator + filename,
+							uploadPath + File.separator
+									+ bc.getIdbook_chapter()));
+				} else {
+					bc.setFilename(filename);
+				}
+			}
+
+			bc.setChapter(chapter);
+
+			out.println("<html>");
+			out.println("<head>");
+			out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebookchapter.jsp?idbook="
+					+ bc.getIdbook() + "&titlebook=" + b.getTitle() + "\" />");
+			out.println(" </head>");
+			out.println(" <body>");
+			if (bc.updateBook_Chapter() == 1) {
+				// add success
+				out.println("<p align=\"center\"><font color=red>Sửa chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
 			} else {
-				bc.setFilename(filename);
+				// add fail
+				out.println("<p align=\"center\"><font color=red>Sửa chapter thất bại.</font></p>");
 			}
-		}
-		
-		bc.setChapter(chapter);
-		
-
-		out.println("<html>");
-		out.println("<head>");
-		out.println("  <meta http-equiv=\"refresh\" content=\"3;url=managebookchapter.jsp?idbook="
-				+ bc.getIdbook() + "\" />");
-		out.println(" </head>");
-		out.println(" <body>");
-		if (bc.updateBook_Chapter() == 1) {
-			// add success
-			out.println("<p align=\"center\"><font color=red>Sửa chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
-		} else {
-			// add fail
+			out.println("<p align=\"center\"><font color=red><a href='managebookchapter.jsp?idbook="
+					+ bc.getIdbook()
+					+ "&titlebook="
+					+ b.getTitle()
+					+ "'>Click vào đây để chuyển tiếp</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			out.println("<html>");
+			out.println("<head>");
+			out.println(" </head>");
+			out.println(" <body>");
 			out.println("<p align=\"center\"><font color=red>Sửa chapter thất bại.</font></p>");
+			out.println("<p align=\"center\"><font color=red><a href='editbookchapter.jsp?idbookchapter="
+					+ bc.getIdbook_chapter()
+					+ "'>Click vào đây để up lại</a></font></p>");
+			out.println(" </body>");
+			out.println("</html>");
 		}
-		out.println("<p align=\"center\"><font color=red><a href='managebookchapter.jsp?idbook="
-				+ bc.getIdbook()
-				+ "'>Click vào đây để chuyển tiếp</a></font></p>");
-		out.println(" </body>");
-		out.println("</html>");
+
 	}
 
 }

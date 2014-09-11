@@ -25,6 +25,7 @@ public class Book {
 	String imagecover;
 	Timestamp datecreated;
 	int countview;
+	String uploader;
 
 	@Expose(deserialize = false)
 	protected int booksCount;
@@ -101,6 +102,14 @@ public class Book {
 		this.countview = countview;
 	}
 
+	public String getUploader() {
+		return uploader;
+	}
+
+	public void setUploader(String uploader) {
+		this.uploader = uploader;
+	}
+
 	public int addBook() {
 		Database conn = null;
 		Statement stmt = null;
@@ -108,9 +117,9 @@ public class Book {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("INSERT INTO book (`idbook`, `title`, `author`, `summary`, `imagecover`, `idcategory`) VALUES ('%d', '%s', '%s', '%s','%s', '%d')",
+					.format("INSERT INTO book (`idbook`, `title`, `author`, `summary`, `imagecover`, `idcategory`,`uploader`) VALUES ('%d', '%s', '%s', '%s','%s', '%d','%s')",
 							this.idbook, this.title, this.author, this.summary,
-							this.imagecover, this.idcategory);
+							this.imagecover, this.idcategory, this.uploader);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -140,9 +149,10 @@ public class Book {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("UPDATE book SET `title`='%s', `author`='%s', `summary`='%s', `imagecover`='%s', `idcategory`='%d' WHERE `idbook`='%d';",
+					.format("UPDATE book SET `title`='%s', `author`='%s', `summary`='%s', `imagecover`='%s', `idcategory`='%d',`uploader`='%s' WHERE `idbook`='%d';",
 							this.title, this.author, this.summary,
-							this.imagecover, this.idcategory, this.idbook);
+							this.imagecover, this.idcategory, this.uploader,
+							this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -218,6 +228,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				return book;
 			}
 		} catch (Exception e) {
@@ -301,6 +312,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
 			rs.close();
@@ -363,6 +375,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
 			rs.close();
@@ -416,6 +429,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
 			return books;
@@ -459,6 +473,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
 			return books;
@@ -502,6 +517,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
 			return books;

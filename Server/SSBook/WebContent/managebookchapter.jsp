@@ -7,6 +7,15 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Quản lý chapter sách" />
 </jsp:include>
+
+<script type="text/javascript">
+	function confirmSubmit(id) {
+		if (confirm("Bạn có chắc muốn xóa chapter này?")) {
+			window.location="DeleteBookChapter?idbookchapter="+id;
+		}
+		return false;
+	}
+</script>
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="2" />
@@ -20,6 +29,7 @@
 			<!--  start page-heading -->
 			<div id="page-heading">
 				<h1>Quản lý Chapter</h1>
+				<h2><a href="managebook.jsp">${param.titlebook}</a></h2>
 			</div>
 			<!-- end page-heading -->
 
@@ -48,9 +58,8 @@
 								<div id="message-red">
 									<table border="0" width="100%" cellpadding="0" cellspacing="0">
 										<tr>
-											<td class="blue-left">Them Chapter: <a
-												href="addbookchapter.jsp?idbook=${param.idbook}">An vao
-													day de them chapter</a></td>
+											<td class="blue-left">Thêm chapter: <a
+												href="addbookchapter.jsp?idbook=${param.idbook}&titlebook=${param.titlebook}">Ấn vào đây để thêm Chapter mới</a></td>
 											<td class="blue-right"><a class="close-blue"><img
 													src="images/table/icon_close_blue.gif" alt="" /></a></td>
 										</tr>
@@ -62,14 +71,13 @@
 									<table border="0" width="100%" cellpadding="0" cellspacing="0"
 										id="product-table">
 										<tr>
-											<th class="table-header-repeat line-left"><a
-												href="">ID</a></th>
+											<th class="table-header-repeat line-left"><a href="">ID</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="">Tên Chapter</a></th>
-											<th class="table-header-repeat line-left"><a
-												href="">Tên File</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a href="">Kích
-													thước file</a></th>
+											<th class="table-header-repeat line-left"><a href="">Tên
+													File</a></th>
+											<th class="table-header-repeat line-left minwidth-1"><a
+												href="">Kích thước file</a></th>
 											<th class="table-header-repeat line-left"><a href="">Chức
 													năng</a></th>
 										</tr>

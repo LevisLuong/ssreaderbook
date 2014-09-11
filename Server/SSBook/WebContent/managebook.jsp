@@ -7,6 +7,15 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Quản lý sách" />
 </jsp:include>
+
+<script type="text/javascript">
+	function confirmSubmit(id) {
+		if (confirm("Bạn có chắc muốn xóa sách này?")) {
+			window.location = "DeleteBook?idbook=" + id;
+		}
+		return false;
+	}
+</script>
 <body>
 
 	<jsp:include page="header.jsp">
@@ -49,8 +58,8 @@
 								<div id="message-red">
 									<table border="0" width="100%" cellpadding="0" cellspacing="0">
 										<tr>
-											<td class="blue-left">Them sach: <a href="addbook.jsp">An
-													vao day de them sach</a></td>
+											<td class="blue-left">Thêm sách: <a href="addbook.jsp">Ấn
+													vào đây để thêm sách mới</a></td>
 											<td class="blue-right"><a class="close-blue"><img
 													src="images/table/icon_close_blue.gif" alt="" /></a></td>
 										</tr>
@@ -108,7 +117,7 @@
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=3">Tác
 													giả</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
+											<th class="table-header-repeat line-left"><a
 												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=4">Tóm
 													tắt</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
@@ -116,8 +125,10 @@
 													cover</a></th>
 											<th class="table-header-options line-left minwidth-1"><a
 												href="managebookcategory.jsp">Danh mục</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a href="">Chức
-													năng</a></th>
+											<th class="table-header-options line-left options-width"><a
+												href="">Người Upload</a></th>
+											<th class="table-header-repeat line-left minwidth-1"><a
+												href="">Chức năng</a></th>
 											<jsp:include page="TableListBook" />
 										</tr>
 
@@ -148,7 +159,7 @@
 									<td>
 										<form name="selectform">
 											<select name="select" class="styledselect_pages"
-												onchange="window.top.location.href = 'managebook.jsp?key=${key}&typesearch=${typesearch}&category=${category}&order=${order}&page=' +  this.form.select.options[this.form.select.selectedIndex].value">
+												onchange="window.top.location = 'managebook.jsp?key=${key}&typesearch=${typesearch}&category=${category}&order=${order}&page=' +  this.form.select.options[this.form.select.selectedIndex].value">
 												<c:forEach begin="1" end="${numberOfPages}" var="i">
 													<option value="${i}">${i}</option>
 												</c:forEach>

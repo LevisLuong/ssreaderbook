@@ -36,6 +36,7 @@ public class TableListCategory extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			int role = (int)request.getSession().getAttribute("role");
 			PrintWriter out = response.getWriter();
 			Book_Category bookQuery = new Book_Category();
 			ArrayList<Book_Category> bcs = new ArrayList<Book_Category>();
@@ -58,15 +59,12 @@ public class TableListCategory extends HttpServlet {
 				out.println("<td><a href=\"managebook.jsp?category="
 						+ bc.getIdCategory() + "\">"
 						+ bc.getNumBookByCate(bc.getIdCategory()) + "</a></td>");
-				out.println("<td>"
-						+ "<form action='DeleteBookCategory' method=post>"
-						+ "<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"$(this).closest('form').submit()\"></a>"
-						// + "<input type=submit value='Delete'>"
-						+ "<input type=hidden name=idbook value='"
-						+ bc.getIdCategory()
-						+ "'>"
-						+ "</form>"
-						+ "<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbookcategory.jsp?idbook="
+				out.println("<td>");
+				if (role == 1) {
+					out.println("<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"confirmSubmit("
+							+ bc.getIdCategory() + ")\"></a>");
+				}
+				out.println("<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbookcategory.jsp?idbook="
 						+ bc.getIdCategory() + "\" ></a>" + "</td>");
 
 				out.println("</tr>");

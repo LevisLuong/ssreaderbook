@@ -6,21 +6,20 @@
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Sửa sách" />
 </jsp:include>
+<link rel="stylesheet" href="css/uploadbar.css" type="text/css" />
 <body>
 	<jsp:include page="header.jsp">
 		<jsp:param name="select" value="2" />
 	</jsp:include>
-
+	<script type="text/javascript" src="js/jsEditBook.js"></script>
 	<!-- start content-outer -->
 	<div id="content-outer">
 		<!-- start content -->
 		<div id="content">
 
-
 			<div id="page-heading">
 				<h1>Sửa Sách</h1>
 			</div>
-
 
 			<table border="0" width="100%" cellpadding="0" cellspacing="0"
 				id="content-table">
@@ -40,13 +39,20 @@
 					<td>
 						<!--  start content-table-inner -->
 						<div id="content-table-inner">
-
 							<table border="0" width="100%" cellpadding="0" cellspacing="0">
+								<tr>
+									<div id="output"></div>
+									<!--progress bar-->
+									<div id="progressbox" style="display: none;">
+										<div id="progressbar"></div>
+										<div id="statustxt">0%</div>
+									</div>
+								</tr>
 								<tr valign="top">
 									<td>
 										<!-- start id-form -->
-										<form action="EditBook" method="POST"
-											enctype="multipart/form-data">
+										<form id="MyUploadForm" onsubmit="return false"
+											action="EditBook" method="POST" enctype="multipart/form-data">
 											<table border="0" cellpadding="0" cellspacing="0"
 												id="id-form">
 												<jsp:include page="EditBook">
@@ -88,7 +94,7 @@
 
 
 
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>

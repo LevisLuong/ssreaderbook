@@ -7,13 +7,19 @@
 <title>${param.title}</title>
 <link rel="stylesheet" href="css/screen.css" type="text/css"
 	media="screen" title="default" />
-<link rel="icon" type="image/png" href="images/favicon.ico"/>
+<link rel="icon" type="image/png" href="images/favicon.ico" />
 <!--[if IE]>
 <link rel="stylesheet" media="all" type="text/css" href="css/pro_dropline_ie.css" />
 <![endif]-->
 
 <!--  jquery core -->
-<script src="js/jquery/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.form.min.js"></script>
+<!-- <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/jquery.form.js"></script> -->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script> -->
+
 
 <!--  checkbox styling script -->
 <script src="js/jquery/ui.core.js" type="text/javascript"></script>
