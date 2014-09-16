@@ -96,6 +96,7 @@ public class TableListBook extends HttpServlet {
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
 						+ book.getIdBook() + "&titlebook=" + book.getTitle()
 						+ "\">" + book.getIdBook() + "</a></td>");
+				
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
 						+ book.getIdBook() + "&titlebook=" + book.getTitle()
 						+ "\">" + book.getTitle() + "</a></td>");
@@ -114,7 +115,12 @@ public class TableListBook extends HttpServlet {
 						+ book.getImagecover() + "</p></td>");
 				if (bc != null) {
 					out.println("<td>" + bc.getCategory() + "</td>");
+				} else {
+					out.println("<td>Chưa có danh mục</td>");
 				}
+
+				out.println("<td>" + book.countChapter() + "</td>");
+				
 				if (book.getUploader() == null) {
 					out.println("<td></td>");
 				} else {

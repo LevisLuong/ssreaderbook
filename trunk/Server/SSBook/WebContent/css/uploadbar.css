@@ -8,12 +8,14 @@
 	border-radius: 10px;
 	box-shadow: 1px 1px 3px #AAA;
 }
+
 #upload-wrapper input[type=file] {
 	border: 1px solid #DDD;
 	padding: 6px;
 	background: #FFF;
 	border-radius: 5px;
 }
+
 #upload-wrapper #submit-btn {
 	border: none;
 	padding: 10px;
@@ -22,34 +24,34 @@
 	color: #FFF;
 }
 
-#output{
-	text-align: center;
-	margin: 10px;
+#output {
 	font-size: 18px;
+	margin: 10px;
 }
-
 
 /* progress bar style */
 #progressbox {
 	text-align: center;
 	border: 1px solid #92C8DA;
-	padding: 1px; 
-	position:relative;
-	width:400px;
+	padding: 1px;
+	position: relative;
+	width: 400px;
 	border-radius: 3px;
 	margin: 10px;
-	display:none;
+	display: none;
 }
+
 #progressbar {
-	height:20px;
+	height: 20px;
 	border-radius: 3px;
 	background-color: #77E0FA;
-	width:1%;
+	width: 1%;
 }
+
 #statustxt {
-	top:3px;
-	left:50%;
-	position:absolute;
-	display:inline-block;
+	top: 3px;
+	left: 50%;
+	position: absolute;
+	display: inline-block;
 	color: #000000;
 }

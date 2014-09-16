@@ -123,10 +123,12 @@
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=5">Hình
 													cover</a></th>
-											<th class="table-header-options line-left minwidth-1"><a
+											<th class="table-header-repeat line-left minwidth-1"><a
 												href="managebookcategory.jsp">Danh mục</a></th>
-											<th class="table-header-options line-left options-width"><a
-												href="">Người Upload</a></th>
+											<th class="table-header-repeat line-left"><a href="">Số
+													lượng chapter</a></th>
+											<th class="table-header-repeat line-left"><a href="">Người
+													Upload</a></th>
 											<th class="table-header-repeat line-left minwidth-1"><a
 												href="">Chức năng</a></th>
 											<jsp:include page="TableListBook" />
