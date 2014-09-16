@@ -25,6 +25,7 @@ public class Book {
 	String imagecover;
 	Timestamp datecreated;
 	int countview;
+	int countdownload;
 	String uploader;
 
 	@Expose(deserialize = false)
@@ -108,6 +109,14 @@ public class Book {
 
 	public void setUploader(String uploader) {
 		this.uploader = uploader;
+	}
+
+	public int getCountdownload() {
+		return countdownload;
+	}
+
+	public void setCountdownload(int countdownload) {
+		this.countdownload = countdownload;
 	}
 
 	public int addBook() {
@@ -228,6 +237,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				return book;
 			}
@@ -312,6 +322,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
@@ -375,6 +386,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
@@ -429,6 +441,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
@@ -473,6 +486,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
@@ -517,6 +531,7 @@ public class Book {
 				book.setImagecover(rs.getString("imagecover"));
 				book.setDatecreated(rs.getTimestamp("datecreated"));
 				book.setCountview(rs.getInt("countview"));
+				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				books.add(book);
 			}
@@ -537,6 +552,39 @@ public class Book {
 			} catch (Exception e) { /* ignored */
 			}
 		}
+	}
+
+	public int countChapter() {
+		int id = 0;
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT count(*) FROM dbssbook.book_chapter where idbook = ? && isdeleted = 0;";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, this.idbook);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return id;
 	}
 
 	public int updateCountView() {
@@ -569,7 +617,36 @@ public class Book {
 		}
 		return 0;
 	}
+	public int updateCountDownload() {
+		Database conn = null;
+		Statement stmt = null;
+		try {
+			conn = new Database();
+			stmt = conn.Get_Connection().createStatement();
+			String sqlUpdate = String.format(
+					"UPDATE book SET `countdownload`='%d' WHERE `idbook`='%d';",
+					this.countdownload + 1, this.idbook);
+			int result = stmt.executeUpdate(sqlUpdate);
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception e) { /* ignored */
+			}
 
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return 0;
+	}
 	public int getIdAuto() {
 		int id = 0;
 		Database conn = null;

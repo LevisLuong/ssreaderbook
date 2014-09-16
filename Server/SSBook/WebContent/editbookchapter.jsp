@@ -46,7 +46,7 @@
 								<tr>
 									<div id="output"></div>
 									<!--progress bar-->
-									<div id="progressbox" style="display: none;">
+									<div id="progressbox">
 										<div id="progressbar"></div>
 										<div id="statustxt">0%</div>
 									</div>

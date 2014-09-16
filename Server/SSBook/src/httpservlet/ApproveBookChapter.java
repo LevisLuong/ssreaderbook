@@ -8,49 +8,46 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Book_Category;
 import model.Book_Chapter;
 
 /**
- * Servlet implementation class DeleteBookChapter
+ * Servlet implementation class ApproveBookChapter
  */
-@WebServlet("/DeleteBookChapter")
-public class DeleteBookChapter extends HttpServlet {
+@WebServlet("/ApproveBookChapter")
+public class ApproveBookChapter extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ApproveBookChapter() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public DeleteBookChapter() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		String titlebook = request.getParameter("titlebook");
 		int id = Integer.parseInt(request.getParameter("idbookchapter"));
+		int status = Integer.parseInt(request.getParameter("status"));
 		Book_Chapter b = (new Book_Chapter()).getById(id);
 		int idbook = b.getIdbook();
 		if (b != null) {
-			if (b.deleteBook_Chapter() == 1) {
-
+			if (b.setApprovedDatabase(status) == 1) {
+				
 			} else {
 
 			}
@@ -58,4 +55,5 @@ public class DeleteBookChapter extends HttpServlet {
 		response.sendRedirect("managebookchapter.jsp?idbook=" + idbook
 				+ "&titlebook=" + titlebook);
 	}
+
 }

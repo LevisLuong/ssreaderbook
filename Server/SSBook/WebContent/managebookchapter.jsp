@@ -9,9 +9,9 @@
 </jsp:include>
 
 <script type="text/javascript">
-	function confirmSubmit(id) {
+	function confirmSubmit(id,titlebook) {
 		if (confirm("Bạn có chắc muốn xóa chapter này?")) {
-			window.location="DeleteBookChapter?idbookchapter="+id;
+			window.location="DeleteBookChapter?idbookchapter="+id+"&titlebook="+titlebook;
 		}
 		return false;
 	}

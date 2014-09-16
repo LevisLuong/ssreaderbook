@@ -11,3 +11,5 @@ encoding//src/httpservlet/EditBook.java=UTF-8
 encoding//src/httpservlet/EditBookCategory.java=UTF-8
 encoding//src/httpservlet/EditBookChapter.java=UTF-8
 encoding//src/httpservlet/Login.java=UTF-8
+encoding//src/httpservlet/TableListBook.java=UTF-8
+encoding//src/httpservlet/TableListBookChapter.java=UTF-8

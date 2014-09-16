@@ -12,6 +12,7 @@ import javax.ws.rs.core.Context;
 import model.Book;
 import model.Book_Category;
 import model.Book_Chapter;
+import model.FeedBack;
 import model.User_Online;
 
 import com.google.gson.Gson;
@@ -103,8 +104,48 @@ public class BookService {
 			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
 					.getByIdBook(idbook, index);
 			// convert array chapter to json
+
+			bookjson = convertToJson(bookchaps);
+			if (index == 1) {
+				(new Book()).getById(idbook).updateCountView();
+			}
+			System.out.println("book to json: " + bookjson);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bookjson;
+	}
+
+	@POST
+	@Path("/GetAllChapterBook")
+	@Produces("application/json;charset=utf-8")
+	public String GetAllChapterBook(@FormParam("idbook") int idbook) {
+		String bookjson = null;
+		try {
+			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
+					.getAllByIdBook(idbook);
+			// convert array chapter to json
 			bookjson = convertToJson(bookchaps);
 			System.out.println("book to json: " + bookjson);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return bookjson;
+	}
+
+	@POST
+	@Path("/SetApproveChapter")
+	@Produces("application/json;charset=utf-8")
+	public String SetApproveChapter(
+			@FormParam("idbookchapter") int idbookchapter,
+			@FormParam("status") int status) {
+		String bookjson = null;
+		try {
+			Book_Chapter bc = new Book_Chapter();
+			bc.setIdbook_chapter(idbookchapter);
+			bc.setApprovedDatabase(status);
+			// convert array chapter to json
+			bookjson = "{}";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -116,7 +157,7 @@ public class BookService {
 	@Produces("application/json;charset=utf-8")
 	public String AddCountBook(@FormParam("idbook") int idbook) {
 		try {
-			(new Book()).getById(idbook).updateCountView();
+			(new Book()).getById(idbook).updateCountDownload();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -175,6 +216,20 @@ public class BookService {
 	public String UserLeft(@FormParam("imei") String imei) {
 		(new User_Online())
 				.deleteUserByIP(request.getRemoteAddr() + "|" + imei);
+		return "{}";
+	}
+
+	@POST
+	@Path("/UserFeedBack")
+	@Produces("application/json;charset=utf-8")
+	public String UserFeedBack(@FormParam("titlebook") String titlebook,
+			@FormParam("authorbook") String authorbook,
+			@FormParam("feedback") String feedback) {
+		FeedBack fb = new FeedBack();
+		fb.setTitlebook(titlebook);
+		fb.setAuthorbook(authorbook);
+		fb.setFeedback(feedback);
+		fb.addFeedback();
 		return "{}";
 	}
 }
