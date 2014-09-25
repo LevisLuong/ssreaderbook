@@ -4,10 +4,165 @@
                 android:layout_height="match_parent">
 
     <vn.seasoft.readerbook.widget.ImageViewTouchViewPager
-        android:id="@+id/pager"
+        android:id="@+id/vp_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"/>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/afc_10dp"
+        android:layout_marginRight="@dimen/afc_10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/vp_txtPageBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/100"
+            style="@style/TextAppearance.Small"
+            android:textColor="#000000"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/vp_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="@dimen/afc_10dp"
+        android:layout_marginLeft="@dimen/afc_10dp"
+        android:background="#80000000"
+        android:src="@drawable/vp_icon_menu"/>
+
+    <LinearLayout
+        android:id="@+id/vp_containermenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/vp_lnTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#80000000"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/vp_btnback"
+                    android:layout_width="48dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:src="@drawable/ic_back_arrow_white"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/vp_txtTitleBook"
+                        style="@style/TextAppearance.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="adsasdsa"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:id="@+id/vp_txtTitleChapter"
+                        style="@style/TextAppearance.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="adsasdsa"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/vp_txtPageTop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="@dimen/afc_10dp"
+                    android:layout_marginRight="@dimen/afc_10dp"
+                    android:gravity="center"
+                    android:text="6/200"
+                    android:textColor="@android:color/white"
+                    style="@style/TextAppearance.Small"
+                    />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/vp_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/vp_empty"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/vp_lnBottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/standard_dp"
+            android:background="#80000000">
+
+            <ImageButton
+                android:id="@+id/vp_previouschapter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/ic_previous_chapter"/>
+
+            <ImageButton
+                android:id="@+id/vp_deletecache"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/ic_menu_delete"
+                />
+
+            <ImageButton
+                android:id="@+id/vp_selectpage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/ic_menu_list_toc"/>
+
+
+            <ImageButton
+                android:id="@+id/vp_nextchapter"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:src="@drawable/ic_next_chapter"/>
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
 

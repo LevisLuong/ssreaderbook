@@ -1,95 +1,201 @@
-head, style, form, script { display: none; } 
+head, style, form, script {
+    display: none;
+}
 
-body { $def.all } 
+body {
+    $ def . all
+}
 
-p { $def.all } 
-*.justindent { text-align: justify; text-indent: 1.2em; margin-top:0em; margin-bottom: 0em }
+p {
+    $ def . all
+}
 
-empty-line { height: 0.2em; } 
+*.justindent {
+    text-align: justify;
+    text-indent: 1.2em;
+    margin-top: 0em;
+    margin-bottom: 0em
+}
 
-hr { 
-   height: 2px; 
-   background-color: #808080; 
-   margin-top: 0.5em; 
-   margin-bottom: 0.5em; 
-   } 
+empty-line {
+    height: 0.2em;
+}
 
-b,strong,i,em,dfn,var,q,u,del,s,strike,small,big,sub,sup,acronym,tt,sa mp,kbd,code,font { 
-   display: inline; 
-   } 
+hr {
+    height: 2px;
+    background-color: #808080;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
 
-b,strong { font-weight: bold; } 
-i,em,dfn,var { font-style: italic; } 
+b, strong, i, em, dfn, var, q, u, del, s, strike, small, big, sub, sup, acronym, tt, sa mp, kbd, code, font {
+    display: inline;
+}
 
-u { text-decoration: underline; } 
-del,s,strike { text-decoration: line-through; } 
-small { font-size: 80%; } 
-big { font-size: 130%; } 
-sub { vertical-align: sub; font-size: 70% } 
-sup { vertical-align: super; font-size: 70% } 
-tt, samp, kbd, code, pre { font-family: "Courier New", "Courier", monospace; } 
-pre { display: block; 
-   $pre.all
-   } 
+b, strong {
+    font-weight: bold;
+}
 
-nobr { display: inline; hyphenate: none; white-space: nowrap; } 
+i, em, dfn, var {
+    font-style: italic;
+}
 
-h1,h2 { 
-   display: block; 
-   $title.all
-   } 
-h3,h4,h5,h6 { 
-   display: block; 
-   $subtitle.all
-   } 
-h1 { font-size: 150% } 
-h2 { font-size: 135% } 
-h3 { font-size: 125% } 
-h4 { font-size: 125% } 
-h5 { font-size: 115% } 
-h6 { font-size: 105% } 
+u {
+    text-decoration: underline;
+}
 
-ul, ol, dl { 
-   display: block; 
-   margin-left: 1em; 
-   margin-top:0.3em; 
-   margin-bottom: 0.3em; 
-   } 
+del, s, strike {
+    text-decoration: line-through;
+}
 
-li { 
-   display: list-item; 
-   text-indent: 0em;
-   margin-top: 0.3em; 
-   margin-bottom: 0.3em; 
-   } 
+small {
+    font-size: 80%;
+}
 
+big {
+    font-size: 130%;
+}
 
-dl { margin-left: 0em; list-style-type: disc } 
-dt { display: block; margin-left: 0em; margin-top:0.3em; font-weight: bold; } 
-dd { display: block; margin-left: 1.3em } 
+sub {
+    vertical-align: sub;
+    font-size: 70%
+}
 
-a { display:inline; $link.all } 
+sup {
+    vertical-align: super;
+    font-size: 70%
+}
 
-span { display: inline; } 
+tt, samp, kbd, code, pre {
+    font-family: "Courier New", "Courier", monospace;
+}
 
-cite { display: inline; font-style: italic;} 
-div { display: block; } 
-blockquote { display: block; 
-   margin-left: 1.5em; 
-   margin-right: 1.5em; 
-   margin-top: 0.5em; 
-   margin-bottom: 0.5em; 
-   } 
+pre {
+    display: block;
+    $ pre . all
+}
 
-img { 
-   margin: 0.5em; 
-   text-align: center; 
-   text-indent: 0em; 
-   border-style: solid; 
-   border-width: medium; 
-   } 
+nobr {
+    display: inline;
+    hyphenate: none;
+    white-space: nowrap;
+}
 
-table { font-size: 100% } 
-td, th { text-indent: 0px; padding: 3px } 
-th { font-weight: bold; text-align: center; background-color: #808080; } 
-table caption { text-indent: 0px; padding: 4px; }
+h1, h2 {
+    display: block;
+    $ title . all
+}
+
+h3, h4, h5, h6 {
+    display: block;
+    $ subtitle . all
+}
+
+h1 {
+    font-size: 150%
+}
+
+h2 {
+    font-size: 135%
+}
+
+h3 {
+    font-size: 125%
+}
+
+h4 {
+    font-size: 125%
+}
+
+h5 {
+    font-size: 115%
+}
+
+h6 {
+    font-size: 105%
+}
+
+ul, ol, dl {
+    display: block;
+    margin-left: 1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+li {
+    display: list-item;
+    text-indent: 0em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+dl {
+    margin-left: 0em;
+    list-style-type: disc
+}
+
+dt {
+    display: block;
+    margin-left: 0em;
+    margin-top: 0.3em;
+    font-weight: bold;
+}
+
+dd {
+    display: block;
+    margin-left: 1.3em
+}
+
+a {
+    display: inline;
+    $ link . all
+}
+
+span {
+    display: inline;
+}
+
+cite {
+    display: inline;
+    font-style: italic;
+}
+
+div {
+    display: block;
+}
+
+blockquote {
+    display: block;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+img {
+    margin: 0.5em;
+    text-align: center;
+    text-indent: 0em;
+    border-style: solid;
+    border-width: medium;
+}
+
+table {
+    font-size: 100%
+}
+
+td, th {
+    text-indent: 0px;
+    padding: 3px
+}
+
+th {
+    font-weight: bold;
+    text-align: center;
+    background-color: #808080;
+}
+
+table caption {
+    text-indent: 0px;
+    padding: 4px;
+}

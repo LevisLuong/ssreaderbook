@@ -13,11 +13,27 @@ public class Request_Server extends RequestObject {
         super(context);
         mContext = context;
     }
+
+    public void addFeedBack(String titlebook, String authorbook, String feedback) {
+        request.initParam();
+        request.addParam("titlebook", titlebook);
+        request.addParam("authorbook", authorbook);
+        request.addParam("feedback", feedback);
+        request.requestStringToServer(new Result_GetFeedBack(), COMMAND_API.ADD_FEEDBACK);
+    }
+
+    public void addCountBook(int idbook) {
+        request.initParam();
+        request.addParam("idbook", idbook);
+        request.requestStringToServer(null, COMMAND_API.ADD_COUNT_BOOK);
+    }
+
     public void setUserOnline() {
         request.initParam();
         request.addParam("imei", SSUtil.loadIDDevice(mContext));
         request.requestStringToServer(null, COMMAND_API.SET_USER_ONLINE);
     }
+
     public void setUserOffline() {
         request.initParam();
         request.addParam("imei", SSUtil.loadIDDevice(mContext));

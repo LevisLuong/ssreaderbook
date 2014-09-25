@@ -1,6 +1,5 @@
 package vn.seasoft.readerbook.ResultObjects;
 
-import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +15,6 @@ public class Result_GetCategory implements ResultObject {
 
     @Override
     public void setData(JSONObject obj) {
-        Log.i(TAG, "get data from server: " + obj.toString());
         lstBookCategory = new ArrayList<Book_Category>();
         try {
             JSONArray jaCate = new JSONArray(obj.getString("data"));

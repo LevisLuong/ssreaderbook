@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.Toast;
@@ -44,6 +45,8 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
         ActionBar actionBar = getSupportActionBar();
         // Enabling Back navigation on Action Bar icon
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setSubtitle("Tìm với từ khóa: " + query);
+
         footerLoadmore = getLayoutInflater().inflate(R.layout.loadmore_layout, null, false);
         listview = (ListView) findViewById(R.id.listview);
         listview.addFooterView(footerLoadmore);
@@ -99,7 +102,6 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
 
     @Override
     public void onGetData(final ResultObject resultData, final String urlMethod, int id) {
-        GlobalData.DissmissProgress();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -114,10 +116,12 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
 
                     if (adapter.getCount() == 0) {
                         Toast.makeText(mContext, "Không tìm thấy kết quả nào !", Toast.LENGTH_LONG).show();
+                        ((TextView) findViewById(R.id.searchbook_error)).setVisibility(View.VISIBLE);
+
                     }
                 }
             }
         });
-
+        GlobalData.DissmissProgress();
     }
 }

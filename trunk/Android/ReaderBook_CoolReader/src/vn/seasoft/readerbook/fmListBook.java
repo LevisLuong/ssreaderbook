@@ -3,6 +3,7 @@ package vn.seasoft.readerbook;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -53,6 +54,7 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
         mContext = getActivity();
         adapter = new GridBookAdapter(mContext);
         int idcategory = getArguments().getInt("idbookcategory");
@@ -80,6 +82,14 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
         rootView = (RelativeLayout) inflater.inflate(R.layout.fm_listbook, container, false);
         listbook = (BookshelfView) rootView.findViewById(R.id.gv_listbook);
         listbook.setNumColumns(3);
+        if (((getResources().getConfiguration().screenLayout &
+                Configuration.SCREENLAYOUT_SIZE_MASK) ==
+                Configuration.SCREENLAYOUT_SIZE_LARGE)) {
+            // on a large screen device ...
+            listbook.setNumColumns(5);
+        } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            listbook.setNumColumns(4);
+        }
         listbook.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -364,7 +374,6 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
 
     @Override
     public void onGetData(ResultObject resultData, String urlMethod, int id) {
-        GlobalData.DissmissProgress();
         rootView.removeView(viewError);
         if (urlMethod.equals(COMMAND_API.GET_BOOK_BY_CATEGORY)) {
             final Result_GetBookByCategory data = (Result_GetBookByCategory) resultData;
@@ -373,5 +382,6 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
 
             }
         }
+        GlobalData.DissmissProgress();
     }
 }

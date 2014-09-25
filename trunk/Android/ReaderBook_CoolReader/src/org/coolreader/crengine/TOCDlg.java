@@ -1,6 +1,5 @@
 package org.coolreader.crengine;
 
-import android.app.Dialog;
 import android.database.DataSetObserver;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -11,6 +10,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.TextView;
 import vn.seasoft.readerbook.R;

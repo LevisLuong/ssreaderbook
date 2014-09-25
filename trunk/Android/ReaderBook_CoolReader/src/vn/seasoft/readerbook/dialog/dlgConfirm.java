@@ -23,6 +23,12 @@ public class dlgConfirm extends DialogFragment {
 
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
     public void setListener(DialogInterface.OnClickListener _listener) {
         listener = _listener;
     }
@@ -46,4 +52,7 @@ public class dlgConfirm extends DialogFragment {
         message = _message;
     }
 
+    public void setMessage(int idmessage) {
+        message = mContext.getResources().getString(idmessage);
+    }
 }

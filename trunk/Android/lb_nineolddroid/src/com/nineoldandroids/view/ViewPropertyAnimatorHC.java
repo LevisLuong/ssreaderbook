@@ -20,6 +20,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+
 import android.view.View;
 import android.view.animation.Interpolator;
 import com.nineoldandroids.animation.Animator;
@@ -64,7 +65,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * on the Animator and just use its default interpolator. If the interpolator is ever set on
      * this Animator, then we use the interpolator that it was set to.
      */
-    private /*Time*/Interpolator mInterpolator;
+    private /*Time*/ Interpolator mInterpolator;
 
     /**
      * A flag indicating whether the interpolator has been set on this object. If not, we don't set
@@ -98,17 +99,17 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * Constants used to associate a property being requested and the mechanism used to set
      * the property (this class calls directly into View to set the properties in question).
      */
-    private static final int NONE           = 0x0000;
-    private static final int TRANSLATION_X  = 0x0001;
-    private static final int TRANSLATION_Y  = 0x0002;
-    private static final int SCALE_X        = 0x0004;
-    private static final int SCALE_Y        = 0x0008;
-    private static final int ROTATION       = 0x0010;
-    private static final int ROTATION_X     = 0x0020;
-    private static final int ROTATION_Y     = 0x0040;
-    private static final int X              = 0x0080;
-    private static final int Y              = 0x0100;
-    private static final int ALPHA          = 0x0200;
+    private static final int NONE = 0x0000;
+    private static final int TRANSLATION_X = 0x0001;
+    private static final int TRANSLATION_Y = 0x0002;
+    private static final int SCALE_X = 0x0004;
+    private static final int SCALE_Y = 0x0008;
+    private static final int ROTATION = 0x0010;
+    private static final int ROTATION_X = 0x0020;
+    private static final int ROTATION_Y = 0x0040;
+    private static final int X = 0x0080;
+    private static final int Y = 0x0100;
+    private static final int ALPHA = 0x0200;
 
     private static final int TRANSFORM_MASK = TRANSLATION_X | TRANSLATION_Y | SCALE_X | SCALE_Y |
             ROTATION | ROTATION_X | ROTATION_Y | X | Y;
@@ -190,6 +191,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
         int mNameConstant;
         float mFromValue;
         float mDeltaValue;
+
         NameValuesHolder(int nameConstant, float fromValue, float deltaValue) {
             mNameConstant = nameConstant;
             mFromValue = fromValue;
@@ -211,8 +213,9 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * Sets the duration for the underlying animator that animates the requested properties.
      * By default, the animator uses the default value for ValueAnimator. Calling this method
      * will cause the declared value to be used instead.
+     *
      * @param duration The length of ensuing property animations, in milliseconds. The value
-     * cannot be negative.
+     *                 cannot be negative.
      * @return This object, allowing calls to methods in this class to be chained.
      */
     public ViewPropertyAnimator setDuration(long duration) {
@@ -230,8 +233,8 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * object, that value is returned. Otherwise, the default value of the underlying Animator
      * is returned.
      *
-     * @see #setDuration(long)
      * @return The duration of animations, in milliseconds.
+     * @see #setDuration(long)
      */
     public long getDuration() {
         if (mDurationSet) {
@@ -287,7 +290,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
     public void cancel() {
         if (mAnimatorMap.size() > 0) {
             HashMap<Animator, PropertyBundle> mAnimatorMapCopy =
-                    (HashMap<Animator, PropertyBundle>)mAnimatorMap.clone();
+                    (HashMap<Animator, PropertyBundle>) mAnimatorMap.clone();
             Set<Animator> animatorSet = mAnimatorMapCopy.keySet();
             for (Animator runningAnim : animatorSet) {
                 runningAnim.cancel();
@@ -461,7 +464,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * specified at one time).
      *
      * @param constantName The specifier for the property being animated
-     * @param toValue The value to which the property will animate
+     * @param toValue      The value to which the property will animate
      */
     private void animateProperty(int constantName, float toValue) {
         float fromValue = getValue(constantName);
@@ -475,7 +478,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * current value, instead of an absolute "to" value.
      *
      * @param constantName The specifier for the property being animated
-     * @param byValue The amount by which the property will change
+     * @param byValue      The amount by which the property will change
      */
     private void animatePropertyBy(int constantName, float byValue) {
         float fromValue = getValue(constantName);
@@ -487,8 +490,8 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * details of adding a pending animation and posting the request to start the animation.
      *
      * @param constantName The specifier for the property being animated
-     * @param startValue The starting value of the property
-     * @param byValue The amount by which the property will change
+     * @param startValue   The starting value of the property
+     * @param byValue      The amount by which the property will change
      */
     private void animatePropertyBy(int constantName, float startValue, float byValue) {
         // First, cancel any existing animations on this property
@@ -529,7 +532,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
      * the property to.
      *
      * @param propertyConstant The property to be set
-     * @param value The value to set the property to
+     * @param value            The value to set the property to
      */
     private void setValue(int propertyConstant, float value) {
         //final View.TransformationInfo info = mView.mTransformationInfo;
@@ -674,8 +677,8 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
          * the view object appropriately, depending on which properties are being animated.
          *
          * @param animation The animator associated with the properties that need to be
-         * set. This animator holds the animation fraction which we will use to calculate
-         * the current value of each property.
+         *                  set. This animator holds the animation fraction which we will use to calculate
+         *                  the current value of each property.
          */
         @Override
         public void onAnimationUpdate(ValueAnimator animation) {
@@ -704,7 +707,7 @@ class ViewPropertyAnimatorHC extends ViewPropertyAnimator {
                     //if (values.mNameConstant == ALPHA) {
                     //    alphaHandled = mView.setAlphaNoInvalidation(value);
                     //} else {
-                        setValue(values.mNameConstant, value);
+                    setValue(values.mNameConstant, value);
                     //}
                 }
             }

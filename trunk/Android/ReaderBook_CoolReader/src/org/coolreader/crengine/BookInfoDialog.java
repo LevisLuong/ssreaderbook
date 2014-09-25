@@ -78,7 +78,7 @@ public class BookInfoDialog extends Dialog {
         setTitle(mCoolReader.getString(R.string.dlg_book_info));
         fillMap();
         mInflater = LayoutInflater.from(getContext());
-        View view = mInflater.inflate(R.layout.book_info_dialog, null);
+        View view = mInflater.inflate(R.layout.dialog_book_info, null);
 //        TableLayout table = (TableLayout) view.findViewById(R.id.table);
 //        for (String item : items) {
 //            addItem(table, item);

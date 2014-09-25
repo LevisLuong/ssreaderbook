@@ -5,15 +5,15 @@
   android:layout_width="fill_parent"
   android:layout_height="wrap_content"-->
 <LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="fill_parent"
-  android:layout_height="wrap_content">
-    
-    <TextView 
-      android:id="@+id/title"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title"
         style="@style/TextAppearance.Medium"
-        android:text="@null" 
+        android:text="@null"
         android:singleLine="true"
         android:layout_marginLeft="3dip"
         android:layout_marginRight="3dip"
@@ -25,4 +25,4 @@
         android:layout_height="wrap_content"/>
 
 </LinearLayout>
-<!-- /LinearLayout-->
+    <!-- /LinearLayout-->

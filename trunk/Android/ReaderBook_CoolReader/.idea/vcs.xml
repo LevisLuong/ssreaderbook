@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$/../facebook" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_AmbilWarna" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_SubSamplingScaleImageView" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_UrlImageViewHelper" vcs="svn" />

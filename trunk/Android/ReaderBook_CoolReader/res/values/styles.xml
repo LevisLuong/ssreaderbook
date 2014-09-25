@@ -67,7 +67,7 @@
     </style>
 
     <style name="HoloThemeWithSliderMenu" parent="Holo.Theme.Slider.Light.DarkActionBar">
-
+        <item name="homeAsUpIndicator">@drawable/ic_menu_slider</item>
     </style>
 
 

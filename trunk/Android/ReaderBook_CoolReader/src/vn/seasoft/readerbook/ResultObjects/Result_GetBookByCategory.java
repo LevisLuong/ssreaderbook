@@ -1,6 +1,5 @@
 package vn.seasoft.readerbook.ResultObjects;
 
-import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,7 +15,6 @@ public class Result_GetBookByCategory implements ResultObject {
 
     @Override
     public void setData(JSONObject obj) {
-        Log.i(TAG, "get data from server: " + obj.toString());
         lstBooks = new ArrayList<Book>();
         try {
             JSONArray jaBook = new JSONArray(obj.getString("data"));
@@ -29,6 +27,7 @@ public class Result_GetBookByCategory implements ResultObject {
                 book.setSummary(Obj.getString("summary"));
                 book.setIdcategory(Obj.getInt("idcategory"));
                 book.setCountview(Obj.getInt("countview"));
+                book.setCountdownload(Obj.getInt("countdownload"));
                 if (!Obj.isNull("imagecover"))
                     book.setImagecover(Obj.getString("imagecover").replace(" ","%20"));
                 lstBooks.add(book);

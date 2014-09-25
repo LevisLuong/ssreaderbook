@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
 
     <TextView
         android:id="@+id/hour_space"
@@ -14,7 +14,7 @@
         android:padding="2dp"
         android:text="--"
         android:textSize="@dimen/time_label_size"
-        android:visibility="invisible" />
+        android:visibility="invisible"/>
 
     <FrameLayout
         android:layout_width="0dp"
@@ -31,7 +31,7 @@
             android:gravity="center_horizontal"
             android:text="--"
             android:textColor="?dateTimePickerActiveTextColor"
-            android:textSize="@dimen/time_label_size" />
+            android:textSize="@dimen/time_label_size"/>
     </FrameLayout>
 
     <TextView
@@ -44,7 +44,7 @@
         android:paddingRight="6dp"
         android:text=":"
         android:textColor="?dateTimePickerActiveTextColor"
-        android:textSize="@dimen/time_label_size" />
+        android:textSize="@dimen/time_label_size"/>
 
     <TextView
         android:id="@+id/minutes_space"
@@ -56,7 +56,7 @@
         android:padding="2dp"
         android:text="--"
         android:textSize="@dimen/time_label_size"
-        android:visibility="invisible" />
+        android:visibility="invisible"/>
 
     <FrameLayout
         android:layout_width="0dp"
@@ -73,7 +73,7 @@
             android:gravity="center_horizontal"
             android:text="--"
             android:textColor="?dateTimePickerActiveTextColor"
-            android:textSize="@dimen/time_label_size" />
+            android:textSize="@dimen/time_label_size"/>
     </FrameLayout>
 
     <TextView
@@ -90,5 +90,5 @@
         android:textAllCaps="true"
         android:textColor="?dateTimePickerTextColor"
         android:textSize="@dimen/time_ampm_label_size"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 </RelativeLayout>

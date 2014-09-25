@@ -23,7 +23,6 @@ package com.nineoldandroids.util;
  * <code>Float</code> class.
  *
  * @param <T> The class on which the Property is declared.
- *
  * @hide
  */
 public abstract class FloatProperty<T> extends Property<T, Float> {

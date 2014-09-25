@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import org.holoeverywhere.widget.LinearLayout;
 import org.holoeverywhere.widget.ProgressBar;
 import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
@@ -104,8 +105,10 @@ public class GridBookAdapter extends BaseAdapter {
         }
         if (isHaveNew && (position == (books.size() - 1))) {
             holder.griditemProgress.setVisibility(View.VISIBLE);
+            holder.griditemContent.setVisibility(View.INVISIBLE);
         } else {
             holder.griditemProgress.setVisibility(View.GONE);
+            holder.griditemContent.setVisibility(View.VISIBLE);
         }
         return convertView;
     }
@@ -127,12 +130,14 @@ public class GridBookAdapter extends BaseAdapter {
         public final TextView griditemlabel;
         public final ImageView griditemcover;
         public final ProgressBar griditemProgress;
+        public final LinearLayout griditemContent;
         public final View root;
 
         public ViewHolder(View root) {
             griditemlabel = (TextView) root.findViewById(R.id.grid_item_label);
             griditemcover = (ImageView) root.findViewById(R.id.grid_item_cover);
             griditemProgress = (ProgressBar) root.findViewById(R.id.grid_item_progress);
+            griditemContent = (LinearLayout) root.findViewById(R.id.grid_item_content);
             this.root = root;
         }
     }

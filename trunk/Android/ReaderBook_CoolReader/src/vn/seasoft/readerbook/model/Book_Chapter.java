@@ -30,6 +30,8 @@ public class Book_Chapter {
     Boolean currentread;
     @DatabaseField(defaultValue = "false")
     Boolean isDownloaded;
+    @DatabaseField
+    Integer readposition;
 
     public Integer getIdbook_chapter() {
         return idbook_chapter;
@@ -87,9 +89,14 @@ public class Book_Chapter {
         this.isDownloaded = isDownloaded;
     }
 
-    /*
-                            Method for book
-                             */
+    public Integer getReadposition() {
+        return readposition;
+    }
+
+    public void setReadposition(Integer readposition) {
+        this.readposition = readposition;
+    }
+
     public int addNewData() {
         Book_Chapter b = getByID(this.idbook_chapter);
         if (b == null) {
@@ -97,6 +104,7 @@ public class Book_Chapter {
         } else {
             this.currentread = b.currentread;
             this.isDownloaded = b.isDownloaded;
+            this.readposition = b.readposition;
             return GlobalData.repo.book_chapter.update(this);
         }
     }
@@ -115,6 +123,10 @@ public class Book_Chapter {
 
     public List<Book_Chapter> getAllData() {
         return GlobalData.repo.book_chapter.getAll();
+    }
+
+    public Book_Chapter getNextChapter() {
+        return GlobalData.repo.book_chapter.getNextChapter(this.idbook_chapter, this.idbook);
     }
 
     public List<Book_Chapter> getByidBook(int idbook) {

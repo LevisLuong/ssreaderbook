@@ -1,12 +1,19 @@
 package vn.seasoft.readerbook.Util;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
+import android.util.Base64;
 import android.util.Log;
 
 import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * User: XuanTrung
@@ -25,7 +32,6 @@ public class SSUtil {
                 if (myDir != null) {
                     if (!myDir.mkdirs()) {
                         if (!myDir.exists()) {
-                            Log.d("CameraSample", "failed to create directory");
                             myDir = null;
                         }
                     }
@@ -42,7 +48,6 @@ public class SSUtil {
                         UrlBook.lastIndexOf("/") + 1,
                         UrlBook.lastIndexOf("."));
                 String extFile = UrlBook.substring(UrlBook.lastIndexOf("."), UrlBook.length());
-                System.out.println("filename record: " + FileName);
                 FileName = "SSBook" + FileName.hashCode() + extFile;
                 File file = new File(myDir, FileName);
                 return file;
@@ -52,10 +57,12 @@ public class SSUtil {
         }
         return null;
     }
-    public static boolean deleteBook(String urlfile){
+
+    public static boolean deleteBook(String urlfile) {
         File file = SSUtil.downloadBook(urlfile);
         return file.delete();
     }
+
     public static String loadIDDevice(final Context c) {
         final TelephonyManager mTelephonyMgr = (TelephonyManager) c
                 .getSystemService(Context.TELEPHONY_SERVICE);
@@ -72,5 +79,43 @@ public class SSUtil {
                     + Build.USER.length() % 10; // 13 digits
         }
         return imei;
+    }
+    public static String printKeyHash(Activity context) {
+        PackageInfo packageInfo;
+        String key = null;
+        try {
+
+            //getting application package name, as defined in manifest
+            String packageName = context.getApplicationContext().getPackageName();
+
+            //Retriving package info
+            packageInfo = context.getPackageManager().getPackageInfo(packageName,
+                    PackageManager.GET_SIGNATURES);
+
+            Log.e("Package Name=", context.getApplicationContext().getPackageName());
+
+            for (Signature signature : packageInfo.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                key = new String(Base64.encode(md.digest(), 0));
+
+                // String key = new String(Base64.encodeBytes(md.digest()));
+                Log.e("Key Hash=", key);
+
+            }
+        } catch (PackageManager.NameNotFoundException e1) {
+            Log.e("Name not found", e1.toString());
+        }
+
+        catch (NoSuchAlgorithmException e) {
+            Log.e("No such an algorithm", e.toString());
+        } catch (Exception e) {
+            Log.e("Exception", e.toString());
+        }
+
+        return key;
+    }
+    public static void App_Log(String tag, String logMsg) {
+        Log.i(tag, logMsg);
     }
 }

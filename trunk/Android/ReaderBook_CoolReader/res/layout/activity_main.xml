@@ -13,17 +13,17 @@
         tools:context="vn.seasoft.readerbook.MainActivity">
 
         <TextView
+            style="@style/TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/apptheme_color"
-            android:text="Các sách mới"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:text="@string/fmmain_newbook"
+            android:textColor="@android:color/white"/>
 
         <RelativeLayout
             android:id="@+id/fmmain_containernewbook"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <LinearLayout
@@ -34,17 +34,17 @@
         tools:context="vn.seasoft.readerbook.MainActivity">
 
         <TextView
+            style="@style/TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/apptheme_color"
-            android:text="Sách đọc nhiều"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:text="@string/fmmain_top"
+            android:textColor="@android:color/white"/>
 
         <RelativeLayout
             android:id="@+id/fmmain_containerhotbook"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
     <LinearLayout
@@ -55,17 +55,17 @@
         tools:context="vn.seasoft.readerbook.MainActivity">
 
         <TextView
+            style="@style/TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/apptheme_color"
-            android:text="Các sách đã đọc"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:text="@string/fmmain_mybook"
+            android:textColor="@android:color/white"/>
 
         <RelativeLayout
             android:id="@+id/fmmain_containerread"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
     </LinearLayout>
 
 
