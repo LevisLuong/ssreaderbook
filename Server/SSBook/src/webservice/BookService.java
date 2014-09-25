@@ -106,7 +106,7 @@ public class BookService {
 			// convert array chapter to json
 
 			bookjson = convertToJson(bookchaps);
-			if (index == 1) {
+			if (index <= 1) {
 				(new Book()).getById(idbook).updateCountView();
 			}
 			System.out.println("book to json: " + bookjson);

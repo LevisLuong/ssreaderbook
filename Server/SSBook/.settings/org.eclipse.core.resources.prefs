@@ -13,3 +13,6 @@ encoding//src/httpservlet/EditBookChapter.java=UTF-8
 encoding//src/httpservlet/Login.java=UTF-8
 encoding//src/httpservlet/TableListBook.java=UTF-8
 encoding//src/httpservlet/TableListBookChapter.java=UTF-8
+encoding//src/httpservlet/TableListFeedBack.java=UTF-8
+encoding//src/model/Book.java=UTF-8
+encoding//src/model/FeedBack.java=UTF-8

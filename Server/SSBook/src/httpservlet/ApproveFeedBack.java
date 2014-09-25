@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Book_Category;
 import model.Book_Chapter;
+import model.FeedBack;
 
 /**
- * Servlet implementation class DeleteBookChapter
+ * Servlet implementation class ApproveFeedBack
  */
-@WebServlet("/DeleteBookChapter")
-public class DeleteBookChapter extends HttpServlet {
+@WebServlet("/ApproveFeedBack")
+public class ApproveFeedBack extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeleteBookChapter() {
+	public ApproveFeedBack() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,9 +32,19 @@ public class DeleteBookChapter extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		doPost(request, response);
+		int id = Integer.parseInt(request.getParameter("idfeedback"));
+		FeedBack b = (new FeedBack()).getById(id);
+		if (b != null) {
+			if (b.updateStatusFeedback() == 1) {
+
+			} else {
+
+			}
+		}
+		response.sendRedirect("managefeedback.jsp");
 	}
 
 	/**
@@ -44,20 +54,6 @@ public class DeleteBookChapter extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		String titlebook = request.getParameter("titlebook");
-		int id = Integer.parseInt(request.getParameter("idbookchapter"));
-		Book_Chapter b = (new Book_Chapter()).getById(id);
-		int idbook = b.getIdbook();
-		if (b != null) {
-			if (b.deleteBook_Chapter() == 1) {
-
-			} else {
-
-			}
-		}
-		response.sendRedirect("managebookchapter.jsp?idbook=" + idbook
-				+ "&titlebook=" + titlebook);
 	}
+
 }

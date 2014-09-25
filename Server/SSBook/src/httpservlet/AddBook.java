@@ -160,8 +160,8 @@ public class AddBook extends HttpServlet {
 			// add fail
 			out.println("<p align=\"center\"><font color=red>Thêm Sách thất bại. Vui lòng kiểm tra và thử lại !</font></p>");
 			out.println("<p align=\"center\"><font color=red><a href='addbook.jsp'>Click vào đây để up lại</a></font></p>");
-			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <code>"
-					+ e.getMessage() + "</code></p>");
+			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <pre class'javascript'>"
+					+ e.getMessage() + "</pre></p>");
 			out.println(" </body>");
 			out.println("</html>");
 		}

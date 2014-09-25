@@ -10,20 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Book;
-import model.Book_Category;
+import model.FeedBack;
 
 /**
- * Servlet implementation class TableListCategory
+ * Servlet implementation class TableListFeedBack
  */
-@WebServlet("/TableListCategory")
-public class TableListCategory extends HttpServlet {
+@WebServlet("/TableListFeedBack")
+public class TableListFeedBack extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TableListCategory() {
+	public TableListFeedBack() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -35,42 +34,32 @@ public class TableListCategory extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		try {
-			int role = (int)request.getSession().getAttribute("role");
 			PrintWriter out = response.getWriter();
-			Book_Category bookQuery = new Book_Category();
-			ArrayList<Book_Category> bcs = new ArrayList<Book_Category>();
-			bcs = bookQuery.getAllCategory();
+			FeedBack feedbackquery = new FeedBack();
+			ArrayList<FeedBack> lstfeedbacks = new ArrayList<FeedBack>();
+			lstfeedbacks = feedbackquery.getAllFeedback();
 			int i = 1;
-			for (Book_Category bc : bcs) {
+			for (FeedBack feedback : lstfeedbacks) {
 //				if (i % 2 == 0) {
 //					out.println("<tr class=\"alternate-row\">");
 //				} else {
-//					out.println("<tr>");
+//					
 //				}
 				out.println("<tr>");
-				out.println("<td> <a href=\"managebook.jsp?category="
-						+ bc.getIdCategory() + "\">" + bc.getIdCategory()
-						+ "</a></td>");
+				out.println("<td>" + feedback.getIdfeedback() + "</td>");
+				out.println("<td>" + feedback.getTitlebook() + "</td>");
+				out.println("<td>" + feedback.getAuthorbook() + "</td>");
+				out.println("<td>" + feedback.getFeedback() + "</td>");
+				out.println("<td  class=\"options-width\">");
 
-				out.println("<td><a href=\"managebook.jsp?category="
-						+ bc.getIdCategory() + "\">" + bc.getCategory()
-						+ "</a></td>");
-				out.println("<td><a href=\"managebook.jsp?category="
-						+ bc.getIdCategory() + "\">"
-						+ bc.getNumBookByCate(bc.getIdCategory()) + "</a></td>");
-				out.println("<td>");
-				if (role == 1) {
-					out.println("<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"confirmSubmit("
-							+ bc.getIdCategory() + ")\"></a>");
-				}
-				out.println("<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbookcategory.jsp?idbook="
-						+ bc.getIdCategory() + "\" ></a>" + "</td>");
-
-				out.println("</tr>");
+				out.println("<a title='Đã Xử Lý' class=\"icon-5 info-tooltip\" href=\"ApproveFeedBack?idfeedback="
+						+ feedback.getIdfeedback() + "\"></a>");
+				out.println("</td></tr>");
 				i++;
 			}
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
