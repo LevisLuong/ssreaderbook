@@ -6,6 +6,7 @@
 <html>
 <jsp:include page="head.jsp">
 	<jsp:param name="title" value="Quản lý sách" />
+	<jsp:param name="sorttable" value="no" />
 </jsp:include>
 
 <script type="text/javascript">
@@ -70,68 +71,72 @@
 								<form id="mainform" action="">
 									<table border="0" width="100%" cellpadding="0" cellspacing="0"
 										id="product-table">
-										<tr>
-											<%
-												String key = request.getParameter("key") == null ? "" : request
-														.getParameter("key");
-												int typesearch = 1;
-												if (request.getParameter("typesearch") != null) {
-													try {
-														typesearch = Integer.parseInt(request
-																.getParameter("typesearch"));
-													} catch (Exception e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
+										<thead>
+											<tr>
+												<%
+													String key = request.getParameter("key") == null ? "" : request
+															.getParameter("key");
+													int typesearch = 1;
+													if (request.getParameter("typesearch") != null) {
+														try {
+															typesearch = Integer.parseInt(request
+																	.getParameter("typesearch"));
+														} catch (Exception e) {
+															// TODO Auto-generated catch block
+															e.printStackTrace();
+														}
 													}
-												}
-												int category = 0;
-												if (request.getParameter("category") != null) {
-													try {
-														category = Integer.parseInt(request
-																.getParameter("category"));
-													} catch (Exception e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
+													int category = 0;
+													if (request.getParameter("category") != null) {
+														try {
+															category = Integer.parseInt(request
+																	.getParameter("category"));
+														} catch (Exception e) {
+															// TODO Auto-generated catch block
+															e.printStackTrace();
+														}
 													}
-												}
-												int typeOrder = 1;
-												if (request.getParameter("order") != null) {
-													try {
-														typeOrder = Integer.parseInt(request.getParameter("order"));
-													} catch (Exception e) {
-														// TODO Auto-generated catch block
-														e.printStackTrace();
+													int typeOrder = 1;
+													if (request.getParameter("order") != null) {
+														try {
+															typeOrder = Integer.parseInt(request.getParameter("order"));
+														} catch (Exception e) {
+															// TODO Auto-generated catch block
+															e.printStackTrace();
+														}
 													}
-												}
 
-												request.setAttribute("key", key);
-												request.setAttribute("category", category);
-												request.setAttribute("order", typeOrder);
-												request.setAttribute("typesearch", typesearch);
-											%>
-											<th class="table-header-repeat line-left"><a
-												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=1">Id</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=2">Tựa
-													sách</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=3">Tác
-													giả</a></th>
-											<th class="table-header-repeat line-left"><a
-												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=4">Tóm
-													tắt</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=5">Hình
-													cover</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="managebookcategory.jsp">Danh mục</a></th>
-											<th class="table-header-repeat line-left"><a href="">Số
-													lượng chapter</a></th>
-											<th class="table-header-repeat line-left"><a href="">Người
-													Upload</a></th>
-											<th class="table-header-repeat line-left minwidth-1"><a
-												href="">Chức năng</a></th>
+													request.setAttribute("key", key);
+													request.setAttribute("category", category);
+													request.setAttribute("order", typeOrder);
+													request.setAttribute("typesearch", typesearch);
+												%>
+												<th class="table-header-repeat line-left"><a
+													href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=1"><span>Id</span></a></th>
+												<th class="table-header-repeat line-left minwidth-1"><a
+													href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=2"><span>Tựa
+															sách</span></a></th>
+												<th class="table-header-repeat line-left minwidth-1"><a
+													href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=3"><span>Tác
+															giả</span></a></th>
+												<th class="table-header-repeat line-left"><a
+													href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=4"><span>Tóm
+															tắt</span></a></th>
+												<th class="table-header-repeat line-left minwidth-1"><a
+													href="managebook.jsp?&key=${key}&typesearch=${typesearch}&category=${category}&order=5"><span>Hình
+															cover</span></a></th>
+												<th class="table-header-repeat line-left minwidth-1"><a
+													href="managebookcategory.jsp"><span>Danh mục</span></a></th>
+												<th class="table-header-repeat line-left"><a href=""><span>Số
+															lượng chapter</span></a></th>
+												<th class="table-header-repeat line-left"><a href=""><span>Người
+															Upload</span></a></th>
+												<th class="table-header-repeat line-left minwidth-1"><a
+													href=""><span>Chức năng</span></a></th>
+										</thead>
+										<tbody>
 											<jsp:include page="TableListBook" />
+										</tbody>
 										</tr>
 
 
@@ -157,17 +162,6 @@
 										class="page-right"></a> <a
 										href="managebook.jsp?page=${numberOfPages}&key=${key}&typesearch=${typesearch}&category=${category}&order=${order}"
 										class="page-far-right"></a></td>
-
-									<td>
-										<form name="selectform">
-											<select name="select" class="styledselect_pages"
-												onchange="window.top.location = 'managebook.jsp?key=${key}&typesearch=${typesearch}&category=${category}&order=${order}&page=' +  this.form.select.options[this.form.select.selectedIndex].value">
-												<c:forEach begin="1" end="${numberOfPages}" var="i">
-													<option value="${i}">${i}</option>
-												</c:forEach>
-											</select>
-										</form>
-									</td>
 								</tr>
 							</table>
 							<!--  end paging................ -->

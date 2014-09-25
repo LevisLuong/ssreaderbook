@@ -57,9 +57,7 @@
 					height="14" alt="" />
 			</div>
 			<div class="showhide-accountname">
-				<%=
-					session.getAttribute("username")
-				%>
+				<%=session.getAttribute("username")%>
 			</div>
 			<div class="nav-divider">&nbsp;</div>
 			<a href="Logout" id="logout"><img
@@ -115,23 +113,24 @@
 							%>
 							<li><a href="managebook.jsp"><b>Quản lý sách</b></a></li>
 						</ul>
-						<%-- <!-- Check select menu 3 -->
-				<div class="nav-divider">&nbsp;</div>
-				
-				<%
-				if(request.getParameter("select").equals("3")){
-				%>
-					<ul class="current">
-				<%
-				}else{
-				%>
-					<ul class="select">
-				<%
-				}
-				%>
-					<li><a href="TrackingPage.jsp"><b>Trang Thống Kê</b></a></li>
-				</ul> --%>
-						<div class="clear"></div>
+						<!-- Check select menu 3 -->
+						<div class="nav-divider">&nbsp;</div>
+
+						<%
+							if (request.getParameter("select").equals("3")) {
+						%>
+						<ul class="current">
+							<%
+								} else {
+							%>
+							<ul class="select">
+								<%
+									}
+								%>
+								<li><a href="managefeedback.jsp"><b>Trang xử lý
+											phản hồi</b></a></li>
+							</ul>
+							<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
 		</div>

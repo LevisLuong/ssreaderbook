@@ -1,7 +1,10 @@
 package model;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import Dao.Database;
 
@@ -11,9 +14,7 @@ public class FeedBack {
 	String authorbook;
 	String feedback;
 	/*
-	 * status
-	 * 0: chua xu ly
-	 * 1: da xu ly
+	 * status 0: chua xu ly 1: da xu ly
 	 */
 	int status;
 
@@ -151,6 +152,81 @@ public class FeedBack {
 		return 0;
 	}
 
+	public FeedBack getById(int id) {
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT * FROM feedback WHERE idfeedback = ? ";
+			sql = sql + "ORDER BY idfeedback";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				FeedBack feedback = new FeedBack();
+				feedback.setIdfeedback(rs.getInt("idfeedback"));
+				feedback.setTitlebook(rs.getString("titlebook"));
+				feedback.setAuthorbook(rs.getString("authorbook"));
+				feedback.setFeedback(rs.getString("feedback"));
+				return feedback;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return null;
+	}
+
+	public ArrayList<FeedBack> getAllFeedback() throws Exception {
+		ArrayList<FeedBack> lstfeedbacks = new ArrayList<FeedBack>();
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT * FROM feedback WHERE status = 0";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				FeedBack feedback = new FeedBack();
+				feedback.setIdfeedback(rs.getInt("idfeedback"));
+				feedback.setTitlebook(rs.getString("titlebook"));
+				feedback.setAuthorbook(rs.getString("authorbook"));
+				feedback.setFeedback(rs.getString("feedback"));
+				lstfeedbacks.add(feedback);
+			}
+			return lstfeedbacks;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+	}
+
 	public int updateStatusFeedback() {
 		Database conn = null;
 		Statement stmt = null;
@@ -158,7 +234,7 @@ public class FeedBack {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String.format(
-					"UPDATE feedback SET `status'= 1 WHERE `idfeedback`='%d';",
+					"UPDATE feedback SET `status`= 1 WHERE `idfeedback`='%d';",
 					this.idfeedback);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;

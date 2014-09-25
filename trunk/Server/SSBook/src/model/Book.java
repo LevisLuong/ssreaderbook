@@ -151,6 +151,38 @@ public class Book {
 		return 0;
 	}
 
+	public int updateDateCreated() {
+		Database conn = null;
+		Statement stmt = null;
+		try {
+			conn = new Database();
+			stmt = conn.Get_Connection().createStatement();
+			String sqlUpdate = String
+					.format("UPDATE book SET `datecreated`='%s' WHERE `idbook`='%d';",
+							this.datecreated,
+							this.idbook);
+			int result = stmt.executeUpdate(sqlUpdate);
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception e) { /* ignored */
+			}
+
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return 0;
+	}
+
 	public int updateBook() {
 		Database conn = null;
 		Statement stmt = null;
@@ -617,15 +649,16 @@ public class Book {
 		}
 		return 0;
 	}
+
 	public int updateCountDownload() {
 		Database conn = null;
 		Statement stmt = null;
 		try {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
-			String sqlUpdate = String.format(
-					"UPDATE book SET `countdownload`='%d' WHERE `idbook`='%d';",
-					this.countdownload + 1, this.idbook);
+			String sqlUpdate = String
+					.format("UPDATE book SET `countdownload`='%d' WHERE `idbook`='%d';",
+							this.countdownload + 1, this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -647,6 +680,7 @@ public class Book {
 		}
 		return 0;
 	}
+
 	public int getIdAuto() {
 		int id = 0;
 		Database conn = null;

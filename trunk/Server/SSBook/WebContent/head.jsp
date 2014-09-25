@@ -15,6 +15,26 @@
 <!--  jquery core -->
 <script type="text/javascript" src="js/jquery/jquery-1.4.1.min.js"></script>
 <script type="text/javascript" src="js/jquery/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.tablesorter.min.js"></script>
+
+<%
+	if (request.getParameter("sorttable") == null) {
+%>
+<script type="text/javascript"
+	src="js/jquery/jquery.tablesorter.pager.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#product-table").tablesorter({
+			widthFixed : true,
+			widgets : [ 'zebra' ]
+		}).tablesorterPager({
+			container : $("#paging-table")
+		});
+	});
+</script>
+<%
+	}
+%>
 <!-- <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script> -->
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>

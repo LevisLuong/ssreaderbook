@@ -1,12 +1,10 @@
 package httpservlet;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -120,6 +118,7 @@ public class AddBookChapter extends HttpServlet {
 			out.println(" </head>");
 			out.println(" <body>");
 			if (bc.addBook_Chapter() == 1) {
+				
 				// add success
 				out.println("<p align=\"center\"><font color=red>Thêm chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
 			} else {
@@ -147,8 +146,8 @@ public class AddBookChapter extends HttpServlet {
 					+ "&titlebook="
 					+ b.getTitle()
 					+ "'>Click vào đây để up lại</a></font></p>");
-			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <code>"
-					+ e.getMessage() + "</code></p>");
+			out.print("<p align='center' style='max-height: 150px;overflow: auto'>Lỗi cho developer: <pre class'javascript'>"
+					+ e.getMessage() + "</pre></p>");
 			out.println(" </body>");
 			out.println("</html>");
 		}

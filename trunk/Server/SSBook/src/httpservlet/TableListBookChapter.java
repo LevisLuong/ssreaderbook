@@ -51,11 +51,12 @@ public class TableListBookChapter extends HttpServlet {
 				if (bookchap.getApproved() == 0) {
 					out.println("<tr class=\"not-approved\">");
 				} else {
-					if (i % 2 == 0) {
-						out.println("<tr class=\"alternate-row\">");
-					} else {
-						out.println("<tr>");
-					}
+//					if (i % 2 == 0) {
+//						out.println("<tr class=\"alternate-row\">");
+//					} else {
+//						out.println("<tr>");
+//					}
+					out.println("<tr>");
 				}
 
 				String namechapter = bookchap.getFilename();
