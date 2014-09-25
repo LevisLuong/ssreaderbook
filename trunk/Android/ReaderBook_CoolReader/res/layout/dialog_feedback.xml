@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_gravity="center"
+              android:layout_margin="@dimen/afc_10dp"
+              android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/afc_5dp"
+        android:layout_marginTop="@dimen/afc_5dp"
+        android:gravity="center"
+        android:shrinkColumns="1">
+
+        <TextView
+            style="@style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/apptheme_color"
+            android:text="Yêu cầu sách"
+            android:textColor="@android:color/white"/>
+
+        <TableRow>
+
+            <org.holoeverywhere.widget.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/afc_10dp"
+                android:text="Tựa sách:"
+                android:textStyle="bold"/>
+
+            <org.holoeverywhere.widget.EditText
+                android:id="@+id/dlgfeedback_titlebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:scrollbars="vertical"
+                android:text=""/>
+        </TableRow>
+
+        <TableRow>
+
+            <org.holoeverywhere.widget.TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/afc_10dp"
+                android:text="Tác giả:"
+                android:textStyle="bold"/>
+
+            <org.holoeverywhere.widget.EditText
+                android:id="@+id/dlgfeedback_authorbook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:scrollbars="vertical"
+                android:text=""/>
+        </TableRow>
+
+        <TextView
+            style="@style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/apptheme_color"
+            android:text="Ý kiến đóng góp"
+            android:textColor="@android:color/white"/>
+
+        <org.holoeverywhere.widget.EditText
+            android:id="@+id/dlgfeedback_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="5"
+            android:scrollHorizontally="false"
+            android:scrollbars="vertical"
+            android:text=""
+            android:layout_marginTop="@dimen/afc_10dp"/>
+    </TableLayout>
+</LinearLayout>
