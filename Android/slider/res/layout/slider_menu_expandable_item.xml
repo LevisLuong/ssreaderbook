@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="?listPreferredItemHeightSmall"
-    android:background="?selectableItemBackground"
-    android:minHeight="?listPreferredItemHeightSmall"
-    android:orientation="horizontal">
+              android:layout_width="match_parent"
+              android:layout_height="?listPreferredItemHeightSmall"
+              android:background="?selectableItemBackground"
+              android:minHeight="?listPreferredItemHeightSmall"
+              android:orientation="horizontal">
 
     <View
         android:id="@+id/selectionHandler"
         android:layout_width="6dp"
         android:layout_height="match_parent"
-        android:layout_marginRight="6dp" />
+        android:layout_marginRight="6dp"/>
 
     <ImageView
         android:id="@android:id/icon1"
@@ -19,7 +19,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginRight="8dp"
         android:maxHeight="52dp"
-        android:maxWidth="52dp" />
+        android:maxWidth="52dp"/>
 
     <TextView
         android:id="@android:id/text1"
@@ -27,11 +27,11 @@
         android:layout_weight="1"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:textAppearance="?android:textAppearanceMedium" />
+        android:textAppearance="?android:textAppearanceMedium"/>
 
     <org.holoeverywhere.slider.SliderMenuGroupIndicatorView
         android:id="@+id/slider_menu_group_indicator"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:src="?sliderMenuGroupIndicator" />
+        android:src="?sliderMenuGroupIndicator"/>
 </LinearLayout>

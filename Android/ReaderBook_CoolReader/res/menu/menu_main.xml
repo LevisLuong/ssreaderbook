@@ -8,4 +8,14 @@
         android:icon="@drawable/ic_menu_search"
         android:showAsAction="ifRoom|collapseActionView"
         android:title="@string/action_search"/>
+    <!-- Settings, should always be in the overflow -->
+    <item android:id="@+id/action_feedback"
+          android:title="Yêu cầu sách và đóng góp ý kiến"
+          android:showAsAction="collapseActionView" />
+    <item android:id="@+id/action_about"
+          android:title="Giới thiệu ứng dụng"
+          android:showAsAction="collapseActionView" />
+    <item android:id="@+id/action_exit"
+          android:title="Thoát"
+          android:showAsAction="collapseActionView" />
 </menu>

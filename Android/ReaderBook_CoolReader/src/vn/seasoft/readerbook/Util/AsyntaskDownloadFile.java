@@ -60,9 +60,7 @@ public class AsyntaskDownloadFile extends AsyncTask<String, String, String> {
         File file;
         try {
             String urlFile = f_url[0].replace(" ", "%20");
-            System.out.println("Download url: " + urlFile);
             file = SSUtil.downloadBook(urlFile);
-            System.out.println("Save book to: " + file.getAbsolutePath());
             if (file.exists()) {
                 return file.getAbsolutePath();
             } else {

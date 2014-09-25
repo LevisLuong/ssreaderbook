@@ -205,8 +205,8 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
             register(androidId, appId);
         } else {
             HoloEverywhere.warn("Failed to register layout remapping:\n" +
-                    "  Android ID: 0x%8x\n" +
-                    "  Application ID: 0x%8x",
+                            "  Android ID: 0x%8x\n" +
+                            "  Application ID: 0x%8x",
                     androidId, appId);
         }
     }

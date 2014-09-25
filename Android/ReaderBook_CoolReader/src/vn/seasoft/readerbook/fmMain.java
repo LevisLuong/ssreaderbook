@@ -29,8 +29,6 @@ import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
 import vn.seasoft.readerbook.widget.ViewError;
 
-import java.util.List;
-
 /**
  * User: XuanTrung
  * Date: 7/29/2014
@@ -60,16 +58,20 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
         fmmainContainernewbook = (RelativeLayout) root.findViewById(R.id.fmmain_containernewbook);
         fmmainContainerhotbook = (RelativeLayout) root.findViewById(R.id.fmmain_containerhotbook);
 
+        fmmainContainerread.setBackgroundResource(R.drawable.bookshelf_layer_center);
+        fmmainContainernewbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
+        fmmainContainerhotbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
+
         addViewContainer(fmmainContainerread, new ProgressBar(mContext));
         addViewContainer(fmmainContainernewbook, new ProgressBar(mContext));
         addViewContainer(fmmainContainerhotbook, new ProgressBar(mContext));
 
         fmmainLvread = new HListView(mContext);
-        fmmainLvread.setBackgroundResource(R.drawable.bookshelf_layer_center);
+//        fmmainLvread.setBackgroundResource(R.drawable.bookshelf_layer_center);
         fmmainLvnewbook = new HListView(mContext);
-        fmmainLvnewbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
+//        fmmainLvnewbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
         fmmainLvhotbook = new HListView(mContext);
-        fmmainLvhotbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
+//        fmmainLvhotbook.setBackgroundResource(R.drawable.bookshelf_layer_center);
         setListenerListview();
 
     }
@@ -177,23 +179,28 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
 
     void addViewContainer(RelativeLayout container, View addview) {
         container.removeAllViews();
+        RelativeLayout.LayoutParams layoutParams;
+        if (addview instanceof HListView) {
+            layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        } else {
+            layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
 
-        container.addView(addview);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-        addview.setLayoutParams(layoutParams);
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, 1);
+        container.addView(addview, layoutParams);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Retain this fragment across configuration changes.
+        setRetainInstance(true);
+
         mContext = getActivity();
         adapterlvRead = new AdapterHListViewBook(mContext);
         adapterlvNewBook = new AdapterHListViewBook(mContext);
         adapterlvHotBook = new AdapterHListViewBook(mContext);
-
         getSupportActionBar().setSubtitle("Trang chủ");
-
     }
 
     @Override
@@ -233,13 +240,6 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
         return rootView;
     }
 
-    public void loadCategory() {
-        if (!GlobalData.isLoadCategory) {
-            GlobalData.ShowProgressDialog(mContext, R.string.loading);
-            SSReaderApplication.getRequestServer(mContext, this).getCategoryBook();
-        }
-    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -275,13 +275,6 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 }
             }));
         }
-        if (urlMethod.equals(COMMAND_API.GET_CATEGORY_BOOK)) {
-            GlobalData.isLoadCategory = true;
-            List<Book_Category> lst = (new Book_Category()).getAllData();
-            for (Book_Category bc : lst) {
-                ((MainActivity) getActivity()).addItemSliderMenu(bc);
-            }
-        }
     }
 
     public void scrollRight(final HListView h) {
@@ -301,10 +294,9 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
 
     @Override
     public void onGetData(ResultObject resultData, String urlMethod, int id) {
-        GlobalData.DissmissProgress();
         if (urlMethod.equals(COMMAND_API.GET_CATEGORY_BOOK)) {
-            GlobalData.isLoadCategory = true;
             Result_GetCategory data = (Result_GetCategory) resultData;
+            ((MainActivity) getActivity()).removeAllItemSlider();
             for (Book_Category bc : data.lstBookCategory) {
                 ((MainActivity) getActivity()).addItemSliderMenu(bc);
             }
@@ -331,5 +323,6 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 fmmainLvnewbook.removeFooterView(footerLoadmore);
             }
         }
+        GlobalData.DissmissProgress();
     }
 }

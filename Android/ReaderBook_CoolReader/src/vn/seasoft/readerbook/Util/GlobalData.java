@@ -15,7 +15,6 @@ import vn.seasoft.readerbook.sqlite.RepoController;
 public class GlobalData {
     public static RepoController repo;
     public static final String LOCATION_SAVE_BOOK = "SSBooks";
-    public static boolean isLoadCategory = false;
 
     static ProgressDialog progressDialog;
 

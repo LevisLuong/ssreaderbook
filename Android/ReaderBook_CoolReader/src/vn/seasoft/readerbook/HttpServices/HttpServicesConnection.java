@@ -5,6 +5,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import org.json.JSONException;
 import org.json.JSONObject;
 import vn.seasoft.readerbook.SSReaderApplication;
+import vn.seasoft.readerbook.Util.SSUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
@@ -108,7 +109,7 @@ public class HttpServicesConnection {
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            System.out.println("response server: " + response);
+                            SSUtil.App_Log("Response from server: ", response + "");
                             try {
                                 int errorCode = 0;
                                 if (!response.isNull("errorcode")) {
@@ -121,7 +122,6 @@ public class HttpServicesConnection {
                                     }
 
                                 } else { // Get error code 1
-                                    System.out.println("error code: " + errorCode);
                                     if (mCallback != null) {
                                         mCallback.onDataError(errorCode, urlMethod);
                                     }
@@ -136,17 +136,14 @@ public class HttpServicesConnection {
                 public void onErrorResponse(VolleyError error) {
                     error.printStackTrace();
                     if (error instanceof TimeoutError) {
-                        System.out.println("Server timeout: " + error.getMessage());
                         if (mCallback != null) {
                             mCallback.onDataError(ErrorType.ERROR_TIMEOUT, urlMethod);
                         }
                     } else if ((error instanceof NetworkError) || (error instanceof NoConnectionError)) {
-                        System.out.println("No network connection: " + error.getMessage());
                         if (mCallback != null) {
                             mCallback.onDataError(ErrorType.NO_NETWORK_CONNECTION, urlMethod);
                         }
                     } else if ((error instanceof ServerError) || (error instanceof AuthFailureError)) {
-                        System.out.println("Server error: " + error.getMessage());
                         if (mCallback != null) {
                             mCallback.onDataError(ErrorType.SERVER_ERROR, urlMethod);
                         }

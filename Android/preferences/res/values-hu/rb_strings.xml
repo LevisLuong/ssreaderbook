@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="back_button_label">"Vissza"</string>
-  <string name="next_button_label">"Tovább"</string>
-  <string name="skip_button_label">"Kihagyás"</string>
+    <string name="back_button_label">"Vissza"</string>
+    <string name="next_button_label">"Tovább"</string>
+    <string name="skip_button_label">"Kihagyás"</string>
 </resources>

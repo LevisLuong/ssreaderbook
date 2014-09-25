@@ -32,6 +32,8 @@ public class Book {
     @DatabaseField
     Integer countview;
     @DatabaseField
+    Integer countdownload;
+    @DatabaseField
     Boolean isnew;
     @DatabaseField
     Date date_created;
@@ -115,6 +117,14 @@ public class Book {
 
     public void setDate_created(Date date_created) {
         this.date_created = date_created;
+    }
+
+    public Integer getCountdownload() {
+        return countdownload;
+    }
+
+    public void setCountdownload(Integer countdownload) {
+        this.countdownload = countdownload;
     }
 
     /*Method for book*/

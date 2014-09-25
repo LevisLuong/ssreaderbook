@@ -2,8 +2,8 @@
 <manifest
     package="vn.seasoft.readerbook"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="1"
-    android:versionName="1.0">
+    android:versionCode="2"
+    android:versionName="1.1">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <supports-screens
         android:anyDensity="true"
@@ -24,14 +25,14 @@
     <application
         android:name=".SSReaderApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
         android:configChanges="keyboard|keyboardHidden|navigation|orientation|screenSize|smallestScreenSize|locale"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true">
 
         <activity
             android:name="vn.seasoft.readerbook.MainActivity"
-            android:configChanges="orientation|keyboardHidden|locale|screenSize"
+            android:configChanges="keyboardHidden|locale|screenSize"
             android:theme="@style/HoloThemeWithSliderMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -54,7 +55,8 @@
             android:name=".actReadPictureBook"
             android:configChanges="orientation|keyboardHidden|locale|screenSize"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Holo.Theme.NoActionBar.Fullscreen">
+            android:screenOrientation="portrait"
+            android:theme="@style/Holo.Theme.Light.NoActionBar.Fullscreen">
 
         </activity>
 
@@ -72,6 +74,7 @@
                     android:host=""
                     android:scheme="file"/>
                 <data android:pathPattern=".*\\.fb2\\.zip"/>
+                <data android:pathPattern=".*\\.zip"/>
                 <data android:pathPattern=".*\\.fb2"/>
                 <data android:pathPattern=".*\\.txt"/>
                 <data android:pathPattern=".*\\.html"/>
@@ -96,6 +99,7 @@
                     android:scheme="file"/>
                 <data android:mimeType="text/plain"/>
                 <data android:mimeType="text/html"/>
+                <data android:mimeType="application/zip"/>
                 <data android:mimeType="application/rtf"/>
                 <data android:mimeType="application/msword"/>
                 <data android:mimeType="application/x-rtf"/>
@@ -121,6 +125,13 @@
         <service android:name="org.coolreader.sync.SyncService"/>
         <!-- Database service -->
         <service android:name="org.coolreader.db.CRDBService"/>
+
+        <!--<activity-->
+            <!--android:name="com.facebook.LoginActivity"-->
+            <!--android:label="@string/app_name"/>-->
+        <!--<meta-data-->
+            <!--android:name="com.facebook.sdk.ApplicationId"-->
+            <!--android:value="@string/app_id"/>-->
     </application>
 
 </manifest>

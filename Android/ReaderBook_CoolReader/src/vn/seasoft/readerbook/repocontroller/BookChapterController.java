@@ -1,6 +1,8 @@
 package vn.seasoft.readerbook.repocontroller;
 
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import vn.seasoft.readerbook.model.Book_Chapter;
 import vn.seasoft.readerbook.sqlite.DatabaseHelper;
 
@@ -63,15 +65,30 @@ public class BookChapterController {
         }
         return null;
     }
-    public List<Book_Chapter> getByIdBook(int idbook) {
+
+    public Book_Chapter getNextChapter(int idbook_chapter, int idbook) {
         try {
-            return Dao.queryForEq("idbook",idbook);
+            QueryBuilder<Book_Chapter, Integer> qb = Dao.queryBuilder();
+            qb.where().eq("idbook", idbook).and().gt("idbook_chapter", idbook_chapter);
+            PreparedQuery<Book_Chapter> pq = qb.prepare();
+            return Dao.queryForFirst(pq);
         } catch (SQLException e) {
             // TODO: Exception Handling
             e.printStackTrace();
         }
         return null;
     }
+
+    public List<Book_Chapter> getByIdBook(int idbook) {
+        try {
+            return Dao.queryForEq("idbook", idbook);
+        } catch (SQLException e) {
+            // TODO: Exception Handling
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public List<Book_Chapter> getAll() {
         try {
             return Dao.queryForAll();

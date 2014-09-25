@@ -23,7 +23,6 @@ package com.nineoldandroids.util;
  * <code>Integer</code> class.
  *
  * @param <T> The class on which the Property is declared.
- *
  * @hide
  */
 public abstract class IntProperty<T> extends Property<T, Integer> {

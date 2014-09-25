@@ -2,13 +2,13 @@
 <!--
    Option item layout for CR3 options dialog
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
-    android:id="@+id/option_item_body"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
-    android:gravity="center_vertical"
-    android:paddingRight="?android:attr/scrollbarSize"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/option_item_body"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:minHeight="?android:attr/listPreferredItemHeight"
+              android:gravity="center_vertical"
+              android:paddingRight="?android:attr/scrollbarSize"
     >
 
     <ImageView
@@ -27,25 +27,27 @@
         android:layout_marginBottom="6dip"
         android:layout_weight="1">
 
-        <TextView android:id="@+id/option_label"
+        <TextView
+            android:id="@+id/option_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="false"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:maxLines="2" 
+            android:maxLines="2"
             />
         <!--android:ellipsize="marquee"
             android:fadingEdge="horizontal"
          -->
-        <TextView android:id="@+id/option_value"
+        <TextView
+            android:id="@+id/option_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/option_label"
             android:layout_alignLeft="@id/option_label"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="4" />
+            android:maxLines="4"/>
 
     </RelativeLayout>
-    
+
 </LinearLayout>

@@ -7,17 +7,21 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
+import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.holoeverywhere.HoloEverywhere;
 import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.ThemeManager;
 import org.holoeverywhere.app.Application;
+import org.holoeverywhere.widget.Toast;
+import vn.seasoft.readerbook.HttpServices.COMMAND_API;
+import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
 import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.RequestObjects.Request_Server;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.sqlite.RepoController;
 
-public class SSReaderApplication extends Application implements OnHttpServicesListener{
+public class SSReaderApplication extends Application implements OnHttpServicesListener {
     final static String TAG = "SSReaderBook";
 
     static {
@@ -46,6 +50,13 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
                 R.style.Holo_Theme_Light_NoActionBar_Fullscreen);
 
         ThemeManager.setDefaultTheme(ThemeManager.LIGHT);
+    }
+
+    //adapter provider for social
+    private static SocialAuthAdapter socialAdapter = null;
+
+    public static SocialAuthAdapter getSocialAdapter() {
+        return socialAdapter;
     }
 
     /**
@@ -140,15 +151,25 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         super.onCreate();
         instance = this;
         GlobalData.repo = new RepoController(this);
+        if (socialAdapter == null) {
+            socialAdapter = new SocialAuthAdapter(null);
+        }
+
     }
 
     @Override
     public void onDataError(int errortype, String urlMethod) {
-
+        GlobalData.DissmissProgress();
+        ErrorType.getErrorMessage(this, errortype);
     }
 
     @Override
     public void onGetData(ResultObject resultData, String urlMethod, int id) {
-
+        if (urlMethod.equals(COMMAND_API.ADD_FEEDBACK)) {
+            if (urlMethod.equals(COMMAND_API.ADD_FEEDBACK)) {
+                Toast.makeText(getInstance(), "Cảm ơn bạn đã phản hồi", Toast.LENGTH_SHORT).show();
+            }
+        }
+        GlobalData.DissmissProgress();
     }
 }

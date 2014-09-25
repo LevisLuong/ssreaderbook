@@ -4,6 +4,8 @@ package vn.seasoft.readerbook.HttpServices;
  * Created by XuanTrung on 6/30/2014.
  */
 public class COMMAND_API {
+    public final static String ADD_FEEDBACK = "api/UserFeedBack";
+    public final static String ADD_COUNT_BOOK = "api/AddCountBook";
     public final static String SET_USER_ONLINE = "api/UserOnline";
     public final static String SET_USER_OFFLINE = "api/UserLeaveApp";
     public final static String GET_CATEGORY_BOOK = "api/GetCategory";

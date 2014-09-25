@@ -1,6 +1,7 @@
 package vn.seasoft.readerbook.widget;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,7 @@ public class ViewError extends LinearLayout {
         if (onCLickRetryListener != null) {
             btnRetry.setOnClickListener(onCLickRetryListener);
         }
+        setColorText(Color.WHITE);
     }
 
     public void setColorText(int color) {

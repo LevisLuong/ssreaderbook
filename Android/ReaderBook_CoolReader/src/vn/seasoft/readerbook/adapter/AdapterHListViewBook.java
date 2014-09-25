@@ -112,7 +112,7 @@ public class AdapterHListViewBook extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         ViewHolder holder;
         if (view == null) {
-            view = inflater.inflate(R.layout.gridbook_item, viewGroup, false);
+            view = inflater.inflate(R.layout.hlistview_item, viewGroup, false);
             holder = new ViewHolder(view);
             view.setTag(holder);
         } else {
@@ -120,20 +120,24 @@ public class AdapterHListViewBook extends BaseAdapter {
         }
         Book book = lstBooks.get(i);
         if (book != null) {
-            holder.griditemlabel.setText("                              ");
             UrlImageViewHelper.setUrlDrawable(holder.griditemcover, GlobalData.getUrlImageCover(book), R.drawable.book_exam);
+            String titlebook = book.getTitle();
+            if (titlebook.length() > 10) {
+                titlebook = titlebook.substring(0, 10) + "...";
+            }
+            holder.griditemtitle.setText(titlebook);
         }
         return view;
     }
 
     class ViewHolder {
-        public final TextView griditemlabel;
         public final ImageView griditemcover;
         public final View root;
+        public final TextView griditemtitle;
 
         public ViewHolder(View root) {
-            griditemlabel = (TextView) root.findViewById(R.id.grid_item_label);
             griditemcover = (ImageView) root.findViewById(R.id.grid_item_cover);
+            griditemtitle = (TextView) root.findViewById(R.id.grid_item_title);
             this.root = root;
         }
     }

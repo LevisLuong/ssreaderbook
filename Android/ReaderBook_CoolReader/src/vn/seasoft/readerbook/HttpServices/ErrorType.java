@@ -19,6 +19,7 @@ public class ErrorType {
                 Toast.makeText(c, R.string.error_connect, Toast.LENGTH_SHORT).show();
                 break;
             case SERVER_ERROR:
+                Toast.makeText(c, R.string.error_server, Toast.LENGTH_SHORT).show();
                 break;
         }
     }

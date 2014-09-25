@@ -1,12 +1,27 @@
 <resources>
     <string name="app_name">Sách Của Tui</string>
-    <string name="action_settings">"Cài đặt"</string>
+    <string name="app_id">815113905178231</string>
 
+
+    <string name="please_wait">Vui lòng chờ trong giây lát</string>
     <string name="loading">Đang lấy thông tin từ máy chủ</string>
     <string name="error_connect">Vui lòng kết nối mạng để tiếp tục</string>
     <string name="error_timeout">Kết nối quá lâu. Vui lòng thử lại</string>
+    <string name="error_server">Lỗi từ máy chủ. Vui lòng thử lại sau</string>
     <string name="progress_formatting">Đang định dạng sách</string>
-    <string name="progress_loading">"Đang tải sách"</string>
+    <string name="progress_loading">Đang định dạng sách</string>
+    <string name="notice_exitapp">Bạn có chắc muốn thoát ứng dụng ?</string>
+    <string name="about_app">
+        * Ứng dụng “Sách Của Tui” có rất nhiều chủ đề sách phong phú: từ sách về kỹ năng mềm, sách giáo dục, sách lịch sử … cho đến các sách tiểu thuyết, kiếm hiệp, tiên hiệp và truyện tranh nổi tiếng. Và quan trọng hơn cả là được cập nhật thường xuyên đủ để đáp ứng những yêu cầu của các bạn.\n
+        * Đọc sách không cần kết nối mạng, bạn chỉ cần tải sách về và đọc ở chế độ offline thoải mái mà không cần lo lắng.\n
+        * Hiện tại tất cả sách đều được miễn phí và không mang mục đích thương mại.\n
+        * Hãy truy cập https://www.facebook.com/SS.SachCuaTui trên Facebook để cập nhật các thông tin.\n
+        * Để yêu cầu thêm những sách bạn yêu thích và góp ý về App vui lòng vào http://bit.do/N4q6
+    </string>
+
+    <string name="fmmain_newbook">Sách mới</string>
+    <string name="fmmain_top">Top 20 sách yêu thích nhất</string>
+    <string name="fmmain_mybook">Sách Của Tui</string>
 
     <string name="mi_search">"Tìm kiếm"</string>
     <string name="mi_exit">"Thoát"</string>

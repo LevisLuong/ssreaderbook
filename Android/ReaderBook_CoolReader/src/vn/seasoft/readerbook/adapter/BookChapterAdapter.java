@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
@@ -71,7 +72,7 @@ public class BookChapterAdapter extends BaseAdapter {
         boolean isNew = false;
         isLoading = false;
         index = tempIndex;
-        if (index == 1) {
+        if (index <= 1) {
             lstBookChap = _lst;
             isNew = true;
         } else {
@@ -154,6 +155,7 @@ public class BookChapterAdapter extends BaseAdapter {
         book_chapter.setIsDownloaded(false);
         book_chapter.updateData();
         notifyDataSetChanged();
+        Toast.makeText(context, "Đã xóa khỏi máy", Toast.LENGTH_SHORT).show();
     }
 
     class ViewHolder {

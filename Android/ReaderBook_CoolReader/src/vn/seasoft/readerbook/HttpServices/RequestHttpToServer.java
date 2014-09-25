@@ -1,6 +1,7 @@
 package vn.seasoft.readerbook.HttpServices;
 
 import android.content.Context;
+import vn.seasoft.readerbook.Util.SSUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,12 +42,12 @@ public class RequestHttpToServer {
     }
 
     public void requestStringToServer(ResultObject resultObject, String method) {
-        System.out.println("request server: " + params);
+        SSUtil.App_Log("Request to server", params.toString());
         hsc.loadMethodString(params, resultObject, method);
     }
 
     public void requestStringToServer(ResultObject resultObject, String method, int id) {
-        System.out.println("request server: " + params);
+        SSUtil.App_Log("Request to server", params.toString());
         hsc.loadMethodString(params, resultObject, method, id);
     }
 }

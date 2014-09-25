@@ -75,9 +75,9 @@ public class SliderItem extends BaseSliderItem<SliderItem> implements Parcelable
             throw new RuntimeException("SliderItem hasn't attached to SliderMenu, I cannot do anything!");
         }
         return add(new SliderSubItem()
-                .setLabel(label)
-                .setFragmentClass(fragmentClass)
-                .setFragmentArguments(fragmentArguments)
+                        .setLabel(label)
+                        .setFragmentClass(fragmentClass)
+                        .setFragmentArguments(fragmentArguments)
         ).fillColors(colors);
     }
 
