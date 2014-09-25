@@ -157,10 +157,9 @@ public class Book {
 		try {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
-			String sqlUpdate = String
-					.format("UPDATE book SET `datecreated`='%s' WHERE `idbook`='%d';",
-							this.datecreated,
-							this.idbook);
+			String sqlUpdate = String.format(
+					"UPDATE book SET `datecreated`='%s' WHERE `idbook`='%d';",
+					this.datecreated, this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -498,12 +497,16 @@ public class Book {
 
 	public ArrayList<Book> getMostRead(int index) throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
+		// kiểm tra số lượng = 20
+		if (index == 3) {
+			return books;
+		}
 		Database conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM book WHERE isdeleted = 0 ORDER BY countview DESC ";
+			String sql = "SELECT * FROM book WHERE isdeleted = 0 ORDER BY countdownload DESC ";
 			int offset = (index - 1) * DatasOnPage;
 			sql = sql + " LIMIT " + offset + "," + DatasOnPage;
 			ps = conn.Get_Connection().prepareStatement(sql);
@@ -548,7 +551,7 @@ public class Book {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM book WHERE isdeleted = 0 ORDER BY datecreated DESC ";
+			String sql = "SELECT * FROM book WHERE isdeleted = 0 AND (SELECT TIMESTAMPDIFF(DAY,datecreated,(SELECT NOW())) < 3) ORDER BY datecreated DESC ";
 			int offset = (index - 1) * DatasOnPage;
 			sql = sql + " LIMIT " + offset + "," + DatasOnPage;
 			ps = conn.Get_Connection().prepareStatement(sql);
