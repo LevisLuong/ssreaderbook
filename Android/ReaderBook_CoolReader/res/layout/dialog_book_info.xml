@@ -27,17 +27,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/apptheme_color">
+
                     <TextView
                         style="@style/TextAppearance.Large"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thông tin sách"
                         android:textColor="@android:color/white"/>
-                    </RelativeLayout>
+                </RelativeLayout>
 
 
                 <TableLayout
@@ -131,6 +133,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -153,6 +156,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -175,6 +179,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -236,8 +241,8 @@
                     android:id="@+id/dlginfo_sortchapter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/dlginfo_txtsortchapter"
                     android:layout_marginLeft="@dimen/afc_10dp"
+                    android:layout_toRightOf="@id/dlginfo_txtsortchapter"
                     android:background="@null"
                     android:src="@drawable/ic_action_sort"/>
 

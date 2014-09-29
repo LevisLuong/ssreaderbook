@@ -16,6 +16,8 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
@@ -74,6 +76,16 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
             }
         });
         viewError.setColorText(Color.WHITE);
+
+        //add tracker google
+        // Get tracker.
+        Tracker t = ((SSReaderApplication) getActivity().getApplication()).getTracker(
+                SSReaderApplication.TrackerName.APP_TRACKER);
+        // Set screen name.
+        // Where path is a String representing the screen name.
+        t.setScreenName(book_category.getCategory());
+        // Send a screen view.
+        t.send(new HitBuilders.AppViewBuilder().build());
     }
 
     @Override

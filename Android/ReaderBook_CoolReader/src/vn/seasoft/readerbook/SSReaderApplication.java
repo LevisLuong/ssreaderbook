@@ -7,6 +7,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.holoeverywhere.HoloEverywhere;
 import org.holoeverywhere.LayoutInflater;
@@ -20,6 +22,8 @@ import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.RequestObjects.Request_Server;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.sqlite.RepoController;
+
+import java.util.HashMap;
 
 public class SSReaderApplication extends Application implements OnHttpServicesListener {
     final static String TAG = "SSReaderBook";
@@ -146,6 +150,36 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         return instance;
     }
 
+
+    // The following line should be changed to include the correct property id.
+    private static final String PROPERTY_ID = "UA-54609330-1";
+
+    /**
+     * Enum used to identify the tracker that needs to be used for tracking.
+     * <p/>
+     * A single tracker is usually enough for most purposes. In case you do need multiple trackers,
+     * storing them all in Application object helps ensure that they are created only once per
+     * application instance.
+     */
+    public enum TrackerName {
+        APP_TRACKER, // Tracker used only in this app.
+        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
+        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
+    }
+
+    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
+
+    synchronized Tracker getTracker(TrackerName trackerId) {
+        if (!mTrackers.containsKey(trackerId)) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            Tracker t = (trackerId == TrackerName.APP_TRACKER) ? analytics.newTracker(PROPERTY_ID)
+                    : analytics.newTracker(R.xml.global_tracker);
+            mTrackers.put(trackerId, t);
+
+        }
+        return mTrackers.get(trackerId);
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -172,4 +206,6 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         }
         GlobalData.DissmissProgress();
     }
+
+
 }

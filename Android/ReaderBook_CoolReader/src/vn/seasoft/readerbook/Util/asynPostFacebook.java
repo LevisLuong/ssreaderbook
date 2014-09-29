@@ -45,7 +45,7 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
         // TODO Auto-generated method stub
         int result = 0;
         try {
-            content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SachCuaTui";
+            content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SáchCủaTui";
             if (image != null) {
                 result = SSReaderApplication.getSocialAdapter().uploadImage(content, "upload_book.jpg", image, 100);
             } else {

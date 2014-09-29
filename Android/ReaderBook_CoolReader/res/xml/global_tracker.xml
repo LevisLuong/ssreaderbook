@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <screenName name="vn.seasoft.readerbook.MainActivity">
+        Trang chủ
+    </screenName>
+    <!--  The following value should be replaced with correct property id. -->
+    <string name="ga_trackingId">UA-54609330-1</string>
+</resources>

@@ -120,6 +120,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -142,6 +143,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -164,6 +166,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -228,8 +231,8 @@
                     android:id="@+id/dlginfo_sortchapter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/dlginfo_txtsortchapter"
                     android:layout_marginLeft="@dimen/afc_10dp"
+                    android:layout_toRightOf="@id/dlginfo_txtsortchapter"
                     android:background="@null"
                     android:src="@drawable/ic_action_sort"/>
 
