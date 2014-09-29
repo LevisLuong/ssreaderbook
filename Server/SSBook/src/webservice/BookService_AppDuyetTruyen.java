@@ -18,8 +18,8 @@ import model.User_Online;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-@Path("/")
-public class BookService {
+@Path("/appduyettruyen")
+public class BookService_AppDuyetTruyen {
 
 	@Context
 	HttpServletRequest request;
@@ -166,7 +166,7 @@ public class BookService {
 		String bookjson = null;
 		try {
 			ArrayList<Book> books = (new Book()).getAllBookByCategory(
-					idcategory, index, true);
+					idcategory, index, false);
 			bookjson = convertToJson(books);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
@@ -183,7 +183,7 @@ public class BookService {
 		String bookjson = null;
 		try {
 			ArrayList<Book> books = (new Book()).searchBook(keywork, 0, index,
-					true);
+					false);
 			bookjson = convertToJson(books);
 			bookjson = bookjson + keywork + "}";
 			System.out.println("book to json: " + bookjson);
@@ -202,7 +202,7 @@ public class BookService {
 			if (index == 0) {
 				index = 1;
 			}
-			ArrayList<Book> books = (new Book()).getMostRead(index, true);
+			ArrayList<Book> books = (new Book()).getMostRead(index, false);
 			// convert array chapter to json
 			bookjson = convertToJson(books);
 			System.out.println("book to json: " + bookjson);
@@ -221,7 +221,7 @@ public class BookService {
 			if (index == 0) {
 				index = 1;
 			}
-			ArrayList<Book> books = (new Book()).getNewest(index, true);
+			ArrayList<Book> books = (new Book()).getNewest(index, false);
 			// convert array chapter to json
 			bookjson = convertToJson(books);
 			System.out.println("book to json: " + bookjson);

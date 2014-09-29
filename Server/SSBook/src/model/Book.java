@@ -27,6 +27,7 @@ public class Book {
 	int countview;
 	int countdownload;
 	String uploader;
+	int approved;
 
 	@Expose(deserialize = false)
 	protected int booksCount;
@@ -119,6 +120,14 @@ public class Book {
 		this.countdownload = countdownload;
 	}
 
+	public int getApproved() {
+		return approved;
+	}
+
+	public void setApproved(int approved) {
+		this.approved = approved;
+	}
+
 	public int addBook() {
 		Database conn = null;
 		Statement stmt = null;
@@ -160,6 +169,37 @@ public class Book {
 			String sqlUpdate = String.format(
 					"UPDATE book SET `datecreated`='%s' WHERE `idbook`='%d';",
 					this.datecreated, this.idbook);
+			int result = stmt.executeUpdate(sqlUpdate);
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception e) { /* ignored */
+			}
+
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return 0;
+	}
+
+	public int updateApproved() {
+		Database conn = null;
+		Statement stmt = null;
+		try {
+			conn = new Database();
+			stmt = conn.Get_Connection().createStatement();
+			String sqlUpdate = String.format(
+					"UPDATE book SET `approved`='%d' WHERE `idbook`='%d';",
+					this.approved, this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -291,6 +331,17 @@ public class Book {
 		return null;
 	}
 
+	/**
+	 * Seach book for backend
+	 * 
+	 * @param typeSearch
+	 * @param keysearch
+	 * @param category
+	 * @param page
+	 * @param typeOrder
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Book> searchBook(int typeSearch, String keysearch,
 			int category, int page, int typeOrder) throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
@@ -355,6 +406,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setApproved(rs.getInt("approved"));
 				books.add(book);
 			}
 			rs.close();
@@ -382,8 +434,17 @@ public class Book {
 		}
 	}
 
-	public ArrayList<Book> searchBook(String keysearch, int category, int page)
-			throws Exception {
+	/**
+	 * Seach book for book services
+	 * 
+	 * @param keysearch
+	 * @param category
+	 * @param page
+	 * @return
+	 * @throws Exception
+	 */
+	public ArrayList<Book> searchBook(String keysearch, int category, int page,
+			boolean ApproveBook) throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		Database conn = null;
 		PreparedStatement ps = null;
@@ -394,13 +455,33 @@ public class Book {
 			if (category != 0) {
 				sql = sql + "AND idcategory = ?";
 			}
+			if (ApproveBook) {
+				sql = sql + " AND approved = 1 ";
+			}
+
 			if (!keysearch.equals("")) {
-				sql = sql + " AND (title LIKE '%" + keysearch
-						+ "%' OR author LIKE '%" + keysearch + "%')";
+				if (keysearch.contains("d")) {
+					String temp = keysearch.replace("d", "đ");
+					keysearch = keysearch + "<>" + temp;
+				}
+
+				sql = sql + " AND (";
+				String[] arrKeySearch = keysearch.split("<>");
+				for (int i = 0; i < arrKeySearch.length; i++) {
+					sql = sql + "title LIKE '%" + arrKeySearch[i]
+							+ "%' OR author LIKE '%" + arrKeySearch[i] + "%'";
+					if (i != arrKeySearch.length - 1) {
+						sql = sql + " OR ";
+					}
+
+				}
+				sql = sql + ")";
 			}
 
 			int offset = (page - 1) * DatasOnPage;
 			sql = sql + " LIMIT " + offset + "," + DatasOnPage;
+
+			System.out.println("Cau truy van tim kiem: " + sql);
 			Connection con = conn.Get_Connection();
 			ps = con.prepareStatement(sql);
 			if (category != 0) {
@@ -445,8 +526,16 @@ public class Book {
 		}
 	}
 
-	public ArrayList<Book> getAllBookByCategory(int category, int page)
-			throws Exception {
+	/**
+	 * Get all book by category for BookServices
+	 * 
+	 * @param category
+	 * @param page
+	 * @return
+	 * @throws Exception
+	 */
+	public ArrayList<Book> getAllBookByCategory(int category, int page,
+			boolean ApproveBook) throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		Database conn = null;
 		PreparedStatement ps = null;
@@ -454,6 +543,9 @@ public class Book {
 		try {
 			conn = new Database();
 			String sql = "SELECT * FROM book WHERE idcategory = ? AND isdeleted = 0 ";
+			if (ApproveBook) {
+				sql = sql + " AND approved = 1 ";
+			}
 			sql = sql + " ORDER BY title";
 			if (page != 0) {
 				int offset = (page - 1) * DatasOnPage;
@@ -495,7 +587,8 @@ public class Book {
 		}
 	}
 
-	public ArrayList<Book> getMostRead(int index) throws Exception {
+	public ArrayList<Book> getMostRead(int index, boolean ApproveBook)
+			throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		// kiểm tra số lượng = 20
 		if (index == 3) {
@@ -506,7 +599,11 @@ public class Book {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM book WHERE isdeleted = 0 ORDER BY countdownload DESC ";
+			String sql = "SELECT * FROM book WHERE isdeleted = 0 ";
+			if (ApproveBook) {
+				sql = sql + " AND approved = 1 ";
+			}
+			sql = sql + "ORDER BY countdownload DESC ";
 			int offset = (index - 1) * DatasOnPage;
 			sql = sql + " LIMIT " + offset + "," + DatasOnPage;
 			ps = conn.Get_Connection().prepareStatement(sql);
@@ -544,14 +641,20 @@ public class Book {
 		}
 	}
 
-	public synchronized ArrayList<Book> getNewest(int index) throws Exception {
+	public synchronized ArrayList<Book> getNewest(int index, boolean ApproveBook)
+			throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		Database conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM book WHERE isdeleted = 0 AND (SELECT TIMESTAMPDIFF(DAY,datecreated,(SELECT NOW())) < 3) ORDER BY datecreated DESC ";
+			String sql = "SELECT * FROM book WHERE isdeleted = 0 AND  (SELECT TIMESTAMPDIFF(DAY,datecreated,(SELECT NOW())) < 3)";
+			if (ApproveBook) {
+				sql = sql + " AND approved = 1 ";
+			}
+			sql = sql + " ORDER BY datecreated DESC ";
+
 			int offset = (index - 1) * DatasOnPage;
 			sql = sql + " LIMIT " + offset + "," + DatasOnPage;
 			ps = conn.Get_Connection().prepareStatement(sql);

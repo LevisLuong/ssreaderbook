@@ -84,11 +84,16 @@ public class TableListBook extends HttpServlet {
 			for (Book book : books) {
 				Book_Category bc = (new Book_Category()).getById(book
 						.getIdcategory());
-				if (i % 2 == 0) {
-					out.println("<tr class=\"alternate-row\">");
-				} else {
-					out.println("<tr>");
+				if (book.getApproved() == 0) {
+					out.println("<tr class=\"not-approved\">");
+				}else{
+					if (i % 2 == 0) {
+						out.println("<tr class=\"alternate-row\">");
+					} else {
+						out.println("<tr>");
+					}
 				}
+				
 				String summary = book.getSummary();
 				if (summary.length() > 100) {
 					summary = summary.substring(0, 100) + "...";
