@@ -27,8 +27,9 @@ public class Result_GetSearchBook implements ResultObject {
                 book.setSummary(Obj.getString("summary"));
                 book.setIdcategory(Obj.getInt("idcategory"));
                 book.setCountview(Obj.getInt("countview"));
+                book.setCountdownload(Obj.getInt("countdownload"));
                 if (!Obj.isNull("imagecover"))
-                    book.setImagecover(Obj.getString("imagecover"));
+                    book.setImagecover(Obj.getString("imagecover").replace(" ", "%20"));
                 lstBooks.add(book);
             }
         } catch (JSONException e) {

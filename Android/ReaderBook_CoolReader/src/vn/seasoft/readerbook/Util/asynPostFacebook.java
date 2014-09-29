@@ -17,12 +17,12 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
     String authorbook;
     Context mContext;
     Bitmap image;
+    String content;
 
-    public asynPostFacebook(Context context, String _title, String _author, Bitmap imgCover) {
+    public asynPostFacebook(Context context, String _content, Bitmap imgCover) {
         mContext = context;
         image = imgCover;
-        titlebook = _title;
-        authorbook = _author;
+        content = _content;
     }
 
     private Bitmap addText(Bitmap b) {
@@ -45,7 +45,7 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
         // TODO Auto-generated method stub
         int result = 0;
         try {
-            String content = "Mình đang xem \"" + titlebook + " - " + authorbook + "\" từ ứng dụng \"Sách Của Tui\". Thưởng thức thêm những cuốn Sách - Truyện hay tại: https://play.google.com/store/apps/details?id=vn.seasoft.readerbook #SachCuaTui";
+            content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SachCuaTui";
             if (image != null) {
                 result = SSReaderApplication.getSocialAdapter().uploadImage(content, "upload_book.jpg", image, 100);
             } else {

@@ -90,460 +90,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: vn.seasoft.readerbook" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="703e863b-272d-4e3e-8367-f29dda8e50b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_UrlImageViewHelper/.classpath" afterPath="$PROJECT_DIR$/../lb_UrlImageViewHelper/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/.classpath" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/.classpath" afterPath="$PROJECT_DIR$/../lb_horizontallistview/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/.classpath" afterPath="$PROJECT_DIR$/../preferences/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/.classpath" afterPath="$PROJECT_DIR$/../slider/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/.project" afterPath="$PROJECT_DIR$/../lb_horizontallistview/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/AmbilWarnaDialog.java" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/AmbilWarnaDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/AmbilWarnaKotak.java" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/AmbilWarnaKotak.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/widget/AmbilWarnaPrefWidgetView.java" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/widget/AmbilWarnaPrefWidgetView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/widget/AmbilWarnaPreference.java" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/widget/AmbilWarnaPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_UrlImageViewHelper/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../lb_UrlImageViewHelper/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../lb_horizontallistview/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../lb_nineolddroid/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../preferences/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../slider/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/FloatProperty.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/FloatProperty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/IntProperty.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/IntProperty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/LayoutInflater.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/LayoutInflater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/Property.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/Property.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna/R.java" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/R.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/gen/it/sephiroth/android/library/R.java" afterPath="$PROJECT_DIR$/../lb_horizontallistview/gen/it/sephiroth/android/library/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/gen/org/holoeverywhere/preference/R.java" afterPath="$PROJECT_DIR$/../preferences/gen/org/holoeverywhere/preference/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/gen/org/holoeverywhere/slider/R.java" afterPath="$PROJECT_DIR$/../slider/gen/org/holoeverywhere/slider/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/ReflectiveProperty.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/util/ReflectiveProperty.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderItem.java" afterPath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewHelper.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewPropertyAnimator.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewPropertyAnimator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewPropertyAnimatorHC.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/view/ViewPropertyAnimatorHC.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-v11/abc_action_bar_decor.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-v11/abc_action_bar_decor.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor_include.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor_include.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor_overlay.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_decor_overlay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_home.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_tabbar.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_tabbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_title_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_bar_title_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_menu_item_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_menu_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_menu_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_mode_bar.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_mode_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_mode_close_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_action_mode_close_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_activity_chooser_view.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_activity_chooser_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_activity_chooser_view_list_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_activity_chooser_view_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_attrs.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_expanded_menu_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_expanded_menu_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_ic_clear.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_ic_clear.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_ic_clear_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_ic_clear_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_item_background_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_item_background_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_item_background_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_item_background_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_list_menu_item_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_list_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_background_transition_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_background_transition_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_background_transition_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_background_transition_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_list_selector_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_popup_menu_item_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_popup_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_screen.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_search_dropdown_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_search_dropdown_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_search_dropdown_item_icons_2line.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_search_dropdown_item_icons_2line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_search_dropdown_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_search_dropdown_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/abc_search_url_text_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/abc_search_url_text_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_search_view.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/abc_search_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_spinner_ab_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_spinner_ab_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_spinner_ab_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_spinner_ab_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_styles.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-v14/abc_styles_base.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-v14/abc_styles_base.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_tab_indicator_ab_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_tab_indicator_ab_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_right_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_right_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_right_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/abc_textfield_searchview_right_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_themes.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_themes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_themes_base.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/abc_themes_base.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_cubic.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_cubic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_decelerate.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_decelerate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_quad.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_quad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_quint.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/accelerate_quint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/activated_background_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/activated_background_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/activity_picker_bg.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/activity_picker_bg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/alert_dialog_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/alert_dialog_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/alert_dialog_progress_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/alert_dialog_progress_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/am_pm_picker_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/am_pm_picker_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/am_pm_picker_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/am_pm_picker_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout/ambilwarna_dialog.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout/ambilwarna_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout-land/ambilwarna_dialog.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout-land/ambilwarna_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout/ambilwarna_pref_widget.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/layout/ambilwarna_pref_widget.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/anticipate.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/anticipate.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/anticipate_overshoot.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/anticipate_overshoot.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_cache_hint_selector_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_cache_hint_selector_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_cache_hint_selector_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_cache_hint_selector_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/background_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values/bools.xml" afterPath="$PROJECT_DIR$/../preferences/res/values/bools.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw720dp/bools.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw720dp/bools.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/bounce.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/bounce.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/breadcrumbs_in_fragment.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/breadcrumbs_in_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/breadcrumbs_in_fragment.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/breadcrumbs_in_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout-xlarge/breadcrumbs_in_fragment.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout-xlarge/breadcrumbs_in_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_checkbox_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_checkbox_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_checkbox_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_checkbox_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_default_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_default_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_default_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_default_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_group_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_group_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_group_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_group_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_radio_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_radio_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_radio_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_radio_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_toggle_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_toggle_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_toggle_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/btn_toggle_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_UrlImageViewHelper/build.gradle" afterPath="$PROJECT_DIR$/../lb_UrlImageViewHelper/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/build.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_UrlImageViewHelper/build.xml" afterPath="$PROJECT_DIR$/../lb_UrlImageViewHelper/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/build.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/colors.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/colors.xml" afterPath="$PROJECT_DIR$/../slider/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/config.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/config.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw600dp/config.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw600dp/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw720dp/config.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw720dp/config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/cycle.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/cycle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/date_picker_active_text_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/date_picker_active_text_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/date_picker_active_text_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/date_picker_active_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_dialog.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/date_picker_dialog.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/date_picker_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_done_button.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_done_button.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_view_animator.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/date_picker_view_animator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_cubic.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_cubic.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_quad.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_quad.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_quint.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/decelerate_quint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/dialog_enter.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/dialog_enter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/dialog_exit.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/dialog_exit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/values/dimen.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/values/dimen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/values-land/dimen.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/values-land/dimen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/res/values-xlarge-land/dimen.xml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/res/values-xlarge-land/dimen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-h720dp/dimens.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-h720dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/dimens.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw600dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw720dp/dimens.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw720dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-xlarge/dimens.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-xlarge/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../preferences/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw600dp/dimens.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw600dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw600dp-w960dp/dimens.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw600dp-w960dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw720dp/dimens.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw720dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw720dp-w1280dp/dimens.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw720dp-w1280dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values-land/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values-land/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values-w720dp/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values-w720dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/edit_text_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/edit_text_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/edit_text_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/edit_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/expandable_list_content.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/expandable_list_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/expanded_menu_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/expanded_menu_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/expander_group_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/expander_group_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/expander_group_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/expander_group_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/fade_in.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/fade_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/fade_out.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/fade_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_thumb_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_thumb_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_track_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_track_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_track_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/fastscroll_track_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/fragment_bread_crumb_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/fragment_bread_crumb_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/fragment_bread_crumb_item.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/fragment_bread_crumb_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/fragment_bread_crumbs.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/fragment_bread_crumbs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/fragment_bread_crumbs.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/fragment_bread_crumbs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/grid_content.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/grid_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in_center.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in_center.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in_from_bottom.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/grow_fade_in_from_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/res/values/hlv_attrs.xml" afterPath="$PROJECT_DIR$/../lb_horizontallistview/res/values/hlv_attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/ids.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/ids.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/ids.xml" afterPath="$PROJECT_DIR$/../slider/res/values/ids.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/item_background_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/item_background_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/item_background_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/item_background_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/ivy.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/ivy.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/linear.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/linear.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/lint.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/lint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/lint.xml" afterPath="$PROJECT_DIR$/../preferences/lint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_content.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_checkbox.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_checkbox.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_icon.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_icon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_layout.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_radio.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/list_menu_item_radio.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_background_transition_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_background_transition_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_background_transition_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_background_transition_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/list_selector_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/number_picker_with_selector_wheel.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/number_picker_with_selector_wheel.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/overshoot.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/interpolator/overshoot.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/pom.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/pom.xml" afterPath="$PROJECT_DIR$/../lb_nineolddroid/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/pom.xml" afterPath="$PROJECT_DIR$/../preferences/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/pom.xml" afterPath="$PROJECT_DIR$/../slider/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_category_holo.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_category_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_child_holo.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_child_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_edittext.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_edittext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_numberpicker.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_numberpicker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_seekbar.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_seekbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_seekbar_widget.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_dialog_seekbar_widget.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_header_item.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_header_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_holo.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_information_holo.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_information_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_list_content.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_list_content.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_list_content_single.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_list_content_single.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout-w600dp/preference_list_content_single.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout-w600dp/preference_list_content_single.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_list_fragment.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_list_fragment.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_checkbox.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_checkbox.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_seekbar.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_seekbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch_screen.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch_screen_bar.xml" afterPath="$PROJECT_DIR$/../preferences/res/layout/preference_widget_switch_screen_bar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_disable_only_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_disable_only_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_disable_only_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_disable_only_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_nodisable_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_nodisable_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_nodisable_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/primary_text_nodisable_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/progress_dialog_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/progress_dialog_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_horizontal_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_horizontal_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_horizontal_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_horizontal_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_indeterminate_horizontal_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_indeterminate_horizontal_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_large_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_large_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_medium_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_medium_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_small_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/progress_small_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/project.properties" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/project.properties" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/project.properties" afterPath="$PROJECT_DIR$/../lb_horizontallistview/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/project.properties" afterPath="$PROJECT_DIR$/../preferences/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/project.properties" afterPath="$PROJECT_DIR$/../slider/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_empty_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_empty_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_empty_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_empty_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_filled_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_filled_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_filled_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_filled_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_full_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_small_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_small_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_small_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/ratingbar_small_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_attrs.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values/rb_attrs.xml" afterPath="$PROJECT_DIR$/../preferences/res/values/rb_attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/rb_attrs.xml" afterPath="$PROJECT_DIR$/../slider/res/values/rb_attrs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-af/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-af/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-am/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-am/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ar/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ar/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-az/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-az/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-az-rAZ/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-az-rAZ/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-be/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-be/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-bg/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-bg/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ca/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ca/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-cs/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-cs/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-da/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-da/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-de/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-de/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-el/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-el/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-en-rGB/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-en-rGB/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-en-rIN/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-en-rIN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-es/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-es/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-es-rUS/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-es-rUS/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-et/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-et/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-et-rEE/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-et-rEE/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fa/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fa/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fi/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fr/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fr-rCA/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-fr-rCA/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hi/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hr/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hu/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hu/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hy/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hy/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hy-rAM/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-hy-rAM/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-in/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-in/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-it/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-it/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-iw/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-iw/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ja/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ja/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ka/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ka/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ka-rGE/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ka-rGE/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-km/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-km/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-km-rKH/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-km-rKH/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ko/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ko/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lo/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lo/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lo-rLA/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lo-rLA/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lt/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lt/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lv/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-lv/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-mn/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-mn/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-mn-rMN/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-mn-rMN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ms/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ms/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ms-rMY/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ms-rMY/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-nb/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-nb/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ne/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ne/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ne-rNP/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ne-rNP/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-nl/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-nl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pl/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pt/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pt/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pt-rPT/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-pt-rPT/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-rm/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-rm/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ro/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ro/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ru/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-ru/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-si/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-si/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-si-rLK/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-si-rLK/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sk/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sk/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sl/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sr/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sv/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sv/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-sw/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-th/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-th/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-tl/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-tl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-tr/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-tr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-uk/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-uk/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-vi/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-vi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rCN/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rCN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rHK/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rHK/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rTW/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zh-rTW/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zu/rb_strings.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-zu/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-af/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-af/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-am/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-am/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ar/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ar/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-az/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-az/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-az-rAZ/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-az-rAZ/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-be/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-be/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-bg/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-bg/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ca/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ca/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-cs/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-cs/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-da/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-da/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-de/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-de/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-el/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-el/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-en-rGB/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-en-rGB/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-en-rIN/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-en-rIN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-es/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-es/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-es-rUS/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-es-rUS/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-et/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-et/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-et-rEE/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-et-rEE/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-fa/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-fa/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-fi/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-fi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-fr/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-fr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-fr-rCA/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-fr-rCA/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-hi/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-hi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-hr/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-hr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-hu/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-hu/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-hy/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-hy/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-hy-rAM/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-hy-rAM/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-in/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-in/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-it/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-it/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-iw/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-iw/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ja/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ja/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ka/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ka/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ka-rGE/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ka-rGE/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-km/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-km/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-km-rKH/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-km-rKH/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ko/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ko/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-lo/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-lo/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-lo-rLA/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-lo-rLA/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-lt/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-lt/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-lv/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-lv/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-mn/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-mn/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-mn-rMN/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-mn-rMN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ms/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ms/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ms-rMY/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ms-rMY/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-nb/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-nb/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ne/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ne/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ne-rNP/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ne-rNP/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-nl/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-nl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-pl/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-pl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-pt/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-pt/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-pt-rPT/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-pt-rPT/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-rm/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-rm/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ro/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ro/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-ru/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-ru/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-si/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-si/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-si-rLK/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-si-rLK/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sk/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sk/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sl/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sr/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sv/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sv/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-th/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-th/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-tl/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-tl/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-tr/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-tr/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-uk/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-uk/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-vi/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-vi/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-zh-rCN/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-zh-rCN/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-zh-rHK/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-zh-rHK/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-zh-rTW/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-zh-rTW/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-zu/rb_strings.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-zu/rb_strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_styles.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/rb_styles.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-large/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-v11/rb_styles.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/values-v11/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values/rb_styles.xml" afterPath="$PROJECT_DIR$/../preferences/res/values/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/res/values-sw720dp/rb_styles.xml" afterPath="$PROJECT_DIR$/../preferences/res/values-sw720dp/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/rb_styles.xml" afterPath="$PROJECT_DIR$/../slider/res/values/rb_styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/resolve_list_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/resolve_list_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/resolver_grid.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/resolver_grid.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_control_selector_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_control_selector_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_progress_horizontal_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_progress_horizontal_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_progress_horizontal_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/scrubber_progress_horizontal_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_nodisable_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_nodisable_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_nodisable_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/secondary_text_nodisable_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_item_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_item_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_item_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_item_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_multichoice_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_multichoice_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_multichoice_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_multichoice_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_singlechoice_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/select_dialog_singlechoice_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_singlechoice_holo.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-xlarge/select_dialog_singlechoice_holo.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out_center.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out_center.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out_from_bottom.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/shrink_fade_out_from_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_dropdown_hint.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_dropdown_hint.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_dropdown_item_1line.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_dropdown_item_1line.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_1.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_2.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_2_single_choice.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_2_single_choice.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_activated_1.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_activated_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_activated_2.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_activated_2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_checked.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_checked.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_multiple_choice.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_multiple_choice.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_single_choice.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_list_item_single_choice.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_spinner_dropdown_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_spinner_item.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/simple_spinner_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_in_bottom.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_in_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_in_top.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_in_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_out_bottom.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_out_bottom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_out_top.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/slide_out_top.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_default_expandable_list_layout.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_default_expandable_list_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_default_layout.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_default_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout-w720dp/slider_default_layout.xml" afterPath="$PROJECT_DIR$/../slider/res/layout-w720dp/slider_default_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_default_list_layout.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_default_list_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_default_menu_stub.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_default_menu_stub.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_menu_expandable_child_item.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_menu_expandable_child_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_menu_expandable_item.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_menu_expandable_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/drawable/slider_menu_expander_holo_dark.xml" afterPath="$PROJECT_DIR$/../slider/res/drawable/slider_menu_expander_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/drawable/slider_menu_expander_holo_light.xml" afterPath="$PROJECT_DIR$/../slider/res/drawable/slider_menu_expander_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_menu_item.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_menu_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/spinner_background_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/spinner_background_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/spinner_background_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/spinner_background_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_inner_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_inner_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_inner_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_inner_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_old_inner_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_old_inner_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_old_inner_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_old_inner_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_track_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_track_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_track_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/switch_track_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/tab_swipe.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/tab_swipe.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/tertiary_text_holo_dark.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/tertiary_text_holo_dark.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/tertiary_text_holo_light.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/color/tertiary_text_holo_light.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/time_header_label.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/time_header_label.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/time_header_label.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/time_header_label.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/time_picker_dialog.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/time_picker_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/time_picker_dialog.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout-land/time_picker_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/toast_enter.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/toast_enter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/toast_exit.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/anim/toast_exit.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/transient_notification.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/transient_notification.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/transparent.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/drawable/transparent.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/year_label_text_view.xml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/res/layout/year_label_text_view.xml" />
-    </list>
+    <list default="true" readonly="true" id="703e863b-272d-4e3e-8367-f29dda8e50b0" name="Default" comment="" />
     <ignored path="ReaderBook.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -575,31 +122,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="2431">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fmMain.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fmMain.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7779661" vertical-offset="714" max-vertical-offset="4794">
-              <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdapterHListViewBook.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/AdapterHListViewBook.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2125">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.15422885" vertical-offset="468" max-vertical-offset="2482">
+              <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -688,6 +215,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -742,6 +271,28 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="ResultObjects" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReaderBook_CoolReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReaderBook_CoolReader" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="readerbook" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="adapter" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -770,64 +321,12 @@
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="libs" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -846,7 +345,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AppDuyetTruyen" />
     <property name="FullScreen" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.102:5555" />
-    <property name="SearchEverywhereHistoryKey" value="config&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;optio&#9;PSI&#9;JAVA://org.coolreader.crengine.OptionMenu&#10;main&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/MainActivity.java&#10;ss&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.SSUtil&#10;as&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.asynPostFacebook&#10;con&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;command&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;reader&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/ReaderView.java&#10;confi&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;com&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;ssu&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;comm&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java&#10;actse&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/actSearchBooks.java&#10;fmma&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/fmMain.java&#10;dlg&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java&#10;error&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.ErrorType&#10;base&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;imageview&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/widget/ImageViewTouchViewPager.java&#10;globa&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.GlobalData&#10;baseac&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;sear&#9;PSI&#9;JAVA://vn.seasoft.readerbook.adapter.SearchBookAdapter" />
+    <property name="SearchEverywhereHistoryKey" value="about&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgAboutApp.java&#10;string&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/res/values/strings.xml&#10;coolre&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/CoolReader.java&#10;main&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/MainActivity.java&#10;config&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;optio&#9;PSI&#9;JAVA://org.coolreader.crengine.OptionMenu&#10;ss&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.SSUtil&#10;as&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.asynPostFacebook&#10;con&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;command&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;reader&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/ReaderView.java&#10;confi&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;com&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;ssu&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;comm&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java&#10;actse&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/actSearchBooks.java&#10;fmma&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/fmMain.java&#10;dlg&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java&#10;error&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.ErrorType&#10;base&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;imageview&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/widget/ImageViewTouchViewPager.java&#10;globa&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.GlobalData&#10;baseac&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;sear&#9;PSI&#9;JAVA://vn.seasoft.readerbook.adapter.SearchBookAdapter" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -869,6 +368,9 @@
       <recent name="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\res\layout" />
       <recent name="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\res\layout-xlarge-land" />
       <recent name="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\src\vn\seasoft\readerbook\Util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\libs" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="vn.seasoft.readerbook.dialog" />
@@ -1626,7 +1128,7 @@
       <node-options />
       <gulpfile />
       <tasks />
-      <pass-parent-env-vars>false</pass-parent-env-vars>
+      <pass-parent-envs>true</pass-parent-envs>
       <envs />
       <method />
     </configuration>
@@ -1747,24 +1249,23 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32488114" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569557" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32488114" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20131771" sideWeight="0.42716858" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20196672" sideWeight="0.42789224" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23133236" sideWeight="0.67064846" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.33914423" sideWeight="0.5" order="17" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3547655" sideWeight="0.67235494" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35552195" sideWeight="0.67235494" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42630744" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.340729" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32646593" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.6399395" sideWeight="0.67064846" order="11" side_tool="false" content_ui="tabs" x="378" y="76" width="806" height="586" />
+      <window_info id="Android" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.6376702" sideWeight="0.67064846" order="11" side_tool="false" content_ui="tabs" x="378" y="76" width="806" height="586" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27452415" sideWeight="0.67064846" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20196672" sideWeight="0.57283145" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20196672" sideWeight="0.5721078" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32488114" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.67064846" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.42662117" order="4" side_tool="true" content_ui="tabs" />
@@ -1784,6 +1285,7 @@
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41045958" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.67064846" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Analysis" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5904437" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32488114" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1853,7 +1355,7 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="36" />
+      <option name="time" value="38" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1862,386 +1364,219 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookChapterController.java">
+    <entry file="file://$PROJECT_DIR$/src/org/coolreader/CoolReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="1700">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/view_pager_endchapter.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57392997" vertical-offset="96" max-vertical-offset="663">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/coolreader/crengine/TOCItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.49827588" vertical-offset="357" max-vertical-offset="1292">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgConfirm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="287" max-vertical-offset="918">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/coolreader/crengine/TOCDlg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46896553" vertical-offset="51" max-vertical-offset="3570">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3967684" vertical-offset="0" max-vertical-offset="557">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/reader_menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24416517" vertical-offset="0" max-vertical-offset="557">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33275864" vertical-offset="2221" max-vertical-offset="4828">
-          <caret line="219" column="0" selection-start-line="219" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/SSUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2637931" vertical-offset="0" max-vertical-offset="1904">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/GlobalData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33275864" vertical-offset="11" max-vertical-offset="901">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Book_Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3913793" vertical-offset="385" max-vertical-offset="969">
-          <caret line="47" column="24" selection-start-line="47" selection-start-column="24" selection-end-line="47" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetCategory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5275862" vertical-offset="0" max-vertical-offset="580">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/HttpServicesConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5965517" vertical-offset="2748" max-vertical-offset="3757">
-          <caret line="203" column="13" selection-start-line="203" selection-start-column="13" selection-end-line="203" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="8141" max-vertical-offset="10030">
-          <caret line="575" column="16" selection-start-line="575" selection-start-column="16" selection-end-line="575" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actSearchBooks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1252" max-vertical-offset="1819">
-          <caret line="104" column="8" selection-start-line="104" selection-start-column="8" selection-end-line="104" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/BookChapterAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="980" max-vertical-offset="2618">
-          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/DialogFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14655173" vertical-offset="0" max-vertical-offset="6732">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/android/app/Dialog.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33275864" vertical-offset="232" max-vertical-offset="3315">
-          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/AlertController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.789655" vertical-offset="9922" max-vertical-offset="12903">
-          <caret line="397" column="11" selection-start-line="397" selection-start-column="11" selection-end-line="397" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/AlertDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39827585" vertical-offset="5175" max-vertical-offset="7956">
-          <caret line="342" column="31" selection-start-line="342" selection-start-column="27" selection-end-line="342" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.8982759" vertical-offset="1766" max-vertical-offset="2346">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgNotice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="935">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/SSReaderApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7948276" vertical-offset="2106" max-vertical-offset="2686">
-          <caret line="174" column="1" selection-start-line="174" selection-start-column="1" selection-end-line="174" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/w_about_base.9.png">
-      <provider editor-type-id="ninepatcheditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/about.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.366667" vertical-offset="0" max-vertical-offset="510">
-          <caret line="13" column="39" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+        <state vertical-scroll-proportion="-2.9824562" vertical-offset="21267" max-vertical-offset="26078">
+          <caret line="1326" column="34" selection-start-line="1326" selection-start-column="18" selection-end-line="1326" selection-end-column="34" />
           <folding>
-            <element signature="e#838#857#0" expanded="false" />
+            <element signature="e#35896#36315#0" expanded="false" />
+            <element signature="e#36043#36268#0" expanded="false" />
+            <element signature="e#36267#36268#0" expanded="false" />
+            <element signature="e#36314#36315#0" expanded="false" />
+            <element signature="e#41913#42068#0" expanded="false" />
+            <element signature="e#42067#42068#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgAboutApp.java">
+    <entry file="file://$PROJECT_DIR$/src/org/coolreader/crengine/BackgroundThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2604" max-vertical-offset="5253">
+          <caret line="176" column="16" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="16" />
+          <folding>
+            <element signature="e#1947#1957#0" expanded="false" />
+            <element signature="e#4730#4731#0" expanded="false" />
+            <element signature="e#4762#4763#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgNumberPicker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64827585" vertical-offset="542" max-vertical-offset="1122">
+          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgFeedback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="1139">
-          <caret line="62" column="39" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.40035275" vertical-offset="572" max-vertical-offset="1139">
+          <caret line="58" column="52" selection-start-line="58" selection-start-column="52" selection-end-line="58" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/loadmore_hlistview.xml">
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/AsyntaskDownloadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37976784" vertical-offset="672" max-vertical-offset="2142">
+          <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/android/text/InputType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="62" max-vertical-offset="850">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook_paging.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42328042" vertical-offset="1205" max-vertical-offset="5457">
+          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/asynPostFacebook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23103449" vertical-offset="780" max-vertical-offset="1360">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="34" selection-end-line="47" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgConfirm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgNotice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62931037" vertical-offset="230" max-vertical-offset="833">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgConfirmFacebook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0149254" vertical-offset="0" max-vertical-offset="918">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/dialog_edittext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41154563" vertical-offset="0" max-vertical-offset="537">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-xlarge/fontsizes.xml">
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgEditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49827588" vertical-offset="0" max-vertical-offset="580">
-          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/fontsizes.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="580">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values-w820dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3224138" vertical-offset="0" max-vertical-offset="580">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/view_pager.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8882682" vertical-offset="1886" max-vertical-offset="2958">
-          <caret line="139" column="52" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.1973466" vertical-offset="748" max-vertical-offset="1377">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
           <folding>
-            <element signature="e#4882#4902#0" expanded="false" />
+            <element signature="e#1381#1382#0" expanded="false" />
+            <element signature="e#1416#1417#0" expanded="false" />
+            <element signature="e#1652#1657#0" expanded="false" />
+            <element signature="e#2162#2184#0" expanded="false" />
+            <element signature="e#2186#2190#0" expanded="false" />
+            <element signature="e#2227#2245#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-xlarge-land/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/java/lang/Thread.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.666667" vertical-offset="828" max-vertical-offset="1309">
-          <caret line="64" column="8" selection-start-line="64" selection-start-column="8" selection-end-line="64" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="2214" max-vertical-offset="2805">
+          <caret line="218" column="0" selection-start-line="218" selection-start-column="0" selection-end-line="219" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6057971" vertical-offset="386" max-vertical-offset="731">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/java/util/concurrent/ThreadPoolExecutor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.5946903" vertical-offset="1020" max-vertical-offset="2091">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/SSReaderApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2686">
+          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/RequestHttpToServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="765">
+          <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-land/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/RequestObjects/Request_Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26984128" vertical-offset="306" max-vertical-offset="1513">
-          <caret line="26" column="56" selection-start-line="26" selection-start-column="56" selection-end-line="26" selection-end-column="56" />
-          <folding>
-            <element signature="e#2905#2928#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6565465" vertical-offset="759" max-vertical-offset="1309">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-small/dialog_book_info.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8224719" vertical-offset="2062" max-vertical-offset="4335">
-          <caret line="169" column="33" selection-start-line="169" selection-start-column="33" selection-end-line="169" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-land/dialog_book_info.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4059829" vertical-offset="2581" max-vertical-offset="4369">
-          <caret line="163" column="63" selection-start-line="163" selection-start-column="63" selection-end-line="163" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/dialog_book_info.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38326848" vertical-offset="2676" max-vertical-offset="4488">
-          <caret line="169" column="63" selection-start-line="169" selection-start-column="63" selection-end-line="169" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55026454" vertical-offset="2391" max-vertical-offset="6409">
-          <caret line="210" column="49" selection-start-line="210" selection-start-column="49" selection-end-line="210" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/ErrorType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5275862" vertical-offset="0" max-vertical-offset="580">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="29" />
-          <folding>
-            <element signature="e#794#815#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5275862" vertical-offset="255" max-vertical-offset="2278">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fmListBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39491525" vertical-offset="5360" max-vertical-offset="5950">
-          <caret line="372" column="5" selection-start-line="372" selection-start-column="5" selection-end-line="372" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="139" max-vertical-offset="1394">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#12166#12167#0" expanded="false" />
-            <element signature="e#12221#12222#0" expanded="false" />
-            <element signature="e#15928#15929#0" expanded="false" />
-            <element signature="e#15959#15960#0" expanded="false" />
-            <element signature="e#16001#16002#0" expanded="false" />
-            <element signature="e#16031#16032#0" expanded="false" />
-            <element signature="e#16080#16081#0" expanded="false" />
-            <element signature="e#16117#16118#0" expanded="false" />
-            <element signature="e#16178#16179#0" expanded="false" />
-            <element signature="e#16218#16219#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/DialogFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6732">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3020#3021#0" expanded="false" />
+            <element signature="e#3058#3059#0" expanded="false" />
+            <element signature="e#3104#3105#0" expanded="false" />
+            <element signature="e#3141#3142#0" expanded="false" />
+            <element signature="e#3939#3940#0" expanded="false" />
+            <element signature="e#3969#3970#0" expanded="false" />
+            <element signature="e#4010#4011#0" expanded="false" />
+            <element signature="e#4037#4038#0" expanded="false" />
+            <element signature="e#4087#4088#0" expanded="false" />
+            <element signature="e#4119#4120#0" expanded="false" />
+            <element signature="e#5088#5089#0" expanded="false" />
+            <element signature="e#5123#5124#0" expanded="false" />
+            <element signature="e#5178#5179#0" expanded="false" />
+            <element signature="e#5220#5221#0" expanded="false" />
+            <element signature="e#5249#5250#0" expanded="false" />
+            <element signature="e#5278#5279#0" expanded="false" />
+            <element signature="e#5315#5316#0" expanded="false" />
+            <element signature="e#5349#5350#0" expanded="false" />
+            <element signature="e#9421#9422#0" expanded="false" />
+            <element signature="e#9457#9458#0" expanded="false" />
+            <element signature="e#9514#9515#0" expanded="false" />
+            <element signature="e#9558#9559#0" expanded="false" />
+            <element signature="e#10187#10188#0" expanded="false" />
+            <element signature="e#10227#10228#0" expanded="false" />
+            <element signature="e#10266#10267#0" expanded="false" />
+            <element signature="e#10315#10316#0" expanded="false" />
+            <element signature="e#10536#10537#0" expanded="false" />
+            <element signature="e#10610#10611#0" expanded="false" />
+            <element signature="e#11940#11941#0" expanded="false" />
+            <element signature="e#12000#12001#0" expanded="false" />
+            <element signature="e#12231#12232#0" expanded="false" />
+            <element signature="e#12268#12269#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actReadPictureBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="5304">
-          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="5304">
+          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="false" />
             <element signature="e#4536#4537#0" expanded="false" />
@@ -2272,56 +1607,287 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/hlistview_item.xml">
+    <entry file="file://$PROJECT_DIR$/res/layout-small/dialog_book_info.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2755" max-vertical-offset="4403">
+          <caret line="175" column="49" selection-start-line="175" selection-start-column="49" selection-end-line="175" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout-land/dialog_book_info.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1003">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding />
+        <state vertical-scroll-proportion="0.48392856" vertical-offset="3146" max-vertical-offset="4794">
+          <caret line="201" column="57" selection-start-line="201" selection-start-column="57" selection-end-line="201" selection-end-column="57" />
+          <folding>
+            <element signature="e#2145#2162#0" expanded="false" />
+            <element signature="e#2592#2608#0" expanded="false" />
+            <element signature="e#2658#2674#0" expanded="false" />
+            <element signature="e#3070#3087#0" expanded="false" />
+            <element signature="e#3877#3894#0" expanded="false" />
+            <element signature="e#4684#4701#0" expanded="false" />
+            <element signature="e#6084#6101#0" expanded="false" />
+            <element signature="e#7225#7242#0" expanded="false" />
+            <element signature="e#8368#8385#0" expanded="false" />
+            <element signature="e#9448#9465#0" expanded="false" />
+            <element signature="e#10319#10335#0" expanded="false" />
+            <element signature="e#11541#11558#0" expanded="false" />
+            <element signature="e#12050#12067#0" expanded="false" />
+          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout-large/hlistview_item.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/dialog_book_info.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1003">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.51428574" vertical-offset="2959" max-vertical-offset="4573">
+          <caret line="191" column="28" selection-start-line="191" selection-start-column="28" selection-end-line="191" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/HttpServicesConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3757">
+          <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+    <entry file="file://E:/adt android/sdk/extras/google/google_play_services/samples/analytics/src/com/google/android/gms/analytics/samples/mobileplayground/AppviewFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="298" max-vertical-offset="2431">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#1775#2081#0" expanded="false" />
+            <element signature="e#2080#2081#0" expanded="false" />
+            <element signature="e#2522#2882#0" expanded="false" />
+            <element signature="e#2881#2882#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/adt android/sdk/extras/google/google_play_services/samples/analytics/src/com/google/android/gms/analytics/samples/mobileplayground/AnalyticsSampleApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="1088">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/AdapterHListViewBook.java">
+    <entry file="file://E:/adt android/sdk/extras/google/google_play_services/samples/analytics/src/com/google/android/gms/analytics/samples/mobileplayground/EventFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="2125">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="553" max-vertical-offset="1207">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2345#2683#0" expanded="false" />
+            <element signature="e#2682#2683#0" expanded="false" />
+            <element signature="e#2953#3391#0" expanded="false" />
+            <element signature="e#3390#3391#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="464" max-vertical-offset="6562">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgAboutApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31694916" vertical-offset="255" max-vertical-offset="8857">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.44745764" vertical-offset="25" max-vertical-offset="8908">
+          <caret line="17" column="104" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/about.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.6" vertical-offset="0" max-vertical-offset="510">
+          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
+          <folding>
+            <element signature="e#838#857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actSearchBooks.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1819">
+          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/GridBookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="2193">
+          <caret line="99" column="9" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_UrlImageViewHelper/src/com/koushikdutta/urlimageviewhelper/UrlImageViewHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3322034" vertical-offset="1793" max-vertical-offset="13328">
+          <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/AdapterHListViewBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="2125">
+          <caret line="122" column="38" selection-start-line="122" selection-start-column="38" selection-end-line="122" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/BookCategoryAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetBookByCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04145937" vertical-offset="43" max-vertical-offset="646">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/SearchBookAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76119405" vertical-offset="1224" max-vertical-offset="2108">
+          <caret line="122" column="20" selection-start-line="122" selection-start-column="20" selection-end-line="122" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetSearchBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62023216" vertical-offset="0" max-vertical-offset="646">
+          <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetNewest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62023216" vertical-offset="0" max-vertical-offset="646">
+          <caret line="29" column="67" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetMostRead.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.112769485" vertical-offset="0" max-vertical-offset="646">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetFeedBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.112769485" vertical-offset="0" max-vertical-offset="603">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetCategory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.112769485" vertical-offset="0" max-vertical-offset="603">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetBookChapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.112769485" vertical-offset="0" max-vertical-offset="629">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/GlobalData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49253732" vertical-offset="298" max-vertical-offset="901">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55497384" vertical-offset="719" max-vertical-offset="1292">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/google-play-services.jar!/.readme">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="603">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fmMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7779661" vertical-offset="714" max-vertical-offset="4794">
-          <caret line="100" column="19" selection-start-line="100" selection-start-column="19" selection-end-line="100" selection-end-column="19" />
+        <state vertical-scroll-proportion="-0.46101695" vertical-offset="867" max-vertical-offset="4794">
+          <caret line="62" column="88" selection-start-line="62" selection-start-column="88" selection-end-line="62" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/adapter/BookChapterAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64842457" vertical-offset="0" max-vertical-offset="2584">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15422885" vertical-offset="468" max-vertical-offset="2482">
+          <caret line="33" column="67" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -2378,7 +1944,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ReaderBook_CoolReader</last-edited>
+          <last-edited>lb_UrlImageViewHelper</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

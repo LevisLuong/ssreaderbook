@@ -12,13 +12,13 @@ import vn.seasoft.readerbook.R;
  * Date: 7/2/2014
  * Time: 10:59 AM
  */
-public class dlgConfirm extends DialogFragment {
+public class dlgConfirmFacebook extends DialogFragment {
     Context mContext;
 
     DialogInterface.OnClickListener listener;
     String message;
 
-    public dlgConfirm(Context _context) {
+    public dlgConfirmFacebook(Context _context) {
         setDialogType(DialogType.AlertDialog);
         mContext = _context;
 
