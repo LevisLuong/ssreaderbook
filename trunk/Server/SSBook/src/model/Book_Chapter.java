@@ -145,6 +145,9 @@ public class Book_Chapter {
 					.format("UPDATE book_chapter SET `approved`='%d' WHERE `idbook_chapter`=%d;",
 							status, this.idbook_chapter);
 			int result = stmt.executeUpdate(sqlUpdate);
+			if (result == 1) {
+				checkApproveBook();
+			}
 			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -325,6 +328,46 @@ public class Book_Chapter {
 			}
 		}
 		return null;
+	}
+
+	public void checkApproveBook() {
+		int id = 0;
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT count(*) FROM dbssbook.book_chapter where idbook = ? && isdeleted = 0 AND approved = 1";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, this.idbook);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		Book b = new Book();
+		b.setIdBook(this.idbook);
+		if (id == 0) {
+			b.setApproved(0);
+		} else {
+			b.setApproved(1);
+		}
+		b.updateApproved();
 	}
 
 	public int getIdAuto() {
