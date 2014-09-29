@@ -10,6 +10,8 @@ import android.support.v7.widget.SearchView;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import org.holoeverywhere.addon.AddonSlider;
 import org.holoeverywhere.addon.Addons;
 import org.holoeverywhere.app.Activity;
@@ -47,6 +49,17 @@ public class MainActivity extends Activity {
         }
         GlobalData.ShowProgressDialog(this, R.string.loading);
         SSReaderApplication.getRequestServer(this).getCategoryBook();
+
+        //Google analytics
+        //add tracker google
+        // Get tracker.
+        Tracker t = ((SSReaderApplication) getApplication()).getTracker(
+                SSReaderApplication.TrackerName.APP_TRACKER);
+        // Set screen name.
+        // Where path is a String representing the screen name.
+        t.setScreenName("Trang chủ");
+        // Send a screen view.
+        t.send(new HitBuilders.AppViewBuilder().build());
     }
 
     @Override
@@ -121,14 +134,14 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         addonSlider().onResume();
-        SSReaderApplication.getRequestServer(this).setUserOnline();
+//        SSReaderApplication.getRequestServer(this).setUserOnline();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         addonSlider().onDestroy();
-        SSReaderApplication.getRequestServer(this).setUserOffline();
+//        SSReaderApplication.getRequestServer(this).setUserOffline();
     }
 
     public void exitApp() {

@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -346,7 +347,18 @@ public class actReadPictureBook extends Activity {
 
     }
 
-//    public void getBitmapFromZip(final String zipFilePath) {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
+                SetInvisible();
+                return false;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    //    public void getBitmapFromZip(final String zipFilePath) {
 //        lstBitmap = new ArrayList<Bitmap>();
 //        try {
 //            FileInputStream fis = new FileInputStream(zipFilePath);
