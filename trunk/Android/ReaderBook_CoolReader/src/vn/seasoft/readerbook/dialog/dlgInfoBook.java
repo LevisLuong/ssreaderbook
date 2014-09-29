@@ -4,21 +4,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.facebook.FacebookException;
-import com.facebook.FacebookOperationCanceledException;
-import com.facebook.Session;
-import com.facebook.SessionState;
-import com.facebook.widget.WebDialog;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.brickred.socialauth.android.SocialAuthError;
 import org.coolreader.CoolReader;
+import org.coolreader.crengine.BackgroundThread;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
@@ -30,7 +27,6 @@ import vn.seasoft.readerbook.ResultObjects.Result_GetBookChapter;
 import vn.seasoft.readerbook.SSReaderApplication;
 import vn.seasoft.readerbook.Util.AsyntaskDownloadFile;
 import vn.seasoft.readerbook.Util.GlobalData;
-import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.Util.asynPostFacebook;
 import vn.seasoft.readerbook.actReadPictureBook;
 import vn.seasoft.readerbook.adapter.BookChapterAdapter;
@@ -67,7 +63,9 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
 
     private ImageButton dlginfoSortChapter;
     private LinearLayout dlginfoSharefb;
-    private TextView dlginfoSelectchapters;
+    private ImageButton dlginfoSelectchapters;
+
+    private TextView dlginfoTxtSortChapters;
     private TextView dlginfoTxtchapters;
     private TextView dlginfoTxtview;
     private TextView dlginfoTxtdownloads;
@@ -80,8 +78,8 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     private RelativeLayout dlginfoContainer;
 
     private void assignViews(View root) {
-
-        dlginfoSelectchapters = (TextView) root.findViewById(R.id.dlginfo_selectchapter);
+        dlginfoTxtSortChapters = (TextView) root.findViewById(R.id.dlginfo_txtsortchapter);
+        dlginfoSelectchapters = (ImageButton) root.findViewById(R.id.dlginfo_selectchapter);
         dlginfoSortChapter = (ImageButton) root.findViewById(R.id.dlginfo_sortchapter);
         dlginfoTxtchapters = (TextView) root.findViewById(R.id.dlginfo_txtchapters);
         dlginfoSharefb = (LinearLayout) root.findViewById(R.id.dlginfo_sharefb);
@@ -123,8 +121,19 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         SSReaderApplication.getSocialAdapter().setListener(new DialogListener() {
             @Override
             public void onComplete(Bundle bundle) {
-                asynPostFacebook asyn = new asynPostFacebook(mContext, book.getTitle(), book.getAuthor(), UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
-                asyn.execute();
+                String content = "Mình đang xem \"" + book.getTitle() + " - " + book.getAuthor() + "\" từ ứng dụng \"Sách Của Tui\"";
+                dlgEditText dlg = new dlgEditText(mContext);
+                dlg.setTitle("Nội dung đăng lên Facebook");
+                dlg.setMessage(content);
+                dlg.setTypeEditText(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+                dlg.setListener(new dlgEditText.IDialogEditText() {
+                    @Override
+                    public void getValue(String value) {
+                        asynPostFacebook asyn = new asynPostFacebook(mContext, value, UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
+                        asyn.execute();
+                    }
+                });
+                dlg.show(getSupportActivity());
             }
 
             @Override
@@ -142,34 +151,40 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
 
             }
         });
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        List<Book_Chapter> lstBookDatabase = (new Book_Chapter()).getByidBook(book.getIdbook());
-        if (!lstBookDatabase.isEmpty()) {
-            adapter.setFromDataBase(lstBookDatabase);
-
-            int position = 0;
-            for (Book_Chapter bookchap : adapter.getList()) {
-                if (bookchap.getCurrentread()) {
-                    break;
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                List<Book_Chapter> lstBookDatabase = (new Book_Chapter()).getByidBook(book.getIdbook());
+                if (!lstBookDatabase.isEmpty()) {
+                    adapter.setFromDataBase(lstBookDatabase);
+                    int position = 0;
+                    for (Book_Chapter bookchap : adapter.getList()) {
+                        if (bookchap.getCurrentread()) {
+                            break;
+                        }
+                        position++;
+                    }
+                    if (position == adapter.getCount()) {
+                        position = 0;
+                    }
+                    dlginfoListview.setSelection(position);
+                    addViewContainer(dlginfoContainer, dlginfoListview);
+                    dlginfoTxtchapters.setText(adapter.getCount() + "");
                 }
-                position++;
             }
-            dlginfoListview.setSelection(position);
+        });
 
-            addViewContainer(dlginfoContainer, dlginfoListview);
-        }
-
-        SSUtil.App_Log("dlginfobook", "app resume notify listview");
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Session.getActiveSession().onActivityResult(getSupportActivity(), requestCode, resultCode, data);
     }
 
     @Override
@@ -186,23 +201,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
-
-    private class SessionStatusCallback implements Session.StatusCallback {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            // Respond to session state changes, ex: updating the view
-            if (state.isOpened()) {
-                SSUtil.App_Log("Post facebook !!!!!!!!", "Post facebook !!!!!!!!");
-                publishFeedDialog();
-            } else if (state.isClosed()) {
-                SSUtil.App_Log("not login", "not login !!!!!!!!");
-                publishFeedDialog();
-            }
-        }
-    }
-
-    private Session.StatusCallback statusCallback =
-            new SessionStatusCallback();
 
     boolean asc = true;
 
@@ -225,6 +223,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             public void onClick(View view) {
                 if (!adapter.getList().isEmpty()) {
                     dlgEditText dlg = new dlgEditText(mContext);
+                    dlg.setTitle("Nhập Chapter để đọc");
                     dlg.setListener(new dlgEditText.IDialogEditText() {
                         @Override
                         public void getValue(String value) {
@@ -248,27 +247,13 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoSortChapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!adapter.getList().isEmpty()) {
-                    if (asc) {
-                        Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
-                            @Override
-                            public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                                return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                            }
-                        });
-                        asc = false;
-                    } else {
-                        Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
-                            @Override
-                            public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                                return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                            }
-                        });
-                        asc = true;
-                    }
-
-                    adapter.notifyDataSetChanged();
-                }
+                sortChapter();
+            }
+        });
+        dlginfoTxtSortChapters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sortChapter();
             }
         });
         dlginfoSharefb.setOnClickListener(new View.OnClickListener() {
@@ -310,10 +295,34 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             }
         });
 
-        dlginfoTxtchapters.setText(adapter.getCount() + "");
         //update from server
+        GlobalData.ShowProgressDialog(mContext, "test");
         SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook(), 0);
         return v;
+    }
+
+    void sortChapter() {
+        if (!adapter.getList().isEmpty()) {
+            if (asc) {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
+                    @Override
+                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
+                        return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
+                    }
+                });
+                asc = false;
+            } else {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
+                    @Override
+                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
+                        return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
+                    }
+                });
+                asc = true;
+            }
+
+            adapter.notifyDataSetChanged();
+        }
     }
 
     private void loadBook(final int position) {
@@ -348,84 +357,51 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             });
             download.startDownload();
         }
+
         SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
     }
 
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getSupportActivity());
-        builder.setNegativeButton("Bỏ qua", null);
-        builder.setPositiveButton("Đọc Tiếp", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel_button, null);
+        builder.setPositiveButton(R.string.doctiep_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 //                Intent t = new Intent(getActivity(), actReadPictureBook.class);
 //                File f = new File(Environment.getExternalStorageDirectory().getPath() + "/Download/dragonball.zip");
 //                t.putExtra("file", f.getAbsolutePath());
 //                startActivity(t);
-                if (!adapter.getList().isEmpty()) {
-                    int position;
-                    position = 0;
-                    for (int y = 0; y < adapter.getCount(); y++) {
-                        Book_Chapter book_chapter = adapter.getItem(y);
-                        if (book_chapter.getCurrentread()) {
-                            position = y;
-                            break;
+                GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
+                BackgroundThread.instance().executeGUI(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!adapter.getList().isEmpty()) {
+                            int position;
+                            position = -1;
+                            for (int y = 0; y < adapter.getCount(); y++) {
+                                Book_Chapter book_chapter = adapter.getItem(y);
+                                if (book_chapter.getCurrentread()) {
+                                    position = y;
+                                    break;
+                                }
+                            }
+                            if (position == -1) {
+                                if (!asc) {
+                                    position = adapter.getCount() - 1;
+                                } else {
+                                    position = 0;
+                                }
+                            }
+                            loadBook(position);
                         }
+                        GlobalData.DissmissProgress();
                     }
-                    loadBook(position);
-                }
+                });
+
             }
         });
         return builder.create();
-    }
-
-    private void publishFeedDialog() {
-        Bundle params = new Bundle();
-        params.putString("name", "Facebook SDK for Android");
-        params.putString("caption", "Build great social apps and get more installs.");
-        params.putString("description", "The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
-        params.putString("link", "https://developers.facebook.com/android");
-        params.putString("picture", "https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png");
-
-        WebDialog feedDialog = (
-                new WebDialog.FeedDialogBuilder(getActivity(),
-                        Session.getActiveSession(),
-                        params))
-                .setOnCompleteListener(new WebDialog.OnCompleteListener() {
-
-                    @Override
-                    public void onComplete(Bundle values,
-                                           FacebookException error) {
-                        if (error == null) {
-                            // When the story is posted, echo the success
-                            // and the post Id.
-                            final String postId = values.getString("post_id");
-                            if (postId != null) {
-                                Toast.makeText(getActivity(),
-                                        "Posted story, id: " + postId,
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                // User clicked the Cancel button
-                                Toast.makeText(getActivity().getApplicationContext(),
-                                        "Publish cancelled",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        } else if (error instanceof FacebookOperationCanceledException) {
-                            // User clicked the "x" button
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Publish cancelled",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Generic, ex: network error
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Error posting story",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                })
-                .build();
-        feedDialog.show();
     }
 
     @Override
@@ -444,16 +420,20 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     }
 
     @Override
-    public void onGetData(ResultObject resultData, String urlMethod, int id) {
+    public void onGetData(final ResultObject resultData, String urlMethod, int id) {
         if (urlMethod.equals(COMMAND_API.GET_BOOK_CHAPTER)) {
-            Result_GetBookChapter data = (Result_GetBookChapter) resultData;
-
-            if (adapter.SetListBooks(data.lstBookChaps)) {
-                addViewContainer(dlginfoContainer, dlginfoListview);
-            }
-            dlginfoListview.removeFooterView(footerLoadmore);
-            dlginfoTxtchapters.setText(adapter.getCount() + "");
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Result_GetBookChapter data = (Result_GetBookChapter) resultData;
+                    if (adapter.SetListBooks(data.lstBookChaps)) {
+                        addViewContainer(dlginfoContainer, dlginfoListview);
+                    }
+                    dlginfoListview.removeFooterView(footerLoadmore);
+                    dlginfoTxtchapters.setText(adapter.getCount() + "");
+                    GlobalData.DissmissProgress();
+                }
+            });
         }
-        GlobalData.DissmissProgress();
     }
 }

@@ -55,8 +55,8 @@ public class dlgFeedback extends DialogFragment {
     @Override
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getSupportActivity());
-        builder.setNegativeButton("Bỏ qua", null);
-        builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel_button, null);
+        builder.setPositiveButton(R.string.ok_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 String titlebook = dlgfeedbackTitlebook.getText().toString().trim();

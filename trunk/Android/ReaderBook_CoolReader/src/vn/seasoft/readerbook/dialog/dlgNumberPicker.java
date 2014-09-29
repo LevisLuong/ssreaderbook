@@ -58,8 +58,8 @@ public class dlgNumberPicker extends DialogFragment {
     public AlertDialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getSupportActivity());
         builder.setTitle("Chọn Trang");
-        builder.setNegativeButton(android.R.string.cancel, null);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.cancel_button, null);
+        builder.setPositiveButton(R.string.ok_button, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 listener.getValue(numberPicker.getValue());

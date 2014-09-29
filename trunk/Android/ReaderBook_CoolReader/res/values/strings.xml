@@ -16,8 +16,11 @@
         * Đọc sách không cần kết nối mạng, bạn chỉ cần tải sách về và đọc ở chế độ offline thoải mái mà không cần lo lắng.\n
         * Hiện tại tất cả sách đều được miễn phí và không mang mục đích thương mại.\n
         * Hãy truy cập https://www.facebook.com/SS.SachCuaTui trên Facebook để cập nhật các thông tin.\n
-        * Để yêu cầu thêm những sách bạn yêu thích và góp ý về App vui lòng vào http://bit.do/N4q6
     </string>
+
+    <string name="ok_button">Đồng Ý</string>
+    <string name="doctiep_button">Đọc Tiếp</string>
+    <string name="cancel_button">Bỏ Qua</string>
 
     <string name="fmmain_newbook">Sách mới</string>
     <string name="fmmain_top">Top 20 sách đọc nhiều nhất</string>

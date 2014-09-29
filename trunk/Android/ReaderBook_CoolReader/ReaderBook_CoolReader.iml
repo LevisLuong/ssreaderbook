@@ -38,7 +38,6 @@
     <orderEntry type="module" module-name="lb_AmbilWarna" />
     <orderEntry type="module" module-name="lb_horizontallistview" />
     <orderEntry type="module" module-name="lb_UrlImageViewHelper" />
-    <orderEntry type="module" module-name="lb_SubSamplingScaleImageView" />
   </component>
 </module>
 

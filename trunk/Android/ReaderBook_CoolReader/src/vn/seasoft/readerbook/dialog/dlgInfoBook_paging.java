@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.facebook.*;
-import com.facebook.widget.WebDialog;
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
@@ -27,8 +25,6 @@ import vn.seasoft.readerbook.ResultObjects.Result_GetBookChapter;
 import vn.seasoft.readerbook.SSReaderApplication;
 import vn.seasoft.readerbook.Util.AsyntaskDownloadFile;
 import vn.seasoft.readerbook.Util.GlobalData;
-import vn.seasoft.readerbook.Util.SSUtil;
-import vn.seasoft.readerbook.Util.asynPostFacebook;
 import vn.seasoft.readerbook.actReadPictureBook;
 import vn.seasoft.readerbook.adapter.BookChapterAdapter;
 import vn.seasoft.readerbook.model.Book;
@@ -51,8 +47,6 @@ public class dlgInfoBook_paging extends DialogFragment implements OnHttpServices
     Book book;
     BookChapterAdapter adapter;
     View footerLoadmore;
-
-    private UiLifecycleHelper uiHelper;
 
 
     public dlgInfoBook_paging() {
@@ -120,14 +114,12 @@ public class dlgInfoBook_paging extends DialogFragment implements OnHttpServices
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        uiHelper = new UiLifecycleHelper(getActivity(), statusCallback);
-        uiHelper.onCreate(savedInstanceState);
 
         SSReaderApplication.getSocialAdapter().setListener(new DialogListener() {
             @Override
             public void onComplete(Bundle bundle) {
-                asynPostFacebook asyn = new asynPostFacebook(mContext, book.getTitle(), book.getAuthor(), UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
-                asyn.execute();
+//                asynPostFacebook asyn = new asynPostFacebook(mContext, book.getTitle(), book.getAuthor(), UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
+//                asyn.execute();
             }
 
             @Override
@@ -150,50 +142,27 @@ public class dlgInfoBook_paging extends DialogFragment implements OnHttpServices
     @Override
     public void onResume() {
         super.onResume();
-        uiHelper.onResume();
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Session.getActiveSession().onActivityResult(getSupportActivity(), requestCode, resultCode, data);
-        uiHelper.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        uiHelper.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        uiHelper.onDestroy();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        uiHelper.onSaveInstanceState(outState);
     }
-
-    private class SessionStatusCallback implements Session.StatusCallback {
-        @Override
-        public void call(Session session, SessionState state, Exception exception) {
-            // Respond to session state changes, ex: updating the view
-            if (state.isOpened()) {
-                SSUtil.App_Log("Post facebook !!!!!!!!", "Post facebook !!!!!!!!");
-                publishFeedDialog();
-            } else if (state.isClosed()) {
-                SSUtil.App_Log("not login", "not login !!!!!!!!");
-                publishFeedDialog();
-            }
-        }
-    }
-
-    private Session.StatusCallback statusCallback =
-            new SessionStatusCallback();
 
     boolean asc = true;
 
@@ -385,54 +354,6 @@ public class dlgInfoBook_paging extends DialogFragment implements OnHttpServices
         return builder.create();
     }
 
-    private void publishFeedDialog() {
-        Bundle params = new Bundle();
-        params.putString("name", "Facebook SDK for Android");
-        params.putString("caption", "Build great social apps and get more installs.");
-        params.putString("description", "The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
-        params.putString("link", "https://developers.facebook.com/android");
-        params.putString("picture", "https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png");
-
-        WebDialog feedDialog = (
-                new WebDialog.FeedDialogBuilder(getActivity(),
-                        Session.getActiveSession(),
-                        params))
-                .setOnCompleteListener(new WebDialog.OnCompleteListener() {
-
-                    @Override
-                    public void onComplete(Bundle values,
-                                           FacebookException error) {
-                        if (error == null) {
-                            // When the story is posted, echo the success
-                            // and the post Id.
-                            final String postId = values.getString("post_id");
-                            if (postId != null) {
-                                Toast.makeText(getActivity(),
-                                        "Posted story, id: " + postId,
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                // User clicked the Cancel button
-                                Toast.makeText(getActivity().getApplicationContext(),
-                                        "Publish cancelled",
-                                        Toast.LENGTH_SHORT).show();
-                            }
-                        } else if (error instanceof FacebookOperationCanceledException) {
-                            // User clicked the "x" button
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Publish cancelled",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // Generic, ex: network error
-                            Toast.makeText(getActivity().getApplicationContext(),
-                                    "Error posting story",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                })
-                .build();
-        feedDialog.show();
-    }
 
     @Override
     public void onDataError(int errortype, String urlMethod) {

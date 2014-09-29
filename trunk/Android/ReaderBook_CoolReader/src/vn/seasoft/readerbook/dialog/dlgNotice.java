@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
+import vn.seasoft.readerbook.R;
 
 /**
  * User: XuanTrung
@@ -38,7 +39,7 @@ public class dlgNotice extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getSupportActivity());
         builder.setTitle("Thông báo");
         builder.setMessage(message);
-        builder.setPositiveButton(android.R.string.ok, null);
+        builder.setPositiveButton(R.string.ok_button, null);
 
         return builder.create();
     }
