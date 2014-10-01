@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import Dao.Database;
@@ -13,6 +14,7 @@ public class FeedBack {
 	String titlebook;
 	String authorbook;
 	String feedback;
+	Timestamp datecreated;
 	/*
 	 * status 0: chua xu ly 1: da xu ly
 	 */
@@ -56,6 +58,14 @@ public class FeedBack {
 
 	public void setStatus(int status) {
 		this.status = status;
+	}
+
+	public Timestamp getDatecreated() {
+		return datecreated;
+	}
+
+	public void setDatecreated(Timestamp datecreated) {
+		this.datecreated = datecreated;
 	}
 
 	public int addFeedback() {
@@ -169,6 +179,7 @@ public class FeedBack {
 				feedback.setTitlebook(rs.getString("titlebook"));
 				feedback.setAuthorbook(rs.getString("authorbook"));
 				feedback.setFeedback(rs.getString("feedback"));
+				feedback.setDatecreated(rs.getTimestamp("datecreated"));
 				return feedback;
 			}
 		} catch (Exception e) {
@@ -206,6 +217,7 @@ public class FeedBack {
 				feedback.setTitlebook(rs.getString("titlebook"));
 				feedback.setAuthorbook(rs.getString("authorbook"));
 				feedback.setFeedback(rs.getString("feedback"));
+				feedback.setDatecreated(rs.getTimestamp("datecreated"));
 				lstfeedbacks.add(feedback);
 			}
 			return lstfeedbacks;

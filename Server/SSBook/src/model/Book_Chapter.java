@@ -145,9 +145,7 @@ public class Book_Chapter {
 					.format("UPDATE book_chapter SET `approved`='%d' WHERE `idbook_chapter`=%d;",
 							status, this.idbook_chapter);
 			int result = stmt.executeUpdate(sqlUpdate);
-			if (result == 1) {
-				checkApproveBook();
-			}
+			checkApproveBook();
 			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -337,7 +335,7 @@ public class Book_Chapter {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT count(*) FROM dbssbook.book_chapter where idbook = ? && isdeleted = 0 AND approved = 1";
+			String sql = "SELECT count(*) FROM dbssbook.book_chapter where idbook = ? AND isdeleted = 0 AND approved = 1";
 			ps = conn.Get_Connection().prepareStatement(sql);
 			ps.setInt(1, this.idbook);
 			rs = ps.executeQuery();

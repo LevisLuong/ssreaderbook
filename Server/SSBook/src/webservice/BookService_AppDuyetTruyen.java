@@ -143,8 +143,7 @@ public class BookService_AppDuyetTruyen {
 			@FormParam("status") int status) {
 		String bookjson = null;
 		try {
-			Book_Chapter bc = new Book_Chapter();
-			bc.setIdbook_chapter(idbookchapter);
+			Book_Chapter bc = new Book_Chapter().getById(idbookchapter);
 			bc.setApprovedDatabase(status);
 			// convert array chapter to json
 			bookjson = "{}";

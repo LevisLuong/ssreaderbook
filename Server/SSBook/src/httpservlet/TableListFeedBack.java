@@ -43,16 +43,17 @@ public class TableListFeedBack extends HttpServlet {
 			lstfeedbacks = feedbackquery.getAllFeedback();
 			int i = 1;
 			for (FeedBack feedback : lstfeedbacks) {
-//				if (i % 2 == 0) {
-//					out.println("<tr class=\"alternate-row\">");
-//				} else {
-//					
-//				}
+				// if (i % 2 == 0) {
+				// out.println("<tr class=\"alternate-row\">");
+				// } else {
+				//
+				// }
 				out.println("<tr>");
 				out.println("<td>" + feedback.getIdfeedback() + "</td>");
 				out.println("<td>" + feedback.getTitlebook() + "</td>");
 				out.println("<td>" + feedback.getAuthorbook() + "</td>");
 				out.println("<td>" + feedback.getFeedback() + "</td>");
+				out.println("<td>" + feedback.getDatecreated() + "</td>");
 				out.println("<td  class=\"options-width\">");
 
 				out.println("<a title='Đã Xử Lý' class=\"icon-5 info-tooltip\" href=\"ApproveFeedBack?idfeedback="

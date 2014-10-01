@@ -65,6 +65,8 @@
 													giả</span></th>
 											<th class="table-header-repeat line-left minwidth-1"><span>Ý
 													kiến phản hồi</span></th>
+											<th class="table-header-repeat line-left minwidth-1"><span>Ngày
+													khởi tạo</span></th>
 											<th class="table-header-repeat line-left"><span>Chức
 													năng</span></th>
 										</tr>
