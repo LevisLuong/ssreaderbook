@@ -27,6 +27,10 @@ public class BookChapterController {
         }
     }
 
+    public Dao<Book_Chapter,Integer> getDao(){
+        return Dao;
+    }
+
     public int create(Book_Chapter item) {
         try {
             return Dao.create(item);

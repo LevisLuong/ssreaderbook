@@ -78,6 +78,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         return bookcategoryDao;
     }
+
     public Dao<Book_Chapter, Integer> getBookChapterDao() throws SQLException {
         if (bookchapterDao == null) {
             bookchapterDao = getDao(Book_Chapter.class);
@@ -90,6 +91,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         super.close();
         bookDao = null;
         bookcategoryDao = null;
-        bookchapterDao= null;
+        bookchapterDao = null;
     }
 }

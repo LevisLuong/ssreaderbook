@@ -84,7 +84,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="@dimen/afc_10dp"
-                            android:text="Chuyên mục:"
+                            android:text="Thể loại:"
                             android:textStyle="bold"/>
 
                         <TextView
@@ -121,6 +121,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:scrollbars="horizontal"
+                            android:singleLine="true"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -144,6 +146,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:scrollbars="horizontal"
+                            android:singleLine="true"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -167,6 +171,8 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
+                            android:scrollbars="horizontal"
+                            android:singleLine="true"
                             android:text="0"/>
                     </LinearLayout>
 
@@ -206,7 +212,7 @@
             android:maxLines="3"
             android:padding="@dimen/afc_5dp"
             android:scrollbars="vertical"
-            android:text="In publishing and graphonlvisual presentation."/>
+            android:text=""/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -49,7 +49,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     Context mContext;
     Book book;
     BookChapterAdapter adapter;
-    View footerLoadmore;
 
     public dlgInfoBook() {
     }
@@ -97,7 +96,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoContainer = (RelativeLayout) root.findViewById(R.id.dlginfo_container);
         dlginfoListview = new ListView(mContext);
         adapter = new BookChapterAdapter(mContext);
-        SwipeDismissList swiplist = new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
+        new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
             @Override
             public SwipeDismissList.Undoable onDismiss(AbsListView listView, int position) {
                 adapter.deleteBook(position);
@@ -207,7 +206,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.dialog_book_info, container, false);
-        footerLoadmore = inflater.inflate(R.layout.loadmore_layout, null, false);
         assignViews(v);
         UrlImageViewHelper.setUrlDrawable(dlginfoImgcover, GlobalData.getUrlImageCover(book));
         dlginfoTxtTitle.setText(book.getTitle());
@@ -284,7 +282,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             }
         });
         addViewContainer(dlginfoContainer, new ProgressBar(mContext));
-        dlginfoListview.addFooterView(footerLoadmore);
         dlginfoListview.setAdapter(adapter);
         dlginfoListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -296,7 +293,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         });
 
         //update from server
-        GlobalData.ShowProgressDialog(mContext, "test");
+        GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
         SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook(), 0);
         return v;
     }
@@ -429,11 +426,10 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
                     if (adapter.SetListBooks(data.lstBookChaps)) {
                         addViewContainer(dlginfoContainer, dlginfoListview);
                     }
-                    dlginfoListview.removeFooterView(footerLoadmore);
                     dlginfoTxtchapters.setText(adapter.getCount() + "");
-                    GlobalData.DissmissProgress();
                 }
             });
         }
+        GlobalData.DissmissProgress();
     }
 }

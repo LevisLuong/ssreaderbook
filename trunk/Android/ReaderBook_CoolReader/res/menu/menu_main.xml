@@ -23,6 +23,11 @@
                 android:title="Yêu cầu sách và đóng góp ý kiến"
                 />
             <item
+                android:id="@+id/action_tutorial"
+                android:showAsAction="never"
+                android:title="Hướng dẫn ứng dụng"
+                />
+            <item
                 android:id="@+id/action_about"
                 android:showAsAction="never"
                 android:title="Giới thiệu ứng dụng"

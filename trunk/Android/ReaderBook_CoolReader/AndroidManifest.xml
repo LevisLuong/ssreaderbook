@@ -2,7 +2,7 @@
 <manifest
     package="vn.seasoft.readerbook"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="2"
+    android:versionCode="3"
     android:versionName="1.1">
 
     <uses-sdk
@@ -44,6 +44,13 @@
         </activity>
 
         <activity
+            android:name=".actTutorial"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/HoloThemeLightDarkActionbar">
+
+        </activity>
+
+        <activity
             android:name=".actSearchBooks"
             android:configChanges="orientation|keyboardHidden|locale|screenSize"
             android:parentActivityName=".MainActivity"
@@ -60,8 +67,8 @@
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Holo.Theme.Light.NoActionBar.Fullscreen">
-
         </activity>
+
 
         <activity
             android:name="org.coolreader.CoolReader"

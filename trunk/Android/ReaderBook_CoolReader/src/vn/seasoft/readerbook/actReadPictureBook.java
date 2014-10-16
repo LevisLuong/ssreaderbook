@@ -355,6 +355,14 @@ public class actReadPictureBook extends Activity {
                 return false;
             }
         }
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
+                SetInvisible();
+            } else {
+                SetVisible();
+            }
+            return false;
+        }
         return super.onKeyDown(keyCode, event);
     }
 

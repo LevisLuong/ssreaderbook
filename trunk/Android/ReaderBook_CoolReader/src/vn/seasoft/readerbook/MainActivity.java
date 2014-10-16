@@ -100,9 +100,10 @@ public class MainActivity extends Activity {
                 dlgFeedback dlg = new dlgFeedback(context);
                 dlg.show(getSupportFragmentManager());
                 break;
-//            case R.id.action_tutorial:
-//                Toast.makeText(getBaseContext(), "Hướng dẫn sử dụng !", Toast.LENGTH_SHORT).show();
-//                break;
+            case R.id.action_tutorial:
+                Intent browserIntent = new Intent(MainActivity.this, actTutorial.class);
+                startActivity(browserIntent);
+                break;
             case R.id.action_about:
                 dlgAboutApp dlgAbout = new dlgAboutApp(context);
                 dlgAbout.show();
@@ -142,6 +143,12 @@ public class MainActivity extends Activity {
         super.onDestroy();
         addonSlider().onDestroy();
 //        SSReaderApplication.getRequestServer(this).setUserOffline();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        addonSlider().onPause();
     }
 
     public void exitApp() {
