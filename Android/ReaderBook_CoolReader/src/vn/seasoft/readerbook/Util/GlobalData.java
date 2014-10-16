@@ -7,6 +7,8 @@ import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Chapter;
 import vn.seasoft.readerbook.sqlite.RepoController;
 
+import java.text.SimpleDateFormat;
+
 /**
  * User: XuanTrung
  * Date: 7/9/2014
@@ -17,6 +19,7 @@ public class GlobalData {
     public static final String LOCATION_SAVE_BOOK = "SSBooks";
 
     static ProgressDialog progressDialog;
+    public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static void ShowProgressDialog(Context context, String msg) {
         progressDialog = new ProgressDialog(context);

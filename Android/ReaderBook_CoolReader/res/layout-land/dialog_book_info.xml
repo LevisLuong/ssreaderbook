@@ -104,7 +104,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginRight="@dimen/afc_10dp"
-                                android:text="Chuyên mục:"
+                                android:text="Thể loại:"
                                 android:textStyle="bold"/>
 
                             <TextView
@@ -141,6 +141,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:scrollbars="horizontal"
+                                android:singleLine="true"
                                 android:text="0"/>
                         </LinearLayout>
 
@@ -163,6 +165,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:scrollbars="horizontal"
+                                android:singleLine="true"
                                 android:text="0"/>
                         </LinearLayout>
 
@@ -185,6 +189,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
+                                android:scrollbars="horizontal"
+                                android:singleLine="true"
                                 android:text="0"/>
                         </LinearLayout>
 

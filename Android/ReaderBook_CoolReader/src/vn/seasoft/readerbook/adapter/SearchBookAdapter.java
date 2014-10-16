@@ -112,13 +112,13 @@ public class SearchBookAdapter extends BaseAdapter {
         Book book = lstBooks.get(i);
         if (book != null) {
             UrlImageViewHelper.setUrlDrawable(holder.searchbookcover, GlobalData.getUrlImageCover(book), R.drawable.book_exam);
-            holder.searchbooktitle.setText(Html.fromHtml("<b>Tựa sách: </b>") + book.getTitle());
-            holder.searchbookauthor.setText(Html.fromHtml("<b>Tác giả: </b>") + book.getAuthor());
+            holder.searchbooktitle.setText(Html.fromHtml("<b>Tựa sách: </b>" + book.getTitle()));
+            holder.searchbookauthor.setText(Html.fromHtml("<b>Tác giả: </b>" + book.getAuthor()));
             String summary = book.getSummary();
             if (summary.length() > 100) {
                 summary = summary.substring(0, 100) + "...";
             }
-            holder.searchbooksummary.setText(Html.fromHtml("<b>Tóm tắt: </b>") + summary);
+            holder.searchbooksummary.setText(Html.fromHtml("<b>Tóm tắt: </b>" + summary));
         }
         return view;
     }

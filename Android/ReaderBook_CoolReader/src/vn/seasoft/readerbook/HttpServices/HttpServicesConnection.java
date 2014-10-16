@@ -120,12 +120,10 @@ public class HttpServicesConnection {
                                         result.setData(response);
                                         mCallback.onGetData(result, urlMethod, id);
                                     }
-
                                 } else { // Get error code 1
                                     if (mCallback != null) {
                                         mCallback.onDataError(errorCode, urlMethod);
                                     }
-
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -145,7 +143,7 @@ public class HttpServicesConnection {
                         }
                     } else if ((error instanceof ServerError) || (error instanceof AuthFailureError)) {
                         if (mCallback != null) {
-                            mCallback.onDataError(ErrorType.SERVER_ERROR, urlMethod);
+                            mCallback.onDataError(ErrorType.ERROR_INTERNALSERVERERROR, urlMethod);
                         }
                     }
                 }

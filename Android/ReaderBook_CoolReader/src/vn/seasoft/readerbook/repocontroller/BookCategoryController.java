@@ -16,6 +16,10 @@ public class BookCategoryController {
 
     Dao<Book_Category, Integer> Dao;
 
+    public Dao<Book_Category, Integer> getDao() {
+        return Dao;
+    }
+
     public BookCategoryController(DatabaseHelper db) {
         try {
             Dao = db.getBookcategoryDao();

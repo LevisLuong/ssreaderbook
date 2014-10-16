@@ -14,4 +14,10 @@ public class COMMAND_API {
     public final static String GET_BOOK_CHAPTER = "api/GetChapterBook";
     public final static String GET_MOST_READ = "api/GetMostRead";
     public final static String GET_NEWEST = "api/GetNewest";
+    //User
+    public final static String LOGIN_BY_FACEBOOK = "api/user/LoginByFacebook";
+    public final static String REGISTER_FACEBOOK = "api/user/RegisterUserFacebook";
+    public final static String USER_LIKE = "api/user/UserLike";
+    public final static String USER_COMMENT = "api/user/UserComment";
+    public final static String GET_COMMENTS = "api/user/GetCommentsBook";
 }
