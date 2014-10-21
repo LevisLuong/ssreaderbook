@@ -4,13 +4,14 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ReaderBook_CoolReader.iml" filepath="$PROJECT_DIR$/ReaderBook_CoolReader.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" filepath="$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../lb_UrlImageViewHelper/lb_UrlImageViewHelper.iml" filepath="$PROJECT_DIR$/../lb_UrlImageViewHelper/lb_UrlImageViewHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_CardUI/src/lb_CardUI/lb_CardUI.iml" filepath="$PROJECT_DIR$/../lb_CardUI/src/lb_CardUI/lb_CardUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn/lb_QuickReturn.iml" filepath="$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn/lb_QuickReturn.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" filepath="$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" filepath="$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" />
       <module fileurl="file://$PROJECT_DIR$/../lb_nineolddroid/lb_nineolddroid.iml" filepath="$PROJECT_DIR$/../lb_nineolddroid/lb_nineolddroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lb_viewpagerindicator/lb_viewpagerindicator.iml" filepath="$PROJECT_DIR$/../lb_viewpagerindicator/lb_viewpagerindicator.iml" />
       <module fileurl="file://$PROJECT_DIR$/../preferences/preferences.iml" filepath="$PROJECT_DIR$/../preferences/preferences.iml" />
       <module fileurl="file://$PROJECT_DIR$/../slider/slider.iml" filepath="$PROJECT_DIR$/../slider/slider.iml" />
     </modules>
   </component>
 </project>
-

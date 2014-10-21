@@ -1,4 +1,3 @@
-
 package org.holoeverywhere.app;
 
 import android.content.Context;
@@ -12,7 +11,6 @@ import android.text.Spanned;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.TextView;
-
 import org.holoeverywhere.R;
 import org.holoeverywhere.widget.ProgressBar;
 

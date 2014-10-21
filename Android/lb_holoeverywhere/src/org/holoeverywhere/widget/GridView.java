@@ -821,7 +821,7 @@ public class GridView extends android.widget.GridView implements OnWindowFocusCh
         if (child instanceof Checkable) {
             ((Checkable) child).setChecked(value);
         } else if (child instanceof DrawableCompat.StateStub) {
-            ((DrawableCompat.StateStub) child).setActivated(value);
+            child.setActivated(value);
         } else if (USE_ACTIVATED) {
             child.setActivated(value);
         }

@@ -338,7 +338,7 @@ public abstract class _HoloActivity extends ActionBarActivity implements SuperSt
 
     private void rOnWindowFocusChanged(View view, boolean hasFocus) {
         if (view instanceof OnWindowFocusChangeListener) {
-            ((OnWindowFocusChangeListener) view).onWindowFocusChanged(hasFocus);
+            view.onWindowFocusChanged(hasFocus);
         }
         if (view instanceof ViewGroup) {
             final ViewGroup vg = (ViewGroup) view;

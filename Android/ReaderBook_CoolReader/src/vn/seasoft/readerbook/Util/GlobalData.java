@@ -17,6 +17,7 @@ import java.text.SimpleDateFormat;
 public class GlobalData {
     public static RepoController repo;
     public static final String LOCATION_SAVE_BOOK = "SSBooks";
+    public static final String PICTURE_BOOK = "Picture_Books";
 
     static ProgressDialog progressDialog;
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

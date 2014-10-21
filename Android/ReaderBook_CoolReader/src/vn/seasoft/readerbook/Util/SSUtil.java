@@ -5,15 +5,20 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
+import urlimageviewhelper.UrlImageViewHelper;
+import vn.seasoft.readerbook.model.Book_Chapter;
 
 import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * User: XuanTrung
@@ -36,7 +41,6 @@ public class SSUtil {
                         }
                     }
                 }
-
             } else {
                 //Toast.makeText(GlobalData.getCurContext(), R.string.Error43, Toast.LENGTH_LONG).show();
             }
@@ -58,9 +62,36 @@ public class SSUtil {
         return null;
     }
 
+    public static File downloadPictureBook(Context context, String Urlpicture) {
+        try {
+            if (Urlpicture.contains("file://")) {
+                return new File(Urlpicture);
+            }
+//                String FileName = UrlBook.substring(
+//                        UrlBook.lastIndexOf("/") + 1,
+//                        UrlBook.lastIndexOf("."));
+//                String extFile = UrlBook.substring(UrlBook.lastIndexOf("."), UrlBook.length());
+//                FileName = "SSBook" + FileName.hashCode() + extFile;
+            File file = new File(context.getFileStreamPath(UrlImageViewHelper.getFilenameForUrl(Urlpicture)).getAbsolutePath());
+            return file;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
     public static boolean deleteBook(String urlfile) {
         File file = SSUtil.downloadBook(urlfile);
         return file.delete();
+    }
+
+    public static void deletePictureBook(Context context, Book_Chapter bc) {
+        List<String> lstPicture = Arrays.asList(bc.getFilename().split(","));
+        for (String filechapter : lstPicture) {
+            String url = GlobalData.getUrlPictureBook(bc.getIdbook(), bc.getIdbook_chapter()) + filechapter;
+            UrlImageViewHelper.remove(context, url);
+        }
     }
 
     public static String loadIDDevice(final Context c) {
@@ -80,6 +111,7 @@ public class SSUtil {
         }
         return imei;
     }
+
     public static String printKeyHash(Activity context) {
         PackageInfo packageInfo;
         String key = null;
@@ -105,9 +137,7 @@ public class SSUtil {
             }
         } catch (PackageManager.NameNotFoundException e1) {
             Log.e("Name not found", e1.toString());
-        }
-
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             Log.e("No such an algorithm", e.toString());
         } catch (Exception e) {
             Log.e("Exception", e.toString());
@@ -115,7 +145,24 @@ public class SSUtil {
 
         return key;
     }
+
     public static void App_Log(String tag, String logMsg) {
         Log.i(tag, logMsg);
+    }
+
+    public static boolean isTablet(Context context) {
+        return (context.getResources().getConfiguration().screenLayout
+                & Configuration.SCREENLAYOUT_SIZE_MASK)
+                >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+    }
+
+    public static String humanReadableByteCount(long bytes, boolean si) {
+        int unit = si ? 1000 : 1024;
+        if (bytes < unit)
+            return bytes + " B";
+        int exp = (int) (Math.log(bytes) / Math.log(unit));
+        String pre = (si ? "kMGTPE" : "KMGTPE").charAt(exp - 1)
+                + (si ? "" : "i");
+        return String.format("%.1f %sB", bytes / Math.pow(unit, exp), pre);
     }
 }

@@ -37,7 +37,8 @@
     </orderEntry>
     <orderEntry type="module" module-name="lb_AmbilWarna" />
     <orderEntry type="module" module-name="lb_horizontallistview" />
-    <orderEntry type="module" module-name="lb_UrlImageViewHelper" />
+    <orderEntry type="module" module-name="lb_viewpagerindicator" />
+    <orderEntry type="module" module-name="lb_CardUI" />
+    <orderEntry type="module" module-name="lb_QuickReturn" />
   </component>
 </module>
-

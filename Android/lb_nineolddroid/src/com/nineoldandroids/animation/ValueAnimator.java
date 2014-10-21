@@ -374,7 +374,7 @@ public class ValueAnimator extends Animator {
             return;
         }
         if (mValues == null || mValues.length == 0) {
-            setValues(new PropertyValuesHolder[]{PropertyValuesHolder.ofInt("", values)});
+            setValues(PropertyValuesHolder.ofInt("", values));
         } else {
             PropertyValuesHolder valuesHolder = mValues[0];
             valuesHolder.setIntValues(values);
@@ -402,7 +402,7 @@ public class ValueAnimator extends Animator {
             return;
         }
         if (mValues == null || mValues.length == 0) {
-            setValues(new PropertyValuesHolder[]{PropertyValuesHolder.ofFloat("", values)});
+            setValues(PropertyValuesHolder.ofFloat("", values));
         } else {
             PropertyValuesHolder valuesHolder = mValues[0];
             valuesHolder.setFloatValues(values);
@@ -434,8 +434,8 @@ public class ValueAnimator extends Animator {
             return;
         }
         if (mValues == null || mValues.length == 0) {
-            setValues(new PropertyValuesHolder[]{PropertyValuesHolder.ofObject("",
-                    (TypeEvaluator)null, values)});
+            setValues(PropertyValuesHolder.ofObject("",
+                    null, values));
         } else {
             PropertyValuesHolder valuesHolder = mValues[0];
             valuesHolder.setObjectValues(values);
@@ -457,7 +457,7 @@ public class ValueAnimator extends Animator {
         mValues = values;
         mValuesMap = new HashMap<String, PropertyValuesHolder>(numValues);
         for (int i = 0; i < numValues; ++i) {
-            PropertyValuesHolder valuesHolder = (PropertyValuesHolder) values[i];
+            PropertyValuesHolder valuesHolder = values[i];
             mValuesMap.put(valuesHolder.getPropertyName(), valuesHolder);
         }
         // New property/values/target should cause re-initialization prior to starting

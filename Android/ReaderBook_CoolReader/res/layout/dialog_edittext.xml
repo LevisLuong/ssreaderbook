@@ -3,14 +3,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical">
+              android:gravity="center_horizontal"
+              android:orientation="horizontal">
 
     <org.holoeverywhere.widget.EditText
         android:id="@+id/dlgEditText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:gravity="center"
         android:maxLines="4"
         android:scrollbars="vertical"
         android:singleLine="false"/>
+
+    <TextView
+        android:id="@+id/dlgEditText_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="/200"
+        android:textAppearance="@style/TextAppearance.Medium"/>
 </LinearLayout>

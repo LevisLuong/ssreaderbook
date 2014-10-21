@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.brickred.socialauth.android.SocialAuthError;
 import org.coolreader.CoolReader;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
+import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
@@ -184,8 +184,8 @@ public class dlgInfoBook_paging extends DialogFragment implements OnHttpServices
             @Override
             public void onClick(View view) {
                 if (!adapter.getList().isEmpty()) {
-                    dlgEditText dlg = new dlgEditText(mContext);
-                    dlg.setListener(new dlgEditText.IDialogEditText() {
+                    dlgGoChapter dlg = new dlgGoChapter(mContext);
+                    dlg.setListener(new dlgGoChapter.IDialogEditText() {
                         @Override
                         public void getValue(String value) {
                             int page = Integer.parseInt(value.trim());

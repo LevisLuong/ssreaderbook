@@ -16,7 +16,6 @@ import org.holoeverywhere.addon.AddonSlider;
 import org.holoeverywhere.addon.Addons;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.slider.SliderMenu;
-import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.dialog.dlgAboutApp;
 import vn.seasoft.readerbook.dialog.dlgConfirm;
 import vn.seasoft.readerbook.dialog.dlgFeedback;
@@ -47,7 +46,6 @@ public class MainActivity extends Activity {
                 addItemSliderMenu(bc);
             }
         }
-        GlobalData.ShowProgressDialog(this, R.string.loading);
         SSReaderApplication.getRequestServer(this).getCategoryBook();
 
         //Google analytics
@@ -96,6 +94,9 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.action_login:
+
+                break;
             case R.id.action_feedback:
                 dlgFeedback dlg = new dlgFeedback(context);
                 dlg.show(getSupportFragmentManager());

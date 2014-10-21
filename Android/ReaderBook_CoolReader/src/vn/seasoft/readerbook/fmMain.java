@@ -24,7 +24,7 @@ import vn.seasoft.readerbook.ResultObjects.Result_GetNewest;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.adapter.AdapterHListViewBook;
 import vn.seasoft.readerbook.dialog.dlgConfirm;
-import vn.seasoft.readerbook.dialog.dlgInfoBook;
+import vn.seasoft.readerbook.dialog.dlgInfoBook_tab;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
 import vn.seasoft.readerbook.widget.ViewError;
@@ -106,7 +106,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Book book = adapterlvRead.getItem(position);
-                dlgInfoBook dlg = new dlgInfoBook(mContext, book);
+                dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, book);
                 dlg.show(getSupportActivity());
             }
         });
@@ -130,7 +130,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position < adapterlvNewBook.getCount()) {
                     Book book = adapterlvNewBook.getItem(position);
-                    dlgInfoBook dlg = new dlgInfoBook(mContext, book);
+                    dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, book);
                     dlg.show(getSupportActivity());
                 }
             }
@@ -155,7 +155,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position < adapterlvHotBook.getCount()) {
                     Book book = adapterlvHotBook.getItem(position);
-                    dlgInfoBook dlg = new dlgInfoBook(mContext, book);
+                    dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, book);
                     dlg.show(getSupportActivity());
                 }
             }

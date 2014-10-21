@@ -120,7 +120,6 @@ public class BookChapterAdapter extends BaseAdapter {
         Book_Chapter book_chapter = lstBookChap.get(i);
         if (book_chapter != null) {
             holder.bookchaptertxtchap.setText(book_chapter.getChapter());
-
             if (book_chapter.getCurrentread()) {
                 holder.bookchaptertxtchap.setTextColor(Color.RED);
             } else {

@@ -384,7 +384,7 @@ class FastScroller<T extends AbsListView & FastScrollerCallback> {
         mScaledTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mMatchDragPosition = context.getApplicationInfo().targetSdkVersion >=
                 android.os.Build.VERSION_CODES.HONEYCOMB;
-        setScrollbarPosition(((FastScrollerCallback) mList).getVerticalScrollbarPosition());
+        setScrollbarPosition(mList.getVerticalScrollbarPosition());
     }
 
     public boolean isAlwaysShowEnabled() {

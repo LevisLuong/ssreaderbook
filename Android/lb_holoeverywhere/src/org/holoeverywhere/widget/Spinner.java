@@ -656,7 +656,7 @@ public class Spinner extends AbsSpinner implements OnClickListener {
                     "setPopupBackgroundDrawable: incompatible spinner mode; ignoring...");
             return;
         }
-        ((DropdownPopup) mPopup).setBackgroundDrawable(background);
+        mPopup.setBackgroundDrawable(background);
     }
 
     public void setPopupBackgroundResource(int resId) {

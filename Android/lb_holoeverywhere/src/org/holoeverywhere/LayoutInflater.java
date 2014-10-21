@@ -435,7 +435,6 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
                 int type;
                 while ((type = parser.next()) != XmlPullParser.START_TAG &&
                         type != XmlPullParser.END_DOCUMENT) {
-                    ;
                 }
                 if (type != XmlPullParser.START_TAG) {
                     throw new InflateException(parser.getPositionDescription()
@@ -541,7 +540,6 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
                     final AttributeSet childAttrs = Xml.asAttributeSet(childParser);
                     while ((type = childParser.next()) != XmlPullParser.START_TAG &&
                             type != XmlPullParser.END_DOCUMENT) {
-                        ;
                     }
                     if (type != XmlPullParser.START_TAG) {
                         throw new InflateException(childParser.getPositionDescription() +
@@ -598,7 +596,6 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
         final int currentDepth = parser.getDepth();
         while (((type = parser.next()) != XmlPullParser.END_TAG ||
                 parser.getDepth() > currentDepth) && type != XmlPullParser.END_DOCUMENT) {
-            ;
         }
     }
 
@@ -609,7 +606,6 @@ public class LayoutInflater extends android.view.LayoutInflater implements Clone
         final int currentDepth = parser.getDepth();
         while (((type = parser.next()) != XmlPullParser.END_TAG ||
                 parser.getDepth() > currentDepth) && type != XmlPullParser.END_DOCUMENT) {
-            ;
         }
     }
 

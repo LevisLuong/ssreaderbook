@@ -14,14 +14,14 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.*;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewCallback;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.widget.Button;
 import org.holoeverywhere.widget.ProgressBar;
 import org.holoeverywhere.widget.SeekBar;
 import org.holoeverywhere.widget.Toast;
+import urlimageviewhelper.UrlImageViewCallback;
+import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.dialog.dlgConfirm;
@@ -188,8 +188,8 @@ public class actReadPictureBook extends Activity {
                 dlg.setListener(new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        UrlImageViewHelper.cleanup(mContext);
-                        org.holoeverywhere.widget.Toast.makeText(mContext, "Đã xóa bộ nhớ tạm cho máy", Toast.LENGTH_SHORT).show();
+                        SSUtil.deletePictureBook(mContext, book_chapter);
+                        org.holoeverywhere.widget.Toast.makeText(mContext, "Đã xóa khỏi bộ nhớ máy", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dlg.show(getSupportFragmentManager());
@@ -312,7 +312,7 @@ public class actReadPictureBook extends Activity {
                 final ProgressBar progressBar = (ProgressBar) itemView.findViewById(R.id.viewpage_progress);
                 String url = GlobalData.getUrlPictureBook(idbook, idbookchapter) + lstPicture.get(position);
                 imv_Object.setScaleType(ImageView.ScaleType.FIT_XY);
-                UrlImageViewHelper.setUrlDrawable(imv_Object, url, R.drawable.ic_menu_autoscroll, UrlImageViewHelper.CACHE_DURATION_THREE_DAYS, new UrlImageViewCallback() {
+                UrlImageViewHelper.setUrlDrawable(imv_Object, url, R.drawable.ic_menu_autoscroll, UrlImageViewHelper.CACHE_DURATION_ONE_WEEK, new UrlImageViewCallback() {
 
                     @Override
                     public void onLoaded(ImageView imageView, Bitmap loadedBitmap, String url, boolean loadedFromCache) {
