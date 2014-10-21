@@ -11,8 +11,6 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import model.User_Online;
-
 import org.apache.commons.io.FileUtils;
 
 public class SSUtil {
@@ -86,8 +84,10 @@ public class SSUtil {
 				fileName = fileName.substring(fileName.lastIndexOf("/") + 1,
 						fileName.length());
 				System.out.println("file unzip: " + fileName);
-				if (fileName.endsWith("jpg") || fileName.endsWith("png")
-						|| fileName.endsWith("JPG") || fileName.endsWith("PNG")) {
+				if (fileName.endsWith("jpg") || fileName.endsWith("jpeg")
+						|| fileName.endsWith("JPEG")
+						|| fileName.endsWith("png") || fileName.endsWith("JPG")
+						|| fileName.endsWith("PNG")) {
 					File newFile = new File(outputFolder + File.separator
 							+ fileName);
 					System.out.println("file path unzip : "

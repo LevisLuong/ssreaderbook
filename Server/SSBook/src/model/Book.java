@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Date;
 
 import Dao.Database;
 
@@ -28,6 +27,7 @@ public class Book {
 	int countdownload;
 	String uploader;
 	int approved;
+	String user_like;
 
 	@Expose(deserialize = false)
 	protected int booksCount;
@@ -126,6 +126,14 @@ public class Book {
 
 	public void setApproved(int approved) {
 		this.approved = approved;
+	}
+
+	public String getUser_like() {
+		return user_like;
+	}
+
+	public void setUser_like(String user_like) {
+		this.user_like = user_like;
 	}
 
 	public int addBook() {
@@ -310,6 +318,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setUser_like(rs.getString("user_like"));
 				return book;
 			}
 		} catch (Exception e) {
@@ -407,6 +416,7 @@ public class Book {
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
 				book.setApproved(rs.getInt("approved"));
+				book.setUser_like(rs.getString("user_like"));
 				books.add(book);
 			}
 			rs.close();
@@ -500,6 +510,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setUser_like(rs.getString("user_like"));
 				books.add(book);
 			}
 			rs.close();
@@ -566,6 +577,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setUser_like(rs.getString("user_like"));
 				books.add(book);
 			}
 			return books;
@@ -620,6 +632,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setUser_like(rs.getString("user_like"));
 				books.add(book);
 			}
 			return books;
@@ -641,7 +654,7 @@ public class Book {
 		}
 	}
 
-	public synchronized ArrayList<Book> getNewest(int index, boolean ApproveBook)
+	public ArrayList<Book> getNewest(int index, boolean ApproveBook)
 			throws Exception {
 		ArrayList<Book> books = new ArrayList<Book>();
 		Database conn = null;
@@ -671,6 +684,7 @@ public class Book {
 				book.setCountview(rs.getInt("countview"));
 				book.setCountdownload(rs.getInt("countdownload"));
 				book.setUploader(rs.getString("uploader"));
+				book.setUser_like(rs.getString("user_like"));
 				books.add(book);
 			}
 			return books;
@@ -817,5 +831,38 @@ public class Book {
 			}
 		}
 		return id;
+	}
+
+	public int addUserLike(int idbook) {
+		Database conn = null;
+		Statement stmt = null;
+		String strUserLike = idbook + "|";
+		try {
+			conn = new Database();
+			stmt = conn.Get_Connection().createStatement();
+			String sqlUpdate = String
+					.format("UPDATE book SET `user_like`='%s' WHERE `idbook`='%d';",
+							this.user_like.replace("|", ",") + strUserLike,
+							this.idbook);
+			int result = stmt.executeUpdate(sqlUpdate);
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception e) { /* ignored */
+			}
+
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return 0;
 	}
 }

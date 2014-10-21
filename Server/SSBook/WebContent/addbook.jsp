@@ -16,8 +16,6 @@
 	<div id="content-outer">
 		<!-- start content -->
 		<div id="content">
-
-
 			<div id="page-heading">
 				<h1>Thêm Sách</h1>
 			</div>
