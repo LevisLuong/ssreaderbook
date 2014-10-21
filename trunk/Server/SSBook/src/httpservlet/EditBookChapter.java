@@ -122,13 +122,22 @@ public class EditBookChapter extends HttpServlet {
 			if (!filename.equals("")) {
 				bc.setFilesize(SSUtil.humanReadableByteCount(
 						filePart.getSize(), true));
-				// Check picture category
+				// Check category picture
 				if (b.getIdcategory() == 8) {
 					bc.setFilename(SSUtil.unZipIt(
 							uploadPath + File.separator + filename,
 							uploadPath + File.separator
 									+ bc.getIdbook_chapter()));
 				} else {
+					try {
+						File deleteOldFile = new File(uploadPath
+								+ File.separator + bc.getFilename());
+						deleteOldFile.delete();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+
 					bc.setFilename(filename);
 				}
 			}

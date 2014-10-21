@@ -1,7 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/header.jsp=UTF-8
 encoding//WebContent/js/jsAddBook.js=UTF-8
-encoding//WebContent/login_bk.jsp=UTF-8
 encoding//src/httpservlet/AddBook.java=UTF-8
 encoding//src/httpservlet/AddBookCategory.java=UTF-8
 encoding//src/httpservlet/AddBookChapter.java=UTF-8

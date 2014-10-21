@@ -14,6 +14,7 @@ import model.Book_Category;
 import model.Book_Chapter;
 import model.FeedBack;
 import model.User_Online;
+import Others.Status;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,6 +33,14 @@ public class BookService {
 		return json;
 	}
 
+	public String returnStatus(int status) {
+		return "{\"status\":\"" + status + "\"}";
+	}
+
+	public String returnError(int error) {
+		return "{\"errorcode\":\"" + error + "\"}";
+	}
+
 	@POST
 	@Path("/GetCategory")
 	@Produces("application/json;charset=utf-8")
@@ -44,6 +53,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -114,6 +124,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -131,6 +142,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -150,6 +162,7 @@ public class BookService {
 			bookjson = "{}";
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -171,6 +184,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -189,6 +203,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -208,6 +223,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -227,6 +243,7 @@ public class BookService {
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return bookjson;
 	}
@@ -239,6 +256,7 @@ public class BookService {
 			(new Book()).getById(idbook).updateCountDownload();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		}
 		return "{}";
 	}

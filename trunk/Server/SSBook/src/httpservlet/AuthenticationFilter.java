@@ -32,17 +32,18 @@ public class AuthenticationFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		HttpSession session = req.getSession(false);
-		
+
 		String uri = req.getRequestURI();
 		this.context.log("Requested Resource::" + uri);
-		
-		if (uri.contains("api") || uri.contains("css") || uri.contains("jquery")
+
+		if (uri.contains("api") || uri.contains("css")
+				|| uri.contains("jquery") || uri.contains("zerocopy")
 				|| uri.contains("images") || uri.endsWith("login.jsp")
 				|| uri.endsWith("Login") || uri.endsWith("index.jsp")) {
 			chain.doFilter(request, response);
 			return;
 		}
-		
+
 		if (session != null) {
 			// pass the request along the filter chain
 			this.context.log("username: " + session.getAttribute("username"));
