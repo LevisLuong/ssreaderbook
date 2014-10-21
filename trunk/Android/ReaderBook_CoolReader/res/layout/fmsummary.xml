@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:padding="@dimen/afc_10dp">
+
+    <TextView
+        android:id="@+id/fmsummary_txtSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:padding="@dimen/afc_5dp"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textAppearance="@style/TextAppearance.Medium"/>
+
+    <it.gmariotti.cardslib.library.view.component.CardShadowView
+        android:id="@+id/card_shadow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
