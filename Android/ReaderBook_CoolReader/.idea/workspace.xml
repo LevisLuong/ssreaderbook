@@ -103,27 +103,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: vn.seasoft.readerbook" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="703e863b-272d-4e3e-8367-f29dda8e50b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/widget/ActionBarView.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/widget/ActionBarView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ActionMenuPresenter.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ActionMenuPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ActionMenuView.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ActionMenuView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/AnimatorSet.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/AnimatorSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ArgbEvaluator.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ArgbEvaluator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/FastScroller.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/FastScroller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/GridView.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/GridView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/LayoutInflater.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/LayoutInflater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ListMenuPresenter.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/menu/ListMenuPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/ListView.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/ListView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ObjectAnimator.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ObjectAnimator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/src/org/holoeverywhere/preference/PreferenceActivity.java" afterPath="$PROJECT_DIR$/../preferences/src/org/holoeverywhere/preference/PreferenceActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/ProgressDialog.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/ProgressDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/PropertyValuesHolder.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/PropertyValuesHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderMenu.java" afterPath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/Spinner.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/Spinner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/SupportMenuInflater.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/internal/view/SupportMenuInflater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ValueAnimator.java" afterPath="$PROJECT_DIR$/../lb_nineolddroid/src/com/nineoldandroids/animation/ValueAnimator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v4/app/_HoloActivity.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v4/app/_HoloActivity.java" />
-    </list>
+    <list default="true" readonly="true" id="703e863b-272d-4e3e-8367-f29dda8e50b0" name="Default" comment="" />
     <ignored path="ReaderBook.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -158,8 +138,8 @@
       <file leaf-file-name="dlgInfoBook.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31133673" vertical-offset="1771" max-vertical-offset="6460">
-              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="152" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.57022" vertical-offset="1771" max-vertical-offset="6460">
+              <caret line="131" column="75" selection-start-line="131" selection-start-column="75" selection-end-line="131" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,6 +241,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReaderBook_CoolReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ReaderBook_CoolReader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -294,7 +284,7 @@
     <property name="ExportedApkPath" value="E:\ReleaseApps\ssbook_v1.1.apk" />
     <property name="AndroidRunProguardForReleaseBuild" value="true" />
     <property name="AndroidProguardConfigPaths" value="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\proguard.cfg" />
-    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="options.lastSelected" value="vcs.Subversion" />
     <property name="JavaScriptLanguageLevel" value="ES5" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
@@ -1837,7 +1827,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32436708" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3227848" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569557" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32436708" sideWeight="0.5" order="19" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20196672" sideWeight="0.42789224" order="3" side_tool="true" content_ui="tabs" />
@@ -1850,7 +1840,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32646593" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.6429652" sideWeight="0.67064846" order="11" side_tool="false" content_ui="tabs" x="378" y="76" width="806" height="586" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27452415" sideWeight="0.67064846" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18154311" sideWeight="0.5721078" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18154311" sideWeight="0.5721078" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32911393" sideWeight="0.5" order="17" side_tool="true" content_ui="tabs" x="22" y="260" width="1322" height="208" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32488114" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2410,8 +2400,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31133673" vertical-offset="1771" max-vertical-offset="6460">
-          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="152" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.57022" vertical-offset="1771" max-vertical-offset="6460">
+          <caret line="131" column="75" selection-start-line="131" selection-start-column="75" selection-end-line="131" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
