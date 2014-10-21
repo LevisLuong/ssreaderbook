@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/fmchapter_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <ImageView
+        android:id="@+id/fmchapter_qr_sort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_circle_white_dropshadow"
+        android:padding="12dp"
+        android:src="@drawable/ic_action_sort"
+        />
+
+    <ImageView
+        android:id="@+id/fmchapter_qr_gochapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_circle_white_dropshadow"
+        android:padding="12dp"
+        android:src="@drawable/ic_goto_chapter"
+        />
+</RelativeLayout>
