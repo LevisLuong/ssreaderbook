@@ -3,12 +3,12 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="" />
     <mapping directory="$PROJECT_DIR$/../lb_AmbilWarna" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/../lb_UrlImageViewHelper" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_holoeverywhere" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_horizontallistview" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../lb_nineolddroid" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/../lb_viewpagerindicator" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../preferences" vcs="svn" />
     <mapping directory="$PROJECT_DIR$/../slider" vcs="svn" />
   </component>
 </project>
-

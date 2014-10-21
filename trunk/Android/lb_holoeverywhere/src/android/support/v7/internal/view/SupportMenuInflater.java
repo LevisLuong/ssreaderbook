@@ -448,7 +448,7 @@ public class SupportMenuInflater extends MenuInflater {
 
             boolean actionViewSpecified = false;
             if (itemActionViewClassName != null) {
-                View actionView = (View) newInstance(itemActionViewClassName,
+                View actionView = newInstance(itemActionViewClassName,
                         ACTION_VIEW_CONSTRUCTOR_SIGNATURE, mActionViewConstructorArguments);
                 MenuItemCompat.setActionView(item, actionView);
                 actionViewSpecified = true;

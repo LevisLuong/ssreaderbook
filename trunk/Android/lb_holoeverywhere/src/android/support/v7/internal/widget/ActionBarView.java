@@ -242,7 +242,7 @@ public class ActionBarView extends AbsActionBarView {
 
         final int customNavId = a.getResourceId(R.styleable.ActionBar_customNavigationLayout, 0);
         if (customNavId != 0) {
-            mCustomNavView = (View) inflater.inflate(customNavId, this, false);
+            mCustomNavView = inflater.inflate(customNavId, this, false);
             mNavigationMode = ActionBar.NAVIGATION_MODE_STANDARD;
             setDisplayOptions(mDisplayOptions | ActionBar.DISPLAY_SHOW_CUSTOM);
         }
@@ -763,7 +763,7 @@ public class ActionBarView extends AbsActionBarView {
                     this, false);
             mTitleView = (TextView) mTitleLayout.findViewById(R.id.action_bar_title);
             mSubtitleView = (TextView) mTitleLayout.findViewById(R.id.action_bar_subtitle);
-            mTitleUpView = (View) mTitleLayout.findViewById(R.id.up);
+            mTitleUpView = mTitleLayout.findViewById(R.id.up);
 
             mTitleLayout.setOnClickListener(mUpClickListener);
 

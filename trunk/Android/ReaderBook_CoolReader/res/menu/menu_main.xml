@@ -18,6 +18,11 @@
 
             <!-- Settings, should always be in the overflow -->
             <item
+                android:id="@+id/action_login"
+                android:showAsAction="never"
+                android:title="Đăng nhập"
+                />
+            <item
                 android:id="@+id/action_feedback"
                 android:showAsAction="never"
                 android:title="Yêu cầu sách và đóng góp ý kiến"

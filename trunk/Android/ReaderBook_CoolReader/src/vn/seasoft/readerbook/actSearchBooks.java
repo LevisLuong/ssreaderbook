@@ -20,7 +20,7 @@ import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.ResultObjects.Result_GetSearchBook;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.adapter.SearchBookAdapter;
-import vn.seasoft.readerbook.dialog.dlgInfoBook;
+import vn.seasoft.readerbook.dialog.dlgInfoBook_tab;
 
 /**
  * User: XuanTrung
@@ -56,7 +56,7 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i < adapter.getCount()) {
-                    dlgInfoBook dlg = new dlgInfoBook(mContext, adapter.getItem(i));
+                    dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, adapter.getItem(i));
                     dlg.show((Activity) mContext);
                 }
             }

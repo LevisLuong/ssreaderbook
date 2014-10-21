@@ -3,23 +3,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="horizontal"
+              android:orientation="vertical"
               android:padding="8dp">
 
-    <TextView
-        android:id="@+id/bookchapter_txtchap"
+    <LinearLayout
+        android:id="@+id/expandable_toggle_button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="8dp"
-        android:layout_weight="1"
-        android:text="asdsad asdas "/>
+        android:layout_height="48dp">
 
-    <TextView
-        android:id="@+id/bookchapter_txtfilesize"
-        android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/bookchapter_txtchap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:text="asdsad asdas "
+            android:textAppearance="@style/TextAppearance.Small"/>
+
+        <TextView
+            android:id="@+id/bookchapter_txtfilesize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="15.0 mb"
+            android:textAppearance="@style/TextAppearance.Small"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/expandable"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="15.0 mb"
-        />
+        android:background="#000000"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonA"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="Action A"
+            android:textSize="12dip"/>
+
+        <Button
+            android:id="@+id/buttonB"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5"
+            android:text="Action B"
+            android:textSize="12dip"/>
+
+    </LinearLayout>
 </LinearLayout>

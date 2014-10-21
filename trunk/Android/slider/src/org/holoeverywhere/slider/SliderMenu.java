@@ -414,7 +414,6 @@ public class SliderMenu implements OnBackStackChangedListener, IMenuAdder<Slider
 
     private void clearBackStack() {
         while (mFragmentManager.popBackStackImmediate()) {
-            ;
         }
     }
 

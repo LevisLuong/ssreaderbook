@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.brickred.socialauth.android.SocialAuthError;
@@ -18,6 +17,7 @@ import org.coolreader.CoolReader;
 import org.coolreader.crengine.BackgroundThread;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
+import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
@@ -51,6 +51,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     BookChapterAdapter adapter;
 
     public dlgInfoBook() {
+        super();
     }
 
     public dlgInfoBook(Context _context, Book _book) {
@@ -121,11 +122,11 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             @Override
             public void onComplete(Bundle bundle) {
                 String content = "Mình đang xem \"" + book.getTitle() + " - " + book.getAuthor() + "\" từ ứng dụng \"Sách Của Tui\"";
-                dlgEditText dlg = new dlgEditText(mContext);
+                dlgGoChapter dlg = new dlgGoChapter(mContext);
                 dlg.setTitle("Nội dung đăng lên Facebook");
                 dlg.setMessage(content);
                 dlg.setTypeEditText(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-                dlg.setListener(new dlgEditText.IDialogEditText() {
+                dlg.setListener(new dlgGoChapter.IDialogEditText() {
                     @Override
                     public void getValue(String value) {
                         asynPostFacebook asyn = new asynPostFacebook(mContext, value, UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
@@ -150,7 +151,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
 
             }
         });
-
     }
 
     @Override
@@ -220,9 +220,9 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             @Override
             public void onClick(View view) {
                 if (!adapter.getList().isEmpty()) {
-                    dlgEditText dlg = new dlgEditText(mContext);
+                    dlgGoChapter dlg = new dlgGoChapter(mContext);
                     dlg.setTitle("Nhập Chapter để đọc");
-                    dlg.setListener(new dlgEditText.IDialogEditText() {
+                    dlg.setListener(new dlgGoChapter.IDialogEditText() {
                         @Override
                         public void getValue(String value) {
                             try {

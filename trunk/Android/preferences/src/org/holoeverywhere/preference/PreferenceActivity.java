@@ -434,7 +434,6 @@ public abstract class PreferenceActivity extends ListActivity implements
             int type;
             while ((type = parser.next()) != XmlPullParser.END_DOCUMENT
                     && type != XmlPullParser.START_TAG) {
-                ;
             }
             String nodeName = parser.getName();
             if (!"preference-headers".equals(nodeName)) {

@@ -31,7 +31,7 @@ import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.ResultObjects.Result_GetBookByCategory;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.adapter.GridBookAdapter;
-import vn.seasoft.readerbook.dialog.dlgInfoBook;
+import vn.seasoft.readerbook.dialog.dlgInfoBook_tab;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
 import vn.seasoft.readerbook.widget.BookshelfView;
@@ -113,7 +113,7 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
 //                zoomImageFromThumb(book);
 //                applyRotation(book, 0, -180);
                 Book book = adapter.getItem(i);
-                dlgInfoBook dlg = new dlgInfoBook(mContext, book);
+                dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, book);
                 dlg.show(getSupportActivity());
             }
         });

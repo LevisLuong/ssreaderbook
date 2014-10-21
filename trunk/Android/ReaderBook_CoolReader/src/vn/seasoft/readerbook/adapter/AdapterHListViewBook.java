@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
@@ -32,6 +32,8 @@ public class AdapterHListViewBook extends BaseAdapter {
 
     int tempIndex;
 
+    Context context;
+
     public AdapterHListViewBook(Context _context) {
         inflater = (LayoutInflater) _context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         lstBooks = new ArrayList<Book>();
@@ -39,6 +41,7 @@ public class AdapterHListViewBook extends BaseAdapter {
         isHaveNew = true;
         index = 1;
         tempIndex = 1;
+        context = _context;
     }
 
     public boolean canLoadMoreData() {
@@ -85,7 +88,12 @@ public class AdapterHListViewBook extends BaseAdapter {
         Book book = lstBooks.get(position);
         List<Book_Chapter> lstbookchap = (new Book_Chapter()).getByidBook(book.getIdbook());
         for (Book_Chapter bc : lstbookchap) {
-            SSUtil.deleteBook(GlobalData.getUrlBook(bc));
+            if (book.getIdcategory() == 8) {
+                SSUtil.deletePictureBook(context, bc);
+            } else {
+                SSUtil.deleteBook(GlobalData.getUrlBook(bc));
+            }
+
             bc.deleteData();
         }
         book.deleteData();
