@@ -14,7 +14,8 @@ public class Comment {
 
 	int idcomment;
 	String content;
-	int iduser;
+	String iduserfacebook;
+	String username;
 	int idbook;
 	Timestamp datecreated;
 
@@ -34,14 +35,6 @@ public class Comment {
 		this.content = content;
 	}
 
-	public int getIduser() {
-		return iduser;
-	}
-
-	public void setIduser(int iduser) {
-		this.iduser = iduser;
-	}
-
 	public int getIdbook() {
 		return idbook;
 	}
@@ -58,6 +51,22 @@ public class Comment {
 		this.datecreated = datecreated;
 	}
 
+	public String getIduserfacebook() {
+		return iduserfacebook;
+	}
+
+	public void setIduserfacebook(String iduserfacebook) {
+		this.iduserfacebook = iduserfacebook;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	public int addComment() {
 		Database conn = null;
 		Statement stmt = null;
@@ -65,8 +74,9 @@ public class Comment {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("INSERT INTO comment (`content`, `iduser`, `idbook`) VALUES ('%s', '%d', '%d')",
-							this.content, this.iduser, this.idbook);
+					.format("INSERT INTO comment (`content`, `iduserfacebook`,`username`, `idbook`) VALUES ('%s', '%s','%s', '%d')",
+							this.content, this.iduserfacebook, this.username,
+							this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -96,9 +106,9 @@ public class Comment {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("UPDATE comment SET `content`='%s', `idbook`='%d', `iduser`='%d' WHERE `idcomment`='%d';",
-							this.content, this.idbook, this.iduser,
-							this.idcomment);
+					.format("UPDATE comment SET `content`='%s',`username`='%s', `idbook`='%d', `iduserfacebook`='%s' WHERE `idcomment`='%d';",
+							this.content, this.username, this.idbook,
+							this.iduserfacebook, this.idcomment);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -129,20 +139,22 @@ public class Comment {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM comment WHERE idbook = ? ";
+			String sql = "SELECT * FROM comment WHERE idbook = ? ORDER BY datecreated desc";
 
 			if (page != 0) {
 				int offset = (page - 1) * DatasOnPage;
 				sql = sql + " LIMIT " + offset + "," + DatasOnPage;
 			}
 			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, idbook);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Comment cmt = new Comment();
 				cmt.setIdcomment(rs.getInt("idcomment"));
 				cmt.setContent(rs.getString("content"));
 				cmt.setIdbook(rs.getInt("idbook"));
-				cmt.setIduser(rs.getInt("iduser"));
+				cmt.setIduserfacebook(rs.getString("iduserfacebook"));
+				cmt.setUsername(rs.getString("username"));
 				cmt.setDatecreated(rs.getTimestamp("datecreated"));
 				comments.add(cmt);
 			}
