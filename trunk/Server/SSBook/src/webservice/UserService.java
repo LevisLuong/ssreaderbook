@@ -13,6 +13,7 @@ import javax.ws.rs.core.Context;
 
 import model.Book;
 import model.Comment;
+import model.User_Like;
 import model.User_Login;
 import Others.Status;
 
@@ -38,22 +39,37 @@ public class UserService {
 	}
 
 	public String returnError(int error) {
-
 		return "{\"errorcode\":" + error + "}";
 	}
 
 	@POST
 	@Path("/LoginByFacebook")
 	@Produces("application/json;charset=utf-8")
-	public String loginUserByFacebook(@FormParam("idfacebook") String idfacebook) {
+	public String loginUserByFacebook(
+			@FormParam("idfacebook") String idfacebook,
+			@FormParam("displayname") String displayname,
+			@FormParam("email") String email) {
 		String json = "";
 		User_Login user = new User_Login().loginByFacebook(idfacebook);
 		if (user != null) {
 			user.setLastlogin(new Timestamp(new Date().getTime()));
-			user.updateLastlogin();
+			user.setDisplayname(displayname);
+			user.updateLastloginDisplayName();
 			json = convertToJson(user);
 		} else {
-			json = returnStatus(Status.STATUS_CREATED);
+			user = new User_Login();
+			user.setIduser(user.getIdAuto());
+			user.setIdfacebook(idfacebook);
+			user.setDisplayname(displayname);
+			user.setEmail(email);
+			user.setLastlogin(new Timestamp(new Date().getTime()));
+			int status = user.addUser();
+			if (status == Status.STATUS_CREATED) {
+				json = convertToJson(user);
+			} else {
+				return returnError(Status.ERROR_INTERNALSERVERERROR);
+			}
+
 		}
 		return json;
 	}
@@ -79,12 +95,52 @@ public class UserService {
 	}
 
 	@POST
+	@Path("/getCountLikeBook")
+	@Produces("application/json;charset=utf-8")
+	public String getCountLikeBook(@FormParam("idbook") int idbook) {
+		int countlike = 0;
+		countlike = new User_Like().getCountLikeBook(idbook);
+
+		return "{\"countlike\":" + countlike + "}";
+	}
+
+	@POST
+	@Path("/getIsUserLikeBook")
+	@Produces("application/json;charset=utf-8")
+	public String getIsUserLikeBook(@FormParam("idbook") int idbook,
+			@FormParam("iduser") int iduser) {
+		int countlike = 0;
+		countlike = new User_Like().isUserLikeBook(idbook, iduser);
+
+		return "{\"isuserlike\":" + countlike + "}";
+	}
+
+	@POST
 	@Path("/UserLike")
 	@Produces("application/json;charset=utf-8")
-	public String userLike(@FormParam("idbook") int idbook) {
-		Book book = new Book().getById(idbook);
-		int status = book.addUserLike(idbook);
-		if (status == 0) {
+	public String userLike(@FormParam("idbook") int idbook,
+			@FormParam("iduser") int iduser) {
+		User_Like userlike = new User_Like();
+		userlike.setIdbook(idbook);
+		userlike.setIduser(iduser);
+		int status = userlike.userLike();
+		if (status == Status.ERROR_INTERNALSERVERERROR) {
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
+		} else {
+			return returnStatus(Status.STATUS_OK);
+		}
+	}
+
+	@POST
+	@Path("/UserDisLike")
+	@Produces("application/json;charset=utf-8")
+	public String userDisLike(@FormParam("idbook") int idbook,
+			@FormParam("iduser") int iduser) {
+		User_Like userlike = new User_Like();
+		userlike.setIdbook(idbook);
+		userlike.setIduser(iduser);
+		int status = userlike.userdisLike();
+		if (status == Status.ERROR_INTERNALSERVERERROR) {
 			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		} else {
 			return returnStatus(Status.STATUS_OK);
@@ -95,12 +151,14 @@ public class UserService {
 	@Path("/UserComment")
 	@Produces("application/json;charset=utf-8")
 	public String userComment(@FormParam("idbook") int idbook,
-			@FormParam("iduser") int iduser,
+			@FormParam("iduserfacebook") String iduserfacebook,
+			@FormParam("username") String username,
 			@FormParam("content") String content) {
 		Comment comment = new Comment();
 		comment.setContent(content);
 		comment.setIdbook(idbook);
-		comment.setIduser(iduser);
+		comment.setIduserfacebook(iduserfacebook);
+		comment.setUsername(username);
 		int status = comment.addComment();
 		if (status == 0) {
 			return returnError(Status.ERROR_INTERNALSERVERERROR);
@@ -116,9 +174,10 @@ public class UserService {
 			@FormParam("index") int index) {
 		String json = "";
 		try {
-			List<Comment> comment = new Comment().getListCommentByIdBook(
+			List<Comment> comments = new Comment().getListCommentByIdBook(
 					idbook, index);
-			json = convertToJson(comment);
+
+			json = convertToJson(comments);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

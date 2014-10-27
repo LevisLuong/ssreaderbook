@@ -63,8 +63,9 @@ public class User_Login {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("INSERT INTO user_login (`idfacebook`,`displayname`,`email`) VALUES ('%s','%s','%s')",
-							this.idfacebook, this.displayname, this.email);
+					.format("INSERT INTO user_login (`idfacebook`,`displayname`,`email`,`lastlogin`) VALUES ('%s','%s','%s','%s')",
+							this.idfacebook, this.displayname, this.email,
+							this.lastlogin);
 			int result = stmt.executeUpdate(sqlUpdate);
 			if (result == 1) {
 				return Status.STATUS_CREATED;
@@ -75,6 +76,7 @@ public class User_Login {
 			if (e.getErrorCode() == 1062) {
 				return Status.STATUS_DUPLICATE;
 			}
+			return Status.ERROR_INTERNALSERVERERROR;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return Status.ERROR_INTERNALSERVERERROR;
@@ -123,15 +125,15 @@ public class User_Login {
 		return 0;
 	}
 
-	public int updateLastlogin() {
+	public int updateLastloginDisplayName() {
 		Database conn = null;
 		Statement stmt = null;
 		try {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("UPDATE user_login SET `lastlogin`='%s' WHERE `iduser`='%d';",
-							this.lastlogin, this.iduser);
+					.format("UPDATE user_login SET `lastlogin`='%s',`displayname`='%s' WHERE `iduser`='%d';",
+							this.lastlogin, this.displayname, this.iduser);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
