@@ -11,6 +11,7 @@ import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
 import org.holoeverywhere.widget.EditText;
 import vn.seasoft.readerbook.R;
+import vn.seasoft.readerbook.listener.IDialogEditText;
 
 /**
  * User: XuanTrung
@@ -87,8 +88,4 @@ public class dlgEditText extends DialogFragment {
         return builder.create();
     }
 
-
-    public interface IDialogEditText {
-        public void getValue(String value);
-    }
 }

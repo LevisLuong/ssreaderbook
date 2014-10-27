@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:gravity="bottom|center_horizontal"
         android:text=""
-        style="@style/TextAppearance.Small"
+        style="@style/Holo.TextAppearance.Small"
         android:textColor="#FFFFFF"/>
 
     <LinearLayout

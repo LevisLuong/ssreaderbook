@@ -40,7 +40,7 @@
                         android:background="@color/apptheme_color">
 
                         <TextView
-                            style="@style/TextAppearance.Large"
+                            style="@style/Holo.TextAppearance.Large"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Thông tin sách"
@@ -137,7 +137,7 @@
 
                             <TextView
                                 android:id="@+id/dlginfo_txtchapters"
-                                style="@style/TextAppearance.Small"
+                                style="@style/Holo.TextAppearance.Small"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -161,7 +161,7 @@
 
                             <TextView
                                 android:id="@+id/dlginfo_txtdownloads"
-                                style="@style/TextAppearance.Small"
+                                style="@style/Holo.TextAppearance.Small"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -185,7 +185,7 @@
 
                             <TextView
                                 android:id="@+id/dlginfo_txtview"
-                                style="@style/TextAppearance.Small"
+                                style="@style/Holo.TextAppearance.Small"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -214,7 +214,7 @@
             </LinearLayout>
 
             <TextView
-                style="@style/TextAppearance.Large"
+                style="@style/Holo.TextAppearance.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/apptheme_color"
@@ -245,7 +245,7 @@
 
                 <TextView
                     android:id="@+id/dlginfo_txtsortchapter"
-                    style="@style/TextAppearance.Large"
+                    style="@style/Holo.TextAppearance.Large"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"

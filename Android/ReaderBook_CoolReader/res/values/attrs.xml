@@ -11,4 +11,10 @@
         <attr name="horizontalDelimiterRoot"/>
         <attr name="horizontalDelimiterSizeRoot"></attr>
     </declare-styleable>
+
+    <declare-styleable name="AutofitTextView">
+        <attr name="minTextSize" format="dimension"/>
+        <attr name="precision" format="float"/>
+        <attr name="sizeToFit" format="boolean"/>
+    </declare-styleable>
 </resources>

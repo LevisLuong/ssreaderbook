@@ -17,7 +17,7 @@
 
         <TextView
             android:id="@+id/title"
-            style="@style/TextAppearance.Medium"
+            style="@style/Holo.TextAppearance.Medium"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/position"
-            style="@style/TextAppearance.Medium"
+            style="@style/Holo.TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"

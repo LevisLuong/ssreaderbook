@@ -14,40 +14,56 @@ public class Request_Server extends RequestObject {
         mContext = context;
     }
 
-    public void getCommentsBook(int idbook,int index) {
+    public void getCommentsBook(int idbook, int index) {
         request.initParam();
-        request.addParam("idbook",idbook);
-        request.addParam("index",index);
-        request.requestStringToServer(new Result_GetCommentsBook(),COMMAND_API.GET_COMMENTS);
+        request.addParam("idbook", idbook);
+        request.addParam("index", index);
+        request.requestStringToServer(new Result_GetCommentsBook(), COMMAND_API.GET_COMMENTS);
     }
 
-    public void userCommentBook(int idbook,int iduser,String content) {
+    public void userCommentBook(int idbook, String iduserfacebook, String username, String content) {
         request.initParam();
-        request.addParam("idbook",idbook);
-        request.addParam("iduser",iduser);
-        request.addParam("content",content);
-        request.requestStringToServer(new Result_UserComment(),COMMAND_API.USER_COMMENT);
+        request.addParam("idbook", idbook);
+        request.addParam("iduserfacebook", iduserfacebook);
+        request.addParam("username", username);
+        request.addParam("content", content);
+        request.requestStringToServer(new Result_UserComment(), COMMAND_API.USER_COMMENT);
     }
 
     public void userLikeBook(int idbook, int iduser) {
         request.initParam();
-        request.addParam("idbook",idbook);
-        request.addParam("iduser",iduser);
-        request.requestStringToServer(new Result_UserLike(),COMMAND_API.USER_LIKE);
+        request.addParam("idbook", idbook);
+        request.addParam("iduser", iduser);
+        request.requestStringToServer(new Result_UserLike(), COMMAND_API.USER_LIKE);
     }
 
-    public void registerByFacebook(int idfacebook,String displayname,String email) {
+    public void userDisLikeBook(int idbook, int iduser) {
         request.initParam();
-        request.addParam("idfacebook",idfacebook);
-        request.addParam("displayname",displayname);
-        request.addParam("email",email);
-        request.requestStringToServer(new Result_RegisterFacebook(),COMMAND_API.REGISTER_FACEBOOK);
+        request.addParam("idbook", idbook);
+        request.addParam("iduser", iduser);
+        request.requestStringToServer(new Result_UserDisLike(), COMMAND_API.USER_DISLIKE);
     }
 
-    public void loginByFacebook(int idfacebook) {
+    public void getCountLikeBook(int idbook) {
         request.initParam();
-        request.addParam("idfacebook",idfacebook);
-        request.requestStringToServer(new Result_LoginByFacebook(),COMMAND_API.LOGIN_BY_FACEBOOK);
+        request.addParam("idbook", idbook);
+        request.requestStringToServer(new Result_GetCountLikeBook(), COMMAND_API.GET_COUNT_LIKE_BOOK);
+    }
+
+    public void isUserLikeBook(int idbook, int iduser) {
+        request.initParam();
+        request.addParam("idbook", idbook);
+        request.addParam("iduser", iduser);
+        request.requestStringToServer(new Result_GetIsUserLikeBook(), COMMAND_API.IS_USER_LIKE_BOOK);
+    }
+
+
+    public void loginByFacebook(String iduserfacebook, String displayname, String email) {
+        request.initParam();
+        request.addParam("idfacebook", iduserfacebook);
+        request.addParam("displayname", displayname);
+        request.addParam("email", email);
+        request.requestStringToServer(new Result_LoginByFacebook(), COMMAND_API.LOGIN_BY_FACEBOOK);
     }
 
     public void addFeedBack(String titlebook, String authorbook, String feedback) {

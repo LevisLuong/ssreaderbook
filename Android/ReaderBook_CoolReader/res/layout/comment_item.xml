@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:paddingBottom="8dp"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_selector"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/comment_avatar"
+                android:layout_width="@dimen/standard_dp"
+                android:layout_height="@dimen/standard_dp"
+                android:layout_marginRight="8dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/book_exam"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/comment_username"
+                    style="@style/Holo.TextAppearance.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="luong xuan trung"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/comment_time"
+                    style="@style/Holo.TextAppearance.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 gio truoc"
+                    android:textStyle="italic"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/comment_content"
+            style="@style/Holo.TextAppearance.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/afc_5dp"
+            android:singleLine="false"
+            android:text="lorem ipsum abcasd asdas d asdsadsa dasd as dsa dasdas das dsa das das das asd asd sadsa dasd asd sad as dsa das dsa "
+            android:textColor="#000000"/>
+
+    </LinearLayout>
+    <!-- Compound view for Shadow
+             If you want to customize this element use attr card:card_shadow_layout_resourceID -->
+    <it.gmariotti.cardslib.library.view.component.CardShadowView
+        style="@style/card.shadow_outer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

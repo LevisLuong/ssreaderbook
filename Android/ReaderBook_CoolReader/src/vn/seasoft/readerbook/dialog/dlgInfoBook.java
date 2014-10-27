@@ -30,10 +30,10 @@ import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.asynPostFacebook;
 import vn.seasoft.readerbook.actReadPictureBook;
 import vn.seasoft.readerbook.adapter.BookChapterAdapter;
+import vn.seasoft.readerbook.listener.IDialogEditText;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
 import vn.seasoft.readerbook.model.Book_Chapter;
-import vn.seasoft.readerbook.widget.SwipeDismissList;
 import vn.seasoft.readerbook.widget.ViewError;
 
 import java.util.Collections;
@@ -97,13 +97,13 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         dlginfoContainer = (RelativeLayout) root.findViewById(R.id.dlginfo_container);
         dlginfoListview = new ListView(mContext);
         adapter = new BookChapterAdapter(mContext);
-        new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
-            @Override
-            public SwipeDismissList.Undoable onDismiss(AbsListView listView, int position) {
-                adapter.deleteBook(position);
-                return null;
-            }
-        }, SwipeDismissList.UndoMode.SINGLE_UNDO);
+//        new SwipeDismissList(dlginfoListview, new SwipeDismissList.OnDismissCallback() {
+//            @Override
+//            public SwipeDismissList.Undoable onDismiss(AbsListView listView, int position) {
+//                adapter.deleteBook(position);
+//                return null;
+//            }
+//        }, SwipeDismissList.UndoMode.SINGLE_UNDO);
     }
 
     void addViewContainer(RelativeLayout container, View addview) {
@@ -126,7 +126,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
                 dlg.setTitle("Nội dung đăng lên Facebook");
                 dlg.setMessage(content);
                 dlg.setTypeEditText(InputType.TYPE_TEXT_FLAG_MULTI_LINE);
-                dlg.setListener(new dlgGoChapter.IDialogEditText() {
+                dlg.setListener(new IDialogEditText() {
                     @Override
                     public void getValue(String value) {
                         asynPostFacebook asyn = new asynPostFacebook(mContext, value, UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
@@ -221,8 +221,8 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
             public void onClick(View view) {
                 if (!adapter.getList().isEmpty()) {
                     dlgGoChapter dlg = new dlgGoChapter(mContext);
-                    dlg.setTitle("Nhập Chapter để đọc");
-                    dlg.setListener(new dlgGoChapter.IDialogEditText() {
+                    dlg.setTitle("Nhập chương để đọc");
+                    dlg.setListener(new IDialogEditText() {
                         @Override
                         public void getValue(String value) {
                             try {
@@ -231,10 +231,10 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
                                     page = page - 1;
                                     loadBook(page);
                                 } else {
-                                    org.holoeverywhere.widget.Toast.makeText(mContext, "Không có Chapter này !", Toast.LENGTH_SHORT).show();
+                                    org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (NumberFormatException e) {
-                                org.holoeverywhere.widget.Toast.makeText(mContext, "Không có Chapter này !", Toast.LENGTH_SHORT).show();
+                                org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

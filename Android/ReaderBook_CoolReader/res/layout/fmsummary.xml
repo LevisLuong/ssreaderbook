@@ -8,13 +8,13 @@
 
     <TextView
         android:id="@+id/fmsummary_txtSummary"
+        style="@style/Holo.TextAppearance.Medium.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
         android:padding="@dimen/afc_5dp"
         android:scrollbars="vertical"
-        android:text=""
-        android:textAppearance="@style/TextAppearance.Medium"/>
+        android:text=""/>
 
     <it.gmariotti.cardslib.library.view.component.CardShadowView
         android:id="@+id/card_shadow_layout"

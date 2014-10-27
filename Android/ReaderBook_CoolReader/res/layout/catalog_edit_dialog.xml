@@ -13,7 +13,7 @@
 
         <TextView
             android:id="@+id/lbl_catalog_name"
-            style="@style/TextAppearance.Medium"
+            style="@style/Holo.TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="3"
@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/lbl_catalog_url"
-            style="@style/TextAppearance.Medium"
+            style="@style/Holo.TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="3"

@@ -20,7 +20,7 @@
             android:layout_marginRight="8dp"
             android:layout_weight="1"
             android:text="asdsad asdas "
-            android:textAppearance="@style/TextAppearance.Small"/>
+            android:textAppearance="@style/Holo.TextAppearance.Small"/>
 
         <TextView
             android:id="@+id/bookchapter_txtfilesize"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="15.0 mb"
-            android:textAppearance="@style/TextAppearance.Small"
+            android:textAppearance="@style/Holo.TextAppearance.Small"
             />
     </LinearLayout>
 

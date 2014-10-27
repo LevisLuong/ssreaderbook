@@ -108,6 +108,20 @@
             </SvnBranchConfiguration>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../lb_UrlImageViewHelper">
           <value>
             <SvnBranchConfiguration>
@@ -164,6 +178,20 @@
             </SvnBranchConfiguration>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../lb_viewpagerindicator">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://ssreaderbook.googlecode.com/svn/branches" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/tags" />
+                  <option value="https://ssreaderbook.googlecode.com/svn/wiki" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://ssreaderbook.googlecode.com/svn/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../preferences">
           <value>
             <SvnBranchConfiguration>
@@ -197,4 +225,3 @@
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
 </project>
-

@@ -1,6 +1,7 @@
 package vn.seasoft.readerbook;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import com.android.volley.Request;
@@ -9,7 +10,11 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
+import org.brickred.socialauth.Profile;
+import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
+import org.brickred.socialauth.android.SocialAuthError;
+import org.brickred.socialauth.android.SocialAuthListener;
 import org.holoeverywhere.HoloEverywhere;
 import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.ThemeManager;
@@ -20,7 +25,11 @@ import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
 import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.RequestObjects.Request_Server;
+import vn.seasoft.readerbook.ResultObjects.Result_LoginByFacebook;
 import vn.seasoft.readerbook.Util.GlobalData;
+import vn.seasoft.readerbook.Util.SSUtil;
+import vn.seasoft.readerbook.Util.mSharedPreferences;
+import vn.seasoft.readerbook.listener.ILoginFacebook;
 import vn.seasoft.readerbook.sqlite.RepoController;
 
 import java.util.HashMap;
@@ -180,15 +189,56 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         return mTrackers.get(trackerId);
     }
 
+    public static ILoginFacebook loginfacebooklistener;
+
+    public static void authorizeFB(Context context, ILoginFacebook listener) {
+        loginfacebooklistener = listener;
+        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
+    }
+
+    // To receive the profile response after authentication
+    private final class ProfileDataListener implements SocialAuthListener<Profile> {
+
+        @Override
+        public void onExecute(String provider, Profile t) {
+            SSUtil.App_Log("Thong tin facebook:", "Id: " + t.getValidatedId() + ",Display name:" + t.getFullName() + ",Email:" + t.getEmail());
+            getRequestServer(instance, instance).loginByFacebook(t.getValidatedId(), t.getFullName(), t.getEmail());
+        }
+
+        @Override
+        public void onError(SocialAuthError e) {
+
+        }
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
         GlobalData.repo = new RepoController(this);
         if (socialAdapter == null) {
-            socialAdapter = new SocialAuthAdapter(null);
-        }
+            socialAdapter = new SocialAuthAdapter((new DialogListener() {
+                @Override
+                public void onComplete(Bundle bundle) {
+                    socialAdapter.getUserProfileAsync(new ProfileDataListener());
+                }
 
+                @Override
+                public void onError(SocialAuthError socialAuthError) {
+
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+
+                @Override
+                public void onBack() {
+
+                }
+            }));
+        }
     }
 
     @Override
@@ -202,6 +252,16 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         if (urlMethod.equals(COMMAND_API.ADD_FEEDBACK)) {
             if (urlMethod.equals(COMMAND_API.ADD_FEEDBACK)) {
                 Toast.makeText(getInstance(), "Cảm ơn bạn đã phản hồi", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (urlMethod.equals(COMMAND_API.LOGIN_BY_FACEBOOK)) {
+            Result_LoginByFacebook data = (Result_LoginByFacebook) resultData;
+            Toast.makeText(instance, "Đăng nhập thành công !", Toast.LENGTH_SHORT).show();
+            mSharedPreferences.saveUserId(instance, data.idUser);
+            mSharedPreferences.saveUserIdFacebook(instance, data.idUserFacebook);
+            mSharedPreferences.saveUserDisplay(instance, data.displayName);
+            if (loginfacebooklistener != null) {
+                loginfacebooklistener.LoginSuccess();
             }
         }
         GlobalData.DissmissProgress();
