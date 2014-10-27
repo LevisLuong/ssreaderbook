@@ -13,6 +13,7 @@
     <string name="notice_exitapp">Bạn có chắc muốn thoát ứng dụng ?</string>
     <string name="download_success">Đã tải về thành công !</string>
     <string name="download_fail">Tải về thất bại. Vui lòng thử lại!</string>
+    <string name="require_login_facebook">Vui lòng đăng nhập để tiếp tục</string>
     <string name="about_app">
         * Ứng dụng “Sách Của Tui” có rất nhiều chủ đề sách phong phú: từ sách về kỹ năng mềm, sách giáo dục, sách lịch sử … cho đến các sách tiểu thuyết, kiếm hiệp, tiên hiệp và truyện tranh nổi tiếng. Và quan trọng hơn cả là được cập nhật thường xuyên đủ để đáp ứng những yêu cầu của các bạn.\n
         * Đọc sách không cần kết nối mạng, bạn chỉ cần tải sách về và đọc ở chế độ offline thoải mái mà không cần lo lắng.\n

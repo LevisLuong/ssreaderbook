@@ -28,9 +28,10 @@ public class ViewError extends LinearLayout {
         setColorText(Color.WHITE);
     }
 
-    public void setColorText(int color) {
+    public ViewError setColorText(int color) {
         txtcontent.setTextColor(color);
         btnRetry.setTextColor(color);
+        return this;
     }
 
     public void setContent(String content) {

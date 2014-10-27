@@ -21,7 +21,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="lb_nineolddroid" />
     <orderEntry type="module" module-name="preferences" />
     <orderEntry type="module" module-name="slider" />
     <orderEntry type="module" module-name="lb_holoeverywhere" />

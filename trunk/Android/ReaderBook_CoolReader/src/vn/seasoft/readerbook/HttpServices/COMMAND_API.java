@@ -17,7 +17,12 @@ public class COMMAND_API {
     //User
     public final static String LOGIN_BY_FACEBOOK = "api/user/LoginByFacebook";
     public final static String REGISTER_FACEBOOK = "api/user/RegisterUserFacebook";
+
     public final static String USER_LIKE = "api/user/UserLike";
+    public final static String USER_DISLIKE = "api/user/UserDisLike";
+    public final static String GET_COUNT_LIKE_BOOK = "api/user/getCountLikeBook";
+    public final static String IS_USER_LIKE_BOOK = "api/user/getIsUserLikeBook";
+
     public final static String USER_COMMENT = "api/user/UserComment";
     public final static String GET_COMMENTS = "api/user/GetCommentsBook";
 }

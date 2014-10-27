@@ -15,7 +15,7 @@
         android:src="@drawable/logo"/>
 
     <org.holoeverywhere.widget.TextView
-        style="@style/TextAppearance.Small"
+        style="@style/Holo.TextAppearance.Small"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:autoLink="web"

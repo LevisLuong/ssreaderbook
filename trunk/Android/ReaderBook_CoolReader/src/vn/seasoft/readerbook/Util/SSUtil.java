@@ -11,6 +11,9 @@ import android.os.Environment;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.model.Book_Chapter;
 
@@ -18,6 +21,8 @@ import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -144,6 +149,127 @@ public class SSUtil {
         }
 
         return key;
+    }
+
+    public static String calTimeDistance(Date d) {
+        if (d != null) {
+            Calendar c = Calendar.getInstance();
+            long miliseconds = c.getTimeInMillis();
+            long diffInMiliSec = miliseconds - d.getTime();
+
+            long diffInSeconds = diffInMiliSec / 1000;
+
+            StringBuffer sb = new StringBuffer();
+
+            long sec = (diffInSeconds >= 60 ? diffInSeconds % 60
+                    : diffInSeconds);
+            long min = (diffInSeconds = (diffInSeconds / 60)) >= 60 ? diffInSeconds % 60
+                    : diffInSeconds;
+            long hrs = (diffInSeconds = (diffInSeconds / 60)) >= 24 ? diffInSeconds % 24
+                    : diffInSeconds;
+            long days = (diffInSeconds = (diffInSeconds / 24)) >= 30 ? diffInSeconds % 30
+                    : diffInSeconds;
+            long months = (diffInSeconds = (diffInSeconds / 30)) >= 12 ? diffInSeconds % 12
+                    : diffInSeconds;
+            long years = (diffInSeconds = (diffInSeconds / 12));
+
+            if (years > 0) {
+                if (years == 1) {
+                    sb.append("1" + " năm trước");
+                } else {
+                    sb.append(years + " năm trước");
+                }
+                /*
+                 * if (years <= 6 && months > 0) { if (months == 1) {
+				 * sb.append(" and 1 month"); } else { sb.append(" and " +
+				 * months + " months"); } }
+				 */
+            } else if (months > 0) {
+                if (months == 1) {
+                    sb.append("1" + " tháng trước");
+                } else {
+                    sb.append(months + " tháng trước");
+                }
+                /*
+                 * if (months <= 6 && days > 0) { if (days == 1) {
+				 * sb.append(" and 1 day"); } else { sb.append(" and " + days +
+				 * " days"); } }
+				 */
+            } else if (days > 0) {
+                if (days == 1) {
+                    sb.append("1" + " ngày trước");
+                } else {
+                    sb.append(days + " ngày trước");
+                }
+                /*
+                 * if (days <= 3 && hrs > 0) { if (hrs == 1) {
+				 * sb.append(" and 1 hour"); } else { sb.append(" and " + hrs +
+				 * " hours"); } }
+				 */
+            } else if (hrs > 0) {
+                if (hrs == 1) {
+                    sb.append("1" + " giờ trước");
+                } else {
+                    sb.append(hrs + " giờ trước");
+                }
+                /*
+                 * if (min > 1) { sb.append(" and " + min + " minutes"); }
+				 */
+            } else if (min > 0) {
+                if (min == 1) {
+                    sb.append("1" + " phút trước");
+                } else {
+                    sb.append(min + " phút trước");
+                }
+                /*
+                 * if (sec > 1) { sb.append(" and " + sec + " seconds"); }
+				 */
+            } else {
+                if (sec <= 1) {
+                    sb.append("1" + " giây trước");
+                } else {
+                    sb.append(sec + " giây trước");
+                }
+            }
+
+            return sb.toString();
+        }
+        return "";
+    }
+
+    public static String getAvatarFacebookById(String id) {
+        return "https://graph.facebook.com/" + id + "/picture?type=normal";
+    }
+
+    public static void addViewContainer(RelativeLayout container, View addview, boolean isCenter) {
+        try {
+            ((ViewGroup) addview.getParent()).removeView(addview);
+        } catch (Exception e) {
+        }
+        try {
+            container.removeAllViews();
+        } catch (Exception e) {
+        }
+        try {
+            container.addView(addview);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            if (isCenter) {
+                layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+            }
+            addview.setLayoutParams(layoutParams);
+        } catch (Exception e) {
+        }
+    }
+
+    public static void addViewContainerWithoutRemove(RelativeLayout container, View addview) {
+        try {
+            container.addView(addview);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+            addview.setLayoutParams(layoutParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void App_Log(String tag, String logMsg) {

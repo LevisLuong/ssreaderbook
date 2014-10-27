@@ -20,7 +20,7 @@ import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.ResultObjects.Result_GetSearchBook;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.adapter.SearchBookAdapter;
-import vn.seasoft.readerbook.dialog.dlgInfoBook_tab;
+import vn.seasoft.readerbook.model.Book;
 
 /**
  * User: XuanTrung
@@ -56,8 +56,18 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if (i < adapter.getCount()) {
-                    dlgInfoBook_tab dlg = new dlgInfoBook_tab(mContext, adapter.getItem(i));
-                    dlg.show((Activity) mContext);
+                    Book book = adapter.getItem(i);
+
+                    Intent intent = new Intent(actSearchBooks.this, actInfoBook.class);
+                    intent.putExtra("idbook", book.getIdbook());
+                    intent.putExtra("titlebook", book.getTitle());
+                    intent.putExtra("authorbook", book.getAuthor());
+                    intent.putExtra("idcategory", book.getIdcategory());
+                    intent.putExtra("countdownload", book.getCountdownload());
+                    intent.putExtra("countview", book.getCountview());
+                    intent.putExtra("summary",book.getSummary());
+                    intent.putExtra("cover",book.getImagecover());
+                    startActivity(intent);
                 }
             }
         });

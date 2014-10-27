@@ -2,7 +2,6 @@
 <manifest
     package="vn.seasoft.readerbook"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:installLocation="preferExternal"
     android:versionCode="3"
     android:versionName="1.1">
 
@@ -55,11 +54,20 @@
             android:name=".actSearchBooks"
             android:configChanges="orientation|keyboardHidden|locale|screenSize"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/HoloThemeWithSliderMenu">
+            android:theme="@style/HoloThemeLightDarkActionbar">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH"/>
             </intent-filter>
 
+        </activity>
+
+        <activity
+            android:name=".actInfoBook"
+            android:configChanges="orientation|keyboardHidden|locale|screenSize"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/HoloThemeLightDarkActionbar"
+            android:windowSoftInputMode="adjustPan">
         </activity>
 
         <activity

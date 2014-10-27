@@ -33,7 +33,7 @@
 
         <TextView
             android:id="@+id/book_author"
-            style="@style/TextAppearance.Small"
+            style="@style/Holo.TextAppearance.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="false"
@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/book_name"
-            style="@style/TextAppearance.Medium"
+            style="@style/Holo.TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="title"
@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/book_series"
-            style="@style/TextAppearance.Small"
+            style="@style/Holo.TextAppearance.Small"
             android:text="series"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

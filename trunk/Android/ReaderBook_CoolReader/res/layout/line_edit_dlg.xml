@@ -13,7 +13,7 @@
 
     <TextView
         android:id="@+id/lbl_prompt"
-        style="@style/TextAppearance.Medium"
+        style="@style/Holo.TextAppearance.Medium"
         android:singleLine="false"
         android:maxLines="3"
         android:layout_margin="5dip"

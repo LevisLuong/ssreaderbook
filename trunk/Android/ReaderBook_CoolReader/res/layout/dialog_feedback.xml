@@ -16,7 +16,7 @@
         android:shrinkColumns="1">
 
         <TextView
-            style="@style/TextAppearance.Large"
+            style="@style/Holo.TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/apptheme_color"
@@ -62,7 +62,7 @@
         </TableRow>
 
         <TextView
-            style="@style/TextAppearance.Large"
+            style="@style/Holo.TextAppearance.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/apptheme_color"

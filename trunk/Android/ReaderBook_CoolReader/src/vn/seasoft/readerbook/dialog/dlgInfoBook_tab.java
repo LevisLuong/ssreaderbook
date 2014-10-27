@@ -10,46 +10,34 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.viewpagerindicator.TabPageIndicator;
 import org.brickred.socialauth.android.SocialAuthAdapter;
-import org.coolreader.CoolReader;
-import org.coolreader.crengine.BackgroundThread;
 import org.holoeverywhere.app.AlertDialog;
+import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.app.DialogFragment;
 import org.holoeverywhere.app.Fragment;
 import urlimageviewhelper.UrlImageViewHelper;
-import vn.seasoft.readerbook.HttpServices.COMMAND_API;
-import vn.seasoft.readerbook.HttpServices.ErrorType;
-import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
-import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.R;
-import vn.seasoft.readerbook.ResultObjects.Result_GetBookChapter;
 import vn.seasoft.readerbook.SSReaderApplication;
-import vn.seasoft.readerbook.Util.AsyntaskDownloadFile;
 import vn.seasoft.readerbook.Util.GlobalData;
-import vn.seasoft.readerbook.actReadPictureBook;
 import vn.seasoft.readerbook.fragment.fmChapter;
 import vn.seasoft.readerbook.fragment.fmComment;
 import vn.seasoft.readerbook.fragment.fmSummary;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
-import vn.seasoft.readerbook.model.Book_Chapter;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 /**
  * User: XuanTrung
  * Date: 7/2/2014
  * Time: 10:59 AM
  */
-public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesListener {
+public class dlgInfoBook_tab extends DialogFragment {
     Context mContext;
     Book book;
-    List<Book_Chapter> lstBookchapter;
     fmChapter fmchapter;
 
 
@@ -59,10 +47,8 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
 
     public dlgInfoBook_tab(Context _context, Book _book) {
         setDialogType(DialogType.Dialog);
-        setStyle(STYLE_NORMAL, R.style.full_screen_dialog);
         mContext = _context;
         book = _book;
-        lstBookchapter = new ArrayList<Book_Chapter>();
     }
 
     private ImageView dlginfoImgcover;
@@ -90,10 +76,19 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
     }
 
     @Override
+    public void onStart() {
+        super.onStart();
+        Dialog d = getDialog();
+        if (d != null) {
+            d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        }
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-
+        setStyle(STYLE_NO_TITLE, R.style.full_screen_dialog);
 //        SSReaderApplication.getSocialAdapter().setListener(new DialogListener() {
 //            @Override
 //            public void onComplete(Bundle bundle) {
@@ -129,24 +124,6 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
 //        });
     }
 
-    boolean isFirst = true;
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (!isFirst) {
-                    lstBookchapter = (new Book_Chapter()).getByidBook(book.getIdbook());
-                    sortChapter(old_asc);
-                } else {
-                    isFirst = false;
-                }
-            }
-        });
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -167,8 +144,6 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
         super.onSaveInstanceState(outState);
     }
 
-    boolean asc = true;
-    boolean old_asc = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -217,122 +192,10 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
 //        //update from server
 //        GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
 //        SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook(), 0);]
-        fmchapter = new fmChapter(mContext, book, lstBookchapter);
-        requestBookChapter();
+        fmchapter = new fmChapter(mContext, book);
         return v;
     }
 
-    public void requestBookChapter() {
-        SSReaderApplication.getRequestServer(mContext, this).getBookChapter(book.getIdbook(), 0);
-    }
-
-    public void sortChapter() {
-        if (!lstBookchapter.isEmpty()) {
-            old_asc = asc;
-            if (asc) {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
-                    @Override
-                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                        return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                    }
-                });
-                asc = false;
-            } else {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
-                    @Override
-                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                        return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                    }
-                });
-                asc = true;
-            }
-            fmchapter.setListData(lstBookchapter);
-        }
-    }
-
-    public void sortChapter(boolean asc) {
-        if (!lstBookchapter.isEmpty()) {
-            if (asc) {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
-                    @Override
-                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                        return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                    }
-                });
-            } else {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
-                    @Override
-                    public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
-                        return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
-                    }
-                });
-            }
-            fmchapter.setListData(lstBookchapter);
-        }
-    }
-
-
-    public void gotochapter() {
-        if (!lstBookchapter.isEmpty()) {
-            dlgGoChapter dlg = new dlgGoChapter(mContext);
-            dlg.setTitle("Nhập chương để đọc");
-            dlg.setTextView("/" + dlginfoTxtchapters.getText().toString());
-            dlg.setListener(new dlgGoChapter.IDialogEditText() {
-                @Override
-                public void getValue(String value) {
-                    try {
-                        int page = Integer.parseInt(value.trim());
-                        if (page > 0 && page <= lstBookchapter.size()) {
-                            page = page - 1;
-                            if (!asc) {
-                                page = lstBookchapter.size() - 1 - page;
-                            }
-                            loadBook(page);
-                        } else {
-                            org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
-                        }
-                    } catch (NumberFormatException e) {
-                        org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-            dlg.show(getSupportActivity());
-        }
-    }
-
-    public void loadBook(final int position) {
-        final Book_Chapter book_chapter = lstBookchapter.get(position);
-        if (book.getIdcategory() == 8) {
-            book.addNewData();
-            fmchapter.setLoadBook(position);
-            Intent t = new Intent(getActivity(), actReadPictureBook.class);
-            t.putExtra("arrbook", book_chapter.getFilename());
-            t.putExtra("idbook", book_chapter.getIdbook());
-            t.putExtra("idbookchapter", book_chapter.getIdbook_chapter());
-            t.putExtra("position", book_chapter.getReadposition());
-            mContext.startActivity(t);
-        } else {
-            AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(book_chapter));
-            download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                @Override
-                public void onDownloadComplete(String urlResultMood) {
-                    book.addNewData();
-                    fmchapter.setLoadBook(position);
-                    Intent t = new Intent(mContext, CoolReader.class);
-                    t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
-                    mContext.startActivity(t);
-                }
-
-                @Override
-                public void onCanceled() {
-                    org.holoeverywhere.widget.Toast.makeText(mContext, R.string.download_fail, org.holoeverywhere.widget.Toast.LENGTH_SHORT).show();
-                }
-            });
-            download.startDownload();
-        }
-
-        SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
-    }
 
     private class ViewpagerAdapter extends FragmentPagerAdapter {
 
@@ -347,9 +210,10 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
                 case 0:
                     return new fmSummary(book.getSummary());
                 case 1:
-                    return new fmComment(mContext, book.getIdbook());
-                case 2:
                     return fmchapter;
+                case 2:
+                    return new fmComment(mContext, book.getIdbook());
+
             }
             return null;
         }
@@ -365,12 +229,16 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
                 case 0:
                     return "Tóm Tắt";
                 case 1:
-                    return "Bình Luận";
-                case 2:
                     return "Chương";
+                case 2:
+                    return "Bình Luận";
             }
             return super.getPageTitle(position);
         }
+    }
+
+    public void setCountChapter(String number) {
+        dlginfoTxtchapters.setText(number);
     }
 
     @Override
@@ -429,60 +297,11 @@ public class dlgInfoBook_tab extends DialogFragment implements OnHttpServicesLis
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        //                GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
-                        BackgroundThread.instance().executeGUI(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (!lstBookchapter.isEmpty()) {
-                                    int position;
-                                    position = -1;
-                                    for (int y = 0; y < lstBookchapter.size(); y++) {
-                                        Book_Chapter book_chapter = lstBookchapter.get(y);
-                                        if (book_chapter.getCurrentread()) {
-                                            position = y;
-                                            break;
-                                        }
-                                    }
-                                    if (position == -1) {
-                                        if (!asc) {
-                                            position = lstBookchapter.size() - 1;
-                                        } else {
-                                            position = 0;
-                                        }
-                                    }
-                                    loadBook(position);
-                                }
-                                GlobalData.DissmissProgress();
-                            }
-                        });
+                        fmchapter.loadContinueBook();
                     }
                 });
             }
         });
         return adialog;
-    }
-
-    @Override
-    public void onDataError(int errortype, String urlMethod) {
-        GlobalData.DissmissProgress();
-        ErrorType.getErrorMessage(mContext, errortype);
-    }
-
-    @Override
-    public void onGetData(final ResultObject resultData, String urlMethod, int id) {
-        if (urlMethod.equals(COMMAND_API.GET_BOOK_CHAPTER)) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Result_GetBookChapter data = (Result_GetBookChapter) resultData;
-                    lstBookchapter = data.lstBookChaps;
-                    if (fmchapter != null) {
-                        fmchapter.setListData(lstBookchapter);
-                    }
-                    dlginfoTxtchapters.setText(lstBookchapter.size() + "");
-                }
-            });
-        }
-        GlobalData.DissmissProgress();
     }
 }
