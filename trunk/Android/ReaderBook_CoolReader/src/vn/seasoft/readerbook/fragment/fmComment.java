@@ -1,7 +1,6 @@
 package vn.seasoft.readerbook.fragment;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.*;
@@ -12,7 +11,7 @@ import com.etiennelawlor.quickreturn.library.listeners.SpeedyQuickReturnListView
 import org.holoeverywhere.app.Fragment;
 import org.holoeverywhere.widget.EditText;
 import org.holoeverywhere.widget.ProgressBar;
-import org.holoeverywhere.widget.TextView;
+import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
@@ -21,10 +20,12 @@ import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.ResultObjects.Result_GetCommentsBook;
 import vn.seasoft.readerbook.ResultObjects.Result_UserComment;
 import vn.seasoft.readerbook.SSReaderApplication;
+import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.Util.mSharedPreferences;
 import vn.seasoft.readerbook.adapter.CommentBookAdapter;
-import vn.seasoft.readerbook.dialog.dlgConfirm;
+import vn.seasoft.readerbook.dialog.dlgEditComment;
+import vn.seasoft.readerbook.listener.IDialogEditText;
 import vn.seasoft.readerbook.listener.ILoginFacebook;
 import vn.seasoft.readerbook.model.Comment;
 import vn.seasoft.readerbook.widget.ViewError;
@@ -38,6 +39,7 @@ import java.util.Date;
  */
 public class fmComment extends Fragment implements OnHttpServicesListener {
 
+    Comment tempComment;
 
     ListView listview;
     CommentBookAdapter adapter;
@@ -72,8 +74,39 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new CommentBookAdapter(context);
+        adapter.setListener(new CommentBookAdapter.IAdapterComment() {
+            @Override
+            public void DeleteComment(final Comment comment) {
+                tempComment = comment;
+                GlobalData.ShowProgressDialog(context, R.string.please_wait);
+                SSReaderApplication.getRequestServer(context, (OnHttpServicesListener) fmComment.this).userDeleteCommentBook(comment.getIdcomment());
+            }
+
+            @Override
+            public void EditComment(final Comment comment) {
+                tempComment = comment;
+                dlgEditComment dlg = new dlgEditComment(context);
+                dlg.setTitle("Chỉnh sửa bình luận");
+                dlg.setMessage(comment.getContent());
+                dlg.setListener(new IDialogEditText() {
+                    @Override
+                    public void getValue(String value) {
+                        if (value.equals("")) {
+                            org.holoeverywhere.widget.Toast.makeText(context, "Vui lòng nhập nội dung bình luận", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        tempComment.setContent(value);
+                        GlobalData.ShowProgressDialog(context, R.string.please_wait);
+                        SSReaderApplication.getRequestServer(context, (OnHttpServicesListener) fmComment.this).userEditCommentBook(comment.getIdcomment(), value);
+                    }
+                });
+                dlg.show(getSupportActivity());
+            }
+        });
         listview = new ListView(context);
         listview.setDivider(null);
+        listview.setCacheColorHint(android.R.color.transparent);
+        listview.setSelector(android.R.color.transparent);
         //-----------------------------------------//
         SSUtil.addViewContainer(fmcommentContainer, new ProgressBar(context), true);
         SSReaderApplication.getRequestServer(context, this).getCommentsBook(idbook, 1);
@@ -84,7 +117,7 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
     void comment(Comment comment) {
         fmcommentProgressbarcomment.setVisibility(View.VISIBLE);
         fmcommentBtncomment.setVisibility(View.GONE);
-        SSReaderApplication.getRequestServer(context, this).userCommentBook(idbook, comment.getIduserfacebook(), comment.getUsername(), comment.getContent());
+        SSReaderApplication.getRequestServer(context, this).userCommentBook(idbook, comment.getIduser(), comment.getContent());
     }
 
     Comment postcomment;
@@ -95,36 +128,34 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
             postcomment = new Comment();
             String iduserfacebook = mSharedPreferences.getUserIDFacebook(context);
             if (iduserfacebook.equals("")) {
-                dlgConfirm dlg = new dlgConfirm(context);
-                dlg.setMessage(R.string.require_login_facebook);
-                dlg.setListener(new DialogInterface.OnClickListener() {
+                SSReaderApplication.authorizeFB(context, new ILoginFacebook() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        SSReaderApplication.authorizeFB(context, new ILoginFacebook() {
-                            @Override
-                            public void LoginSuccess() {
-                                String iduserfacebook = mSharedPreferences.getUserIDFacebook(context);
-                                String username = mSharedPreferences.getUserDisplay(context);
-                                postcomment.setUsername(username);
-                                postcomment.setIduserfacebook(iduserfacebook);
-                                postcomment.setContent(content);
-                                postcomment.setIdbook(idbook);
-                                postcomment.setDatecomment(new Date());
-                                comment(postcomment);
-                            }
-                        });
+                    public void LoginSuccess() {
+                        String iduserfacebook = mSharedPreferences.getUserIDFacebook(context);
+                        String username = mSharedPreferences.getUserDisplay(context);
+                        int iduser = mSharedPreferences.getUserID(context);
+                        postcomment.setUsername(username);
+                        postcomment.setIduser(iduser);
+                        postcomment.setIduserfacebook(iduserfacebook);
+                        postcomment.setContent(content);
+                        postcomment.setIdbook(idbook);
+                        postcomment.setDatecomment(new Date());
+                        comment(postcomment);
                     }
                 });
-                dlg.show(getSupportActivity());
             } else {
                 String username = mSharedPreferences.getUserDisplay(context);
+                int iduser = mSharedPreferences.getUserID(context);
                 postcomment.setUsername(username);
+                postcomment.setIduser(iduser);
                 postcomment.setIduserfacebook(iduserfacebook);
                 postcomment.setContent(content);
                 postcomment.setIdbook(idbook);
                 postcomment.setDatecomment(new Date());
                 comment(postcomment);
             }
+        } else {
+            org.holoeverywhere.widget.Toast.makeText(context, "Vui lòng nhập nội dung bình luận", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -145,7 +176,6 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
         fmcommentEdtcomment.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(android.widget.TextView textView, int i, KeyEvent keyEvent) {
-
                 boolean handled = false;
                 if (i == EditorInfo.IME_ACTION_SEND) {
                     submitComment();
@@ -215,6 +245,7 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
                 SSUtil.addViewContainer(fmcommentContainer, viewError, true);
             }
         }
+        GlobalData.DissmissProgress();
     }
 
     @Override
@@ -238,15 +269,31 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
         }
         if (urlMethod.equals(COMMAND_API.USER_COMMENT)) {
             Result_UserComment data = (Result_UserComment) resultData;
-            if (data.status != 0) {
+            if (data.idcomment != 0) {
+                postcomment.setIdcomment(data.idcomment);
                 fmcommentProgressbarcomment.setVisibility(View.GONE);
                 fmcommentBtncomment.setVisibility(View.VISIBLE);
                 if (adapter.isEmpty()) {
                     SSUtil.addViewContainer(fmcommentContainer, listview, false);
+                    listview.removeFooterView(footerLoadmore);
                 }
                 fmcommentEdtcomment.setText("");
                 adapter.addItem(postcomment);
             }
         }
+        if (urlMethod.equals(COMMAND_API.USER_EDIT_COMMENT)) {
+            adapter.editItem(tempComment);
+        }
+        if (urlMethod.equals(COMMAND_API.USER_DELETE_COMMENT)) {
+            adapter.deleteItem(tempComment);
+            if (adapter.isEmpty()) {
+                TextView emptyview = new TextView(context);
+                emptyview.setText("Chưa có bình luận nào");
+                emptyview.setTextSize(24);
+                emptyview.setGravity(Gravity.CENTER);
+                SSUtil.addViewContainer(fmcommentContainer, emptyview, true);
+            }
+        }
+        GlobalData.DissmissProgress();
     }
 }

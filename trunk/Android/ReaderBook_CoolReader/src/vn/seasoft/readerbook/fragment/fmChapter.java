@@ -5,19 +5,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.etiennelawlor.quickreturn.library.enums.QuickReturnType;
 import com.etiennelawlor.quickreturn.library.listeners.SpeedyQuickReturnListViewOnScrollListener;
-import it.gmariotti.cardslib.library.internal.Card;
-import it.gmariotti.cardslib.library.internal.CardArrayAdapter;
-import it.gmariotti.cardslib.library.internal.CardHeader;
-import it.gmariotti.cardslib.library.internal.base.BaseCard;
-import it.gmariotti.cardslib.library.view.CardListView;
 import org.coolreader.CoolReader;
 import org.coolreader.crengine.BackgroundThread;
 import org.holoeverywhere.app.Fragment;
@@ -35,16 +30,15 @@ import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.actInfoBook;
 import vn.seasoft.readerbook.actReadPictureBook;
+import vn.seasoft.readerbook.adapter.BookChapterAdapter;
 import vn.seasoft.readerbook.dialog.dlgGoChapter;
 import vn.seasoft.readerbook.listener.IDialogEditText;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Chapter;
 import vn.seasoft.readerbook.widget.ViewError;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 /**
  * User: XuanTrung
@@ -52,15 +46,9 @@ import java.util.List;
  * Time: 11:21 AM
  */
 public class fmChapter extends Fragment implements OnHttpServicesListener {
-
     Book book;
-
-    List<Book_Chapter> lstBookchapter;
-    List<Card> lstCards;
-    CardArrayAdapter cardAdapter;
-
-    //    BookChapterAdapter adapter;
-    CardListView listview;
+    BookChapterAdapter adapter;
+    ListView listview;
 
     Context mContext;
 
@@ -68,13 +56,10 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     public fmChapter(Context _ct, Book book) {
         super();
         mContext = _ct;
-        lstBookchapter = new ArrayList<Book_Chapter>();
         this.book = book;
-        requestBookChapter();
     }
 
     private RelativeLayout dlginfoContainer;
-
 
     private void assignViews(View root) {
         dlginfoContainer = (RelativeLayout) root.findViewById(R.id.fmchapter_container);
@@ -84,11 +69,83 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        adapter = new BookChapterAdapter(mContext);
-        lstCards = new ArrayList<Card>();
-        listview = new CardListView(mContext);
-        cardAdapter = new CardArrayAdapter(mContext, lstCards);
-        listview.setAdapter(cardAdapter);
+        listview = new ListView(mContext);
+        listview.setDivider(null);
+        listview.setCacheColorHint(android.R.color.transparent);
+        listview.setSelector(android.R.color.transparent);
 
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                loadBook(i);
+            }
+        });
+
+        adapter = new BookChapterAdapter(mContext);
+        adapter.setListener(new BookChapterAdapter.IAdapterBookChapter() {
+            @Override
+            public void DownloadAll(final Book_Chapter book_chapter) {
+                if (book.getIdcategory() == 8) {//id truyen tranh
+                    String[] arrPic = book_chapter.getFilename().split(",");
+                    for (int i = 0; i < arrPic.length; i++) {
+                        arrPic[i] = GlobalData.getUrlPictureBook(book.getIdbook(), book_chapter.getIdbook_chapter()) + arrPic[i];
+                    }
+                    AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, arrPic);
+                    download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+                        @Override
+                        public void onDownloadComplete(String urlResultMood) {
+                            book.addNewData();
+                            book_chapter.setIsDownloaded(true);
+                            book_chapter.updateData();
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(mContext, R.string.download_success, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCanceled() {
+                            Toast.makeText(mContext, R.string.download_fail, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    download.startDownload();
+                } else {
+                    AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(book_chapter));
+                    download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+                        @Override
+                        public void onDownloadComplete(String urlResultMood) {
+                            book.addNewData();
+                            book_chapter.setIsDownloaded(true);
+                            book_chapter.updateData();
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(mContext, R.string.download_success, Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCanceled() {
+                            Toast.makeText(mContext, R.string.download_fail, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    download.startDownload();
+                }
+                //thong ke download
+                SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
+            }
+
+            @Override
+            public void DeleteAll(Book_Chapter book_chapter) {
+                if (book.getIdcategory() == 8) {//id truyen tranh
+                    SSUtil.deletePictureBook(mContext, book_chapter);
+                } else {
+                    SSUtil.deleteBook(GlobalData.getUrlBook(book_chapter));
+                }
+                book_chapter.setIsDownloaded(false);
+                book_chapter.updateData();
+                adapter.notifyDataSetChanged();
+                Toast.makeText(mContext, "Đã xóa khỏi máy", Toast.LENGTH_SHORT).show();
+            }
+        });
+        listview.setAdapter(adapter);
+
+        requestBookChapter();
 //
 //
 //        listview.setItemActionListener(new ActionSlideExpandableListView.OnActionClickListener() {
@@ -99,56 +156,19 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
 //        }, R.id.buttonA, R.id.buttonB);
     }
 
-    public void setListData() {
-        if (cardAdapter != null) {
-            lstCards.clear();
-            int position = 0;
-            for (Book_Chapter bc : lstBookchapter) {
-                CardBookChapter cardbc = new CardBookChapter(mContext, bc, position);
-                lstCards.add(cardbc);
-                position++;
-            }
-
-            if (lstCards.isEmpty()) {
-                SSUtil.addViewContainer(dlginfoContainer, new ViewError(mContext, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        SSUtil.addViewContainer(dlginfoContainer, new ProgressBar(mContext), true);
-                        requestBookChapter();
-                    }
-                }).setColorText(Color.BLACK), true);
-            } else {
-                SSUtil.addViewContainer(dlginfoContainer, listview, false);
-            }
-            cardAdapter.notifyDataSetChanged();
-            setSelectionListview();
-        }
-    }
-
-    public void setLoadBook(int position) {
-        for (Book_Chapter bookchap : lstBookchapter) {
-            bookchap.setCurrentread(false);
-            bookchap.updateData();
-        }
-        lstBookchapter.get(position).setCurrentread(true);
-        lstBookchapter.get(position).setIsDownloaded(true);
-        lstBookchapter.get(position).updateData();
-    }
-
-
     public void setSelectionListview() {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (listview != null) {
                     int position = 0;
-                    for (Book_Chapter bookchap : lstBookchapter) {
+                    for (Book_Chapter bookchap : adapter.getList()) {
                         if (bookchap.getCurrentread()) {
                             break;
                         }
                         position++;
                     }
-                    if (position == lstBookchapter.size()) {
+                    if (position == adapter.getList().size()) {
                         position = 0;
                     }
                     listview.setSelection(position);
@@ -174,6 +194,19 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
 //        //Select current read in listview
 //        setSelectionListview();
 
+        if (adapter.isEmpty()) {
+            SSUtil.addViewContainer(dlginfoContainer, new ViewError(mContext, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SSUtil.addViewContainer(dlginfoContainer, new ProgressBar(mContext), true);
+                    requestBookChapter();
+                }
+            }).setColorText(Color.BLACK), true);
+        } else {
+            SSUtil.addViewContainer(dlginfoContainer, listview, false);
+        }
+
+
         //Init quick return listview
 
         ImageView sortchapter = (ImageView) v.findViewById(R.id.fmchapter_qr_sort);
@@ -198,135 +231,15 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
         return v;
     }
 
-
-    class customHeaderCard extends CardHeader {
-        Book_Chapter book_chapter;
-
-        public customHeaderCard(Context context, int layout, Book_Chapter bc) {
-            super(context, layout);
-            book_chapter = bc;
-        }
-
-        @Override
-        public void setupInnerViewElements(ViewGroup parent, View view) {
-            TextView titlechapter = (TextView) view.findViewById(R.id.card_bookchapter_titlechapter);
-            TextView sizechapter = (TextView) view.findViewById(R.id.card_bookchapter_sizechapter);
-            ImageView border = (ImageView) view.findViewById(R.id.colorBorder);
-
-            titlechapter.setText(book_chapter.getChapter());
-
-            if (book_chapter.getIsDownloaded()) {
-                sizechapter.setText("Đã Tải");
-            } else {
-                sizechapter.setText(book_chapter.getFilesize());
-            }
-
-            if (book_chapter.getCurrentread()) {
-                border.setVisibility(View.VISIBLE);
-            } else {
-                border.setVisibility(View.INVISIBLE);
-            }
-        }
-    }
-
-    class CardBookChapter extends Card {
-
-        protected Book_Chapter book_chapter;
-        customHeaderCard header;
-        int position;
-
-        public CardBookChapter(Context context, Book_Chapter bc, int _position) {
-            super(context);
-            book_chapter = bc;
-            position = _position;
-            init();
-        }
-
-        public void init() {
-            //Create a CardHeader
-            header = new customHeaderCard(getActivity(), R.layout.card_book_chapter, book_chapter);
-            header.setPopupMenu(R.menu.reader_menu, new CardHeader.OnClickCardHeaderPopupMenuListener() {
-                @Override
-                public void onMenuItemClick(BaseCard card, MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.delete:
-                            if (book.getIdcategory() == 8) {//id truyen tranh
-                                SSUtil.deletePictureBook(mContext, book_chapter);
-                            } else {
-                                SSUtil.deleteBook(GlobalData.getUrlBook(book_chapter));
-                            }
-                            book_chapter.setIsDownloaded(false);
-                            book_chapter.updateData();
-                            cardAdapter.notifyDataSetChanged();
-                            Toast.makeText(mContext, "Đã xóa khỏi máy", Toast.LENGTH_SHORT).show();
-                            break;
-                        case R.id.download:
-                            if (book.getIdcategory() == 8) {//id truyen tranh
-                                String[] arrPic = book_chapter.getFilename().split(",");
-                                for (int i = 0; i < arrPic.length; i++) {
-                                    arrPic[i] = GlobalData.getUrlPictureBook(book.getIdbook(), book_chapter.getIdbook_chapter()) + arrPic[i];
-                                }
-                                AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, arrPic);
-                                download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                                    @Override
-                                    public void onDownloadComplete(String urlResultMood) {
-                                        book.addNewData();
-                                        book_chapter.setIsDownloaded(true);
-                                        book_chapter.updateData();
-                                        cardAdapter.notifyDataSetChanged();
-                                        Toast.makeText(mContext, R.string.download_success, Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCanceled() {
-                                        Toast.makeText(mContext, R.string.download_fail, Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                download.startDownload();
-                            } else {
-                                AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(book_chapter));
-                                download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                                    @Override
-                                    public void onDownloadComplete(String urlResultMood) {
-                                        book.addNewData();
-                                        book_chapter.setIsDownloaded(true);
-                                        book_chapter.updateData();
-                                        cardAdapter.notifyDataSetChanged();
-                                        Toast.makeText(mContext, R.string.download_success, Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCanceled() {
-                                        Toast.makeText(mContext, R.string.download_fail, Toast.LENGTH_SHORT).show();
-                                    }
-                                });
-                                download.startDownload();
-                            }
-                            break;
-                    }
-                }
-            });
-
-            addCardHeader(header);
-
-            setOnClickListener(new OnCardClickListener() {
-                @Override
-                public void onClick(Card card, View view) {
-                    loadBook(position);
-                }
-            });
-        }
-    }
-
     @Override
     public void onResume() {
         super.onResume();
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                lstBookchapter = (new Book_Chapter()).getByidBook(book.getIdbook());
+                adapter.SetListBooks((new Book_Chapter()).getByidBook(book.getIdbook()));
                 sortChapter(old_asc);
-                ((actInfoBook) getActivity()).setCountChapter(lstBookchapter.size() + "");
+                ((actInfoBook) getActivity()).setCountChapter(adapter.getCount() + "");
             }
         });
     }
@@ -335,26 +248,26 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     boolean old_asc = false;
 
     public void gotochapter() {
-        if (!lstBookchapter.isEmpty()) {
+        if (!adapter.getList().isEmpty()) {
             dlgGoChapter dlg = new dlgGoChapter(mContext);
             dlg.setTitle("Nhập chương để đọc");
-            dlg.setTextView("/" + lstBookchapter.size());
+            dlg.setTextView("/" + adapter.getList().size());
             dlg.setListener(new IDialogEditText() {
                 @Override
                 public void getValue(String value) {
                     try {
                         int page = Integer.parseInt(value.trim());
-                        if (page > 0 && page <= lstBookchapter.size()) {
+                        if (page > 0 && page <= adapter.getList().size()) {
                             page = page - 1;
                             if (!asc) {
-                                page = lstBookchapter.size() - 1 - page;
+                                page = adapter.getList().size() - 1 - page;
                             }
                             loadBook(page);
                         } else {
-                            org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", android.widget.Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
                         }
                     } catch (NumberFormatException e) {
-                        org.holoeverywhere.widget.Toast.makeText(mContext, "Không có chương này !", android.widget.Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "Không có chương này !", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -363,10 +276,10 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     }
 
     public void sortChapter() {
-        if (!lstBookchapter.isEmpty()) {
+        if (!adapter.getList().isEmpty()) {
             old_asc = asc;
             if (asc) {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
                     @Override
                     public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
                         return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
@@ -374,7 +287,7 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                 });
                 asc = false;
             } else {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
                     @Override
                     public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
                         return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
@@ -383,21 +296,22 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                 asc = true;
             }
 //            fmchapter.setListData(lstBookchapter);
-            setListData();
+            adapter.notifyDataSetChanged();
+            setSelectionListview();
         }
     }
 
     public void sortChapter(boolean asc) {
-        if (!lstBookchapter.isEmpty()) {
+        if (!adapter.getList().isEmpty()) {
             if (asc) {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
                     @Override
                     public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
                         return (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
                     }
                 });
             } else {
-                Collections.sort(lstBookchapter, new Comparator<Book_Chapter>() {
+                Collections.sort(adapter.getList(), new Comparator<Book_Chapter>() {
                     @Override
                     public int compare(Book_Chapter book_chapter, Book_Chapter t1) {
                         return (book_chapter.getIdbook_chapter() < t1.getIdbook_chapter()) ? -1 : (book_chapter.getIdbook_chapter() > t1.getIdbook_chapter()) ? 1 : 0;
@@ -405,7 +319,8 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                 });
             }
             //            fmchapter.setListData(lstBookchapter);
-            setListData();
+            adapter.notifyDataSetChanged();
+            setSelectionListview();
         }
     }
 
@@ -418,11 +333,11 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
         BackgroundThread.instance().executeGUI(new Runnable() {
             @Override
             public void run() {
-                if (!lstBookchapter.isEmpty()) {
+                if (!adapter.getList().isEmpty()) {
                     int position;
                     position = -1;
-                    for (int y = 0; y < lstBookchapter.size(); y++) {
-                        Book_Chapter book_chapter = lstBookchapter.get(y);
+                    for (int y = 0; y < adapter.getList().size(); y++) {
+                        Book_Chapter book_chapter = adapter.getList().get(y);
                         if (book_chapter.getCurrentread()) {
                             position = y;
                             break;
@@ -430,7 +345,7 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                     }
                     if (position == -1) {
                         if (!asc) {
-                            position = lstBookchapter.size() - 1;
+                            position = adapter.getList().size() - 1;
                         } else {
                             position = 0;
                         }
@@ -443,10 +358,10 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     }
 
     public void loadBook(final int position) {
-        final Book_Chapter book_chapter = lstBookchapter.get(position);
+        final Book_Chapter book_chapter = adapter.getList().get(position);
         if (book.getIdcategory() == 8) {
             book.addNewData();
-            setLoadBook(position);
+            adapter.setLoadBook(position);
             Intent t = new Intent(mContext, actReadPictureBook.class);
             t.putExtra("arrbook", book_chapter.getFilename());
             t.putExtra("idbook", book_chapter.getIdbook());
@@ -459,7 +374,7 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                 @Override
                 public void onDownloadComplete(String urlResultMood) {
                     book.addNewData();
-                    setLoadBook(position);
+                    adapter.setLoadBook(position);
                     Intent t = new Intent(mContext, CoolReader.class);
                     t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
                     mContext.startActivity(t);
@@ -472,7 +387,7 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
             });
             download.startDownload();
         }
-
+        //thong ke download
         SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
     }
 
@@ -480,23 +395,27 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     public void onDataError(int errortype, String urlMethod) {
         GlobalData.DissmissProgress();
         ErrorType.getErrorMessage(mContext, errortype);
-        SSUtil.addViewContainer(dlginfoContainer, new ViewError(mContext, new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                SSUtil.addViewContainer(dlginfoContainer, new ProgressBar(mContext), true);
-                requestBookChapter();
-            }
-        }).setColorText(Color.BLACK), true);
+        if (adapter.isEmpty()) {
+            SSUtil.addViewContainer(dlginfoContainer, new ViewError(mContext, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    SSUtil.addViewContainer(dlginfoContainer, new ProgressBar(mContext), true);
+                    requestBookChapter();
+                }
+            }).setColorText(Color.BLACK), true);
+        } else {
+            SSUtil.addViewContainer(dlginfoContainer, listview, false);
+        }
     }
 
     @Override
     public void onGetData(final ResultObject resultData, String urlMethod, int id) {
         if (urlMethod.equals(COMMAND_API.GET_BOOK_CHAPTER)) {
             Result_GetBookChapter data = (Result_GetBookChapter) resultData;
-            lstBookchapter = data.lstBookChaps;
-            setListData();
+            adapter.SetListBooks(data.lstBookChaps);
+            SSUtil.addViewContainer(dlginfoContainer, listview, false);
             try {
-                ((actInfoBook) getActivity()).setCountChapter(lstBookchapter.size() + "");
+                ((actInfoBook) getActivity()).setCountChapter(adapter.getCount() + "");
             } catch (Exception e) {
                 e.printStackTrace();
             }

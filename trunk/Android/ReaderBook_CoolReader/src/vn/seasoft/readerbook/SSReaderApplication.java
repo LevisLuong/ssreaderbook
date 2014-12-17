@@ -191,7 +191,16 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
 
     public static ILoginFacebook loginfacebooklistener;
 
+    public static boolean isLogoutFB = false;
+
     public static void authorizeFB(Context context, ILoginFacebook listener) {
+        isLogoutFB = false;
+        loginfacebooklistener = listener;
+        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
+    }
+
+    public static void signOutFB(Context context, ILoginFacebook listener) {
+        isLogoutFB = true;
         loginfacebooklistener = listener;
         socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
     }
@@ -216,29 +225,40 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         super.onCreate();
         instance = this;
         GlobalData.repo = new RepoController(this);
-        if (socialAdapter == null) {
-            socialAdapter = new SocialAuthAdapter((new DialogListener() {
-                @Override
-                public void onComplete(Bundle bundle) {
+        socialAdapter = new SocialAuthAdapter((new DialogListener() {
+            @Override
+            public void onComplete(Bundle bundle) {
+                if (isLogoutFB) {
+                    //dang xuat provider
+                    SSReaderApplication.getSocialAdapter().signOut(instance, "facebook");
+                    //clear shared preference
+                    mSharedPreferences.saveUserDisplay(instance, "");
+                    mSharedPreferences.saveUserId(instance, 0);
+                    mSharedPreferences.saveUserIdFacebook(instance, "");
+                    Toast.makeText(instance, "Đăng xuất thành công !", Toast.LENGTH_SHORT).show();
+                    if (loginfacebooklistener != null) {
+                        loginfacebooklistener.LoginSuccess();
+                    }
+                } else {
                     socialAdapter.getUserProfileAsync(new ProfileDataListener());
                 }
+            }
 
-                @Override
-                public void onError(SocialAuthError socialAuthError) {
+            @Override
+            public void onError(SocialAuthError socialAuthError) {
 
-                }
+            }
 
-                @Override
-                public void onCancel() {
+            @Override
+            public void onCancel() {
 
-                }
+            }
 
-                @Override
-                public void onBack() {
+            @Override
+            public void onBack() {
 
-                }
-            }));
-        }
+            }
+        }));
     }
 
     @Override

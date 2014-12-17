@@ -172,7 +172,6 @@ public class AsyntaskDownloadFile extends AsyncTask<String, String, String> {
         } else {
             listener.onDownloadComplete(file_url);
         }
-
     }
 
 

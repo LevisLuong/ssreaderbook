@@ -21,13 +21,25 @@ public class Request_Server extends RequestObject {
         request.requestStringToServer(new Result_GetCommentsBook(), COMMAND_API.GET_COMMENTS);
     }
 
-    public void userCommentBook(int idbook, String iduserfacebook, String username, String content) {
+    public void userCommentBook(int idbook, int iduser, String content) {
         request.initParam();
         request.addParam("idbook", idbook);
-        request.addParam("iduserfacebook", iduserfacebook);
-        request.addParam("username", username);
+        request.addParam("iduser", iduser);
         request.addParam("content", content);
         request.requestStringToServer(new Result_UserComment(), COMMAND_API.USER_COMMENT);
+    }
+
+    public void userEditCommentBook(int idcomment, String content) {
+        request.initParam();
+        request.addParam("idcomment", idcomment);
+        request.addParam("content", content);
+        request.requestStringToServer(new Result_UserEditComment(), COMMAND_API.USER_EDIT_COMMENT);
+    }
+
+    public void userDeleteCommentBook(int idcomment) {
+        request.initParam();
+        request.addParam("idcomment", idcomment);
+        request.requestStringToServer(new Result_UserDeleteComment(), COMMAND_API.USER_DELETE_COMMENT);
     }
 
     public void userLikeBook(int idbook, int iduser) {

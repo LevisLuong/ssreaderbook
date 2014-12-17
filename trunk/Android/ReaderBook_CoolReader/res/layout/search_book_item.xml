@@ -3,6 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:descendantFocusability="beforeDescendants"
               android:orientation="vertical"
               android:paddingBottom="8dp"
               android:paddingLeft="8dp"
@@ -11,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card_selector"
+        android:background="@drawable/card_background_selector"
+        android:descendantFocusability="afterDescendants"
         android:padding="4dp">
 
         <ImageView
@@ -47,10 +49,4 @@
         </LinearLayout>
 
     </LinearLayout>
-    <!-- Compound view for Shadow
-             If you want to customize this element use attr card:card_shadow_layout_resourceID -->
-    <it.gmariotti.cardslib.library.view.component.CardShadowView
-        style="@style/card.shadow_outer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

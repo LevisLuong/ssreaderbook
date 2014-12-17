@@ -24,5 +24,7 @@ public class COMMAND_API {
     public final static String IS_USER_LIKE_BOOK = "api/user/getIsUserLikeBook";
 
     public final static String USER_COMMENT = "api/user/UserComment";
+    public final static String USER_EDIT_COMMENT = "api/user/UserEditComment";
+    public final static String USER_DELETE_COMMENT = "api/user/UserDeleteComment";
     public final static String GET_COMMENTS = "api/user/GetCommentsBook";
 }

@@ -54,12 +54,6 @@ public class SpeedyQuickReturnListViewOnScrollListener implements AbsListView.On
         mHeaderViews = headerViews;
         mFooterViews = footerViews;
 
-        if (mHeaderViews != null) {
-            for (View view : mHeaderViews) {
-                view.setVisibility(View.GONE);
-            }
-        }
-
         mSlideHeaderUpAnimation = AnimationUtils.loadAnimation(mContext, R.anim.anticipate_slide_header_up);
         mSlideHeaderDownAnimation = AnimationUtils.loadAnimation(mContext, R.anim.overshoot_slide_header_down);
         mSlideFooterUpAnimation = AnimationUtils.loadAnimation(mContext, R.anim.overshoot_slide_footer_up);

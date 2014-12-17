@@ -25,7 +25,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.base.BaseCard;
 
@@ -38,28 +37,28 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  * <ul>
  * <li>using your innerLayout in constructor</li>
  * <li>setting your elements with {@link #setupInnerViewElements(android.view.ViewGroup, android.view.View)} method.</li>
- *</ul>
+ * </ul>
  * </p>
  * <b>Usage:</b>
  * <pre><code>
  *       //Create a Card
  *       Card card = new Card(getContext());
- *
+ * <p/>
  *       //Create a CardHeader
  *       CardHeader header = new CardHeader(getContext());
- *
+ * <p/>
  *       //Add header to card
  *       card.addCardHeader(header);
- *
+ * <p/>
  * </code></pre>
- *
+ * <p/>
  * </p>
  * You can customize buttons behaviour with {@link #setButtonOverflowVisible(boolean)} ,{@link #setButtonExpandVisible(boolean)}, {@link #setOtherButtonVisible(boolean)}
  * </p>
  * You can attach a Popup Menu to overflowMenu with {@link #setPopupMenu(int, CardHeader.OnClickCardHeaderPopupMenuListener)}
  * <pre><code>
  * header.setPopupMenu(R.menu.popupmain, new CardHeader.OnClickCardHeaderPopupMenuListener(){
- *
+ * <p/>
  *       public void onMenuItemClick(BaseCard card, MenuItem item) {
  *                 mPopupMenuListener.doSomething(...);
  *       }
@@ -70,7 +69,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  * other button is clicked.
  * <pre><code>
  *     header.setOtherButtonClickListener(new CardHeader.OnClickCardHeaderOtherButtonListener() {
- *
+ * <p/>
  *         public void onButtonItemClick(Card card, View view) {
  *                //do something...
  *         }
@@ -81,7 +80,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  * </p>
  * Also you can use a different header layout using a custom attr in main card layout.
  * <pre><code>
- *
+ * <p/>
  *  <it.gmariotti.cardslib.library.view.component.CardHeaderView
  *       android:id="@+id/card_header_layout"
  *       android:layout_width="match_parent"
@@ -89,6 +88,7 @@ import it.gmariotti.cardslib.library.internal.base.BaseCard;
  *       card:card_header_layout_resourceID="@layout/my_header_layout" />
  * </code></pre>
  * </p>
+ *
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
 public class CardHeader extends BaseCard {
@@ -96,22 +96,22 @@ public class CardHeader extends BaseCard {
     /**
      * Indicates to make visible the Button to expand/collapse
      */
-    protected boolean mIsButtonExpandVisible=false;
+    protected boolean mIsButtonExpandVisible = false;
 
     /**
      * Indicates to make visible the Overflow Button to open a popup menu
      */
-    protected boolean mIsButtonOverflowVisible=false;
+    protected boolean mIsButtonOverflowVisible = false;
 
     /**
      * Indicates to make visible another Button
      */
-    protected boolean mIsOtherButtonVisible=false;
+    protected boolean mIsOtherButtonVisible = false;
 
     /**
-     *  Resource ID for PopMenu
+     * Resource ID for PopMenu
      */
-    protected int mPopupMenu=NO_POPUP_MENU;
+    protected int mPopupMenu = NO_POPUP_MENU;
 
     /**
      * Listener invoked when a item in PopupMenu is clicked
@@ -141,7 +141,7 @@ public class CardHeader extends BaseCard {
      *  </code>
      *  </pre>
      */
-    protected int mOtherButtonDrawable=0;
+    protected int mOtherButtonDrawable = 0;
 
     /**
      * Use this value to remove popup on overflow button
@@ -157,7 +157,7 @@ public class CardHeader extends BaseCard {
         /**
          * @return the bitmap from custom source
          */
-       void doAnimation(Card card,View imageOverflow);
+        void doAnimation(Card card, View imageOverflow);
     }
 
     protected CustomOverflowAnimation mCustomOverflowAnimation = null;
@@ -165,7 +165,7 @@ public class CardHeader extends BaseCard {
     /**
      * Indicates if overflow icon is selected
      */
-    protected boolean mIsOverflowSelected=false;
+    protected boolean mIsOverflowSelected = false;
 
     // -------------------------------------------------------------
     // Constructors
@@ -174,21 +174,21 @@ public class CardHeader extends BaseCard {
     /**
      * Constructor with a base inner layout defined by R.layout.inner_base_header
      *
-     * @param context  context
+     * @param context context
      */
     public CardHeader(Context context) {
-        this(context,R.layout.inner_base_header);
+        this(context, R.layout.inner_base_header);
     }
 
     /**
      * Constructor with a custom inner layout.
      *
-     * @param context context
-     * @param innerLayout   layout resource ID
+     * @param context     context
+     * @param innerLayout layout resource ID
      */
-    public CardHeader(Context context,int innerLayout) {
+    public CardHeader(Context context, int innerLayout) {
         super(context);
-        mInnerLayout= innerLayout;
+        mInnerLayout = innerLayout;
     }
 
 
@@ -215,9 +215,8 @@ public class CardHeader extends BaseCard {
          *
          * @param card
          * @param popupMenu
-         *
          * @return You must return true for the menu to be displayed;
-         *          if you return false it will not be shown.
+         * if you return false it will not be shown.
          */
         public boolean onPreparePopupMenu(BaseCard card, PopupMenu popupMenu);
     }
@@ -239,8 +238,8 @@ public class CardHeader extends BaseCard {
      * <p/>
      * Setting the menu resource to {@linl NO_POPUP_MENU} disables the menu for this card.
      *
-     * @param menuRes  The menu resource ID to use for the card's popup menu.
-     * @param listener A listener invoked when an option in the popup menu is tapped by the user.
+     * @param menuRes         The menu resource ID to use for the card's popup menu.
+     * @param listener        A listener invoked when an option in the popup menu is tapped by the user.
      * @param prepareListener A listener invoked to change dynamically menu items.
      */
     public void setPopupMenu(int menuRes, OnClickCardHeaderPopupMenuListener listener, OnPrepareCardHeaderPopupMenuListener prepareListener) {
@@ -248,11 +247,11 @@ public class CardHeader extends BaseCard {
         mPopupMenuListener = listener;
         mPopupMenuPrepareListener = prepareListener;
 
-        if (menuRes==NO_POPUP_MENU){
-            mIsButtonOverflowVisible=false;
-            listener=null;
-        }else{
-            mIsButtonOverflowVisible=true;
+        if (menuRes == NO_POPUP_MENU) {
+            mIsButtonOverflowVisible = false;
+            listener = null;
+        } else {
+            mIsButtonOverflowVisible = true;
         }
     }
 
@@ -273,7 +272,6 @@ public class CardHeader extends BaseCard {
     // -------------------------------------------------------------
 
 
-
     // -------------------------------------------------------------
     // CustomOverflowAnimator
     // -------------------------------------------------------------
@@ -285,7 +283,7 @@ public class CardHeader extends BaseCard {
      * @return the listener
      */
     public CustomOverflowAnimation getCustomOverflowAnimation() {
-        return  mCustomOverflowAnimation;
+        return mCustomOverflowAnimation;
     }
 
     /**
@@ -296,10 +294,10 @@ public class CardHeader extends BaseCard {
     public void setCustomOverflowAnimation(CustomOverflowAnimation customAnimation) {
         this.mCustomOverflowAnimation = customAnimation;
 
-        if (mCustomOverflowAnimation==null){
-            mIsButtonOverflowVisible=false;
-        }else{
-            mIsButtonOverflowVisible=true;
+        if (mCustomOverflowAnimation == null) {
+            mIsButtonOverflowVisible = false;
+        } else {
+            mIsButtonOverflowVisible = true;
         }
     }
 
@@ -311,7 +309,6 @@ public class CardHeader extends BaseCard {
     public void setOverflowSelected(boolean isOverflowSelected) {
         mIsOverflowSelected = isOverflowSelected;
     }
-
 
 
     // -------------------------------------------------------------
@@ -326,7 +323,7 @@ public class CardHeader extends BaseCard {
      * You can provide your custom layout.
      * You can use a xml layout with {@link CardHeader#setInnerLayout(int)} or with constructor
      * {@link CardHeader#CardHeader(android.content.Context, int)}.
-     *
+     * <p/>
      * Then customize #setupInnerViewElements to set your values.
      *
      * @param context context
@@ -336,16 +333,16 @@ public class CardHeader extends BaseCard {
     @Override
     public View getInnerView(Context context, ViewGroup parent) {
 
-        View view= super.getInnerView(context, parent);
+        View view = super.getInnerView(context, parent);
 
         //This provide a simple implementation with a single title
-        if (view!=null){
+        if (view != null) {
             //Add inner view to parent
             parent.addView(view);
 
             //Setup value
-            if (mInnerLayout>-1 ){
-                setupInnerViewElements(parent,view);
+            if (mInnerLayout > -1) {
+                setupInnerViewElements(parent, view);
             }
         }
         return view;
@@ -357,19 +354,19 @@ public class CardHeader extends BaseCard {
 
     /**
      * This method sets values to header elements and customizes view.
-     *
+     * <p/>
      * Override this method to set your elements inside InnerView.
      *
-     * @param parent  parent view (Inner Frame)
+     * @param parent parent view (Inner Frame)
      * @param view   Inner View
      */
     @Override
-    public void setupInnerViewElements(ViewGroup parent,View view){
+    public void setupInnerViewElements(ViewGroup parent, View view) {
 
         //Add simple title to header
-        if (view!=null){
-            TextView mTitleView=(TextView) view.findViewById(R.id.card_header_inner_simple_title);
-            if (mTitleView!=null)
+        if (view != null) {
+            TextView mTitleView = (TextView) view.findViewById(R.id.card_header_inner_simple_title);
+            if (mTitleView != null)
                 mTitleView.setText(mTitle);
         }
 
@@ -382,7 +379,7 @@ public class CardHeader extends BaseCard {
     /**
      * Return the popup listener invoked when a item in PopupMenu is clicked
      *
-     * @return  popup listener
+     * @return popup listener
      */
     public OnClickCardHeaderPopupMenuListener getPopupMenuListener() {
         return mPopupMenuListener;
@@ -391,7 +388,7 @@ public class CardHeader extends BaseCard {
     /**
      * Return the popup prepare listener invoked when the PopupMenu is being prepared
      *
-     * @return  popup listener
+     * @return popup listener
      */
     public OnPrepareCardHeaderPopupMenuListener getPopupMenuPrepareListener() {
         return mPopupMenuPrepareListener;
@@ -400,7 +397,7 @@ public class CardHeader extends BaseCard {
     /**
      * Sets the popup listener invoked when a item in PopupMenu is clicked
      *
-     * @param popupMenuListener  popup listener
+     * @param popupMenuListener popup listener
      */
     public void setPopupMenuListener(OnClickCardHeaderPopupMenuListener popupMenuListener) {
         mPopupMenuListener = popupMenuListener;
@@ -409,7 +406,7 @@ public class CardHeader extends BaseCard {
     /**
      * Sets the popup listener invoked when the PopupMenu is being prepared
      *
-     * @param popupMenuListener  popup prepare listener
+     * @param popupMenuListener popup prepare listener
      */
     public void setPopupMenuPrepareListener(OnPrepareCardHeaderPopupMenuListener popupMenuListener) {
         mPopupMenuPrepareListener = popupMenuListener;

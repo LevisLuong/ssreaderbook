@@ -2,8 +2,9 @@
 <manifest
     package="vn.seasoft.readerbook"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="3"
-    android:versionName="1.1">
+    android:installLocation="preferExternal"
+    android:versionCode="6"
+    android:versionName="1.2">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -12,7 +13,6 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <supports-screens
@@ -36,6 +36,7 @@
         <activity
             android:name="vn.seasoft.readerbook.MainActivity"
             android:configChanges="keyboardHidden|locale|screenSize"
+            android:launchMode="singleTop"
             android:theme="@style/HoloThemeWithSliderMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -64,7 +65,6 @@
         <activity
             android:name=".actInfoBook"
             android:configChanges="orientation|keyboardHidden|locale|screenSize"
-            android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/HoloThemeLightDarkActionbar"
             android:windowSoftInputMode="adjustPan">

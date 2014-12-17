@@ -48,6 +48,17 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
             content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SáchCủaTui";
             if (image != null) {
                 result = SSReaderApplication.getSocialAdapter().uploadImage(content, "upload_book.jpg", image, 100);
+//                SSReaderApplication.getSocialAdapter().updateStory("test update story facebook", "update name", "captio", "descrition", "http://goo.gl/vDxSKx", "http://1.bp.blogspot.com/-IWytx68TUxw/TxmawGii-BI/AAAAAAAABVk/_TusUdVRAN0/s1600/twitter+facebook.jpg", new SocialAuthListener<Integer>() {
+//                    @Override
+//                    public void onExecute(String s, Integer integer) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(SocialAuthError socialAuthError) {
+//
+//                    }
+//                });
             } else {
                 result = 200;
                 SSReaderApplication.getSocialAdapter().updateStatus(content, new SocialAuthListener<Integer>() {
@@ -77,7 +88,7 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
         if (result == 200) {
             Toast.makeText(mContext, "Đã chia sẻ lên Facebook !", Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(mContext, "error code Facebook:" + result, Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "Chia sẻ thất bại. Vui lòng thử lại !", Toast.LENGTH_SHORT).show();
         }
     }
 }

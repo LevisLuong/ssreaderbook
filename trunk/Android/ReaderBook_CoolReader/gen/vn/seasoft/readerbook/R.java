@@ -3453,7 +3453,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int cr3_file_browser_opds_dir_context_menu=0x7f0f000a;
         public static final int cr3_file_browser_recent_context_menu=0x7f0f000b;
         public static final int menu_main=0x7f0f000c;
-        public static final int reader_menu=0x7f0f000d;
+        public static final int menu_bookchapter_item =0x7f0f000d;
     }
     public static final class raw {
         public static final int bulgarian_hyphen=0x7f070000;

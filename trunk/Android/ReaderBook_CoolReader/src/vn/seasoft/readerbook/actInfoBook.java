@@ -1,7 +1,6 @@
 package vn.seasoft.readerbook;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -26,7 +25,6 @@ import vn.seasoft.readerbook.ResultObjects.Result_UserLike;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.asynPostFacebook;
 import vn.seasoft.readerbook.Util.mSharedPreferences;
-import vn.seasoft.readerbook.dialog.dlgConfirm;
 import vn.seasoft.readerbook.dialog.dlgShareFacebook;
 import vn.seasoft.readerbook.fragment.fmChapter;
 import vn.seasoft.readerbook.fragment.fmComment;
@@ -82,21 +80,13 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
             public void onClick(View view) {
                 int iduser = mSharedPreferences.getUserID(mContext);
                 if (iduser == 0) {
-                    dlgConfirm dlg = new dlgConfirm(mContext);
-                    dlg.setMessage(R.string.require_login_facebook);
-                    dlg.setListener(new DialogInterface.OnClickListener() {
+                    SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
-                                @Override
-                                public void LoginSuccess() {
-                                    GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
-                                    request_service.isUserLikeBook(book.getIdbook(), mSharedPreferences.getUserID(mContext));
-                                }
-                            });
+                        public void LoginSuccess() {
+                            GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
+                            request_service.isUserLikeBook(book.getIdbook(), mSharedPreferences.getUserID(mContext));
                         }
                     });
-                    dlg.show(getSupportFragmentManager());
                 } else {
                     GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
                     if (isUserLikeBook) {
@@ -146,6 +136,7 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.dialog_book_info_tab);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         assignViews();
         setListenerButton();
         getBookIntent(getIntent());
@@ -226,24 +217,19 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
             case R.id.action_sharefb:
                 int iduser = mSharedPreferences.getUserID(mContext);
                 if (iduser == 0) {
-                    dlgConfirm dlg = new dlgConfirm(mContext);
-                    dlg.setMessage(R.string.require_login_facebook);
-                    dlg.setListener(new DialogInterface.OnClickListener() {
+                    SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
-                                @Override
-                                public void LoginSuccess() {
-                                    shareFacebook();
-                                }
-                            });
+                        public void LoginSuccess() {
+                            shareFacebook();
                         }
                     });
-                    dlg.show(getSupportFragmentManager());
                 } else {
                     shareFacebook();
                 }
                 break;
+            case android.R.id.home:
+                onBackPressed();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

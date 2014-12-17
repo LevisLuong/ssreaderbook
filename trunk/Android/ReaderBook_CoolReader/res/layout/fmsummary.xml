@@ -11,13 +11,9 @@
         style="@style/Holo.TextAppearance.Medium.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:background="@drawable/card_background"
+        android:clickable="false"
         android:padding="@dimen/afc_5dp"
         android:scrollbars="vertical"
         android:text=""/>
-
-    <it.gmariotti.cardslib.library.view.component.CardShadowView
-        android:id="@+id/card_shadow_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
