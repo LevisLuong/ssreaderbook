@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import Dao.Database;
@@ -364,6 +366,8 @@ public class Book_Chapter {
 			b.setApproved(0);
 		} else {
 			b.setApproved(1);
+			b.setDatecreated(new Timestamp(new Date().getTime()));
+			b.updateDateCreated();
 		}
 		b.updateApproved();
 	}

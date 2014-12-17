@@ -118,7 +118,6 @@ public class AddBookChapter extends HttpServlet {
 			out.println(" </head>");
 			out.println(" <body>");
 			if (bc.addBook_Chapter() == 1) {
-				
 				// add success
 				out.println("<p align=\"center\"><font color=red>Thêm chapter thành công. Tự chuyển trang sau 3 giây</font></p>");
 			} else {
