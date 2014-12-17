@@ -11,7 +11,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 
-import model.Book;
 import model.Comment;
 import model.User_Like;
 import model.User_Login;
@@ -148,22 +147,49 @@ public class UserService {
 	}
 
 	@POST
+	@Path("/UserEditComment")
+	@Produces("application/json;charset=utf-8")
+	public String userEditComment(@FormParam("idcomment") int idcomment,
+			@FormParam("content") String content) {
+		Comment comment = new Comment().getByID(idcomment);
+		comment.setContent(content);
+		int status = comment.updateComment();
+		if (status == 0) {
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
+		} else {
+			return "{\"data\":" + idcomment + "}";
+		}
+	}
+
+	@POST
+	@Path("/UserDeleteComment")
+	@Produces("application/json;charset=utf-8")
+	public String userDeleteComment(@FormParam("idcomment") int idcomment) {
+		Comment comment = new Comment().getByID(idcomment);
+		int status = comment.deleteComment();
+		if (status == 0) {
+			return returnError(Status.ERROR_INTERNALSERVERERROR);
+		} else {
+			return "{\"data\":" + idcomment + "}";
+		}
+	}
+
+	@POST
 	@Path("/UserComment")
 	@Produces("application/json;charset=utf-8")
 	public String userComment(@FormParam("idbook") int idbook,
-			@FormParam("iduserfacebook") String iduserfacebook,
-			@FormParam("username") String username,
+			@FormParam("iduser") int iduser,
 			@FormParam("content") String content) {
 		Comment comment = new Comment();
+		comment.setIdcomment(comment.getIdAuto());
 		comment.setContent(content);
 		comment.setIdbook(idbook);
-		comment.setIduserfacebook(iduserfacebook);
-		comment.setUsername(username);
+		comment.setIduser(iduser);
 		int status = comment.addComment();
 		if (status == 0) {
 			return returnError(Status.ERROR_INTERNALSERVERERROR);
 		} else {
-			return returnStatus(Status.STATUS_OK);
+			return "{\"data\":" + comment.getIdcomment() + "}";
 		}
 	}
 
@@ -176,8 +202,20 @@ public class UserService {
 		try {
 			List<Comment> comments = new Comment().getListCommentByIdBook(
 					idbook, index);
+			json = "{\"data\":[";
+			for (Comment comment : comments) {
+				User_Login user = new User_Login().getByID(comment.getIduser());
+				json = json + "{\"idcomment\":" + comment.getIdcomment()
+						+ ",\"content\":\"" + comment.getContent()
+						+ "\",\"iduser\":" + comment.getIduser()
+						+ ",\"username\":\"" + user.getDisplayname()
+						+ "\",\"iduserfacebook\":\"" + user.getIdfacebook()
+						+ "\",\"idbook\":" + comment.getIdbook()
+						+ ",\"datecreated\":\"" + comment.getDatecreated()
+						+ "\"},";
 
-			json = convertToJson(comments);
+			}
+			json = json + "]}";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

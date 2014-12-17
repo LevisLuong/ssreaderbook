@@ -649,7 +649,7 @@ public class Book {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM book WHERE isdeleted = 0 AND  (SELECT TIMESTAMPDIFF(DAY,datecreated,(SELECT datecreated from book order by datecreated desc limit 1,1)) < 3)";
+			String sql = "SELECT * FROM book WHERE isdeleted = 0 AND  (SELECT TIMESTAMPDIFF(DAY,datecreated,(SELECT datecreated from book order by datecreated desc limit 1,1)) < 5)";
 			if (ApproveBook) {
 				sql = sql + " AND approved = 1 ";
 			}

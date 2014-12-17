@@ -14,10 +14,10 @@ public class Comment {
 
 	int idcomment;
 	String content;
-	String iduserfacebook;
-	String username;
+	int iduser;
 	int idbook;
 	Timestamp datecreated;
+	int isdeleted;
 
 	public int getIdcomment() {
 		return idcomment;
@@ -51,20 +51,20 @@ public class Comment {
 		this.datecreated = datecreated;
 	}
 
-	public String getIduserfacebook() {
-		return iduserfacebook;
+	public int getIduser() {
+		return iduser;
 	}
 
-	public void setIduserfacebook(String iduserfacebook) {
-		this.iduserfacebook = iduserfacebook;
+	public void setIduser(int iduser) {
+		this.iduser = iduser;
 	}
 
-	public String getUsername() {
-		return username;
+	public int getIsdeleted() {
+		return isdeleted;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setIsdeleted(int isdeleted) {
+		this.isdeleted = isdeleted;
 	}
 
 	public int addComment() {
@@ -74,9 +74,8 @@ public class Comment {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("INSERT INTO comment (`content`, `iduserfacebook`,`username`, `idbook`) VALUES ('%s', '%s','%s', '%d')",
-							this.content, this.iduserfacebook, this.username,
-							this.idbook);
+					.format("INSERT INTO comment (`content`, `iduser`, `idbook`) VALUES ('%s', '%d','%d')",
+							this.content, this.iduser, this.idbook);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -99,16 +98,48 @@ public class Comment {
 		return 0;
 	}
 
-	public int updateBook() {
+	public int getIdAuto() {
+		int id = 0;
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'dbssbook' AND TABLE_NAME = 'comment'";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				id = rs.getInt("AUTO_INCREMENT");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return id;
+	}
+
+	public int updateComment() {
 		Database conn = null;
 		Statement stmt = null;
 		try {
 			conn = new Database();
 			stmt = conn.Get_Connection().createStatement();
 			String sqlUpdate = String
-					.format("UPDATE comment SET `content`='%s',`username`='%s', `idbook`='%d', `iduserfacebook`='%s' WHERE `idcomment`='%d';",
-							this.content, this.username, this.idbook,
-							this.iduserfacebook, this.idcomment);
+					.format("UPDATE comment SET `content`='%s', `iduser`='%d', `idbook`='%d' WHERE `idcomment`='%d';",
+							this.content, this.iduser, this.idbook,
+							this.idcomment);
 			int result = stmt.executeUpdate(sqlUpdate);
 			return result;
 		} catch (SQLException e) {
@@ -129,6 +160,74 @@ public class Comment {
 			}
 		}
 		return 0;
+	}
+
+	public int deleteComment() {
+		Database conn = null;
+		Statement stmt = null;
+		try {
+			conn = new Database();
+			stmt = conn.Get_Connection().createStatement();
+			String sqlUpdate = String.format(
+					"DELETE FROM comment WHERE `idcomment`='%d';",
+					this.idcomment);
+			int result = stmt.executeUpdate(sqlUpdate);
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				stmt.close();
+			} catch (Exception e) { /* ignored */
+			}
+
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return 0;
+	}
+
+	public Comment getByID(int idcomment) {
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT * FROM comment WHERE idcomment = ? ";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, idcomment);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				this.setIdcomment(rs.getInt("idcomment"));
+				this.setContent(rs.getString("content"));
+				this.setIdbook(rs.getInt("idbook"));
+				this.setIduser(rs.getInt("iduser"));
+				this.setDatecreated(rs.getTimestamp("datecreated"));
+				return this;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return null;
 	}
 
 	public ArrayList<Comment> getListCommentByIdBook(int idbook, int page)
@@ -139,7 +238,7 @@ public class Comment {
 		ResultSet rs = null;
 		try {
 			conn = new Database();
-			String sql = "SELECT * FROM comment WHERE idbook = ? ORDER BY datecreated desc";
+			String sql = "SELECT * FROM comment WHERE idbook = ? AND isdeleted = 0 ORDER BY datecreated desc";
 
 			if (page != 0) {
 				int offset = (page - 1) * DatasOnPage;
@@ -153,8 +252,7 @@ public class Comment {
 				cmt.setIdcomment(rs.getInt("idcomment"));
 				cmt.setContent(rs.getString("content"));
 				cmt.setIdbook(rs.getInt("idbook"));
-				cmt.setIduserfacebook(rs.getString("iduserfacebook"));
-				cmt.setUsername(rs.getString("username"));
+				cmt.setIduser(rs.getInt("iduser"));
 				cmt.setDatecreated(rs.getTimestamp("datecreated"));
 				comments.add(cmt);
 			}

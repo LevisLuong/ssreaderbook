@@ -45,9 +45,7 @@ public class ApproveBookChapter extends HttpServlet {
 
 		if (b != null) {
 			if (b.setApprovedDatabase(status) == 1) {
-				Book book = new Book().getById(idbook);
-				book.setDatecreated(new Timestamp(new Date().getTime()));
-				book.updateDateCreated();
+				
 			} else {
 
 			}

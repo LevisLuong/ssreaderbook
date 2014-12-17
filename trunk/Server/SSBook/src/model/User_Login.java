@@ -186,6 +186,43 @@ public class User_Login {
 		return 0;
 	}
 
+	public User_Login getByID(int iduser) {
+		Database conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = new Database();
+			String sql = "SELECT * FROM user_login WHERE iduser = ? ";
+			ps = conn.Get_Connection().prepareStatement(sql);
+			ps.setInt(1, iduser);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				this.setIduser(rs.getInt("iduser"));
+				this.setEmail(rs.getString("email"));
+				this.setLastlogin(rs.getTimestamp("lastlogin"));
+				this.setIdfacebook(rs.getString("idfacebook"));
+				this.setDisplayname(rs.getString("displayname"));
+				return this;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				ps.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				rs.close();
+			} catch (Exception e) { /* ignored */
+			}
+			try {
+				conn.closeConnection();
+			} catch (Exception e) { /* ignored */
+			}
+		}
+		return null;
+	}
+
 	public User_Login getByUsername(String username) {
 		Database conn = null;
 		PreparedStatement ps = null;
