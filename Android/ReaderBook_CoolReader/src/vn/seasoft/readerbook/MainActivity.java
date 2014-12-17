@@ -10,15 +10,23 @@ import android.support.v7.widget.SearchView;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import org.holoeverywhere.addon.AddonSlider;
 import org.holoeverywhere.addon.Addons;
 import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.slider.SliderMenu;
+import urlimageviewhelper.UrlImageViewHelper;
+import vn.seasoft.readerbook.Util.SSUtil;
+import vn.seasoft.readerbook.Util.mSharedPreferences;
 import vn.seasoft.readerbook.dialog.dlgAboutApp;
 import vn.seasoft.readerbook.dialog.dlgConfirm;
 import vn.seasoft.readerbook.dialog.dlgFeedback;
+import vn.seasoft.readerbook.listener.ILoginFacebook;
 import vn.seasoft.readerbook.model.Book_Category;
 
 import java.util.List;
@@ -27,18 +35,25 @@ import java.util.List;
 public class MainActivity extends Activity {
     Context context;
     SliderMenu sliderMenu;
+    AddonSlider.AddonSliderA addonSlider;
+
 
     public AddonSlider.AddonSliderA addonSlider() {
         return addon(AddonSlider.class);
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addonSlider().onCreate(savedInstanceState);
-        context = this;
-        getSupportActionBar().setTitle(R.string.app_name);
-        sliderMenu = addonSlider().obtainDefaultSliderMenu(R.layout.slider_default_list_layout);
+    private ImageView sliderMenuAvatar;
+    private TextView sliderMenuUsername;
+    private Button sliderMenuBtnlogin;
+
+    private void assignViews(View v) {
+        sliderMenuAvatar = (ImageView) v.findViewById(R.id.slider_menu_avatar);
+        sliderMenuUsername = (TextView) v.findViewById(R.id.slider_menu_username);
+        sliderMenuBtnlogin = (Button) v.findViewById(R.id.slider_menu_btnlogin);
+    }
+
+    void initSliderMenu() {
+        sliderMenu = addonSlider.obtainDefaultSliderMenu(R.layout.slider_menu_main);
         sliderMenu.add("Trang chủ", fmMain.class, SliderMenu.BLUE).setTag("home");
         List<Book_Category> lst = (new Book_Category()).getAllData();
         if (!lst.isEmpty()) {
@@ -46,8 +61,78 @@ public class MainActivity extends Activity {
                 addItemSliderMenu(bc);
             }
         }
-        SSReaderApplication.getRequestServer(this).getCategoryBook();
+        assignViews(addonSlider.getLeftView());
+        sliderMenuBtnlogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int iduser = mSharedPreferences.getUserID(context);
+                if (iduser == 0) {
+                    SSReaderApplication.authorizeFB(context, new ILoginFacebook() {
+                        @Override
+                        public void LoginSuccess() {
+                            sliderMenuAvatar.setVisibility(View.VISIBLE);
+                            sliderMenuUsername.setVisibility(View.VISIBLE);
+                            UrlImageViewHelper.setUrlDrawable(sliderMenuAvatar, SSUtil.getAvatarFacebookById(mSharedPreferences.getUserIDFacebook(context)));
+                            sliderMenuUsername.setText(mSharedPreferences.getUserDisplay(context));
+                            sliderMenuBtnlogin.setText("Đăng xuất");
+                        }
+                    });
+                } else {
+                    dlgConfirm dlg = new dlgConfirm(context);
+                    dlg.setMessage("Bạn có chắc muốn đăng xuất ?");
+                    dlg.setListener(new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
 
+                            SSReaderApplication.signOutFB(context, new ILoginFacebook() {
+                                @Override
+                                public void LoginSuccess() {
+                                    //refresh state UI
+                                    sliderMenuAvatar.setVisibility(View.GONE);
+                                    sliderMenuUsername.setVisibility(View.GONE);
+                                    sliderMenuBtnlogin.setText("Đăng nhập");
+                                }
+                            });
+                        }
+                    });
+                    dlg.show(getSupportFragmentManager());
+                }
+            }
+        });
+    }
+
+    void checkLogin() {
+        int iduser = mSharedPreferences.getUserID(this);
+        if (iduser == 0) {
+            sliderMenuAvatar.setVisibility(View.GONE);
+            sliderMenuUsername.setVisibility(View.GONE);
+            sliderMenuBtnlogin.setText("Đăng nhập");
+        } else {
+            sliderMenuAvatar.setVisibility(View.VISIBLE);
+            sliderMenuUsername.setVisibility(View.VISIBLE);
+            UrlImageViewHelper.setUrlDrawable(sliderMenuAvatar, SSUtil.getAvatarFacebookById(mSharedPreferences.getUserIDFacebook(this)));
+            sliderMenuUsername.setText(mSharedPreferences.getUserDisplay(this));
+            sliderMenuBtnlogin.setText("Đăng xuất");
+        }
+    }
+
+    @Override
+    protected void onPostCreate(Bundle sSavedInstanceState) {
+        super.onPostCreate(sSavedInstanceState);
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addonSlider = addonSlider();
+        addonSlider.onCreate(savedInstanceState);
+        context = this;
+        getSupportActionBar().setTitle(R.string.app_name);
+
+        initSliderMenu();
+
+        SSReaderApplication.getRequestServer(this).getCategoryBook();
         //Google analytics
         //add tracker google
         // Get tracker.
@@ -133,6 +218,7 @@ public class MainActivity extends Activity {
     protected void onResume() {
         super.onResume();
         addonSlider().onResume();
+        checkLogin();
 //        SSReaderApplication.getRequestServer(this).setUserOnline();
     }
 

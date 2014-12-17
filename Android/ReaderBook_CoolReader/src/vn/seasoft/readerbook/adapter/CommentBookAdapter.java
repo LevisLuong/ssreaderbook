@@ -1,7 +1,9 @@
 package vn.seasoft.readerbook.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 import urlimageviewhelper.UrlImageViewHelper;
 import vn.seasoft.readerbook.R;
 import vn.seasoft.readerbook.Util.SSUtil;
+import vn.seasoft.readerbook.Util.mSharedPreferences;
 import vn.seasoft.readerbook.model.Comment;
 
 import java.util.ArrayList;
@@ -64,6 +67,26 @@ public class CommentBookAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void deleteItem(Comment comment) {
+        for (Comment cmt : lstComments) {
+            if (cmt.getIdcomment() == comment.getIdcomment()) {
+                lstComments.remove(cmt);
+                break;
+            }
+        }
+        notifyDataSetChanged();
+    }
+
+    public void editItem(Comment comment) {
+        for (Comment cmt : lstComments) {
+            if (cmt.getIdcomment() == comment.getIdcomment()) {
+                cmt.setContent(comment.getContent());
+                break;
+            }
+        }
+        notifyDataSetChanged();
+    }
+
     public boolean SetListComments(List<Comment> _lst) {
         boolean isNew = false;
         index = tempIndex;
@@ -112,19 +135,51 @@ public class CommentBookAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
 
-        Comment comment = lstComments.get(i);
+        final Comment comment = lstComments.get(i);
         if (comment != null) {
             holder.commenttime.setText(SSUtil.calTimeDistance(comment.getDatecomment()));
             holder.commentusername.setText(comment.getUsername());
             holder.commentcontent.setText(comment.getContent());
             UrlImageViewHelper.setUrlDrawable(holder.commentavatar, SSUtil.getAvatarFacebookById(comment.getIduserfacebook()));
         }
+        if (comment.getIduser() == mSharedPreferences.getUserID(context)) {
+            holder.commentpopupmenu.setVisibility(View.VISIBLE);
+            holder.commentpopupmenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PopupMenu popup = new PopupMenu(context, view);
+                    // Inflate our menu resource into the PopupMenu's Menu
+                    popup.getMenuInflater().inflate(R.menu.menu_comment_item, popup.getMenu());
+                    // Set a listener so we are notified if a menu item is clicked
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem menuItem) {
+                            switch (menuItem.getItemId()) {
+                                case R.id.editcomment:
+                                    listener.EditComment(comment);
+                                    return true;
+                                case R.id.deletecomment:
+                                    listener.DeleteComment(comment);
+                                    return true;
+                            }
+                            return false;
+                        }
+                    });
+                    // Finally show the PopupMenu
+                    popup.show();
+                }
+            });
+        } else {
+            holder.commentpopupmenu.setVisibility(View.GONE);
+        }
+
         return view;
     }
 
 
     private class ViewHolder {
         public final ImageView commentavatar;
+        public final ImageView commentpopupmenu;
         public final TextView commentusername;
         public final TextView commenttime;
         public final TextView commentcontent;
@@ -132,10 +187,23 @@ public class CommentBookAdapter extends BaseAdapter {
 
         public ViewHolder(View root) {
             commentavatar = (ImageView) root.findViewById(R.id.comment_avatar);
+            commentpopupmenu = (ImageView) root.findViewById(R.id.comment_popupmenu);
             commentusername = (TextView) root.findViewById(R.id.comment_username);
             commenttime = (TextView) root.findViewById(R.id.comment_time);
             commentcontent = (TextView) root.findViewById(R.id.comment_content);
             this.root = root;
         }
+    }
+
+    IAdapterComment listener;
+
+    public void setListener(IAdapterComment _listener) {
+        this.listener = _listener;
+    }
+
+    public interface IAdapterComment {
+        public void DeleteComment(Comment comment);
+
+        public void EditComment(Comment comment);
     }
 }

@@ -31,6 +31,7 @@ public class Result_GetCommentsBook implements ResultObject {
                 Comment comment = new Comment();
                 comment.setIdcomment(job.getInt("idcomment"));
                 comment.setIdbook(job.getInt("idbook"));
+                comment.setIduser(job.getInt("iduser"));
                 comment.setIduserfacebook(job.getString("iduserfacebook"));
                 comment.setUsername(job.getString("username"));
                 comment.setContent(job.getString("content"));

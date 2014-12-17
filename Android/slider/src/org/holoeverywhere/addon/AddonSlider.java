@@ -6,12 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.support.v4.widget.DrawerLayout.LayoutParams;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.Window;
-
+import android.view.*;
 import org.holoeverywhere.addon.IAddon.Addon;
 import org.holoeverywhere.slider.R;
 import org.holoeverywhere.slider.SliderMenu;

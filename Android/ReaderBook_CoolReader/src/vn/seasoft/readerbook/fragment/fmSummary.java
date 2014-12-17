@@ -37,6 +37,7 @@ public class fmSummary extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fmsummary, container, false);
         assignViews(v);
+        fmsummaryTxtSummary.setClickable(false);
         fmsummaryTxtSummary.setMovementMethod(new ArrowKeyMovementMethod());
         fmsummaryTxtSummary.setText(summary);
         return v;

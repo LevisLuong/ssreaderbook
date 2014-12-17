@@ -10,6 +10,7 @@ import java.util.Date;
 public class Comment {
     int idcomment;
     String content;
+    int iduser;
     String iduserfacebook;
     String username;
     int idbook;
@@ -61,5 +62,13 @@ public class Comment {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
     }
 }

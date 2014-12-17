@@ -2,7 +2,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
 
     <TextView
         android:id="@+id/vp_endchapter"
@@ -15,20 +16,25 @@
 
     <Button
         android:id="@+id/vp_endchapter_nextchapter"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/vp_endchapter"
         android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/afc_10dp"
+        android:background="@drawable/button_app"
         android:text="Đọc Tiếp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         />
+
 
     <Button
         android:id="@+id/vp_endchapter_back"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/vp_endchapter_nextchapter"
         android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/afc_10dp"
+        android:background="@drawable/button_app"
         android:text="Quay Lại"
-        android:textColor="#000000"/>
+        android:textColor="#ffffff"/>
 </RelativeLayout>

@@ -1,60 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:padding="8dp">
+              android:paddingBottom="4dp"
+              android:paddingLeft="8dp"
+              android:paddingRight="8dp"
+              android:paddingTop="4dp">
 
     <LinearLayout
-        android:id="@+id/expandable_toggle_button"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background_selector"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-
-        <TextView
-            android:id="@+id/bookchapter_txtchap"
+        <Button
+            android:id="@+id/bookchapter_colorborder"
+            android:layout_width="8dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@color/holo_blue_light"
+            android:clickable="false"
+            android:focusable="false"/>
+        <!-- Use same ID to use built-in features -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:text="asdsad asdas "
-            android:textAppearance="@style/Holo.TextAppearance.Small"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/bookchapter_txtfilesize"
+            <TextView
+                android:id="@+id/bookchapter_titlechapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/Holo.TextAppearance.Medium"
+                android:textColor="@color/holo_blue_light"/>
+
+            <TextView
+                android:id="@+id/bookchapter_sizechapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAppearance="@style/Holo.TextAppearance.Small"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/bookchapter_popupmenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="15.0 mb"
-            android:textAppearance="@style/Holo.TextAppearance.Small"
-            />
+            android:background="@drawable/card_menu_button_rounded_overflow"/>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/expandable"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonA"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5"
-            android:text="Action A"
-            android:textSize="12dip"/>
-
-        <Button
-            android:id="@+id/buttonB"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5"
-            android:text="Action B"
-            android:textSize="12dip"/>
-
-    </LinearLayout>
 </LinearLayout>

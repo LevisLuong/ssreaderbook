@@ -1,11 +1,14 @@
 package vn.seasoft.readerbook.adapter;
 
 import android.content.Context;
-import android.graphics.Color;
+import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.R;
@@ -34,7 +37,6 @@ public class BookChapterAdapter extends BaseAdapter {
     public BookChapterAdapter(Context _ct) {
         context = _ct;
         lstBookChap = new ArrayList<Book_Chapter>();
-
         isLoading = true;
         isHaveNew = true;
         index = 0;
@@ -117,33 +119,54 @@ public class BookChapterAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) view.getTag();
         }
-        Book_Chapter book_chapter = lstBookChap.get(i);
+        final Book_Chapter book_chapter = lstBookChap.get(i);
         if (book_chapter != null) {
-            holder.bookchaptertxtchap.setText(book_chapter.getChapter());
+            holder.bookchaptertitlechapter.setText(book_chapter.getChapter());
             if (book_chapter.getCurrentread()) {
-                holder.bookchaptertxtchap.setTextColor(Color.RED);
+                holder.bookchaptercolorborder.setVisibility(View.VISIBLE);
             } else {
-                holder.bookchaptertxtchap.setTextColor(Color.BLACK);
+                holder.bookchaptercolorborder.setVisibility(View.GONE);
             }
             if (book_chapter.getIsDownloaded()) {
-                holder.bookchaptertxtfilesize.setText("Đã tải");
+                holder.bookchaptersizechapter.setText("Đã tải");
             } else {
-                holder.bookchaptertxtfilesize.setText(book_chapter.getFilesize());
+                holder.bookchaptersizechapter.setText(book_chapter.getFilesize());
             }
+            holder.bookchapterpopupmenu.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PopupMenu popup = new PopupMenu(context, view);
+                    // Inflate our menu resource into the PopupMenu's Menu
+                    popup.getMenuInflater().inflate(R.menu.menu_bookchapter_item, popup.getMenu());
+                    // Set a listener so we are notified if a menu item is clicked
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem menuItem) {
+                            switch (menuItem.getItemId()) {
+                                case R.id.delete:
+                                    listener.DeleteAll(book_chapter);
+                                    return true;
+                                case R.id.download:
+                                    listener.DownloadAll(book_chapter);
+                                    return true;
+                            }
+                            return false;
+                        }
+                    });
+                    // Finally show the PopupMenu
+                    popup.show();
+                }
+            });
         }
         return view;
     }
 
-    public void setRead(int position) {
+    public void setLoadBook(int position) {
         for (Book_Chapter bookchap : lstBookChap) {
             bookchap.setCurrentread(false);
             bookchap.updateData();
         }
         getItem(position).setCurrentread(true);
-        getItem(position).updateData();
-    }
-
-    public void setDownloaded(int position) {
         getItem(position).setIsDownloaded(true);
         getItem(position).updateData();
     }
@@ -157,15 +180,32 @@ public class BookChapterAdapter extends BaseAdapter {
         Toast.makeText(context, "Đã xóa khỏi máy", Toast.LENGTH_SHORT).show();
     }
 
-    class ViewHolder {
-        public final TextView bookchaptertxtchap;
-        public final TextView bookchaptertxtfilesize;
+    private class ViewHolder {
+        public final Button bookchaptercolorborder;
+        public final TextView bookchaptertitlechapter;
+        public final TextView bookchaptersizechapter;
+        public final ImageView bookchapterpopupmenu;
         public final View root;
 
         public ViewHolder(View root) {
-            bookchaptertxtchap = (TextView) root.findViewById(R.id.bookchapter_txtchap);
-            bookchaptertxtfilesize = (TextView) root.findViewById(R.id.bookchapter_txtfilesize);
+            bookchaptercolorborder = (Button) root.findViewById(R.id.bookchapter_colorborder);
+            bookchaptertitlechapter = (TextView) root.findViewById(R.id.bookchapter_titlechapter);
+            bookchaptersizechapter = (TextView) root.findViewById(R.id.bookchapter_sizechapter);
+            bookchapterpopupmenu = (ImageView) root.findViewById(R.id.bookchapter_popupmenu);
             this.root = root;
         }
+    }
+
+
+    IAdapterBookChapter listener;
+
+    public void setListener(IAdapterBookChapter _listener) {
+        listener = _listener;
+    }
+
+    public interface IAdapterBookChapter {
+        public void DownloadAll(Book_Chapter book_chapter);
+
+        public void DeleteAll(Book_Chapter book_chapter);
     }
 }

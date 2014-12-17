@@ -4,19 +4,22 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical"
-              android:paddingBottom="8dp"
+              android:paddingBottom="4dp"
               android:paddingLeft="8dp"
-              android:paddingRight="8dp">
+              android:paddingRight="8dp"
+              android:paddingTop="4dp"
+              android:descendantFocusability="beforeDescendants">
 
     <LinearLayout
+        android:descendantFocusability="afterDescendants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card_selector"
+        android:background="@drawable/card_background_selector"
         android:orientation="vertical"
         android:padding="4dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -29,9 +32,10 @@
                 android:src="@drawable/book_exam"/>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -53,6 +57,12 @@
                     />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/comment_popupmenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/card_menu_button_rounded_overflow"/>
         </LinearLayout>
 
         <TextView
@@ -68,8 +78,4 @@
     </LinearLayout>
     <!-- Compound view for Shadow
              If you want to customize this element use attr card:card_shadow_layout_resourceID -->
-    <it.gmariotti.cardslib.library.view.component.CardShadowView
-        style="@style/card.shadow_outer_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -326,8 +326,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
         final Book_Chapter book_chapter = adapter.getItem(position);
         if (book.getIdcategory() == 8) {
             book.addNewData();
-            adapter.setRead(position);
-            adapter.setDownloaded(position);
+            adapter.setLoadBook(position);
             Intent t = new Intent(getActivity(), actReadPictureBook.class);
             t.putExtra("arrbook", book_chapter.getFilename());
             t.putExtra("idbook", book_chapter.getIdbook());
@@ -340,8 +339,7 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
                 @Override
                 public void onDownloadComplete(String urlResultMood) {
                     book.addNewData();
-                    adapter.setRead(position);
-                    adapter.setDownloaded(position);
+                    adapter.setLoadBook(position);
                     Intent t = new Intent(mContext, CoolReader.class);
                     t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
                     mContext.startActivity(t);
