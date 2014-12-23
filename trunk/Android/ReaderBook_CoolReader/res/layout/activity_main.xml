@@ -53,6 +53,7 @@
         android:layout_weight="1"
         android:orientation="vertical"
         tools:context="vn.seasoft.readerbook.MainActivity">
+
         <TextView
             style="@style/Holo.TextAppearance.Large"
             android:layout_width="match_parent"

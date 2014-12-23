@@ -5,6 +5,7 @@ import android.widget.RelativeLayout;
 import org.coolreader.CoolReader;
 
 public class ReaderViewLayout extends RelativeLayout implements Settings {
+    ReaderView.ToolbarBackgroundDrawable statusBackground;
     private CoolReader activity;
     private ReaderView contentView;
     private StatusBar statusView;
@@ -12,7 +13,30 @@ public class ReaderViewLayout extends RelativeLayout implements Settings {
     private int statusBarLocation;
     private boolean fullscreen;
     private boolean nightMode;
-    ReaderView.ToolbarBackgroundDrawable statusBackground;
+
+    public ReaderViewLayout(CoolReader context, ReaderView contentView) {
+        super(context);
+        this.activity = context;
+        this.contentView = contentView;
+        this.statusView = new StatusBar(context);
+        statusBackground = contentView.createToolbarBackgroundDrawable();
+        this.statusView.setBackgroundDrawable(statusBackground);
+        //toolbarBackground = contentView.createToolbarBackgroundDrawable();
+        this.toolbarView = new CRToolBar((BaseActivity) context, contentView);
+        //this.toolbarView.setBackgroundDrawable(toolbarBackground);
+        this.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        this.addView(contentView.getSurface());
+        //this.addView(statusView);
+        this.addView(toolbarView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        statusView.setFocusable(false);
+        toolbarView.SetInvisible();
+        statusView.setFocusableInTouchMode(false);
+        contentView.getSurface().setFocusable(true);
+        contentView.getSurface().setFocusableInTouchMode(true);
+        updateFullscreen(activity.isFullscreen());
+        updateSettings(context.settings());
+        //onThemeChanged(activity.getCurrentTheme());
+    }
 
     public CRToolBar getToolBar() {
         return toolbarView;
@@ -49,30 +73,6 @@ public class ReaderViewLayout extends RelativeLayout implements Settings {
         } else {
             toolbarView.SetVisible();
         }
-    }
-
-    public ReaderViewLayout(CoolReader context, ReaderView contentView) {
-        super(context);
-        this.activity = context;
-        this.contentView = contentView;
-        this.statusView = new StatusBar(context);
-        statusBackground = contentView.createToolbarBackgroundDrawable();
-        this.statusView.setBackgroundDrawable(statusBackground);
-        //toolbarBackground = contentView.createToolbarBackgroundDrawable();
-        this.toolbarView = new CRToolBar((BaseActivity) context, contentView);
-        //this.toolbarView.setBackgroundDrawable(toolbarBackground);
-        this.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        this.addView(contentView.getSurface());
-        //this.addView(statusView);
-        this.addView(toolbarView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        statusView.setFocusable(false);
-        toolbarView.SetInvisible();
-        statusView.setFocusableInTouchMode(false);
-        contentView.getSurface().setFocusable(true);
-        contentView.getSurface().setFocusableInTouchMode(true);
-        updateFullscreen(activity.isFullscreen());
-        updateSettings(context.settings());
-        //onThemeChanged(activity.getCurrentTheme());
     }
 
 //    public void onThemeChanged(InterfaceTheme theme) {

@@ -16,13 +16,12 @@ import vn.seasoft.readerbook.R;
  */
 public class fmSummary extends Fragment {
     String summary;
+    private TextView fmsummaryTxtSummary;
 
     public fmSummary(String _sm) {
         super();
         summary = _sm;
     }
-
-    private TextView fmsummaryTxtSummary;
 
     private void assignViews(View root) {
         fmsummaryTxtSummary = (TextView) root.findViewById(R.id.fmsummary_txtSummary);

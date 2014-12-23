@@ -16,21 +16,23 @@ import vn.seasoft.readerbook.R;
  * Progress dialog, based on source code of android.app.ProgressDialog
  */
 public class ProgressDialog extends AlertDialog {
-    
-    /** Creates a ProgressDialog with a ciruclar, spinning progress
+
+    /**
+     * Creates a ProgressDialog with a ciruclar, spinning progress
      * bar. This is the default.
      */
     public static final int STYLE_SPINNER = 0;
-    
-    /** Creates a ProgressDialog with a horizontal progress bar.
+
+    /**
+     * Creates a ProgressDialog with a horizontal progress bar.
      */
     public static final int STYLE_HORIZONTAL = 1;
-    
+
     private ProgressBar mProgress;
     private TextView mMessageView;
-    
+
     private int mProgressStyle = STYLE_SPINNER;
-    
+
     private int mMax;
     private int mProgressVal;
     private int mSecondaryProgressVal;
@@ -40,11 +42,11 @@ public class ProgressDialog extends AlertDialog {
     private Drawable mIndeterminateDrawable;
     private CharSequence mMessage;
     private boolean mIndeterminate;
-    
+
     private boolean mHasStarted;
     private Handler mViewUpdateHandler;
     private Context mContext;
-    
+
     public ProgressDialog(Context context) {
         super(context);
         //super(context, android.R.style.Theme_Light);
@@ -52,23 +54,23 @@ public class ProgressDialog extends AlertDialog {
     }
 
     public static ProgressDialog show(Context context, CharSequence title,
-            CharSequence message) {
+                                      CharSequence message) {
         return show(context, title, message, false);
     }
 
     public static ProgressDialog show(Context context, CharSequence title,
-            CharSequence message, boolean indeterminate) {
+                                      CharSequence message, boolean indeterminate) {
         return show(context, title, message, indeterminate, false, null);
     }
 
     public static ProgressDialog show(Context context, CharSequence title,
-            CharSequence message, boolean indeterminate, boolean cancelable) {
+                                      CharSequence message, boolean indeterminate, boolean cancelable) {
         return show(context, title, message, indeterminate, cancelable, null);
     }
 
     public static ProgressDialog show(Context context, CharSequence title,
-            CharSequence message, boolean indeterminate,
-            boolean cancelable, OnCancelListener cancelListener) {
+                                      CharSequence message, boolean indeterminate,
+                                      boolean cancelable, OnCancelListener cancelListener) {
         ProgressDialog dialog = new ProgressDialog(context);
         dialog.setTitle(title);
         dialog.setMessage(message);
@@ -101,7 +103,7 @@ public class ProgressDialog extends AlertDialog {
 //    			//getWindow() setTheme(android.R.style.Theme_Light);
 //    			getWindow().setBackgroundDrawableResource(drawable.editbox_background);
 //    		}
-       } else {
+        } else {
             View view = inflater.inflate(R.layout.progress_dialog, null);
             mProgress = (ProgressBar) view.findViewById(R.id.progress);
             mMessageView = (TextView) view.findViewById(R.id.message);
@@ -135,35 +137,17 @@ public class ProgressDialog extends AlertDialog {
         onProgressChanged();
         super.onCreate(savedInstanceState);
     }
-    
+
     @Override
     public void onStart() {
         super.onStart();
         mHasStarted = true;
     }
-    
+
     @Override
     protected void onStop() {
         super.onStop();
         mHasStarted = false;
-    }
-
-    public void setProgress(int value) {
-        if (mHasStarted && mProgress!=null) {
-            mProgress.setProgress(value);
-            onProgressChanged();
-        } else {
-            mProgressVal = value;
-        }
-    }
-
-    public void setSecondaryProgress(int secondaryProgress) {
-        if (mProgress != null) {
-            mProgress.setSecondaryProgress(secondaryProgress);
-            onProgressChanged();
-        } else {
-            mSecondaryProgressVal = secondaryProgress;
-        }
     }
 
     public int getProgress() {
@@ -173,11 +157,29 @@ public class ProgressDialog extends AlertDialog {
         return mProgressVal;
     }
 
+    public void setProgress(int value) {
+        if (mHasStarted && mProgress != null) {
+            mProgress.setProgress(value);
+            onProgressChanged();
+        } else {
+            mProgressVal = value;
+        }
+    }
+
     public int getSecondaryProgress() {
         if (mProgress != null) {
             return mProgress.getSecondaryProgress();
         }
         return mSecondaryProgressVal;
+    }
+
+    public void setSecondaryProgress(int secondaryProgress) {
+        if (mProgress != null) {
+            mProgress.setSecondaryProgress(secondaryProgress);
+            onProgressChanged();
+        } else {
+            mSecondaryProgressVal = secondaryProgress;
+        }
     }
 
     public int getMax() {
@@ -230,6 +232,13 @@ public class ProgressDialog extends AlertDialog {
         }
     }
 
+    public boolean isIndeterminate() {
+        if (mProgress != null) {
+            return mProgress.isIndeterminate();
+        }
+        return mIndeterminate;
+    }
+
     public void setIndeterminate(boolean indeterminate) {
         if (mProgress != null) {
             mProgress.setIndeterminate(indeterminate);
@@ -238,13 +247,6 @@ public class ProgressDialog extends AlertDialog {
         }
     }
 
-    public boolean isIndeterminate() {
-        if (mProgress != null) {
-            return mProgress.isIndeterminate();
-        }
-        return mIndeterminate;
-    }
-    
     @Override
     public void setMessage(CharSequence message) {
         if (mProgress != null) {
@@ -257,7 +259,7 @@ public class ProgressDialog extends AlertDialog {
             mMessage = message;
         }
     }
-    
+
     public void setProgressStyle(int style) {
         mProgressStyle = style;
     }

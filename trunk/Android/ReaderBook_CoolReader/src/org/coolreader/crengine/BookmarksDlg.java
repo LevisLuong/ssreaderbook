@@ -19,19 +19,55 @@ import vn.seasoft.readerbook.R;
 import java.util.ArrayList;
 
 public class BookmarksDlg extends DialogFragment {
-    CoolReader mCoolReader;
-    ReaderView mReaderView;
-    private LayoutInflater mInflater;
-    BookInfo mBookInfo;
-    BookmarkList mList;
-    BookmarksDlg mThis;
-
     public final static int ITEM_POSITION = 0;
     public final static int ITEM_COMMENT = 1;
     public final static int ITEM_CORRECTION = 2;
     public final static int ITEM_SHORTCUT = 3;
+    final static int SHORTCUT_COUNT = 10;
+    CoolReader mCoolReader;
+    ReaderView mReaderView;
+    BookInfo mBookInfo;
+    BookmarkList mList;
+    BookmarksDlg mThis;
+    private LayoutInflater mInflater;
+    private int selectedItem;
+
+    public BookmarksDlg(CoolReader activity, ReaderView readerView) {
+        setDialogType(DialogType.Dialog);
+        mThis = this; // for inner classes
+        mInflater = LayoutInflater.from(activity);
+        mCoolReader = activity;
+        mReaderView = readerView;
+        mBookInfo = mReaderView.getBookInfo();
+        mReaderView.addBookmark(0);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.v("cr3", "creating BookmarksDlg");
+        setTitle(mCoolReader.getResources().getString(R.string.win_title_bookmarks));
+        setCancelable(true);
+        super.onCreate(savedInstanceState);
+//        registerForContextMenu(mList);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View frame = inflater.inflate(R.layout.bookmark_list_dialog, container, false);
+        ViewGroup body = (ViewGroup) frame.findViewById(R.id.bookmark_list);
+        mList = new BookmarkList(mCoolReader, false);
+        body.addView(mList);
+        return frame;
+
+    }
+
+    private void listUpdated() {
+        mList.setShortcutMode(mList.isShortcutMode());
+    }
 
     class BookmarkListAdapter extends BaseAdapter {
+        private ArrayList<DataSetObserver> observers = new ArrayList<DataSetObserver>();
+
         public boolean areAllItemsEnabled() {
             return true;
         }
@@ -54,7 +90,6 @@ public class BookmarksDlg extends DialogFragment {
             return position;
         }
 
-
         public int getItemViewType(int position) {
             Bookmark bm = (Bookmark) getItem(position);
             if (bm == null)
@@ -74,7 +109,6 @@ public class BookmarksDlg extends DialogFragment {
         public int getViewTypeCount() {
             return 4;
         }
-
 
         public View getView(int position, View convertView, ViewGroup parent) {
             View view;
@@ -151,8 +185,6 @@ public class BookmarksDlg extends DialogFragment {
             return mBookInfo.getBookmarkCount() == 0;
         }
 
-        private ArrayList<DataSetObserver> observers = new ArrayList<DataSetObserver>();
-
         public void registerDataSetObserver(DataSetObserver observer) {
             observers.add(observer);
         }
@@ -174,99 +206,6 @@ public class BookmarksDlg extends DialogFragment {
         public int getItemViewType(int position) {
             return ITEM_SHORTCUT;
         }
-    }
-
-    class BookmarkList extends BaseListView {
-        private ListAdapter mAdapter;
-        private boolean mShortcutMode = false;
-
-        public boolean isShortcutMode() {
-            return mShortcutMode;
-        }
-
-        public void setShortcutMode(boolean shortcutMode) {
-            if (mBookInfo == null) {
-                L.e("BookmarkList - mBookInfo is null");
-                return;
-            }
-            if (!shortcutMode)
-                mBookInfo.sortBookmarks();
-            updateAdapter(shortcutMode ? new ShortcutBookmarkListAdapter() : new BookmarkListAdapter());
-        }
-
-        public void updateAdapter(BookmarkListAdapter adapter) {
-            mAdapter = adapter;
-            setAdapter(mAdapter);
-        }
-
-        public BookmarkList(Context context, boolean shortcutMode) {
-            super(context, true);
-            setChoiceMode(ListView.CHOICE_MODE_SINGLE);
-            setShortcutMode(shortcutMode);
-            setLongClickable(true);
-        }
-
-        public Bookmark getSelectedBookmark() {
-            return (Bookmark) mAdapter.getItem(selectedItem);
-        }
-
-        @Override
-        public boolean performItemClick(View view, int position, long id) {
-            if (mShortcutMode) {
-                Bookmark b = mBookInfo.findShortcutBookmark(position + 1);
-                if (b == null) {
-                    mReaderView.addBookmark(position + 1);
-                    mThis.dismiss();
-                    return true;
-                }
-                selectedItem = position;
-                openContextMenu(this);
-            } else {
-                Bookmark bm = (Bookmark) mAdapter.getItem(position);
-                if (bm != null) {
-                    mReaderView.goToBookmark(bm);
-                    dismiss();
-                }
-            }
-            return true;
-        }
-
-
-    }
-
-    final static int SHORTCUT_COUNT = 10;
-
-    public BookmarksDlg(CoolReader activity, ReaderView readerView) {
-        setDialogType(DialogType.Dialog);
-        mThis = this; // for inner classes
-        mInflater = LayoutInflater.from(activity);
-        mCoolReader = activity;
-        mReaderView = readerView;
-        mBookInfo = mReaderView.getBookInfo();
-        mReaderView.addBookmark(0);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        Log.v("cr3", "creating BookmarksDlg");
-        setTitle(mCoolReader.getResources().getString(R.string.win_title_bookmarks));
-        setCancelable(true);
-        super.onCreate(savedInstanceState);
-//        registerForContextMenu(mList);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View frame = inflater.inflate(R.layout.bookmark_list_dialog, container, false);
-        ViewGroup body = (ViewGroup) frame.findViewById(R.id.bookmark_list);
-        mList = new BookmarkList(mCoolReader, false);
-        body.addView(mList);
-        return frame;
-
-    }
-
-    private void listUpdated() {
-        mList.setShortcutMode(mList.isShortcutMode());
     }
 
 //    @Override
@@ -340,6 +279,62 @@ public class BookmarksDlg extends DialogFragment {
 //        return super.onContextItemSelected(item);
 //    }
 
-    private int selectedItem;
+    class BookmarkList extends BaseListView {
+        private ListAdapter mAdapter;
+        private boolean mShortcutMode = false;
+
+        public BookmarkList(Context context, boolean shortcutMode) {
+            super(context, true);
+            setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+            setShortcutMode(shortcutMode);
+            setLongClickable(true);
+        }
+
+        public boolean isShortcutMode() {
+            return mShortcutMode;
+        }
+
+        public void setShortcutMode(boolean shortcutMode) {
+            if (mBookInfo == null) {
+                L.e("BookmarkList - mBookInfo is null");
+                return;
+            }
+            if (!shortcutMode)
+                mBookInfo.sortBookmarks();
+            updateAdapter(shortcutMode ? new ShortcutBookmarkListAdapter() : new BookmarkListAdapter());
+        }
+
+        public void updateAdapter(BookmarkListAdapter adapter) {
+            mAdapter = adapter;
+            setAdapter(mAdapter);
+        }
+
+        public Bookmark getSelectedBookmark() {
+            return (Bookmark) mAdapter.getItem(selectedItem);
+        }
+
+        @Override
+        public boolean performItemClick(View view, int position, long id) {
+            if (mShortcutMode) {
+                Bookmark b = mBookInfo.findShortcutBookmark(position + 1);
+                if (b == null) {
+                    mReaderView.addBookmark(position + 1);
+                    mThis.dismiss();
+                    return true;
+                }
+                selectedItem = position;
+                openContextMenu(this);
+            } else {
+                Bookmark bm = (Bookmark) mAdapter.getItem(position);
+                if (bm != null) {
+                    mReaderView.goToBookmark(bm);
+                    dismiss();
+                }
+            }
+            return true;
+        }
+
+
+    }
 
 }

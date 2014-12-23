@@ -70,7 +70,9 @@ public interface Settings {
     public static final String PROP_FONT_KERNING_ENABLED = "font.kerning.enabled";
     public static final String PROP_FLOATING_PUNCTUATION = "crengine.style.floating.punctuation.enabled";
     public static final String PROP_LANDSCAPE_PAGES = "window.landscape.pages";
+    
     public static final String PROP_HYPHENATION_DICT = "crengine.hyphenation.dictionary.code"; // non-crengine
+    
     public static final String PROP_AUTOSAVE_BOOKMARKS = "crengine.autosave.bookmarks";
 
     public static final String PROP_PROFILE_NUMBER = "crengine.profile.number"; // current settings profile number
@@ -101,7 +103,7 @@ public interface Settings {
     public static final String PROP_APP_BOOK_PROPERTY_SCAN_ENABLED = "app.browser.fileprops.scan.enabled";
     public static final String PROP_APP_SHOW_COVERPAGES = "app.browser.coverpages";
     public static final String PROP_APP_COVERPAGE_SIZE = "app.browser.coverpage.size"; // 0==small, 2==BIG
-//    public static final String PROP_APP_SCREEN_ORIENTATION = "app.screen.orientation";
+    //    public static final String PROP_APP_SCREEN_ORIENTATION = "app.screen.orientation";
     public static final String PROP_APP_SCREEN_BACKLIGHT = "app.screen.backlight";
     public static final String PROP_APP_SCREEN_BACKLIGHT_DAY = "app.screen.backlight.day";
     public static final String PROP_APP_SCREEN_BACKLIGHT_NIGHT = "app.screen.backlight.night";
@@ -187,76 +189,7 @@ public interface Settings {
     public static final int VIEWER_TOOLBAR_RIGHT = 4;
     public static final int VIEWER_TOOLBAR_SHORT_SIDE = 5;
     public static final int VIEWER_TOOLBAR_LONG_SIDE = 6;
-
-
-    public enum Lang {
-        DEFAULT("system", R.string.options_app_locale_system, R.raw.help_template_en),
-        EN("en", R.string.options_app_locale_en, R.raw.help_template_en),
-        DE("de", R.string.options_app_locale_de, 0),
-        ES("es", R.string.options_app_locale_es, 0),
-        FR("fr", R.string.options_app_locale_fr, 0),
-        RU("ru", R.string.options_app_locale_ru, R.raw.help_template_ru),
-        UK("uk", R.string.options_app_locale_uk, R.raw.help_template_ru),
-        BG("bg", R.string.options_app_locale_bg, 0),
-        BY("by", R.string.options_app_locale_by, 0),
-        SK("sk", R.string.options_app_locale_sk, 0),
-        TR("tr", R.string.options_app_locale_tr, 0),
-        LT("lt", R.string.options_app_locale_lt, 0),
-        IT("it", R.string.options_app_locale_it, 0),
-        HU("hu", R.string.options_app_locale_hu, R.raw.help_template_hu),
-        NL("nl", R.string.options_app_locale_nl, 0),
-        PL("pl", R.string.options_app_locale_pl, 0),
-        PT("pt", R.string.options_app_locale_pt, 0),
-        PT_BR("pt_BR", R.string.options_app_locale_pt_rbr, 0),
-        CS("cs", R.string.options_app_locale_cs, 0),
-        ZH_CN("zh_CN", R.string.options_app_locale_zh_cn, R.raw.help_template_zh_cn),;
-
-        public Locale getLocale() {
-            return getLocale(code);
-        }
-
-        static public Locale getLocale(String code) {
-            if (code.length() == 2)
-                return new Locale(code);
-            if (code.length() == 5)
-                return new Locale(code.substring(0, 2), code.substring(3, 5));
-            return null;
-        }
-
-        static public String getCode(Locale locale) {
-            String country = locale.getCountry();
-            if (country == null || country.length() == 0)
-                return locale.getLanguage();
-            return locale.getLanguage() + "_" + country;
-        }
-
-        static public Lang byCode(String code) {
-            for (Lang lang : values())
-                if (lang.code.equals(code))
-                    return lang;
-            if (code.length() > 2) {
-                code = code.substring(0, 2);
-                for (Lang lang : values())
-                    if (lang.code.equals(code))
-                        return lang;
-            }
-            Log.w("cr3", "language not found by code " + code);
-            return DEFAULT;
-        }
-
-        private Lang(String code, int nameResId, int helpFileResId) {
-            this.code = code;
-            this.nameId = nameResId;
-            this.helpFileResId = helpFileResId;
-        }
-
-        public final String code;
-        public final int nameId;
-        public final int helpFileResId;
-    }
-
     public final static int MAX_PROFILES = 6;
-
     // settings which depend on profile
     public final static String[] PROFILE_SETTINGS = {
             "background.*",
@@ -295,6 +228,72 @@ public interface Settings {
 
             "app.ui.theme*",
     };
+
+    public enum Lang {
+        DEFAULT("system", R.string.options_app_locale_system, R.raw.help_template_en),
+        EN("en", R.string.options_app_locale_en, R.raw.help_template_en),
+        DE("de", R.string.options_app_locale_de, 0),
+        ES("es", R.string.options_app_locale_es, 0),
+        FR("fr", R.string.options_app_locale_fr, 0),
+        RU("ru", R.string.options_app_locale_ru, R.raw.help_template_ru),
+        UK("uk", R.string.options_app_locale_uk, R.raw.help_template_ru),
+        BG("bg", R.string.options_app_locale_bg, 0),
+        BY("by", R.string.options_app_locale_by, 0),
+        SK("sk", R.string.options_app_locale_sk, 0),
+        TR("tr", R.string.options_app_locale_tr, 0),
+        LT("lt", R.string.options_app_locale_lt, 0),
+        IT("it", R.string.options_app_locale_it, 0),
+        HU("hu", R.string.options_app_locale_hu, R.raw.help_template_hu),
+        NL("nl", R.string.options_app_locale_nl, 0),
+        PL("pl", R.string.options_app_locale_pl, 0),
+        PT("pt", R.string.options_app_locale_pt, 0),
+        PT_BR("pt_BR", R.string.options_app_locale_pt_rbr, 0),
+        CS("cs", R.string.options_app_locale_cs, 0),
+        ZH_CN("zh_CN", R.string.options_app_locale_zh_cn, R.raw.help_template_zh_cn),;
+
+        public final String code;
+        public final int nameId;
+        public final int helpFileResId;
+
+        private Lang(String code, int nameResId, int helpFileResId) {
+            this.code = code;
+            this.nameId = nameResId;
+            this.helpFileResId = helpFileResId;
+        }
+
+        static public Locale getLocale(String code) {
+            if (code.length() == 2)
+                return new Locale(code);
+            if (code.length() == 5)
+                return new Locale(code.substring(0, 2), code.substring(3, 5));
+            return null;
+        }
+
+        static public String getCode(Locale locale) {
+            String country = locale.getCountry();
+            if (country == null || country.length() == 0)
+                return locale.getLanguage();
+            return locale.getLanguage() + "_" + country;
+        }
+
+        static public Lang byCode(String code) {
+            for (Lang lang : values())
+                if (lang.code.equals(code))
+                    return lang;
+            if (code.length() > 2) {
+                code = code.substring(0, 2);
+                for (Lang lang : values())
+                    if (lang.code.equals(code))
+                        return lang;
+            }
+            Log.w("cr3", "language not found by code " + code);
+            return DEFAULT;
+        }
+
+        public Locale getLocale() {
+            return getLocale(code);
+        }
+    }
 
     public static class DictInfo {
         public final String id;

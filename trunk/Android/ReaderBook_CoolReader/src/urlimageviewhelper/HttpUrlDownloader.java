@@ -33,13 +33,13 @@ public class HttpUrlDownloader implements UrlDownloader {
                     HttpURLConnection urlConnection;
                     while (true) {
                         final URL u = new URL(thisUrl);
-                        urlConnection = (HttpURLConnection)u.openConnection();
+                        urlConnection = (HttpURLConnection) u.openConnection();
                         urlConnection.setInstanceFollowRedirects(true);
 
                         if (mRequestPropertiesCallback != null) {
                             final ArrayList<NameValuePair> props = mRequestPropertiesCallback.getHeadersForRequest(context, url);
                             if (props != null) {
-                                for (final NameValuePair pair: props) {
+                                for (final NameValuePair pair : props) {
                                     urlConnection.addRequestProperty(pair.getName(), pair.getValue());
                                 }
                             }
@@ -57,8 +57,7 @@ public class HttpUrlDownloader implements UrlDownloader {
                     is = urlConnection.getInputStream();
                     callback.onDownloadComplete(HttpUrlDownloader.this, is, null);
                     return null;
-                }
-                catch (final Throwable e) {
+                } catch (final Throwable e) {
                     e.printStackTrace();
                     return null;
                 }
@@ -77,7 +76,7 @@ public class HttpUrlDownloader implements UrlDownloader {
     public boolean allowCache() {
         return true;
     }
-    
+
     @Override
     public boolean canDownloadUrl(String url) {
         return url.startsWith("http");

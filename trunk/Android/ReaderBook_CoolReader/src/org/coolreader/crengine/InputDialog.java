@@ -12,21 +12,12 @@ import vn.seasoft.readerbook.R;
 
 public class InputDialog extends Dialog {
 
-    public interface InputHandler {
-        boolean validate(String s) throws Exception;
-
-        void onOk(String s) throws Exception;
-
-        void onCancel();
-    }
+    int minValue;
 
     ;
-
+    int maxValue;
     private InputHandler handler;
     private EditText input;
-    int minValue;
-    int maxValue;
-
     public InputDialog(BaseActivity activity, final String title, final String prompt, boolean isNumberEdit, int minValue, int maxValue, int currentValue, final InputHandler handler) {
         super(activity);
         this.handler = handler;
@@ -71,9 +62,17 @@ public class InputDialog extends Dialog {
         if (isNumberEdit)
             input.setKeyListener(DigitsKeyListener.getInstance("0123456789."));
 //	        input.getText().setFilters(new InputFilter[] {
-//	        	new DigitsKeyListener()        
+//	        	new DigitsKeyListener()
 //	        });
         setContentView(layout);
+    }
+
+    public interface InputHandler {
+        boolean validate(String s) throws Exception;
+
+        void onOk(String s) throws Exception;
+
+        void onCancel();
     }
 //	@Override
 //	protected void onNegativeButtonClick() {

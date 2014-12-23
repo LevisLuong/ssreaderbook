@@ -36,21 +36,17 @@ import vn.seasoft.readerbook.widget.ViewError;
  */
 public class fmMain extends Fragment implements OnHttpServicesListener {
 
-    private Context mContext;
-
-    private HListView fmmainLvread;
-    private HListView fmmainLvnewbook;
-    private HListView fmmainLvhotbook;
-
     AdapterHListViewBook adapterlvRead;
     AdapterHListViewBook adapterlvNewBook;
     AdapterHListViewBook adapterlvHotBook;
-
+    View footerLoadmore;
+    private Context mContext;
+    private HListView fmmainLvread;
+    private HListView fmmainLvnewbook;
+    private HListView fmmainLvhotbook;
     private RelativeLayout fmmainContainerread;
     private RelativeLayout fmmainContainernewbook;
     private RelativeLayout fmmainContainerhotbook;
-
-    View footerLoadmore;
 
     private void assignViews(View root) {
 

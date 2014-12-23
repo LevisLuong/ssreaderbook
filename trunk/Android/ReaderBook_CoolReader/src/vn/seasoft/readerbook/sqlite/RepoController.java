@@ -7,12 +7,11 @@ import vn.seasoft.readerbook.repocontroller.BookController;
 
 public class RepoController {
 
-    DatabaseHelper db;
-    DatabaseManager<DatabaseHelper> manager;
-
     public BookController book;
     public BookCategoryController book_category;
     public BookChapterController book_chapter;
+    DatabaseHelper db;
+    DatabaseManager<DatabaseHelper> manager;
 
     public RepoController(Context context) {
         manager = new DatabaseManager<DatabaseHelper>();

@@ -28,14 +28,9 @@ public class dlgShareFacebook extends DialogFragment {
     IDialogEditText listener;
     String contentshare;
     String title;
-
-    public void setMessage(String message) {
-        this.contentshare = message;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    private ImageView dlgSharefbAvatar;
+    private TextView dlgSharefbUsername;
+    private EditText dlgEditText;
 
     public dlgShareFacebook(Context _context) {
         setDialogType(DialogType.AlertDialog);
@@ -50,15 +45,19 @@ public class dlgShareFacebook extends DialogFragment {
         title = _title;
     }
 
+    public void setMessage(String message) {
+        this.contentshare = message;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
-
-    private ImageView dlgSharefbAvatar;
-    private TextView dlgSharefbUsername;
-    private EditText dlgEditText;
 
     private void assignViews(View root) {
         dlgSharefbAvatar = (ImageView) root.findViewById(R.id.dlg_sharefb_avatar);

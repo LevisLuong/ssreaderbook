@@ -183,7 +183,6 @@ public abstract class GenericInflater<T, P extends GenericInflater.Parent<T>> {
             int type;
             while ((type = parser.next()) != XmlPullParser.START_TAG
                     && type != XmlPullParser.END_DOCUMENT) {
-                ;
             }
             if (type != XmlPullParser.START_TAG) {
                 throw new InflateException(parser.getPositionDescription()

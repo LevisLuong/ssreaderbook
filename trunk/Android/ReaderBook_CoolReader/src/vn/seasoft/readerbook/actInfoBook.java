@@ -276,6 +276,10 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
         GlobalData.DissmissProgress();
     }
 
+    public void setCountChapter(String number) {
+        dlginfoTxtchapters.setText(number);
+    }
+
     private class ViewpagerAdapter extends FragmentPagerAdapter {
 
 
@@ -314,9 +318,5 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
             }
             return super.getPageTitle(position);
         }
-    }
-
-    public void setCountChapter(String number) {
-        dlginfoTxtchapters.setText(number);
     }
 }

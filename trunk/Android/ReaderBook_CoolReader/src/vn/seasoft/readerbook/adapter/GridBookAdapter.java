@@ -23,14 +23,12 @@ import java.util.List;
  * Time: 3:27 PM
  */
 public class GridBookAdapter extends BaseAdapter {
-    private Context context;
-    private List<Book> books;
-
     int index;
     boolean isLoading;
     boolean isHaveNew;
-
     int tempIndex;
+    private Context context;
+    private List<Book> books;
 
     public GridBookAdapter(Context context) {
         this.context = context;

@@ -168,7 +168,7 @@ public class TransitionDrawable extends LayerDrawable implements Drawable.Callba
                             (SystemClock.uptimeMillis() - mStartTimeMillis) / mDuration;
                     done = normalized >= 1.0f;
                     normalized = Math.min(normalized, 1.0f);
-                    state.mAlpha = (int) (mFrom  + (mTo - mFrom) * normalized);
+                    state.mAlpha = (int) (mFrom + (mTo - mFrom) * normalized);
                 }
                 break;
         }
@@ -200,6 +200,15 @@ public class TransitionDrawable extends LayerDrawable implements Drawable.Callba
     }
 
     /**
+     * Indicates whether the cross fade is enabled for this transition.
+     *
+     * @return True if cross fading is enabled, false otherwise.
+     */
+    public boolean isCrossFadeEnabled() {
+        return mState.mCrossFade;
+    }
+
+    /**
      * Enables or disables the cross fade of the drawables. When cross fade
      * is disabled, the first drawable is always drawn opaque. With cross
      * fade enabled, the first drawable is drawn with the opposite alpha of
@@ -209,15 +218,6 @@ public class TransitionDrawable extends LayerDrawable implements Drawable.Callba
      */
     public void setCrossFadeEnabled(boolean enabled) {
         mState.mCrossFade = enabled;
-    }
-
-    /**
-     * Indicates whether the cross fade is enabled for this transition.
-     *
-     * @return True if cross fading is enabled, false otherwise.
-     */
-    public boolean isCrossFadeEnabled() {
-        return mState.mCrossFade;
     }
 
     static class TransitionState extends LayerState {

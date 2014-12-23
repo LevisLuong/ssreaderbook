@@ -18,8 +18,7 @@ public class ContentUrlDownloader implements UrlDownloader {
                     InputStream is = cr.openInputStream(Uri.parse(url));
                     callback.onDownloadComplete(ContentUrlDownloader.this, is, null);
                     return null;
-                }
-                catch (final Throwable e) {
+                } catch (final Throwable e) {
                     e.printStackTrace();
                     return null;
                 }
@@ -38,7 +37,7 @@ public class ContentUrlDownloader implements UrlDownloader {
     public boolean allowCache() {
         return false;
     }
-    
+
     @Override
     public boolean canDownloadUrl(String url) {
         return url.startsWith(ContentResolver.SCHEME_CONTENT);

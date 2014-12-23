@@ -28,6 +28,15 @@ public class ViewError extends LinearLayout {
         setColorText(Color.WHITE);
     }
 
+    public ViewError(Context context, AttributeSet attrs) {
+
+        super(context, attrs);
+
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        inflater.inflate(R.layout.view_error, this);
+    }
+
     public ViewError setColorText(int color) {
         txtcontent.setTextColor(color);
         btnRetry.setTextColor(color);
@@ -36,14 +45,5 @@ public class ViewError extends LinearLayout {
 
     public void setContent(String content) {
         txtcontent.setText(content);
-    }
-
-    public ViewError(Context context, AttributeSet attrs) {
-
-        super(context, attrs);
-
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        inflater.inflate(R.layout.view_error, this);
     }
 }

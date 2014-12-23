@@ -49,22 +49,10 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     Context mContext;
     Book book;
     BookChapterAdapter adapter;
-
-    public dlgInfoBook() {
-        super();
-    }
-
-    public dlgInfoBook(Context _context, Book _book) {
-        setDialogType(DialogType.AlertDialog);
-        mContext = _context;
-        book = _book;
-    }
-
-
+    boolean asc = true;
     private ImageButton dlginfoSortChapter;
     private LinearLayout dlginfoSharefb;
     private ImageButton dlginfoSelectchapters;
-
     private TextView dlginfoTxtSortChapters;
     private TextView dlginfoTxtchapters;
     private TextView dlginfoTxtview;
@@ -76,6 +64,15 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     private TextView dlginfoTxtSummary;
     private ListView dlginfoListview;
     private RelativeLayout dlginfoContainer;
+    public dlgInfoBook() {
+        super();
+    }
+
+    public dlgInfoBook(Context _context, Book _book) {
+        setDialogType(DialogType.AlertDialog);
+        mContext = _context;
+        book = _book;
+    }
 
     private void assignViews(View root) {
         dlginfoTxtSortChapters = (TextView) root.findViewById(R.id.dlginfo_txtsortchapter);
@@ -200,8 +197,6 @@ public class dlgInfoBook extends DialogFragment implements OnHttpServicesListene
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
-
-    boolean asc = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

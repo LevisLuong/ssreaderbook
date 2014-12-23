@@ -14,20 +14,7 @@ public class CRToolBar extends LinearLayout {
 
     BaseActivity mContext;
     ReaderView mReaderView;
-
-    public CRToolBar(BaseActivity context, ReaderView readerView) {
-        super(context);
-        this.mContext = context;
-        mReaderView = readerView;
-        initView();
-    }
-
-    public CRToolBar(BaseActivity context, AttributeSet attrs) {
-        super(context, attrs);
-        mContext = context;
-        initView();
-    }
-
+    OptionMenu menu;
     private LinearLayout toolbarLnTop;
     private ImageButton toolbarBtnback;
     private TextView toolbarTxtTitle;
@@ -41,6 +28,18 @@ public class CRToolBar extends LinearLayout {
     private ImageButton toolbarBtnTOC;
     private ImageButton toolbarBtnChangeOri;
     private ImageButton toolbarBtnSetting;
+    public CRToolBar(BaseActivity context, ReaderView readerView) {
+        super(context);
+        this.mContext = context;
+        mReaderView = readerView;
+        initView();
+    }
+
+    public CRToolBar(BaseActivity context, AttributeSet attrs) {
+        super(context, attrs);
+        mContext = context;
+        initView();
+    }
 
     private void assignViews(View rootview) {
         toolbarTxtTitle = (TextView) rootview.findViewById(R.id.toolbar_txtTitle);
@@ -58,8 +57,6 @@ public class CRToolBar extends LinearLayout {
         toolbarLnBottom = (LinearLayout) rootview.findViewById(R.id.toolbar_lnBottom);
 
     }
-
-    OptionMenu menu;
 
     private void initView() {
         LayoutInflater inflater = (LayoutInflater) mContext

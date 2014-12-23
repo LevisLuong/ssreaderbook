@@ -20,18 +20,15 @@ import vn.seasoft.readerbook.Util.GlobalData;
  */
 public class dlgFeedback extends DialogFragment {
     Context mContext;
-
+    private EditText dlgfeedbackTitlebook;
+    private EditText dlgfeedbackAuthorbook;
+    private EditText dlgfeedbackFeedback;
     public dlgFeedback() {
     }
-
     public dlgFeedback(Context _context) {
         setDialogType(DialogType.AlertDialog);
         mContext = _context;
     }
-
-    private EditText dlgfeedbackTitlebook;
-    private EditText dlgfeedbackAuthorbook;
-    private EditText dlgfeedbackFeedback;
 
     private void assignViews(View root) {
         dlgfeedbackTitlebook = (EditText) root.findViewById(R.id.dlgfeedback_titlebook);

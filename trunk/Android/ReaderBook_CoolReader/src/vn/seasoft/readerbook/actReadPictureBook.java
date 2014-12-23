@@ -16,9 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.*;
 import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import org.holoeverywhere.app.Activity;
-import org.holoeverywhere.widget.Button;
-import org.holoeverywhere.widget.ProgressBar;
 import org.holoeverywhere.widget.SeekBar;
+import org.holoeverywhere.widget.SeekBar.OnSeekBarChangeListener;
 import org.holoeverywhere.widget.Toast;
 import urlimageviewhelper.UrlImageViewCallback;
 import urlimageviewhelper.UrlImageViewHelper;
@@ -57,7 +56,7 @@ public class actReadPictureBook extends Activity {
     private TextView vpTxtTitleBook;
     private TextView vpTxtTitleChapter;
     private TextView vpTxtPageTop;
-    private SeekBar vpSeekbar;
+    private org.holoeverywhere.widget.SeekBar vpSeekbar;
     private RelativeLayout vpEmpty;
     private LinearLayout vpLnBottom;
     private LinearLayout vpLnContainerMain;
@@ -75,7 +74,7 @@ public class actReadPictureBook extends Activity {
         vpTxtTitleBook = (TextView) findViewById(R.id.vp_txtTitleBook);
         vpTxtTitleChapter = (TextView) findViewById(R.id.vp_txtTitleChapter);
         vpTxtPageTop = (TextView) findViewById(R.id.vp_txtPageTop);
-        vpSeekbar = (SeekBar) findViewById(R.id.vp_seekbar);
+        vpSeekbar = (org.holoeverywhere.widget.SeekBar) findViewById(R.id.vp_seekbar);
         vpEmpty = (RelativeLayout) findViewById(R.id.vp_empty);
         vpLnBottom = (LinearLayout) findViewById(R.id.vp_lnBottom);
         vpPreviouschapter = (ImageButton) findViewById(R.id.vp_previouschapter);
@@ -133,7 +132,8 @@ public class actReadPictureBook extends Activity {
         vpSeekbar.setOnSeekBarChangeListener(null);
         vpSeekbar.setMax(lstPicture.size());
         vpSeekbar.setProgress(position);
-        vpSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+        vpSeekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 vpPager.setCurrentItem(i, true);
@@ -254,6 +254,31 @@ public class actReadPictureBook extends Activity {
         super.onResume();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
+                SetInvisible();
+                return false;
+            }
+        }
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
+                SetInvisible();
+            } else {
+                SetVisible();
+            }
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
     class ImagePagerAdapter extends PagerAdapter {
 
         @Override
@@ -339,31 +364,6 @@ public class actReadPictureBook extends Activity {
             super.startUpdate(container);
 
         }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
-                SetInvisible();
-                return false;
-            }
-        }
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-            if (vpLnContainerMain.getVisibility() == View.VISIBLE) {
-                SetInvisible();
-            } else {
-                SetVisible();
-            }
-            return false;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 
     //    public void getBitmapFromZip(final String zipFilePath) {

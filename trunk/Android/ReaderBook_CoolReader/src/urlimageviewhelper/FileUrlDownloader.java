@@ -15,8 +15,7 @@ public class FileUrlDownloader implements UrlDownloader {
                 try {
                     callback.onDownloadComplete(FileUrlDownloader.this, null, new File(new URI(url)).getAbsolutePath());
                     return null;
-                }
-                catch (final Throwable e) {
+                } catch (final Throwable e) {
                     e.printStackTrace();
                     return null;
                 }
@@ -35,7 +34,7 @@ public class FileUrlDownloader implements UrlDownloader {
     public boolean allowCache() {
         return false;
     }
-    
+
     @Override
     public boolean canDownloadUrl(String url) {
         return url.startsWith("file:/");

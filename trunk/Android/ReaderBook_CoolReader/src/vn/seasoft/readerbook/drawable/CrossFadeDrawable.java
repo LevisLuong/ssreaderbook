@@ -25,9 +25,11 @@ public class CrossFadeDrawable extends Drawable {
     private static final int TRANSITION_STARTING = 0;
     private static final int TRANSITION_RUNNING = 1;
     private static final int TRANSITION_NONE = 2;
-
+    private final Paint mStartPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
+    private final Paint mEndPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
+    private final Handler mHandler;
+    private final Runnable mInvalidater;
     private int mTransitionState = TRANSITION_NONE;
-
     private boolean mCrossFade;
     private boolean mReverse;
     private long mStartTimeMillis;
@@ -36,20 +38,12 @@ public class CrossFadeDrawable extends Drawable {
     private int mDuration;
     private int mOriginalDuration;
     private int mAlpha;
-
     private Bitmap mStart;
     private Bitmap mEnd;
-
-    private final Paint mStartPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
-    private final Paint mEndPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
-
     private float mStartX;
     private float mStartY;
     private float mEndX;
     private float mEndY;
-
-    private final Handler mHandler;
-    private final Runnable mInvalidater;
 
     public CrossFadeDrawable(Bitmap start, Bitmap end) {
         mStart = start;
@@ -139,7 +133,7 @@ public class CrossFadeDrawable extends Drawable {
                             mDuration;
 
                     done = normalized >= 1.0f;
-                    mAlpha = (int) (mFrom  + (mTo - mFrom) * Math.min(normalized, 1.0f));
+                    mAlpha = (int) (mFrom + (mTo - mFrom) * Math.min(normalized, 1.0f));
 
                     if (done) {
                         mTransitionState = TRANSITION_NONE;
@@ -258,6 +252,15 @@ public class CrossFadeDrawable extends Drawable {
     }
 
     /**
+     * Indicates whether the cross fade is enabled for this transition.
+     *
+     * @return True if cross fading is enabled, false otherwise.
+     */
+    boolean isCrossFadeEnabled() {
+        return mCrossFade;
+    }
+
+    /**
      * Enables or disables the cross fade of the drawables. When cross fade
      * is disabled, the first drawable is always drawn opaque. With cross
      * fade enabled, the first drawable is drawn with the opposite alpha of
@@ -267,14 +270,5 @@ public class CrossFadeDrawable extends Drawable {
      */
     public void setCrossFadeEnabled(boolean enabled) {
         mCrossFade = enabled;
-    }
-
-    /**
-     * Indicates whether the cross fade is enabled for this transition.
-     *
-     * @return True if cross fading is enabled, false otherwise.
-     */
-    boolean isCrossFadeEnabled() {
-        return mCrossFade;
     }
 }

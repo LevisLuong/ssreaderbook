@@ -6,23 +6,23 @@
   android:layout_height="wrap_content"-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/title"
         style="@style/Holo.TextAppearance.Medium"
-        android:text="@null"
-        android:singleLine="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="3dip"
         android:layout_marginRight="3dip"
-        android:paddingTop="3dip"
+        android:ellipsize="start"
         android:paddingBottom="3dip"
 
-        android:ellipsize="start"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:paddingTop="3dip"
+        android:singleLine="true"
+        android:text="@null"/>
 
 </LinearLayout>
     <!-- /LinearLayout-->

@@ -64,18 +64,54 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
 
         ThemeManager.setDefaultTheme(ThemeManager.LIGHT);
     }
-
+    // The following line should be changed to include the correct property id.
+    private static final String PROPERTY_ID = "UA-54609330-1";
+    public static ILoginFacebook loginfacebooklistener;
+    public static boolean isLogoutFB = false;
+    static SSReaderApplication instance;
     //adapter provider for social
     private static SocialAuthAdapter socialAdapter = null;
+    private static Request_Server requestServer;
+    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
+    /**
+     * Global request queue for Volley
+     */
+    private RequestQueue mRequestQueue;
 
     public static SocialAuthAdapter getSocialAdapter() {
         return socialAdapter;
     }
 
-    /**
-     * Global request queue for Volley
-     */
-    private RequestQueue mRequestQueue;
+    public static Request_Server getRequestServer(final Context context) {
+        if (requestServer == null) {
+            requestServer = new Request_Server(context);
+        }
+        return requestServer;
+    }
+
+    public static Request_Server getRequestServer(final Context context, OnHttpServicesListener listener) {
+        if (requestServer == null) {
+            requestServer = new Request_Server(context);
+        }
+        requestServer.SetListener(listener);
+        return requestServer;
+    }
+
+    public static SSReaderApplication getInstance() {
+        return instance;
+    }
+
+    public static void authorizeFB(Context context, ILoginFacebook listener) {
+        isLogoutFB = false;
+        loginfacebooklistener = listener;
+        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
+    }
+
+    public static void signOutFB(Context context, ILoginFacebook listener) {
+        isLogoutFB = true;
+        loginfacebooklistener = listener;
+        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
+    }
 
     /**
      * @return The Volley Request queue, the queue will be created if it is null
@@ -135,49 +171,6 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         }
     }
 
-    private static Request_Server requestServer;
-
-    public static Request_Server getRequestServer(final Context context) {
-        if (requestServer == null) {
-            requestServer = new Request_Server(context);
-        }
-        return requestServer;
-    }
-
-    public static Request_Server getRequestServer(final Context context, OnHttpServicesListener listener) {
-        if (requestServer == null) {
-            requestServer = new Request_Server(context);
-        }
-        requestServer.SetListener(listener);
-        return requestServer;
-    }
-
-
-    static SSReaderApplication instance;
-
-    public static SSReaderApplication getInstance() {
-        return instance;
-    }
-
-
-    // The following line should be changed to include the correct property id.
-    private static final String PROPERTY_ID = "UA-54609330-1";
-
-    /**
-     * Enum used to identify the tracker that needs to be used for tracking.
-     * <p/>
-     * A single tracker is usually enough for most purposes. In case you do need multiple trackers,
-     * storing them all in Application object helps ensure that they are created only once per
-     * application instance.
-     */
-    public enum TrackerName {
-        APP_TRACKER, // Tracker used only in this app.
-        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
-        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
-    }
-
-    HashMap<TrackerName, Tracker> mTrackers = new HashMap<TrackerName, Tracker>();
-
     synchronized Tracker getTracker(TrackerName trackerId) {
         if (!mTrackers.containsKey(trackerId)) {
             GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
@@ -187,37 +180,6 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
 
         }
         return mTrackers.get(trackerId);
-    }
-
-    public static ILoginFacebook loginfacebooklistener;
-
-    public static boolean isLogoutFB = false;
-
-    public static void authorizeFB(Context context, ILoginFacebook listener) {
-        isLogoutFB = false;
-        loginfacebooklistener = listener;
-        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
-    }
-
-    public static void signOutFB(Context context, ILoginFacebook listener) {
-        isLogoutFB = true;
-        loginfacebooklistener = listener;
-        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
-    }
-
-    // To receive the profile response after authentication
-    private final class ProfileDataListener implements SocialAuthListener<Profile> {
-
-        @Override
-        public void onExecute(String provider, Profile t) {
-            SSUtil.App_Log("Thong tin facebook:", "Id: " + t.getValidatedId() + ",Display name:" + t.getFullName() + ",Email:" + t.getEmail());
-            getRequestServer(instance, instance).loginByFacebook(t.getValidatedId(), t.getFullName(), t.getEmail());
-        }
-
-        @Override
-        public void onError(SocialAuthError e) {
-
-        }
     }
 
     @Override
@@ -285,6 +247,34 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
             }
         }
         GlobalData.DissmissProgress();
+    }
+
+    /**
+     * Enum used to identify the tracker that needs to be used for tracking.
+     * <p/>
+     * A single tracker is usually enough for most purposes. In case you do need multiple trackers,
+     * storing them all in Application object helps ensure that they are created only once per
+     * application instance.
+     */
+    public enum TrackerName {
+        APP_TRACKER, // Tracker used only in this app.
+        GLOBAL_TRACKER, // Tracker used by all the apps from a company. eg: roll-up tracking.
+        ECOMMERCE_TRACKER, // Tracker used by all ecommerce transactions from a company.
+    }
+
+    // To receive the profile response after authentication
+    private final class ProfileDataListener implements SocialAuthListener<Profile> {
+
+        @Override
+        public void onExecute(String provider, Profile t) {
+            SSUtil.App_Log("Thong tin facebook:", "Id: " + t.getValidatedId() + ",Display name:" + t.getFullName() + ",Email:" + t.getEmail());
+            getRequestServer(instance, instance).loginByFacebook(t.getValidatedId(), t.getFullName(), t.getEmail());
+        }
+
+        @Override
+        public void onError(SocialAuthError e) {
+
+        }
     }
 
 

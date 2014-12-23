@@ -9,8 +9,6 @@ import android.widget.*;
 import com.etiennelawlor.quickreturn.library.enums.QuickReturnType;
 import com.etiennelawlor.quickreturn.library.listeners.SpeedyQuickReturnListViewOnScrollListener;
 import org.holoeverywhere.app.Fragment;
-import org.holoeverywhere.widget.EditText;
-import org.holoeverywhere.widget.ProgressBar;
 import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
@@ -47,19 +45,20 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
 
     Context context;
     int idbook;
-
-    public fmComment(Context _ct, int idbook) {
-        super();
-        context = _ct;
-        this.idbook = idbook;
-    }
-
+    View footerLoadmore;
+    Comment postcomment;
     private RelativeLayout fmcommentContainer;
     private LinearLayout fmcommentQuickreturn;
     private EditText fmcommentEdtcomment;
     private ImageView fmcommentBtncomment;
     private ProgressBar fmcommentProgressbarcomment;
 
+
+    public fmComment(Context _ct, int idbook) {
+        super();
+        context = _ct;
+        this.idbook = idbook;
+    }
 
     private void assignViews(View root) {
         fmcommentContainer = (RelativeLayout) root.findViewById(R.id.fmcomment_container);
@@ -68,7 +67,6 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
         fmcommentEdtcomment = (EditText) root.findViewById(R.id.fmcomment_edtcomment);
         fmcommentBtncomment = (ImageView) root.findViewById(R.id.fmcomment_btncomment);
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,15 +110,11 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
         SSReaderApplication.getRequestServer(context, this).getCommentsBook(idbook, 1);
     }
 
-    View footerLoadmore;
-
     void comment(Comment comment) {
         fmcommentProgressbarcomment.setVisibility(View.VISIBLE);
         fmcommentBtncomment.setVisibility(View.GONE);
         SSReaderApplication.getRequestServer(context, this).userCommentBook(idbook, comment.getIduser(), comment.getContent());
     }
-
-    Comment postcomment;
 
     void submitComment() {
         final String content = fmcommentEdtcomment.getText().toString().trim();

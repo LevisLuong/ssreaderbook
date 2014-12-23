@@ -114,8 +114,8 @@ public class fmListBook extends Fragment implements OnHttpServicesListener {
                 intent.putExtra("idcategory", book.getIdcategory());
                 intent.putExtra("countdownload", book.getCountdownload());
                 intent.putExtra("countview", book.getCountview());
-                intent.putExtra("summary",book.getSummary());
-                intent.putExtra("cover",book.getImagecover());
+                intent.putExtra("summary", book.getSummary());
+                intent.putExtra("cover", book.getImagecover());
                 startActivity(intent);
             }
         });

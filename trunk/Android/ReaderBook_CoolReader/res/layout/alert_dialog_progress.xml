@@ -23,31 +23,31 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dip"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="1dip"
         android:layout_marginLeft="10dip"
         android:layout_marginRight="10dip"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="12dip"/>
 
     <TextView
         android:id="@+id/progress_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="12dip"
-        android:layout_marginLeft="10dip"
-        android:layout_marginRight="10dip"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/progress"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:paddingBottom="12dip"
         />
 
     <TextView
         android:id="@+id/progress_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="12dip"
-        android:layout_marginLeft="50dip"
-        android:layout_marginRight="15dip"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/progress"
+        android:layout_marginLeft="50dip"
+        android:layout_marginRight="15dip"
+        android:paddingBottom="12dip"
         />
 </RelativeLayout>

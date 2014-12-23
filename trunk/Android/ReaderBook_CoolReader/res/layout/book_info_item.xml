@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/browser_item_body"
-          android:layout_margin="2dip"
+<TableRow android:id="@+id/browser_item_body"
+          xmlns:android="http://schemas.android.com/apk/res/android"
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
+          android:layout_margin="2dip"
     >
 
     <TextView
         android:id="@+id/name"
         style="@style/Holo.TextAppearance.Small"
-        android:singleLine="false"
-        android:maxLines="3"
-        android:layout_marginRight="5dip"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dip"
+        android:maxLines="3"
+        android:singleLine="false"/>
 
     <TextView
         android:id="@+id/value"
         style="@style/Holo.TextAppearance.Small"
-        android:singleLine="false"
-        android:maxLines="3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:singleLine="false"/>
 </TableRow>

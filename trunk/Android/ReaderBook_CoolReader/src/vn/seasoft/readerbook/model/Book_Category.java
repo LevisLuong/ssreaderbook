@@ -11,18 +11,17 @@ import java.util.List;
  * Time: 9:32 AM
  */
 public class Book_Category {
-    public Book_Category() {
-    }
-
-    public Book_Category(Integer idcategory, String category) {
-        this.idcategory = idcategory;
-        this.category = category;
-    }
-
     @DatabaseField(id = true)
     Integer idcategory;
     @DatabaseField
     String category;
+
+    public Book_Category() {
+    }
+    public Book_Category(Integer idcategory, String category) {
+        this.idcategory = idcategory;
+        this.category = category;
+    }
 
     public Integer getIdcategory() {
         return idcategory;

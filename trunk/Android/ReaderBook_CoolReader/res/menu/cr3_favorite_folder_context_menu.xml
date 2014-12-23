@@ -2,15 +2,15 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/folder_left"
         android:title="@string/mi_folder_left"
-        android:titleCondensed="@string/mi_folder_left"
-        android:id="@+id/folder_left"></item>
+        android:titleCondensed="@string/mi_folder_left"></item>
     <item
+        android:id="@+id/folder_right"
         android:title="@string/mi_folder_right"
-        android:titleCondensed="@string/mi_folder_right"
-        android:id="@+id/folder_right"></item>
+        android:titleCondensed="@string/mi_folder_right"></item>
     <item
+        android:id="@+id/folder_remove"
         android:title="@string/mi_folder_remove"
-        android:titleCondensed="@string/mi_folder_remove"
-        android:id="@+id/folder_remove"></item>
+        android:titleCondensed="@string/mi_folder_remove"></item>
 </menu>

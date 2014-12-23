@@ -1368,13 +1368,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int yesNoPreferenceStyle=0x7f0100d5;
     }
     public static final class bool {
-        public static int abc_action_bar_embed_tabs_pre_jb=0x7f090002;
-        public static int abc_action_bar_expanded_action_views_exclusive=0x7f090003;
+        public static int abc_action_bar_embed_tabs_pre_jb=0x7f080002;
+        public static int abc_action_bar_expanded_action_views_exclusive=0x7f080003;
         /**  Whether action menu items should be displayed in ALLCAPS or not.
          Defaults to true. If this is not appropriate for specific locales
          it should be disabled in that locale's resources. 
          */
-        public static int abc_config_actionMenuItemAllCaps=0x7f090001;
+        public static int abc_config_actionMenuItemAllCaps=0x7f080001;
         /**  Whether action menu items should obey the "withText" showAsAction
     flag. This may be set to false for situations where space is
     extremely limited. 
@@ -1382,82 +1382,82 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          This may be set to false for situations where space is
          extremely limited. 
          */
-        public static int abc_config_allowActionMenuItemTextWithIcon=0x7f090000;
-        public static int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f090005;
-        public static int abc_split_action_bar_is_narrow=0x7f090004;
-        public static int preferences_prefer_dual_pane=0x7f090006;
+        public static int abc_config_allowActionMenuItemTextWithIcon=0x7f080000;
+        public static int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f080005;
+        public static int abc_split_action_bar_is_narrow=0x7f080004;
+        public static int preferences_prefer_dual_pane=0x7f080006;
     }
     public static final class color {
-        public static int abc_search_url_text_holo=0x7f080035;
-        public static int abc_search_url_text_normal=0x7f080000;
-        public static int abc_search_url_text_pressed=0x7f080002;
-        public static int abc_search_url_text_selected=0x7f080001;
-        public static int am_pm_picker_holo_dark=0x7f080036;
-        public static int am_pm_picker_holo_light=0x7f080037;
-        public static int background_dark=0x7f08000f;
-        public static int background_holo_dark=0x7f080019;
-        public static int background_holo_light=0x7f08001a;
-        public static int background_light=0x7f080010;
-        public static int bright_foreground_dark=0x7f080011;
-        public static int bright_foreground_dark_disabled=0x7f080013;
-        public static int bright_foreground_dark_inverse=0x7f080015;
-        public static int bright_foreground_disabled_holo_dark=0x7f08001d;
-        public static int bright_foreground_disabled_holo_light=0x7f08001e;
-        public static int bright_foreground_holo_dark=0x7f08001b;
-        public static int bright_foreground_holo_light=0x7f08001c;
-        public static int bright_foreground_inverse_holo_dark=0x7f08001f;
-        public static int bright_foreground_inverse_holo_light=0x7f080020;
-        public static int bright_foreground_light=0x7f080012;
-        public static int bright_foreground_light_disabled=0x7f080014;
-        public static int bright_foreground_light_inverse=0x7f080016;
-        public static int date_picker_active_text_holo_dark=0x7f080038;
-        public static int date_picker_active_text_holo_light=0x7f080039;
-        public static int date_time_picker_center_pointer_color_holo_dark=0x7f080030;
-        public static int date_time_picker_center_pointer_color_holo_light=0x7f080033;
-        public static int date_time_picker_circle_color_holo_dark=0x7f080031;
-        public static int date_time_picker_circle_color_holo_light=0x7f080034;
-        public static int date_time_picker_selected_background_holo_dark=0x7f08002f;
-        public static int date_time_picker_selected_background_holo_light=0x7f080032;
-        public static int dim_foreground_dark=0x7f080017;
-        public static int dim_foreground_dark_inverse=0x7f080018;
-        public static int dim_foreground_disabled_holo_dark=0x7f080022;
-        public static int dim_foreground_disabled_holo_light=0x7f080026;
-        public static int dim_foreground_holo_dark=0x7f080021;
-        public static int dim_foreground_holo_light=0x7f080025;
-        public static int dim_foreground_inverse_disabled_holo_dark=0x7f080024;
-        public static int dim_foreground_inverse_disabled_holo_light=0x7f080028;
-        public static int dim_foreground_inverse_holo_dark=0x7f080023;
-        public static int dim_foreground_inverse_holo_light=0x7f080027;
-        public static int highlighted_text_holo_dark=0x7f08002b;
-        public static int highlighted_text_holo_light=0x7f08002c;
-        public static int hint_foreground_holo_dark=0x7f080029;
-        public static int hint_foreground_holo_light=0x7f08002a;
-        public static int holo_blue_bright=0x7f08000d;
-        public static int holo_blue_dark=0x7f080006;
-        public static int holo_blue_light=0x7f080003;
-        public static int holo_green_dark=0x7f080007;
-        public static int holo_green_light=0x7f080004;
-        public static int holo_orange_dark=0x7f08000c;
-        public static int holo_orange_light=0x7f08000b;
-        public static int holo_purple_dark=0x7f08000a;
-        public static int holo_purple_light=0x7f080009;
-        public static int holo_red_dark=0x7f080008;
-        public static int holo_red_light=0x7f080005;
-        public static int link_text_holo_dark=0x7f08002d;
-        public static int link_text_holo_light=0x7f08002e;
-        public static int primary_text_disable_only_holo_dark=0x7f08003a;
-        public static int primary_text_disable_only_holo_light=0x7f08003b;
-        public static int primary_text_holo_dark=0x7f08003c;
-        public static int primary_text_holo_light=0x7f08003d;
-        public static int primary_text_nodisable_holo_dark=0x7f08003e;
-        public static int primary_text_nodisable_holo_light=0x7f08003f;
-        public static int secondary_text_holo_dark=0x7f080040;
-        public static int secondary_text_holo_light=0x7f080041;
-        public static int secondary_text_nodisable_holo_dark=0x7f080042;
-        public static int secondary_text_nodisable_holo_light=0x7f080043;
-        public static int tertiary_text_holo_dark=0x7f080044;
-        public static int tertiary_text_holo_light=0x7f080045;
-        public static int transparent=0x7f08000e;
+        public static int abc_search_url_text_holo=0x7f070035;
+        public static int abc_search_url_text_normal=0x7f070000;
+        public static int abc_search_url_text_pressed=0x7f070002;
+        public static int abc_search_url_text_selected=0x7f070001;
+        public static int am_pm_picker_holo_dark=0x7f070036;
+        public static int am_pm_picker_holo_light=0x7f070037;
+        public static int background_dark=0x7f07000f;
+        public static int background_holo_dark=0x7f070019;
+        public static int background_holo_light=0x7f07001a;
+        public static int background_light=0x7f070010;
+        public static int bright_foreground_dark=0x7f070011;
+        public static int bright_foreground_dark_disabled=0x7f070013;
+        public static int bright_foreground_dark_inverse=0x7f070015;
+        public static int bright_foreground_disabled_holo_dark=0x7f07001d;
+        public static int bright_foreground_disabled_holo_light=0x7f07001e;
+        public static int bright_foreground_holo_dark=0x7f07001b;
+        public static int bright_foreground_holo_light=0x7f07001c;
+        public static int bright_foreground_inverse_holo_dark=0x7f07001f;
+        public static int bright_foreground_inverse_holo_light=0x7f070020;
+        public static int bright_foreground_light=0x7f070012;
+        public static int bright_foreground_light_disabled=0x7f070014;
+        public static int bright_foreground_light_inverse=0x7f070016;
+        public static int date_picker_active_text_holo_dark=0x7f070038;
+        public static int date_picker_active_text_holo_light=0x7f070039;
+        public static int date_time_picker_center_pointer_color_holo_dark=0x7f070030;
+        public static int date_time_picker_center_pointer_color_holo_light=0x7f070033;
+        public static int date_time_picker_circle_color_holo_dark=0x7f070031;
+        public static int date_time_picker_circle_color_holo_light=0x7f070034;
+        public static int date_time_picker_selected_background_holo_dark=0x7f07002f;
+        public static int date_time_picker_selected_background_holo_light=0x7f070032;
+        public static int dim_foreground_dark=0x7f070017;
+        public static int dim_foreground_dark_inverse=0x7f070018;
+        public static int dim_foreground_disabled_holo_dark=0x7f070022;
+        public static int dim_foreground_disabled_holo_light=0x7f070026;
+        public static int dim_foreground_holo_dark=0x7f070021;
+        public static int dim_foreground_holo_light=0x7f070025;
+        public static int dim_foreground_inverse_disabled_holo_dark=0x7f070024;
+        public static int dim_foreground_inverse_disabled_holo_light=0x7f070028;
+        public static int dim_foreground_inverse_holo_dark=0x7f070023;
+        public static int dim_foreground_inverse_holo_light=0x7f070027;
+        public static int highlighted_text_holo_dark=0x7f07002b;
+        public static int highlighted_text_holo_light=0x7f07002c;
+        public static int hint_foreground_holo_dark=0x7f070029;
+        public static int hint_foreground_holo_light=0x7f07002a;
+        public static int holo_blue_bright=0x7f07000d;
+        public static int holo_blue_dark=0x7f070006;
+        public static int holo_blue_light=0x7f070003;
+        public static int holo_green_dark=0x7f070007;
+        public static int holo_green_light=0x7f070004;
+        public static int holo_orange_dark=0x7f07000c;
+        public static int holo_orange_light=0x7f07000b;
+        public static int holo_purple_dark=0x7f07000a;
+        public static int holo_purple_light=0x7f070009;
+        public static int holo_red_dark=0x7f070008;
+        public static int holo_red_light=0x7f070005;
+        public static int link_text_holo_dark=0x7f07002d;
+        public static int link_text_holo_light=0x7f07002e;
+        public static int primary_text_disable_only_holo_dark=0x7f07003a;
+        public static int primary_text_disable_only_holo_light=0x7f07003b;
+        public static int primary_text_holo_dark=0x7f07003c;
+        public static int primary_text_holo_light=0x7f07003d;
+        public static int primary_text_nodisable_holo_dark=0x7f07003e;
+        public static int primary_text_nodisable_holo_light=0x7f07003f;
+        public static int secondary_text_holo_dark=0x7f070040;
+        public static int secondary_text_holo_light=0x7f070041;
+        public static int secondary_text_nodisable_holo_dark=0x7f070042;
+        public static int secondary_text_nodisable_holo_light=0x7f070043;
+        public static int tertiary_text_holo_dark=0x7f070044;
+        public static int tertiary_text_holo_light=0x7f070045;
+        public static int transparent=0x7f07000e;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1466,125 +1466,125 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  Default height of an action bar. 
  Default height of an action bar. 
          */
-        public static int abc_action_bar_default_height=0x7f0a0002;
+        public static int abc_action_bar_default_height=0x7f090002;
         /**  Vertical padding around action bar icons. 
  Vertical padding around action bar icons. 
  Vertical padding around action bar icons. 
  Vertical padding around action bar icons. 
  Vertical padding around action bar icons. 
          */
-        public static int abc_action_bar_icon_vertical_padding=0x7f0a0003;
+        public static int abc_action_bar_icon_vertical_padding=0x7f090003;
         /**  Maximum height for a stacked tab bar as part of an action bar 
          */
-        public static int abc_action_bar_stacked_max_height=0x7f0a0009;
+        public static int abc_action_bar_stacked_max_height=0x7f090009;
         /**  Maximum width for a stacked action bar tab. This prevents
          action bar tabs from becoming too wide on a wide screen when only
          a few are present. 
          */
-        public static int abc_action_bar_stacked_tab_max_width=0x7f0a0001;
+        public static int abc_action_bar_stacked_tab_max_width=0x7f090001;
         /**  Bottom margin for action bar subtitles 
  Bottom margin for action bar subtitles 
  Bottom margin for action bar subtitles 
  Bottom margin for action bar subtitles 
  Bottom margin for action bar subtitles 
          */
-        public static int abc_action_bar_subtitle_bottom_margin=0x7f0a0007;
+        public static int abc_action_bar_subtitle_bottom_margin=0x7f090007;
         /**  Text size for action bar subtitles 
  Text size for action bar subtitles 
  Text size for action bar subtitles 
  Text size for action bar subtitles 
  Text size for action bar subtitles 
          */
-        public static int abc_action_bar_subtitle_text_size=0x7f0a0005;
+        public static int abc_action_bar_subtitle_text_size=0x7f090005;
         /**  Top margin for action bar subtitles 
  Top margin for action bar subtitles 
  Top margin for action bar subtitles 
  Top margin for action bar subtitles 
  Top margin for action bar subtitles 
          */
-        public static int abc_action_bar_subtitle_top_margin=0x7f0a0006;
+        public static int abc_action_bar_subtitle_top_margin=0x7f090006;
         /**  Text size for action bar titles 
  Text size for action bar titles 
  Text size for action bar titles 
  Text size for action bar titles 
  Text size for action bar titles 
          */
-        public static int abc_action_bar_title_text_size=0x7f0a0004;
+        public static int abc_action_bar_title_text_size=0x7f090004;
         /**  Minimum width for an action button in the menu area of an action bar 
  Minimum width for an action button in the menu area of an action bar 
  Minimum width for an action button in the menu area of an action bar 
          */
-        public static int abc_action_button_min_width=0x7f0a0008;
+        public static int abc_action_button_min_width=0x7f090008;
         /**  The maximum width we would prefer dialogs to be.  0 if there is no
     maximum (let them grow as large as the screen).  Actual values are
     specified for -large and -xlarge configurations. 
  see comment in values/config.xml 
  see comment in values/config.xml 
          */
-        public static int abc_config_prefDialogWidth=0x7f0a0000;
+        public static int abc_config_prefDialogWidth=0x7f090000;
         /**  Width of the icon in a dropdown list 
          */
-        public static int abc_dropdownitem_icon_width=0x7f0a000f;
+        public static int abc_dropdownitem_icon_width=0x7f09000f;
         /**  Text padding for dropdown items 
          */
-        public static int abc_dropdownitem_text_padding_left=0x7f0a000d;
-        public static int abc_dropdownitem_text_padding_right=0x7f0a000e;
-        public static int abc_panel_menu_list_width=0x7f0a000a;
+        public static int abc_dropdownitem_text_padding_left=0x7f09000d;
+        public static int abc_dropdownitem_text_padding_right=0x7f09000e;
+        public static int abc_panel_menu_list_width=0x7f09000a;
         /**  Preferred width of the search view. 
          */
-        public static int abc_search_view_preferred_width=0x7f0a000c;
+        public static int abc_search_view_preferred_width=0x7f09000c;
         /**  Minimum width of the search view text entry area. 
  Minimum width of the search view text entry area. 
  Minimum width of the search view text entry area. 
  Minimum width of the search view text entry area. 
          */
-        public static int abc_search_view_text_min_width=0x7f0a000b;
-        public static int alert_dialog_button_bar_height=0x7f0a0012;
-        public static int alert_dialog_title_height=0x7f0a0011;
-        public static int config_prefDialogWidth=0x7f0a0010;
-        public static int date_day_number_select_circle_radius=0x7f0a0021;
-        public static int date_day_number_size=0x7f0a0023;
-        public static int date_day_size=0x7f0a0025;
-        public static int date_month_day_label_text_size=0x7f0a0020;
-        public static int date_month_label_size=0x7f0a0022;
-        public static int date_month_list_item_header_height=0x7f0a001f;
-        public static int date_month_size=0x7f0a0026;
-        public static int date_picker_component_width=0x7f0a0028;
-        public static int date_picker_view_animator_height=0x7f0a002e;
-        public static int date_selected_bottom_margin=0x7f0a002b;
-        public static int date_selected_left_margin=0x7f0a002c;
-        public static int date_selected_top_margin=0x7f0a002a;
-        public static int date_selected_width=0x7f0a0029;
-        public static int date_time_picker_size=0x7f0a001e;
-        public static int date_week_size=0x7f0a0027;
-        public static int date_year_size=0x7f0a0024;
-        public static int dialog_fixed_height_major=0x7f0a001a;
-        public static int dialog_fixed_height_minor=0x7f0a001b;
-        public static int dialog_fixed_width_major=0x7f0a0018;
-        public static int dialog_fixed_width_minor=0x7f0a0019;
-        public static int dialog_min_width_major=0x7f0a0016;
-        public static int dialog_min_width_minor=0x7f0a0017;
-        public static int fastscroll_overlay_size=0x7f0a0015;
-        public static int fastscroll_thumb_height=0x7f0a0014;
-        public static int fastscroll_thumb_width=0x7f0a0013;
-        public static int month_select_circle_radius=0x7f0a002d;
-        public static int preference_breadcrumb_paddingLeft=0x7f0a003c;
-        public static int preference_breadcrumb_paddingRight=0x7f0a003d;
-        public static int preference_child_padding_side=0x7f0a0033;
-        public static int preference_fragment_padding_bottom=0x7f0a003a;
-        public static int preference_fragment_padding_side=0x7f0a003b;
-        public static int preference_icon_minWidth=0x7f0a0034;
-        public static int preference_item_padding_inner=0x7f0a0032;
-        public static int preference_item_padding_side=0x7f0a0031;
-        public static int preference_screen_bottom_margin=0x7f0a0038;
-        public static int preference_screen_header_padding_side=0x7f0a0030;
-        public static int preference_screen_header_vertical_padding=0x7f0a002f;
-        public static int preference_screen_side_margin=0x7f0a0035;
-        public static int preference_screen_side_margin_negative=0x7f0a0036;
-        public static int preference_screen_top_margin=0x7f0a0037;
-        public static int preference_widget_width=0x7f0a0039;
-        public static int time_ampm_label_size=0x7f0a001d;
-        public static int time_label_size=0x7f0a001c;
+        public static int abc_search_view_text_min_width=0x7f09000b;
+        public static int alert_dialog_button_bar_height=0x7f090012;
+        public static int alert_dialog_title_height=0x7f090011;
+        public static int config_prefDialogWidth=0x7f090010;
+        public static int date_day_number_select_circle_radius=0x7f090021;
+        public static int date_day_number_size=0x7f090023;
+        public static int date_day_size=0x7f090025;
+        public static int date_month_day_label_text_size=0x7f090020;
+        public static int date_month_label_size=0x7f090022;
+        public static int date_month_list_item_header_height=0x7f09001f;
+        public static int date_month_size=0x7f090026;
+        public static int date_picker_component_width=0x7f090028;
+        public static int date_picker_view_animator_height=0x7f09002e;
+        public static int date_selected_bottom_margin=0x7f09002b;
+        public static int date_selected_left_margin=0x7f09002c;
+        public static int date_selected_top_margin=0x7f09002a;
+        public static int date_selected_width=0x7f090029;
+        public static int date_time_picker_size=0x7f09001e;
+        public static int date_week_size=0x7f090027;
+        public static int date_year_size=0x7f090024;
+        public static int dialog_fixed_height_major=0x7f09001a;
+        public static int dialog_fixed_height_minor=0x7f09001b;
+        public static int dialog_fixed_width_major=0x7f090018;
+        public static int dialog_fixed_width_minor=0x7f090019;
+        public static int dialog_min_width_major=0x7f090016;
+        public static int dialog_min_width_minor=0x7f090017;
+        public static int fastscroll_overlay_size=0x7f090015;
+        public static int fastscroll_thumb_height=0x7f090014;
+        public static int fastscroll_thumb_width=0x7f090013;
+        public static int month_select_circle_radius=0x7f09002d;
+        public static int preference_breadcrumb_paddingLeft=0x7f09003c;
+        public static int preference_breadcrumb_paddingRight=0x7f09003d;
+        public static int preference_child_padding_side=0x7f090033;
+        public static int preference_fragment_padding_bottom=0x7f09003a;
+        public static int preference_fragment_padding_side=0x7f09003b;
+        public static int preference_icon_minWidth=0x7f090034;
+        public static int preference_item_padding_inner=0x7f090032;
+        public static int preference_item_padding_side=0x7f090031;
+        public static int preference_screen_bottom_margin=0x7f090038;
+        public static int preference_screen_header_padding_side=0x7f090030;
+        public static int preference_screen_header_vertical_padding=0x7f09002f;
+        public static int preference_screen_side_margin=0x7f090035;
+        public static int preference_screen_side_margin_negative=0x7f090036;
+        public static int preference_screen_top_margin=0x7f090037;
+        public static int preference_widget_width=0x7f090039;
+        public static int time_ampm_label_size=0x7f09001d;
+        public static int time_label_size=0x7f09001c;
     }
     public static final class drawable {
         public static int abc_ab_bottom_solid_dark_holo=0x7f020000;
@@ -1994,142 +1994,142 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static int transparent=0x7f020194;
     }
     public static final class id {
-        public static int action_bar=0x7f070025;
-        public static int action_bar_activity_content=0x7f07000a;
-        public static int action_bar_container=0x7f070024;
-        public static int action_bar_overlay_layout=0x7f070028;
-        public static int action_bar_root=0x7f070023;
-        public static int action_bar_subtitle=0x7f07002c;
-        public static int action_bar_title=0x7f07002b;
-        public static int action_context_bar=0x7f070026;
-        public static int action_menu_divider=0x7f07000b;
-        public static int action_menu_presenter=0x7f07000c;
-        public static int action_mode_bar=0x7f07003a;
-        public static int action_mode_bar_stub=0x7f070039;
-        public static int action_mode_close_button=0x7f07002d;
-        public static int activity_chooser_view_content=0x7f07002e;
-        public static int alertTitle=0x7f070051;
-        public static int ampm_label=0x7f070083;
-        public static int animator=0x7f070067;
-        public static int atThumb=0x7f070018;
-        public static int auto=0x7f070021;
-        public static int back_button=0x7f070075;
-        public static int button1=0x7f07005c;
-        public static int button2=0x7f07005a;
-        public static int button3=0x7f07005b;
-        public static int buttonPanel=0x7f070058;
-        public static int buttonPanelTopDivivder=0x7f070059;
-        public static int button_always=0x7f07007a;
-        public static int button_bar=0x7f070074;
-        public static int button_once=0x7f07007b;
-        public static int checkbox=0x7f070036;
-        public static int contentPanel=0x7f070053;
-        public static int custom=0x7f070057;
-        public static int customPanel=0x7f070056;
-        public static int dark=0x7f07001a;
-        public static int date_picker_day=0x7f070064;
-        public static int date_picker_month=0x7f070063;
-        public static int date_picker_month_and_day=0x7f070062;
-        public static int date_picker_week=0x7f070061;
-        public static int date_picker_year=0x7f070065;
-        public static int day_picker_selected_date_layout=0x7f070060;
-        public static int decrement=0x7f070012;
-        public static int default_activity_button=0x7f070031;
-        public static int dialog=0x7f07001e;
-        public static int disableHome=0x7f070008;
-        public static int done=0x7f070066;
-        public static int done_button=0x7f070086;
-        public static int dropdown=0x7f07001f;
-        public static int edit=0x7f07000d;
-        public static int edit_query=0x7f070041;
-        public static int edittext_container=0x7f07006e;
-        public static int empty=0x7f070013;
-        public static int expand_activities_button=0x7f07002f;
-        public static int expanded_menu=0x7f070035;
-        public static int floating=0x7f070017;
-        public static int fontLoaderFont=0x7f070014;
-        public static int fontLoaderFontFamily=0x7f070016;
-        public static int fontLoaderFontStyle=0x7f070015;
-        public static int headers=0x7f070070;
-        public static int home=0x7f070009;
-        public static int homeAsUp=0x7f070005;
-        public static int hour_space=0x7f07007e;
-        public static int hours=0x7f070080;
-        public static int icon=0x7f070033;
-        public static int image=0x7f070030;
-        public static int increment=0x7f070011;
-        public static int internalEmpty=0x7f07006a;
-        public static int invalid=0x7f070019;
-        public static int leftSpacer=0x7f07000e;
-        public static int left_icon=0x7f07003c;
-        public static int light=0x7f07001b;
-        public static int listContainer=0x7f070069;
-        public static int listMode=0x7f070001;
-        public static int list_footer=0x7f070071;
-        public static int list_item=0x7f070032;
-        public static int message=0x7f070055;
-        public static int minutes=0x7f070082;
-        public static int minutes_space=0x7f070081;
-        public static int mixed=0x7f07001c;
-        public static int month_text_view=0x7f070087;
-        public static int next_button=0x7f070077;
-        public static int no=0x7f070020;
-        public static int normal=0x7f070000;
-        public static int numberpicker_input=0x7f07006b;
-        public static int parentPanel=0x7f07004d;
-        public static int preference=0x7f07001d;
-        public static int prefs=0x7f070073;
-        public static int prefs_frame=0x7f070072;
-        public static int progress=0x7f07005d;
-        public static int progressContainer=0x7f070068;
-        public static int progress_circular=0x7f07003f;
-        public static int progress_horizontal=0x7f070040;
-        public static int progress_number=0x7f07005f;
-        public static int progress_percent=0x7f07005e;
-        public static int radio=0x7f070038;
-        public static int resolver_grid=0x7f070079;
-        public static int rightSpacer=0x7f07000f;
-        public static int right_container=0x7f07003d;
-        public static int right_icon=0x7f07003e;
-        public static int scrollView=0x7f070054;
-        public static int search_badge=0x7f070043;
-        public static int search_bar=0x7f070042;
-        public static int search_button=0x7f070044;
-        public static int search_close_btn=0x7f070049;
-        public static int search_edit_frame=0x7f070045;
-        public static int search_go_btn=0x7f07004b;
-        public static int search_mag_icon=0x7f070046;
-        public static int search_plate=0x7f070047;
-        public static int search_src_text=0x7f070048;
-        public static int search_voice_btn=0x7f07004c;
-        public static int seekbar=0x7f07006f;
-        public static int select_dialog_listview=0x7f07007c;
-        public static int separator=0x7f07007f;
-        public static int shortcut=0x7f070037;
-        public static int showCustom=0x7f070007;
-        public static int showHome=0x7f070004;
-        public static int showTitle=0x7f070006;
-        public static int skip_button=0x7f070076;
-        public static int split_action_bar=0x7f070027;
-        public static int submit_area=0x7f07004a;
-        public static int summary=0x7f07006c;
-        public static int switchWidget=0x7f070078;
-        public static int tabMode=0x7f070002;
-        public static int tabSwipePager=0x7f07007d;
-        public static int time_picker=0x7f070085;
-        public static int time_picker_dialog=0x7f070084;
-        public static int title=0x7f070034;
-        public static int titleDivider=0x7f070052;
-        public static int titleDividerTop=0x7f07004f;
-        public static int title_container=0x7f07003b;
-        public static int title_template=0x7f070050;
-        public static int topPanel=0x7f07004e;
-        public static int top_action_bar=0x7f070029;
-        public static int typeface=0x7f070010;
-        public static int up=0x7f07002a;
-        public static int useLogo=0x7f070003;
-        public static int widget_frame=0x7f07006d;
-        public static int yes=0x7f070022;
+        public static int action_bar=0x7f0b0025;
+        public static int action_bar_activity_content=0x7f0b0001;
+        public static int action_bar_container=0x7f0b0024;
+        public static int action_bar_overlay_layout=0x7f0b0028;
+        public static int action_bar_root=0x7f0b0023;
+        public static int action_bar_subtitle=0x7f0b002c;
+        public static int action_bar_title=0x7f0b002b;
+        public static int action_context_bar=0x7f0b0026;
+        public static int action_menu_divider=0x7f0b0002;
+        public static int action_menu_presenter=0x7f0b0003;
+        public static int action_mode_bar=0x7f0b003a;
+        public static int action_mode_bar_stub=0x7f0b0039;
+        public static int action_mode_close_button=0x7f0b002d;
+        public static int activity_chooser_view_content=0x7f0b002e;
+        public static int alertTitle=0x7f0b0051;
+        public static int ampm_label=0x7f0b0083;
+        public static int animator=0x7f0b0067;
+        public static int atThumb=0x7f0b0017;
+        public static int auto=0x7f0b0020;
+        public static int back_button=0x7f0b0075;
+        public static int button1=0x7f0b005c;
+        public static int button2=0x7f0b005a;
+        public static int button3=0x7f0b005b;
+        public static int buttonPanel=0x7f0b0058;
+        public static int buttonPanelTopDivivder=0x7f0b0059;
+        public static int button_always=0x7f0b007a;
+        public static int button_bar=0x7f0b0074;
+        public static int button_once=0x7f0b007b;
+        public static int checkbox=0x7f0b0036;
+        public static int contentPanel=0x7f0b0053;
+        public static int custom=0x7f0b0057;
+        public static int customPanel=0x7f0b0056;
+        public static int dark=0x7f0b0019;
+        public static int date_picker_day=0x7f0b0064;
+        public static int date_picker_month=0x7f0b0063;
+        public static int date_picker_month_and_day=0x7f0b0062;
+        public static int date_picker_week=0x7f0b0061;
+        public static int date_picker_year=0x7f0b0065;
+        public static int day_picker_selected_date_layout=0x7f0b0060;
+        public static int decrement=0x7f0b0009;
+        public static int default_activity_button=0x7f0b0031;
+        public static int dialog=0x7f0b001e;
+        public static int disableHome=0x7f0b0011;
+        public static int done=0x7f0b0066;
+        public static int done_button=0x7f0b0086;
+        public static int dropdown=0x7f0b001f;
+        public static int edit=0x7f0b0004;
+        public static int edit_query=0x7f0b0041;
+        public static int edittext_container=0x7f0b006e;
+        public static int empty=0x7f0b000a;
+        public static int expand_activities_button=0x7f0b002f;
+        public static int expanded_menu=0x7f0b0035;
+        public static int floating=0x7f0b0018;
+        public static int fontLoaderFont=0x7f0b000b;
+        public static int fontLoaderFontFamily=0x7f0b000d;
+        public static int fontLoaderFontStyle=0x7f0b000c;
+        public static int headers=0x7f0b0070;
+        public static int home=0x7f0b0000;
+        public static int homeAsUp=0x7f0b0012;
+        public static int hour_space=0x7f0b007e;
+        public static int hours=0x7f0b0080;
+        public static int icon=0x7f0b0033;
+        public static int image=0x7f0b0030;
+        public static int increment=0x7f0b0008;
+        public static int internalEmpty=0x7f0b006a;
+        public static int invalid=0x7f0b001a;
+        public static int leftSpacer=0x7f0b0005;
+        public static int left_icon=0x7f0b003c;
+        public static int light=0x7f0b001b;
+        public static int listContainer=0x7f0b0069;
+        public static int listMode=0x7f0b000e;
+        public static int list_footer=0x7f0b0071;
+        public static int list_item=0x7f0b0032;
+        public static int message=0x7f0b0055;
+        public static int minutes=0x7f0b0082;
+        public static int minutes_space=0x7f0b0081;
+        public static int mixed=0x7f0b001c;
+        public static int month_text_view=0x7f0b0087;
+        public static int next_button=0x7f0b0077;
+        public static int no=0x7f0b0021;
+        public static int normal=0x7f0b000f;
+        public static int numberpicker_input=0x7f0b006b;
+        public static int parentPanel=0x7f0b004d;
+        public static int preference=0x7f0b001d;
+        public static int prefs=0x7f0b0073;
+        public static int prefs_frame=0x7f0b0072;
+        public static int progress=0x7f0b005d;
+        public static int progressContainer=0x7f0b0068;
+        public static int progress_circular=0x7f0b003f;
+        public static int progress_horizontal=0x7f0b0040;
+        public static int progress_number=0x7f0b005f;
+        public static int progress_percent=0x7f0b005e;
+        public static int radio=0x7f0b0038;
+        public static int resolver_grid=0x7f0b0079;
+        public static int rightSpacer=0x7f0b0006;
+        public static int right_container=0x7f0b003d;
+        public static int right_icon=0x7f0b003e;
+        public static int scrollView=0x7f0b0054;
+        public static int search_badge=0x7f0b0043;
+        public static int search_bar=0x7f0b0042;
+        public static int search_button=0x7f0b0044;
+        public static int search_close_btn=0x7f0b0049;
+        public static int search_edit_frame=0x7f0b0045;
+        public static int search_go_btn=0x7f0b004b;
+        public static int search_mag_icon=0x7f0b0046;
+        public static int search_plate=0x7f0b0047;
+        public static int search_src_text=0x7f0b0048;
+        public static int search_voice_btn=0x7f0b004c;
+        public static int seekbar=0x7f0b006f;
+        public static int select_dialog_listview=0x7f0b007c;
+        public static int separator=0x7f0b007f;
+        public static int shortcut=0x7f0b0037;
+        public static int showCustom=0x7f0b0013;
+        public static int showHome=0x7f0b0014;
+        public static int showTitle=0x7f0b0015;
+        public static int skip_button=0x7f0b0076;
+        public static int split_action_bar=0x7f0b0027;
+        public static int submit_area=0x7f0b004a;
+        public static int summary=0x7f0b006c;
+        public static int switchWidget=0x7f0b0078;
+        public static int tabMode=0x7f0b0010;
+        public static int tabSwipePager=0x7f0b007d;
+        public static int time_picker=0x7f0b0085;
+        public static int time_picker_dialog=0x7f0b0084;
+        public static int title=0x7f0b0034;
+        public static int titleDivider=0x7f0b0052;
+        public static int titleDividerTop=0x7f0b004f;
+        public static int title_container=0x7f0b003b;
+        public static int title_template=0x7f0b0050;
+        public static int topPanel=0x7f0b004e;
+        public static int top_action_bar=0x7f0b0029;
+        public static int typeface=0x7f0b0007;
+        public static int up=0x7f0b002a;
+        public static int useLogo=0x7f0b0016;
+        public static int widget_frame=0x7f0b006d;
+        public static int yes=0x7f0b0022;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -2154,18 +2154,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          an action bar/action mode. This will be used to determine how many
          showAsAction="ifRoom" items can fit. "always" items can override this. 
          */
-        public static int abc_max_action_buttons=0x7f0b0000;
-        public static int config_activityDefaultDur=0x7f0b0002;
-        public static int config_activityShortDur=0x7f0b0001;
-        public static int config_longAnimTime=0x7f0b0005;
-        public static int config_maxResolverActivityColumns=0x7f0b0006;
-        public static int config_mediumAnimTime=0x7f0b0004;
-        public static int config_shortAnimTime=0x7f0b0003;
-        public static int date_year_view_num_columns=0x7f0b0007;
-        public static int preference_fragment_scrollbarStyle=0x7f0b0009;
-        public static int preference_screen_header_scrollbarStyle=0x7f0b0008;
-        public static int preferences_left_pane_weight=0x7f0b000a;
-        public static int preferences_right_pane_weight=0x7f0b000b;
+        public static int abc_max_action_buttons=0x7f0a0000;
+        public static int config_activityDefaultDur=0x7f0a0002;
+        public static int config_activityShortDur=0x7f0a0001;
+        public static int config_longAnimTime=0x7f0a0005;
+        public static int config_maxResolverActivityColumns=0x7f0a0006;
+        public static int config_mediumAnimTime=0x7f0a0004;
+        public static int config_shortAnimTime=0x7f0a0003;
+        public static int date_year_view_num_columns=0x7f0a0007;
+        public static int preference_fragment_scrollbarStyle=0x7f0a0009;
+        public static int preference_screen_header_scrollbarStyle=0x7f0a0008;
+        public static int preferences_left_pane_weight=0x7f0a000a;
+        public static int preferences_right_pane_weight=0x7f0a000b;
     }
     public static final class interpolator {
         public static int accelerate_cubic=0x7f050000;
@@ -2795,19 +2795,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #AbsListView} array.
           @attr name android:choiceMode
         */
-        public static final int AbsListView_android_choiceMode = 0;
+        public static int AbsListView_android_choiceMode = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#fastScrollAlwaysVisible}
           attribute's value can be found in the {@link #AbsListView} array.
           @attr name android:fastScrollAlwaysVisible
         */
-        public static final int AbsListView_android_fastScrollAlwaysVisible = 2;
+        public static int AbsListView_android_fastScrollAlwaysVisible = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#fastScrollEnabled}
           attribute's value can be found in the {@link #AbsListView} array.
           @attr name android:fastScrollEnabled
         */
-        public static final int AbsListView_android_fastScrollEnabled = 1;
+        public static int AbsListView_android_fastScrollEnabled = 1;
         /** Attributes that can be used with a AbsSpinner.
            <p>Includes the following attributes:</p>
            <table>
@@ -2826,7 +2826,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #AbsSpinner} array.
           @attr name android:entries
         */
-        public static final int AbsSpinner_android_entries = 0;
+        public static int AbsSpinner_android_entries = 0;
         /**  ============================================ 
  Attributes used to style the Action Bar.
          These should be set on your theme; the default actionBarStyle will
@@ -2897,7 +2897,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:background
         */
-        public static final int ActionBar_background = 9;
+        public static int ActionBar_background = 9;
         /**
           <p>
           @attr description
@@ -2911,7 +2911,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:backgroundSplit
         */
-        public static final int ActionBar_backgroundSplit = 11;
+        public static int ActionBar_backgroundSplit = 11;
         /**
           <p>
           @attr description
@@ -2925,7 +2925,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:backgroundStacked
         */
-        public static final int ActionBar_backgroundStacked = 10;
+        public static int ActionBar_backgroundStacked = 10;
         /**
           <p>
           @attr description
@@ -2937,7 +2937,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:customNavigationLayout
         */
-        public static final int ActionBar_customNavigationLayout = 12;
+        public static int ActionBar_customNavigationLayout = 12;
         /**
           <p>
           @attr description
@@ -2960,7 +2960,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:displayOptions
         */
-        public static final int ActionBar_displayOptions = 3;
+        public static int ActionBar_displayOptions = 3;
         /**
           <p>
           @attr description
@@ -2978,7 +2978,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:height
         */
-        public static final int ActionBar_height = 1;
+        public static int ActionBar_height = 1;
         /**
           <p>
           @attr description
@@ -2990,7 +2990,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:homeLayout
         */
-        public static final int ActionBar_homeLayout = 13;
+        public static int ActionBar_homeLayout = 13;
         /**
           <p>
           @attr description
@@ -3002,7 +3002,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:icon
         */
-        public static final int ActionBar_icon = 7;
+        public static int ActionBar_icon = 7;
         /**
           <p>
           @attr description
@@ -3014,7 +3014,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:indeterminateProgressStyle
         */
-        public static final int ActionBar_indeterminateProgressStyle = 15;
+        public static int ActionBar_indeterminateProgressStyle = 15;
         /**
           <p>
           @attr description
@@ -3033,7 +3033,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:itemPadding
         */
-        public static final int ActionBar_itemPadding = 17;
+        public static int ActionBar_itemPadding = 17;
         /**
           <p>
           @attr description
@@ -3045,7 +3045,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:logo
         */
-        public static final int ActionBar_logo = 8;
+        public static int ActionBar_logo = 8;
         /**
           <p>
           @attr description
@@ -3065,7 +3065,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:navigationMode
         */
-        public static final int ActionBar_navigationMode = 2;
+        public static int ActionBar_navigationMode = 2;
         /**
           <p>
           @attr description
@@ -3083,7 +3083,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:progressBarPadding
         */
-        public static final int ActionBar_progressBarPadding = 16;
+        public static int ActionBar_progressBarPadding = 16;
         /**
           <p>
           @attr description
@@ -3095,7 +3095,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:progressBarStyle
         */
-        public static final int ActionBar_progressBarStyle = 14;
+        public static int ActionBar_progressBarStyle = 14;
         /**
           <p>
           @attr description
@@ -3111,7 +3111,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:subtitle
         */
-        public static final int ActionBar_subtitle = 4;
+        public static int ActionBar_subtitle = 4;
         /**
           <p>
           @attr description
@@ -3123,7 +3123,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:subtitleTextStyle
         */
-        public static final int ActionBar_subtitleTextStyle = 6;
+        public static int ActionBar_subtitleTextStyle = 6;
         /**
           <p>
           @attr description
@@ -3139,7 +3139,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:title
         */
-        public static final int ActionBar_title = 0;
+        public static int ActionBar_title = 0;
         /**
           <p>
           @attr description
@@ -3151,7 +3151,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:titleTextStyle
         */
-        public static final int ActionBar_titleTextStyle = 5;
+        public static int ActionBar_titleTextStyle = 5;
         /**  Valid LayoutParams for views placed in the action bar as custom views. 
            <p>Includes the following attributes:</p>
            <table>
@@ -3170,7 +3170,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #ActionBarLayout} array.
           @attr name android:layout_gravity
         */
-        public static final int ActionBarLayout_android_layout_gravity = 0;
+        public static int ActionBarLayout_android_layout_gravity = 0;
         /**  These attributes are meant to be specified and customized by the app.
          The system will read and apply them as needed. These attributes control
          properties of the activity window, such as whether an action bar should
@@ -3204,7 +3204,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowActionBar
         */
-        public static final int ActionBarWindow_windowActionBar = 0;
+        public static int ActionBarWindow_windowActionBar = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowActionBarOverlay}
           attribute's value can be found in the {@link #ActionBarWindow} array.
@@ -3218,7 +3218,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowActionBarOverlay
         */
-        public static final int ActionBarWindow_windowActionBarOverlay = 1;
+        public static int ActionBarWindow_windowActionBarOverlay = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowSplitActionBar}
           attribute's value can be found in the {@link #ActionBarWindow} array.
@@ -3232,7 +3232,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowSplitActionBar
         */
-        public static final int ActionBarWindow_windowSplitActionBar = 2;
+        public static int ActionBarWindow_windowSplitActionBar = 2;
         /** Attributes that can be used with a ActionMenuItemView.
            <p>Includes the following attributes:</p>
            <table>
@@ -3251,7 +3251,7 @@ containing a value of this type.
           attribute's value can be found in the {@link #ActionMenuItemView} array.
           @attr name android:minWidth
         */
-        public static final int ActionMenuItemView_android_minWidth = 0;
+        public static int ActionMenuItemView_android_minWidth = 0;
         /**  Size of padding on either end of a divider. 
          */
         public static final int[] ActionMenuView = {
@@ -3290,7 +3290,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:background
         */
-        public static final int ActionMode_background = 3;
+        public static int ActionMode_background = 3;
         /**
           <p>
           @attr description
@@ -3304,7 +3304,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:backgroundSplit
         */
-        public static final int ActionMode_backgroundSplit = 4;
+        public static int ActionMode_backgroundSplit = 4;
         /**
           <p>
           @attr description
@@ -3322,7 +3322,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:height
         */
-        public static final int ActionMode_height = 0;
+        public static int ActionMode_height = 0;
         /**
           <p>
           @attr description
@@ -3334,7 +3334,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:subtitleTextStyle
         */
-        public static final int ActionMode_subtitleTextStyle = 2;
+        public static int ActionMode_subtitleTextStyle = 2;
         /**
           <p>
           @attr description
@@ -3346,7 +3346,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:titleTextStyle
         */
-        public static final int ActionMode_titleTextStyle = 1;
+        public static int ActionMode_titleTextStyle = 1;
         /**  Attrbitutes for a ActivityChooserView. 
            <p>Includes the following attributes:</p>
            <table>
@@ -3378,7 +3378,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:expandActivityOverflowButtonDrawable
         */
-        public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
+        public static int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
         /**
           <p>
           @attr description
@@ -3394,7 +3394,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:initialActivityCount
         */
-        public static final int ActivityChooserView_initialActivityCount = 0;
+        public static int ActivityChooserView_initialActivityCount = 0;
         /** Attributes that can be used with a AlertDialog.
            <p>Includes the following attributes:</p>
            <table>
@@ -3451,7 +3451,7 @@ containing a value of this type.
           attribute's value can be found in the {@link #AlertDialog} array.
           @attr name android:gravity
         */
-        public static final int AlertDialog_android_gravity = 0;
+        public static int AlertDialog_android_gravity = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#bottomBright}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3463,7 +3463,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:bottomBright
         */
-        public static final int AlertDialog_bottomBright = 1;
+        public static int AlertDialog_bottomBright = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#bottomDark}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3475,7 +3475,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:bottomDark
         */
-        public static final int AlertDialog_bottomDark = 2;
+        public static int AlertDialog_bottomDark = 2;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#bottomMedium}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3487,7 +3487,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:bottomMedium
         */
-        public static final int AlertDialog_bottomMedium = 3;
+        public static int AlertDialog_bottomMedium = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#centerBright}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3499,7 +3499,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:centerBright
         */
-        public static final int AlertDialog_centerBright = 4;
+        public static int AlertDialog_centerBright = 4;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#centerDark}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3511,7 +3511,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:centerDark
         */
-        public static final int AlertDialog_centerDark = 5;
+        public static int AlertDialog_centerDark = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#centerMedium}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3523,7 +3523,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:centerMedium
         */
-        public static final int AlertDialog_centerMedium = 6;
+        public static int AlertDialog_centerMedium = 6;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fullBright}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3535,7 +3535,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:fullBright
         */
-        public static final int AlertDialog_fullBright = 7;
+        public static int AlertDialog_fullBright = 7;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fullDark}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3547,7 +3547,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:fullDark
         */
-        public static final int AlertDialog_fullDark = 8;
+        public static int AlertDialog_fullDark = 8;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#horizontalProgressLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3557,7 +3557,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:horizontalProgressLayout
         */
-        public static final int AlertDialog_horizontalProgressLayout = 9;
+        public static int AlertDialog_horizontalProgressLayout = 9;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#layout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3567,7 +3567,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:layout
         */
-        public static final int AlertDialog_layout = 10;
+        public static int AlertDialog_layout = 10;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#listItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3577,7 +3577,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:listItemLayout
         */
-        public static final int AlertDialog_listItemLayout = 11;
+        public static int AlertDialog_listItemLayout = 11;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#listLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3587,7 +3587,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:listLayout
         */
-        public static final int AlertDialog_listLayout = 12;
+        public static int AlertDialog_listLayout = 12;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#multiChoiceItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3597,7 +3597,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:multiChoiceItemLayout
         */
-        public static final int AlertDialog_multiChoiceItemLayout = 13;
+        public static int AlertDialog_multiChoiceItemLayout = 13;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#progressLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3607,7 +3607,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:progressLayout
         */
-        public static final int AlertDialog_progressLayout = 14;
+        public static int AlertDialog_progressLayout = 14;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#singleChoiceItemLayout}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3617,7 +3617,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:singleChoiceItemLayout
         */
-        public static final int AlertDialog_singleChoiceItemLayout = 15;
+        public static int AlertDialog_singleChoiceItemLayout = 15;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#topBright}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3629,7 +3629,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:topBright
         */
-        public static final int AlertDialog_topBright = 16;
+        public static int AlertDialog_topBright = 16;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#topDark}
           attribute's value can be found in the {@link #AlertDialog} array.
@@ -3641,7 +3641,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:topDark
         */
-        public static final int AlertDialog_topDark = 17;
+        public static int AlertDialog_topDark = 17;
         /** Attributes that can be used with a AutoCompleteTextView.
            <p>Includes the following attributes:</p>
            <table>
@@ -3682,55 +3682,55 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:completionHint
         */
-        public static final int AutoCompleteTextView_android_completionHint = 1;
+        public static int AutoCompleteTextView_android_completionHint = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#completionHintView}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:completionHintView
         */
-        public static final int AutoCompleteTextView_android_completionHintView = 2;
+        public static int AutoCompleteTextView_android_completionHintView = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#completionThreshold}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:completionThreshold
         */
-        public static final int AutoCompleteTextView_android_completionThreshold = 3;
+        public static int AutoCompleteTextView_android_completionThreshold = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dropDownAnchor}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:dropDownAnchor
         */
-        public static final int AutoCompleteTextView_android_dropDownAnchor = 7;
+        public static int AutoCompleteTextView_android_dropDownAnchor = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dropDownHeight}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:dropDownHeight
         */
-        public static final int AutoCompleteTextView_android_dropDownHeight = 8;
+        public static int AutoCompleteTextView_android_dropDownHeight = 8;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dropDownSelector}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:dropDownSelector
         */
-        public static final int AutoCompleteTextView_android_dropDownSelector = 4;
+        public static int AutoCompleteTextView_android_dropDownSelector = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dropDownWidth}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:dropDownWidth
         */
-        public static final int AutoCompleteTextView_android_dropDownWidth = 6;
+        public static int AutoCompleteTextView_android_dropDownWidth = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#entries}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:entries
         */
-        public static final int AutoCompleteTextView_android_entries = 0;
+        public static int AutoCompleteTextView_android_entries = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#inputType}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
           @attr name android:inputType
         */
-        public static final int AutoCompleteTextView_android_inputType = 5;
+        public static int AutoCompleteTextView_android_inputType = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dropDownHorizontalOffset}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
@@ -3746,7 +3746,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:dropDownHorizontalOffset
         */
-        public static final int AutoCompleteTextView_dropDownHorizontalOffset = 9;
+        public static int AutoCompleteTextView_dropDownHorizontalOffset = 9;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dropDownVerticalOffset}
           attribute's value can be found in the {@link #AutoCompleteTextView} array.
@@ -3762,7 +3762,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:dropDownVerticalOffset
         */
-        public static final int AutoCompleteTextView_dropDownVerticalOffset = 10;
+        public static int AutoCompleteTextView_dropDownVerticalOffset = 10;
         /** Attributes that can be used with a ColorDrawable.
            <p>Includes the following attributes:</p>
            <table>
@@ -3781,7 +3781,7 @@ containing a value of this type.
           attribute's value can be found in the {@link #ColorDrawable} array.
           @attr name android:color
         */
-        public static final int ColorDrawable_android_color = 0;
+        public static int ColorDrawable_android_color = 0;
         /** Attributes that can be used with a DateTimePicker.
            <p>Includes the following attributes:</p>
            <table>
@@ -3833,7 +3833,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:dateCircleColor
         */
-        public static final int DateTimePicker_dateCircleColor = 0;
+        public static int DateTimePicker_dateCircleColor = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dateDayTextColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3845,7 +3845,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:dateDayTextColor
         */
-        public static final int DateTimePicker_dateDayTextColor = 1;
+        public static int DateTimePicker_dateDayTextColor = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dateMonthTitleColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3857,7 +3857,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:dateMonthTitleColor
         */
-        public static final int DateTimePicker_dateMonthTitleColor = 2;
+        public static int DateTimePicker_dateMonthTitleColor = 2;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dateTodayColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3869,7 +3869,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:dateTodayColor
         */
-        public static final int DateTimePicker_dateTodayColor = 3;
+        public static int DateTimePicker_dateTodayColor = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dateYearSelectorColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3881,7 +3881,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:dateYearSelectorColor
         */
-        public static final int DateTimePicker_dateYearSelectorColor = 4;
+        public static int DateTimePicker_dateYearSelectorColor = 4;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeAmPmPicker}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3893,7 +3893,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeAmPmPicker
         */
-        public static final int DateTimePicker_timeAmPmPicker = 5;
+        public static int DateTimePicker_timeAmPmPicker = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeAmPmPickerBackground}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3905,7 +3905,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeAmPmPickerBackground
         */
-        public static final int DateTimePicker_timeAmPmPickerBackground = 6;
+        public static int DateTimePicker_timeAmPmPickerBackground = 6;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeAmPmPickerTextColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3917,7 +3917,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeAmPmPickerTextColor
         */
-        public static final int DateTimePicker_timeAmPmPickerTextColor = 7;
+        public static int DateTimePicker_timeAmPmPickerTextColor = 7;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeCenterPointerColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3929,7 +3929,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeCenterPointerColor
         */
-        public static final int DateTimePicker_timeCenterPointerColor = 8;
+        public static int DateTimePicker_timeCenterPointerColor = 8;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeCenterPointerRadius}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3940,7 +3940,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be an integer value, such as "<code>100</code>".
           @attr name org.holoeverywhere.preference:timeCenterPointerRadius
         */
-        public static final int DateTimePicker_timeCenterPointerRadius = 9;
+        public static int DateTimePicker_timeCenterPointerRadius = 9;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeCircleColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3952,7 +3952,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeCircleColor
         */
-        public static final int DateTimePicker_timeCircleColor = 10;
+        public static int DateTimePicker_timeCircleColor = 10;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timePickerSelectorColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3964,7 +3964,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timePickerSelectorColor
         */
-        public static final int DateTimePicker_timePickerSelectorColor = 11;
+        public static int DateTimePicker_timePickerSelectorColor = 11;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#timeRadialTextColor}
           attribute's value can be found in the {@link #DateTimePicker} array.
@@ -3976,7 +3976,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:timeRadialTextColor
         */
-        public static final int DateTimePicker_timeRadialTextColor = 12;
+        public static int DateTimePicker_timeRadialTextColor = 12;
         /** Attributes that can be used with a DialogPreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -4006,37 +4006,37 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:dialogIcon
         */
-        public static final int DialogPreference_android_dialogIcon = 2;
+        public static int DialogPreference_android_dialogIcon = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dialogLayout}
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:dialogLayout
         */
-        public static final int DialogPreference_android_dialogLayout = 5;
+        public static int DialogPreference_android_dialogLayout = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dialogMessage}
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:dialogMessage
         */
-        public static final int DialogPreference_android_dialogMessage = 1;
+        public static int DialogPreference_android_dialogMessage = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dialogTitle}
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:dialogTitle
         */
-        public static final int DialogPreference_android_dialogTitle = 0;
+        public static int DialogPreference_android_dialogTitle = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#negativeButtonText}
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:negativeButtonText
         */
-        public static final int DialogPreference_android_negativeButtonText = 4;
+        public static int DialogPreference_android_negativeButtonText = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#positiveButtonText}
           attribute's value can be found in the {@link #DialogPreference} array.
           @attr name android:positiveButtonText
         */
-        public static final int DialogPreference_android_positiveButtonText = 3;
+        public static int DialogPreference_android_positiveButtonText = 3;
         /** Attributes that can be used with a Divider.
            <p>Includes the following attributes:</p>
            <table>
@@ -4055,7 +4055,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #Divider} array.
           @attr name android:orientation
         */
-        public static final int Divider_android_orientation = 0;
+        public static int Divider_android_orientation = 0;
         /** Attributes that can be used with a ExpandableListView.
            <p>Includes the following attributes:</p>
            <table>
@@ -4087,43 +4087,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:childDivider
         */
-        public static final int ExpandableListView_android_childDivider = 6;
+        public static int ExpandableListView_android_childDivider = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#childIndicator}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:childIndicator
         */
-        public static final int ExpandableListView_android_childIndicator = 1;
+        public static int ExpandableListView_android_childIndicator = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#childIndicatorLeft}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:childIndicatorLeft
         */
-        public static final int ExpandableListView_android_childIndicatorLeft = 4;
+        public static int ExpandableListView_android_childIndicatorLeft = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#childIndicatorRight}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:childIndicatorRight
         */
-        public static final int ExpandableListView_android_childIndicatorRight = 5;
+        public static int ExpandableListView_android_childIndicatorRight = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#groupIndicator}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:groupIndicator
         */
-        public static final int ExpandableListView_android_groupIndicator = 0;
+        public static int ExpandableListView_android_groupIndicator = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indicatorLeft}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:indicatorLeft
         */
-        public static final int ExpandableListView_android_indicatorLeft = 2;
+        public static int ExpandableListView_android_indicatorLeft = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indicatorRight}
           attribute's value can be found in the {@link #ExpandableListView} array.
           @attr name android:indicatorRight
         */
-        public static final int ExpandableListView_android_indicatorRight = 3;
+        public static int ExpandableListView_android_indicatorRight = 3;
         /** Attributes that can be used with a Extra.
            <p>Includes the following attributes:</p>
            <table>
@@ -4144,13 +4144,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #Extra} array.
           @attr name android:name
         */
-        public static final int Extra_android_name = 0;
+        public static int Extra_android_name = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#value}
           attribute's value can be found in the {@link #Extra} array.
           @attr name android:value
         */
-        public static final int Extra_android_value = 1;
+        public static int Extra_android_value = 1;
         /** Attributes that can be used with a FastScroll.
            <p>Includes the following attributes:</p>
            <table>
@@ -4191,7 +4191,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name org.holoeverywhere.preference:fastScrollOverlayPosition
         */
-        public static final int FastScroll_fastScrollOverlayPosition = 0;
+        public static int FastScroll_fastScrollOverlayPosition = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fastScrollPreviewBackgroundLeft}
           attribute's value can be found in the {@link #FastScroll} array.
@@ -4201,7 +4201,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:fastScrollPreviewBackgroundLeft
         */
-        public static final int FastScroll_fastScrollPreviewBackgroundLeft = 1;
+        public static int FastScroll_fastScrollPreviewBackgroundLeft = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fastScrollPreviewBackgroundRight}
           attribute's value can be found in the {@link #FastScroll} array.
@@ -4211,7 +4211,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:fastScrollPreviewBackgroundRight
         */
-        public static final int FastScroll_fastScrollPreviewBackgroundRight = 2;
+        public static int FastScroll_fastScrollPreviewBackgroundRight = 2;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fastScrollTextColor}
           attribute's value can be found in the {@link #FastScroll} array.
@@ -4226,7 +4226,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:fastScrollTextColor
         */
-        public static final int FastScroll_fastScrollTextColor = 3;
+        public static int FastScroll_fastScrollTextColor = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fastScrollThumbDrawable}
           attribute's value can be found in the {@link #FastScroll} array.
@@ -4236,7 +4236,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:fastScrollThumbDrawable
         */
-        public static final int FastScroll_fastScrollThumbDrawable = 4;
+        public static int FastScroll_fastScrollThumbDrawable = 4;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#fastScrollTrackDrawable}
           attribute's value can be found in the {@link #FastScroll} array.
@@ -4246,7 +4246,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:fastScrollTrackDrawable
         */
-        public static final int FastScroll_fastScrollTrackDrawable = 5;
+        public static int FastScroll_fastScrollTrackDrawable = 5;
         /** Attributes that can be used with a IconMenuView.
            <p>Includes the following attributes:</p>
            <table>
@@ -4274,31 +4274,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #IconMenuView} array.
           @attr name android:maxItems
         */
-        public static final int IconMenuView_android_maxItems = 4;
+        public static int IconMenuView_android_maxItems = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxItemsPerRow}
           attribute's value can be found in the {@link #IconMenuView} array.
           @attr name android:maxItemsPerRow
         */
-        public static final int IconMenuView_android_maxItemsPerRow = 2;
+        public static int IconMenuView_android_maxItemsPerRow = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxRows}
           attribute's value can be found in the {@link #IconMenuView} array.
           @attr name android:maxRows
         */
-        public static final int IconMenuView_android_maxRows = 1;
+        public static int IconMenuView_android_maxRows = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#moreIcon}
           attribute's value can be found in the {@link #IconMenuView} array.
           @attr name android:moreIcon
         */
-        public static final int IconMenuView_android_moreIcon = 3;
+        public static int IconMenuView_android_moreIcon = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#rowHeight}
           attribute's value can be found in the {@link #IconMenuView} array.
           @attr name android:rowHeight
         */
-        public static final int IconMenuView_android_rowHeight = 0;
+        public static int IconMenuView_android_rowHeight = 0;
         /** Attributes that can be used with a Intent.
            <p>Includes the following attributes:</p>
            <table>
@@ -4326,31 +4326,31 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #Intent} array.
           @attr name android:action
         */
-        public static final int Intent_android_action = 2;
+        public static int Intent_android_action = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#data}
           attribute's value can be found in the {@link #Intent} array.
           @attr name android:data
         */
-        public static final int Intent_android_data = 3;
+        public static int Intent_android_data = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#mimeType}
           attribute's value can be found in the {@link #Intent} array.
           @attr name android:mimeType
         */
-        public static final int Intent_android_mimeType = 1;
+        public static int Intent_android_mimeType = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#targetClass}
           attribute's value can be found in the {@link #Intent} array.
           @attr name android:targetClass
         */
-        public static final int Intent_android_targetClass = 4;
+        public static int Intent_android_targetClass = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#targetPackage}
           attribute's value can be found in the {@link #Intent} array.
           @attr name android:targetPackage
         */
-        public static final int Intent_android_targetPackage = 0;
+        public static int Intent_android_targetPackage = 0;
         /** Attributes that can be used with a IntentCategory.
            <p>Includes the following attributes:</p>
            <table>
@@ -4369,7 +4369,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #IntentCategory} array.
           @attr name android:name
         */
-        public static final int IntentCategory_android_name = 0;
+        public static int IntentCategory_android_name = 0;
         /** Attributes that can be used with a LayerDrawable.
            <p>Includes the following attributes:</p>
            <table>
@@ -4388,7 +4388,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #LayerDrawable} array.
           @attr name android:opacity
         */
-        public static final int LayerDrawable_android_opacity = 0;
+        public static int LayerDrawable_android_opacity = 0;
         /** Attributes that can be used with a LayerDrawableItem.
            <p>Includes the following attributes:</p>
            <table>
@@ -4418,37 +4418,37 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:bottom
         */
-        public static final int LayerDrawableItem_android_bottom = 5;
+        public static int LayerDrawableItem_android_bottom = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#drawable}
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:drawable
         */
-        public static final int LayerDrawableItem_android_drawable = 1;
+        public static int LayerDrawableItem_android_drawable = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#id}
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:id
         */
-        public static final int LayerDrawableItem_android_id = 0;
+        public static int LayerDrawableItem_android_id = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#left}
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:left
         */
-        public static final int LayerDrawableItem_android_left = 2;
+        public static int LayerDrawableItem_android_left = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#right}
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:right
         */
-        public static final int LayerDrawableItem_android_right = 4;
+        public static int LayerDrawableItem_android_right = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#top}
           attribute's value can be found in the {@link #LayerDrawableItem} array.
           @attr name android:top
         */
-        public static final int LayerDrawableItem_android_top = 3;
+        public static int LayerDrawableItem_android_top = 3;
         /** Attributes that can be used with a LinearLayout.
            <p>Includes the following attributes:</p>
            <table>
@@ -4485,55 +4485,55 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:baselineAligned
         */
-        public static final int LinearLayout_android_baselineAligned = 2;
+        public static int LinearLayout_android_baselineAligned = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#baselineAlignedChildIndex}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:baselineAlignedChildIndex
         */
-        public static final int LinearLayout_android_baselineAlignedChildIndex = 3;
+        public static int LinearLayout_android_baselineAlignedChildIndex = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#divider}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:divider
         */
-        public static final int LinearLayout_android_divider = 5;
+        public static int LinearLayout_android_divider = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dividerPadding}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:dividerPadding
         */
-        public static final int LinearLayout_android_dividerPadding = 8;
+        public static int LinearLayout_android_dividerPadding = 8;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#gravity}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:gravity
         */
-        public static final int LinearLayout_android_gravity = 0;
+        public static int LinearLayout_android_gravity = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#measureWithLargestChild}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:measureWithLargestChild
         */
-        public static final int LinearLayout_android_measureWithLargestChild = 6;
+        public static int LinearLayout_android_measureWithLargestChild = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#orientation}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:orientation
         */
-        public static final int LinearLayout_android_orientation = 1;
+        public static int LinearLayout_android_orientation = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#showDividers}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:showDividers
         */
-        public static final int LinearLayout_android_showDividers = 7;
+        public static int LinearLayout_android_showDividers = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#weightSum}
           attribute's value can be found in the {@link #LinearLayout} array.
           @attr name android:weightSum
         */
-        public static final int LinearLayout_android_weightSum = 4;
+        public static int LinearLayout_android_weightSum = 4;
         /** Attributes that can be used with a ListPreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -4554,13 +4554,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #ListPreference} array.
           @attr name android:entries
         */
-        public static final int ListPreference_android_entries = 0;
+        public static int ListPreference_android_entries = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#entryValues}
           attribute's value can be found in the {@link #ListPreference} array.
           @attr name android:entryValues
         */
-        public static final int ListPreference_android_entryValues = 1;
+        public static int ListPreference_android_entryValues = 1;
         /**  Base attributes that are available to all groups. 
            <p>Includes the following attributes:</p>
            <table>
@@ -4593,7 +4593,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#checkableBehavior}.
           @attr name android:checkableBehavior
         */
-        public static final int MenuGroup_android_checkableBehavior = 5;
+        public static int MenuGroup_android_checkableBehavior = 5;
         /**
           <p>
           @attr description
@@ -4602,7 +4602,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#enabled}.
           @attr name android:enabled
         */
-        public static final int MenuGroup_android_enabled = 0;
+        public static int MenuGroup_android_enabled = 0;
         /**
           <p>
           @attr description
@@ -4611,7 +4611,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#id}.
           @attr name android:id
         */
-        public static final int MenuGroup_android_id = 1;
+        public static int MenuGroup_android_id = 1;
         /**
           <p>
           @attr description
@@ -4621,7 +4621,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#menuCategory}.
           @attr name android:menuCategory
         */
-        public static final int MenuGroup_android_menuCategory = 3;
+        public static int MenuGroup_android_menuCategory = 3;
         /**
           <p>
           @attr description
@@ -4631,7 +4631,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#orderInCategory}.
           @attr name android:orderInCategory
         */
-        public static final int MenuGroup_android_orderInCategory = 4;
+        public static int MenuGroup_android_orderInCategory = 4;
         /**
           <p>
           @attr description
@@ -4640,7 +4640,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#visible}.
           @attr name android:visible
         */
-        public static final int MenuGroup_android_visible = 2;
+        public static int MenuGroup_android_visible = 2;
         /**  Base attributes that are available to all Item objects. 
            <p>Includes the following attributes:</p>
            <table>
@@ -4703,7 +4703,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#actionLayout}.
           @attr name android:actionLayout
         */
-        public static final int MenuItem_android_actionLayout = 14;
+        public static int MenuItem_android_actionLayout = 14;
         /**
           <p>
           @attr description
@@ -4715,7 +4715,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#actionProviderClass}.
           @attr name android:actionProviderClass
         */
-        public static final int MenuItem_android_actionProviderClass = 16;
+        public static int MenuItem_android_actionProviderClass = 16;
         /**
           <p>
           @attr description
@@ -4726,7 +4726,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#actionViewClass}.
           @attr name android:actionViewClass
         */
-        public static final int MenuItem_android_actionViewClass = 15;
+        public static int MenuItem_android_actionViewClass = 15;
         /**
           <p>
           @attr description
@@ -4736,7 +4736,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#alphabeticShortcut}.
           @attr name android:alphabeticShortcut
         */
-        public static final int MenuItem_android_alphabeticShortcut = 9;
+        public static int MenuItem_android_alphabeticShortcut = 9;
         /**
           <p>
           @attr description
@@ -4745,7 +4745,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#checkable}.
           @attr name android:checkable
         */
-        public static final int MenuItem_android_checkable = 11;
+        public static int MenuItem_android_checkable = 11;
         /**
           <p>
           @attr description
@@ -4755,7 +4755,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#checked}.
           @attr name android:checked
         */
-        public static final int MenuItem_android_checked = 3;
+        public static int MenuItem_android_checked = 3;
         /**
           <p>
           @attr description
@@ -4764,7 +4764,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#enabled}.
           @attr name android:enabled
         */
-        public static final int MenuItem_android_enabled = 1;
+        public static int MenuItem_android_enabled = 1;
         /**
           <p>
           @attr description
@@ -4774,7 +4774,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#icon}.
           @attr name android:icon
         */
-        public static final int MenuItem_android_icon = 0;
+        public static int MenuItem_android_icon = 0;
         /**
           <p>
           @attr description
@@ -4783,7 +4783,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#id}.
           @attr name android:id
         */
-        public static final int MenuItem_android_id = 2;
+        public static int MenuItem_android_id = 2;
         /**
           <p>
           @attr description
@@ -4793,7 +4793,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#menuCategory}.
           @attr name android:menuCategory
         */
-        public static final int MenuItem_android_menuCategory = 5;
+        public static int MenuItem_android_menuCategory = 5;
         /**
           <p>
           @attr description
@@ -4803,7 +4803,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#numericShortcut}.
           @attr name android:numericShortcut
         */
-        public static final int MenuItem_android_numericShortcut = 10;
+        public static int MenuItem_android_numericShortcut = 10;
         /**
           <p>
           @attr description
@@ -4813,7 +4813,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#onClick}.
           @attr name android:onClick
         */
-        public static final int MenuItem_android_onClick = 12;
+        public static int MenuItem_android_onClick = 12;
         /**
           <p>
           @attr description
@@ -4823,7 +4823,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#orderInCategory}.
           @attr name android:orderInCategory
         */
-        public static final int MenuItem_android_orderInCategory = 6;
+        public static int MenuItem_android_orderInCategory = 6;
         /**
           <p>
           @attr description
@@ -4832,7 +4832,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#showAsAction}.
           @attr name android:showAsAction
         */
-        public static final int MenuItem_android_showAsAction = 13;
+        public static int MenuItem_android_showAsAction = 13;
         /**
           <p>
           @attr description
@@ -4841,7 +4841,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#title}.
           @attr name android:title
         */
-        public static final int MenuItem_android_title = 7;
+        public static int MenuItem_android_title = 7;
         /**
           <p>
           @attr description
@@ -4851,7 +4851,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#titleCondensed}.
           @attr name android:titleCondensed
         */
-        public static final int MenuItem_android_titleCondensed = 8;
+        public static int MenuItem_android_titleCondensed = 8;
         /**
           <p>
           @attr description
@@ -4860,7 +4860,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#visible}.
           @attr name android:visible
         */
-        public static final int MenuItem_android_visible = 4;
+        public static int MenuItem_android_visible = 4;
         /** Attributes that can be used with a MenuView.
            <p>Includes the following attributes:</p>
            <table>
@@ -4894,49 +4894,49 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:headerBackground
         */
-        public static final int MenuView_android_headerBackground = 4;
+        public static int MenuView_android_headerBackground = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#horizontalDivider}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:horizontalDivider
         */
-        public static final int MenuView_android_horizontalDivider = 2;
+        public static int MenuView_android_horizontalDivider = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#itemBackground}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemBackground
         */
-        public static final int MenuView_android_itemBackground = 5;
+        public static int MenuView_android_itemBackground = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#itemIconDisabledAlpha}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemIconDisabledAlpha
         */
-        public static final int MenuView_android_itemIconDisabledAlpha = 6;
+        public static int MenuView_android_itemIconDisabledAlpha = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#itemTextAppearance}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:itemTextAppearance
         */
-        public static final int MenuView_android_itemTextAppearance = 1;
+        public static int MenuView_android_itemTextAppearance = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#preserveIconSpacing}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:preserveIconSpacing
         */
-        public static final int MenuView_android_preserveIconSpacing = 7;
+        public static int MenuView_android_preserveIconSpacing = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#verticalDivider}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:verticalDivider
         */
-        public static final int MenuView_android_verticalDivider = 3;
+        public static int MenuView_android_verticalDivider = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#windowAnimationStyle}
           attribute's value can be found in the {@link #MenuView} array.
           @attr name android:windowAnimationStyle
         */
-        public static final int MenuView_android_windowAnimationStyle = 0;
+        public static int MenuView_android_windowAnimationStyle = 0;
         /** Attributes that can be used with a NumberPicker.
            <p>Includes the following attributes:</p>
            <table>
@@ -4982,43 +4982,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:fadingEdgeLength
         */
-        public static final int NumberPicker_android_fadingEdgeLength = 1;
+        public static int NumberPicker_android_fadingEdgeLength = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#layout}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:layout
         */
-        public static final int NumberPicker_android_layout = 2;
+        public static int NumberPicker_android_layout = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxHeight}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:maxHeight
         */
-        public static final int NumberPicker_android_maxHeight = 4;
+        public static int NumberPicker_android_maxHeight = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxWidth}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:maxWidth
         */
-        public static final int NumberPicker_android_maxWidth = 3;
+        public static int NumberPicker_android_maxWidth = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#minHeight}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:minHeight
         */
-        public static final int NumberPicker_android_minHeight = 6;
+        public static int NumberPicker_android_minHeight = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#minWidth}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:minWidth
         */
-        public static final int NumberPicker_android_minWidth = 5;
+        public static int NumberPicker_android_minWidth = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#orientation}
           attribute's value can be found in the {@link #NumberPicker} array.
           @attr name android:orientation
         */
-        public static final int NumberPicker_android_orientation = 0;
+        public static int NumberPicker_android_orientation = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#flingable}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5032,7 +5032,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:flingable
         */
-        public static final int NumberPicker_flingable = 7;
+        public static int NumberPicker_flingable = 7;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#selectionDivider}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5042,7 +5042,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:selectionDivider
         */
-        public static final int NumberPicker_selectionDivider = 8;
+        public static int NumberPicker_selectionDivider = 8;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#selectionDividerHeight}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5058,7 +5058,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:selectionDividerHeight
         */
-        public static final int NumberPicker_selectionDividerHeight = 9;
+        public static int NumberPicker_selectionDividerHeight = 9;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#selectionDividersDistance}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5074,7 +5074,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:selectionDividersDistance
         */
-        public static final int NumberPicker_selectionDividersDistance = 10;
+        public static int NumberPicker_selectionDividersDistance = 10;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#solidColor}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5086,7 +5086,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name org.holoeverywhere.preference:solidColor
         */
-        public static final int NumberPicker_solidColor = 11;
+        public static int NumberPicker_solidColor = 11;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#virtualButtonPressedDrawable}
           attribute's value can be found in the {@link #NumberPicker} array.
@@ -5096,7 +5096,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:virtualButtonPressedDrawable
         */
-        public static final int NumberPicker_virtualButtonPressedDrawable = 12;
+        public static int NumberPicker_virtualButtonPressedDrawable = 12;
         /** Attributes that can be used with a NumberPickerPreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -5127,7 +5127,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:max
         */
-        public static final int NumberPickerPreference_max = 0;
+        public static int NumberPickerPreference_max = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#min}
           attribute's value can be found in the {@link #NumberPickerPreference} array.
@@ -5141,7 +5141,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:min
         */
-        public static final int NumberPickerPreference_min = 1;
+        public static int NumberPickerPreference_min = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#wrapSelectorWheel}
           attribute's value can be found in the {@link #NumberPickerPreference} array.
@@ -5155,7 +5155,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:wrapSelectorWheel
         */
-        public static final int NumberPickerPreference_wrapSelectorWheel = 2;
+        public static int NumberPickerPreference_wrapSelectorWheel = 2;
         /** Attributes that can be used with a PopupWindow.
            <p>Includes the following attributes:</p>
            <table>
@@ -5176,13 +5176,13 @@ containing a value of this type.
           attribute's value can be found in the {@link #PopupWindow} array.
           @attr name android:popupAnimationStyle
         */
-        public static final int PopupWindow_android_popupAnimationStyle = 1;
+        public static int PopupWindow_android_popupAnimationStyle = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#popupBackground}
           attribute's value can be found in the {@link #PopupWindow} array.
           @attr name android:popupBackground
         */
-        public static final int PopupWindow_android_popupBackground = 0;
+        public static int PopupWindow_android_popupBackground = 0;
         /** Attributes that can be used with a Preference.
            <p>Includes the following attributes:</p>
            <table>
@@ -5234,91 +5234,91 @@ containing a value of this type.
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:defaultValue
         */
-        public static final int Preference_android_defaultValue = 12;
+        public static int Preference_android_defaultValue = 12;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dependency}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:dependency
         */
-        public static final int Preference_android_dependency = 11;
+        public static int Preference_android_dependency = 11;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#enabled}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:enabled
         */
-        public static final int Preference_android_enabled = 2;
+        public static int Preference_android_enabled = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#fragment}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:fragment
         */
-        public static final int Preference_android_fragment = 14;
+        public static int Preference_android_fragment = 14;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#icon}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:icon
         */
-        public static final int Preference_android_icon = 0;
+        public static int Preference_android_icon = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#id}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:id
         */
-        public static final int Preference_android_id = 3;
+        public static int Preference_android_id = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#key}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:key
         */
-        public static final int Preference_android_key = 7;
+        public static int Preference_android_key = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#layout}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:layout
         */
-        public static final int Preference_android_layout = 4;
+        public static int Preference_android_layout = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#order}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:order
         */
-        public static final int Preference_android_order = 9;
+        public static int Preference_android_order = 9;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#persistent}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:persistent
         */
-        public static final int Preference_android_persistent = 1;
+        public static int Preference_android_persistent = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#selectable}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:selectable
         */
-        public static final int Preference_android_selectable = 6;
+        public static int Preference_android_selectable = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#shouldDisableView}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:shouldDisableView
         */
-        public static final int Preference_android_shouldDisableView = 13;
+        public static int Preference_android_shouldDisableView = 13;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#summary}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:summary
         */
-        public static final int Preference_android_summary = 8;
+        public static int Preference_android_summary = 8;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#title}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:title
         */
-        public static final int Preference_android_title = 5;
+        public static int Preference_android_title = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#widgetLayout}
           attribute's value can be found in the {@link #Preference} array.
           @attr name android:widgetLayout
         */
-        public static final int Preference_android_widgetLayout = 10;
+        public static int Preference_android_widgetLayout = 10;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dependency}
           attribute's value can be found in the {@link #Preference} array.
@@ -5329,7 +5329,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
           @attr name org.holoeverywhere.preference:dependency
         */
-        public static final int Preference_dependency = 15;
+        public static int Preference_dependency = 15;
         /** Attributes that can be used with a PreferenceFrameLayout.
            <p>Includes the following attributes:</p>
            <table>
@@ -5354,25 +5354,25 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #PreferenceFrameLayout} array.
           @attr name android:paddingBottom
         */
-        public static final int PreferenceFrameLayout_android_paddingBottom = 3;
+        public static int PreferenceFrameLayout_android_paddingBottom = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#paddingLeft}
           attribute's value can be found in the {@link #PreferenceFrameLayout} array.
           @attr name android:paddingLeft
         */
-        public static final int PreferenceFrameLayout_android_paddingLeft = 0;
+        public static int PreferenceFrameLayout_android_paddingLeft = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#paddingRight}
           attribute's value can be found in the {@link #PreferenceFrameLayout} array.
           @attr name android:paddingRight
         */
-        public static final int PreferenceFrameLayout_android_paddingRight = 2;
+        public static int PreferenceFrameLayout_android_paddingRight = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#paddingTop}
           attribute's value can be found in the {@link #PreferenceFrameLayout} array.
           @attr name android:paddingTop
         */
-        public static final int PreferenceFrameLayout_android_paddingTop = 1;
+        public static int PreferenceFrameLayout_android_paddingTop = 1;
         /** Attributes that can be used with a PreferenceFrameLayout_Layout.
            <p>Includes the following attributes:</p>
            <table>
@@ -5391,7 +5391,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #PreferenceFrameLayout_Layout} array.
           @attr name android:layout_removeBorders
         */
-        public static final int PreferenceFrameLayout_Layout_android_layout_removeBorders = 0;
+        public static int PreferenceFrameLayout_Layout_android_layout_removeBorders = 0;
         /** Attributes that can be used with a PreferenceGroup.
            <p>Includes the following attributes:</p>
            <table>
@@ -5410,7 +5410,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #PreferenceGroup} array.
           @attr name android:orderingFromXml
         */
-        public static final int PreferenceGroup_android_orderingFromXml = 0;
+        public static int PreferenceGroup_android_orderingFromXml = 0;
         /** Attributes that can be used with a PreferenceHeader.
            <p>Includes the following attributes:</p>
            <table>
@@ -5442,43 +5442,43 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:breadCrumbShortTitle
         */
-        public static final int PreferenceHeader_android_breadCrumbShortTitle = 6;
+        public static int PreferenceHeader_android_breadCrumbShortTitle = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#breadCrumbTitle}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:breadCrumbTitle
         */
-        public static final int PreferenceHeader_android_breadCrumbTitle = 5;
+        public static int PreferenceHeader_android_breadCrumbTitle = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#fragment}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:fragment
         */
-        public static final int PreferenceHeader_android_fragment = 4;
+        public static int PreferenceHeader_android_fragment = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#icon}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:icon
         */
-        public static final int PreferenceHeader_android_icon = 0;
+        public static int PreferenceHeader_android_icon = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#id}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:id
         */
-        public static final int PreferenceHeader_android_id = 1;
+        public static int PreferenceHeader_android_id = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#summary}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:summary
         */
-        public static final int PreferenceHeader_android_summary = 3;
+        public static int PreferenceHeader_android_summary = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#title}
           attribute's value can be found in the {@link #PreferenceHeader} array.
           @attr name android:title
         */
-        public static final int PreferenceHeader_android_title = 2;
+        public static int PreferenceHeader_android_title = 2;
         /** Attributes that can be used with a ProgressBar.
            <p>Includes the following attributes:</p>
            <table>
@@ -5526,85 +5526,85 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:indeterminate
         */
-        public static final int ProgressBar_android_indeterminate = 5;
+        public static int ProgressBar_android_indeterminate = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indeterminateBehavior}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:indeterminateBehavior
         */
-        public static final int ProgressBar_android_indeterminateBehavior = 10;
+        public static int ProgressBar_android_indeterminateBehavior = 10;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indeterminateDrawable}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:indeterminateDrawable
         */
-        public static final int ProgressBar_android_indeterminateDrawable = 7;
+        public static int ProgressBar_android_indeterminateDrawable = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indeterminateDuration}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:indeterminateDuration
         */
-        public static final int ProgressBar_android_indeterminateDuration = 9;
+        public static int ProgressBar_android_indeterminateDuration = 9;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#indeterminateOnly}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:indeterminateOnly
         */
-        public static final int ProgressBar_android_indeterminateOnly = 6;
+        public static int ProgressBar_android_indeterminateOnly = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#interpolator}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:interpolator
         */
-        public static final int ProgressBar_android_interpolator = 13;
+        public static int ProgressBar_android_interpolator = 13;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#max}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:max
         */
-        public static final int ProgressBar_android_max = 2;
+        public static int ProgressBar_android_max = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxHeight}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:maxHeight
         */
-        public static final int ProgressBar_android_maxHeight = 1;
+        public static int ProgressBar_android_maxHeight = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#maxWidth}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:maxWidth
         */
-        public static final int ProgressBar_android_maxWidth = 0;
+        public static int ProgressBar_android_maxWidth = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#minHeight}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:minHeight
         */
-        public static final int ProgressBar_android_minHeight = 12;
+        public static int ProgressBar_android_minHeight = 12;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#minWidth}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:minWidth
         */
-        public static final int ProgressBar_android_minWidth = 11;
+        public static int ProgressBar_android_minWidth = 11;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#progress}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:progress
         */
-        public static final int ProgressBar_android_progress = 3;
+        public static int ProgressBar_android_progress = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#progressDrawable}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:progressDrawable
         */
-        public static final int ProgressBar_android_progressDrawable = 8;
+        public static int ProgressBar_android_progressDrawable = 8;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#secondaryProgress}
           attribute's value can be found in the {@link #ProgressBar} array.
           @attr name android:secondaryProgress
         */
-        public static final int ProgressBar_android_secondaryProgress = 4;
+        public static int ProgressBar_android_secondaryProgress = 4;
         /** Attributes that can be used with a RingtonePreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -5627,19 +5627,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #RingtonePreference} array.
           @attr name android:ringtoneType
         */
-        public static final int RingtonePreference_android_ringtoneType = 0;
+        public static int RingtonePreference_android_ringtoneType = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#showDefault}
           attribute's value can be found in the {@link #RingtonePreference} array.
           @attr name android:showDefault
         */
-        public static final int RingtonePreference_android_showDefault = 1;
+        public static int RingtonePreference_android_showDefault = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#showSilent}
           attribute's value can be found in the {@link #RingtonePreference} array.
           @attr name android:showSilent
         */
-        public static final int RingtonePreference_android_showSilent = 2;
+        public static int RingtonePreference_android_showSilent = 2;
         /** Attributes that can be used with a RotateDrawable.
            <p>Includes the following attributes:</p>
            <table>
@@ -5669,37 +5669,37 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:drawable
         */
-        public static final int RotateDrawable_android_drawable = 1;
+        public static int RotateDrawable_android_drawable = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#fromDegrees}
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:fromDegrees
         */
-        public static final int RotateDrawable_android_fromDegrees = 2;
+        public static int RotateDrawable_android_fromDegrees = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#pivotX}
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:pivotX
         */
-        public static final int RotateDrawable_android_pivotX = 4;
+        public static int RotateDrawable_android_pivotX = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#pivotY}
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:pivotY
         */
-        public static final int RotateDrawable_android_pivotY = 5;
+        public static int RotateDrawable_android_pivotY = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#toDegrees}
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:toDegrees
         */
-        public static final int RotateDrawable_android_toDegrees = 3;
+        public static int RotateDrawable_android_toDegrees = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#visible}
           attribute's value can be found in the {@link #RotateDrawable} array.
           @attr name android:visible
         */
-        public static final int RotateDrawable_android_visible = 0;
+        public static int RotateDrawable_android_visible = 0;
         /** Attributes that can be used with a SearchView.
            <p>Includes the following attributes:</p>
            <table>
@@ -5730,7 +5730,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#imeOptions}.
           @attr name android:imeOptions
         */
-        public static final int SearchView_android_imeOptions = 2;
+        public static int SearchView_android_imeOptions = 2;
         /**
           <p>
           @attr description
@@ -5739,7 +5739,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#inputType}.
           @attr name android:inputType
         */
-        public static final int SearchView_android_inputType = 1;
+        public static int SearchView_android_inputType = 1;
         /**
           <p>
           @attr description
@@ -5748,7 +5748,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#maxWidth}.
           @attr name android:maxWidth
         */
-        public static final int SearchView_android_maxWidth = 0;
+        public static int SearchView_android_maxWidth = 0;
         /**
           <p>
           @attr description
@@ -5765,7 +5765,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:iconifiedByDefault
         */
-        public static final int SearchView_iconifiedByDefault = 3;
+        public static int SearchView_iconifiedByDefault = 3;
         /**
           <p>
           @attr description
@@ -5781,7 +5781,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:queryHint
         */
-        public static final int SearchView_queryHint = 4;
+        public static int SearchView_queryHint = 4;
         /** Attributes that can be used with a SeekBar.
            <p>Includes the following attributes:</p>
            <table>
@@ -5804,19 +5804,19 @@ containing a value of this type.
           attribute's value can be found in the {@link #SeekBar} array.
           @attr name android:disabledAlpha
         */
-        public static final int SeekBar_android_disabledAlpha = 0;
+        public static int SeekBar_android_disabledAlpha = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#thumb}
           attribute's value can be found in the {@link #SeekBar} array.
           @attr name android:thumb
         */
-        public static final int SeekBar_android_thumb = 1;
+        public static int SeekBar_android_thumb = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#thumbOffset}
           attribute's value can be found in the {@link #SeekBar} array.
           @attr name android:thumbOffset
         */
-        public static final int SeekBar_android_thumbOffset = 2;
+        public static int SeekBar_android_thumbOffset = 2;
         /** Attributes that can be used with a SeekBarPreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -5835,7 +5835,7 @@ containing a value of this type.
           attribute's value can be found in the {@link #SeekBarPreference} array.
           @attr name android:max
         */
-        public static final int SeekBarPreference_android_max = 0;
+        public static int SeekBarPreference_android_max = 0;
         /** Attributes that can be used with a Spinner.
            <p>Includes the following attributes:</p>
            <table>
@@ -5874,31 +5874,31 @@ containing a value of this type.
           attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownSelector
         */
-        public static final int Spinner_android_dropDownSelector = 1;
+        public static int Spinner_android_dropDownSelector = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dropDownWidth}
           attribute's value can be found in the {@link #Spinner} array.
           @attr name android:dropDownWidth
         */
-        public static final int Spinner_android_dropDownWidth = 4;
+        public static int Spinner_android_dropDownWidth = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#gravity}
           attribute's value can be found in the {@link #Spinner} array.
           @attr name android:gravity
         */
-        public static final int Spinner_android_gravity = 0;
+        public static int Spinner_android_gravity = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#popupBackground}
           attribute's value can be found in the {@link #Spinner} array.
           @attr name android:popupBackground
         */
-        public static final int Spinner_android_popupBackground = 2;
+        public static int Spinner_android_popupBackground = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#prompt}
           attribute's value can be found in the {@link #Spinner} array.
           @attr name android:prompt
         */
-        public static final int Spinner_android_prompt = 3;
+        public static int Spinner_android_prompt = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#disableChildrenWhenDisabled}
           attribute's value can be found in the {@link #Spinner} array.
@@ -5912,7 +5912,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:disableChildrenWhenDisabled
         */
-        public static final int Spinner_disableChildrenWhenDisabled = 5;
+        public static int Spinner_disableChildrenWhenDisabled = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dropDownHorizontalOffset}
           attribute's value can be found in the {@link #Spinner} array.
@@ -5928,7 +5928,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:dropDownHorizontalOffset
         */
-        public static final int Spinner_dropDownHorizontalOffset = 6;
+        public static int Spinner_dropDownHorizontalOffset = 6;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#dropDownVerticalOffset}
           attribute's value can be found in the {@link #Spinner} array.
@@ -5944,7 +5944,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:dropDownVerticalOffset
         */
-        public static final int Spinner_dropDownVerticalOffset = 7;
+        public static int Spinner_dropDownVerticalOffset = 7;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#popupPromptView}
           attribute's value can be found in the {@link #Spinner} array.
@@ -5954,7 +5954,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:popupPromptView
         */
-        public static final int Spinner_popupPromptView = 8;
+        public static int Spinner_popupPromptView = 8;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#spinnerMode}
           attribute's value can be found in the {@link #Spinner} array.
@@ -5971,7 +5971,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name org.holoeverywhere.preference:spinnerMode
         */
-        public static final int Spinner_spinnerMode = 9;
+        public static int Spinner_spinnerMode = 9;
         /** Attributes that can be used with a StateListDrawable.
            <p>Includes the following attributes:</p>
            <table>
@@ -6001,37 +6001,37 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:constantSize
         */
-        public static final int StateListDrawable_android_constantSize = 3;
+        public static int StateListDrawable_android_constantSize = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#dither}
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:dither
         */
-        public static final int StateListDrawable_android_dither = 0;
+        public static int StateListDrawable_android_dither = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#enterFadeDuration}
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:enterFadeDuration
         */
-        public static final int StateListDrawable_android_enterFadeDuration = 4;
+        public static int StateListDrawable_android_enterFadeDuration = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#exitFadeDuration}
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:exitFadeDuration
         */
-        public static final int StateListDrawable_android_exitFadeDuration = 5;
+        public static int StateListDrawable_android_exitFadeDuration = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#variablePadding}
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:variablePadding
         */
-        public static final int StateListDrawable_android_variablePadding = 2;
+        public static int StateListDrawable_android_variablePadding = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#visible}
           attribute's value can be found in the {@link #StateListDrawable} array.
           @attr name android:visible
         */
-        public static final int StateListDrawable_android_visible = 1;
+        public static int StateListDrawable_android_visible = 1;
         /** Attributes that can be used with a Switch.
            <p>Includes the following attributes:</p>
            <table>
@@ -6078,7 +6078,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:switchMinWidth
         */
-        public static final int Switch_switchMinWidth = 0;
+        public static int Switch_switchMinWidth = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#switchPadding}
           attribute's value can be found in the {@link #Switch} array.
@@ -6094,7 +6094,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:switchPadding
         */
-        public static final int Switch_switchPadding = 1;
+        public static int Switch_switchPadding = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#switchTextAppearance}
           attribute's value can be found in the {@link #Switch} array.
@@ -6104,7 +6104,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:switchTextAppearance
         */
-        public static final int Switch_switchTextAppearance = 2;
+        public static int Switch_switchTextAppearance = 2;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#textOff}
           attribute's value can be found in the {@link #Switch} array.
@@ -6115,7 +6115,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
           @attr name org.holoeverywhere.preference:textOff
         */
-        public static final int Switch_textOff = 3;
+        public static int Switch_textOff = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#textOn}
           attribute's value can be found in the {@link #Switch} array.
@@ -6126,7 +6126,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
           @attr name org.holoeverywhere.preference:textOn
         */
-        public static final int Switch_textOn = 4;
+        public static int Switch_textOn = 4;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#thumb}
           attribute's value can be found in the {@link #Switch} array.
@@ -6136,7 +6136,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:thumb
         */
-        public static final int Switch_thumb = 5;
+        public static int Switch_thumb = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#thumbTextPadding}
           attribute's value can be found in the {@link #Switch} array.
@@ -6152,7 +6152,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:thumbTextPadding
         */
-        public static final int Switch_thumbTextPadding = 6;
+        public static int Switch_thumbTextPadding = 6;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#toggleWhenClick}
           attribute's value can be found in the {@link #Switch} array.
@@ -6166,7 +6166,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:toggleWhenClick
         */
-        public static final int Switch_toggleWhenClick = 7;
+        public static int Switch_toggleWhenClick = 7;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#track}
           attribute's value can be found in the {@link #Switch} array.
@@ -6176,7 +6176,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:track
         */
-        public static final int Switch_track = 8;
+        public static int Switch_track = 8;
         /** Attributes that can be used with a SwitchPreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -6197,13 +6197,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #SwitchPreference} array.
           @attr name android:switchTextOff
         */
-        public static final int SwitchPreference_android_switchTextOff = 1;
+        public static int SwitchPreference_android_switchTextOff = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#switchTextOn}
           attribute's value can be found in the {@link #SwitchPreference} array.
           @attr name android:switchTextOn
         */
-        public static final int SwitchPreference_android_switchTextOn = 0;
+        public static int SwitchPreference_android_switchTextOn = 0;
         /** Attributes that can be used with a TextAppearance.
            <p>Includes the following attributes:</p>
            <table>
@@ -6240,55 +6240,55 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:fontFamily
         */
-        public static final int TextAppearance_android_fontFamily = 8;
+        public static int TextAppearance_android_fontFamily = 8;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textAllCaps}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textAllCaps
         */
-        public static final int TextAppearance_android_textAllCaps = 7;
+        public static int TextAppearance_android_textAllCaps = 7;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textColor}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textColor
         */
-        public static final int TextAppearance_android_textColor = 3;
+        public static int TextAppearance_android_textColor = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textColorHighlight}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textColorHighlight
         */
-        public static final int TextAppearance_android_textColorHighlight = 4;
+        public static int TextAppearance_android_textColorHighlight = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textColorHint}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textColorHint
         */
-        public static final int TextAppearance_android_textColorHint = 5;
+        public static int TextAppearance_android_textColorHint = 5;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textColorLink}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textColorLink
         */
-        public static final int TextAppearance_android_textColorLink = 6;
+        public static int TextAppearance_android_textColorLink = 6;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textSize}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textSize
         */
-        public static final int TextAppearance_android_textSize = 0;
+        public static int TextAppearance_android_textSize = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#textStyle}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:textStyle
         */
-        public static final int TextAppearance_android_textStyle = 2;
+        public static int TextAppearance_android_textStyle = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#typeface}
           attribute's value can be found in the {@link #TextAppearance} array.
           @attr name android:typeface
         */
-        public static final int TextAppearance_android_typeface = 1;
+        public static int TextAppearance_android_typeface = 1;
         /** Attributes that can be used with a TextView.
            <p>Includes the following attributes:</p>
            <table>
@@ -6307,7 +6307,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #TextView} array.
           @attr name android:textAppearance
         */
-        public static final int TextView_android_textAppearance = 0;
+        public static int TextView_android_textAppearance = 0;
         /**  These are the standard attributes that make up a complete theme. 
            <p>Includes the following attributes:</p>
            <table>
@@ -6343,7 +6343,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:actionDropDownStyle
         */
-        public static final int Theme_actionDropDownStyle = 0;
+        public static int Theme_actionDropDownStyle = 0;
         /**
           <p>
           @attr description
@@ -6361,7 +6361,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:dropdownListPreferredItemHeight
         */
-        public static final int Theme_dropdownListPreferredItemHeight = 1;
+        public static int Theme_dropdownListPreferredItemHeight = 1;
         /**
           <p>
           @attr description
@@ -6373,7 +6373,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:listChoiceBackgroundIndicator
         */
-        public static final int Theme_listChoiceBackgroundIndicator = 5;
+        public static int Theme_listChoiceBackgroundIndicator = 5;
         /**
           <p>
           @attr description
@@ -6385,7 +6385,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:panelMenuListTheme
         */
-        public static final int Theme_panelMenuListTheme = 4;
+        public static int Theme_panelMenuListTheme = 4;
         /**
           <p>
           @attr description
@@ -6403,7 +6403,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:panelMenuListWidth
         */
-        public static final int Theme_panelMenuListWidth = 3;
+        public static int Theme_panelMenuListWidth = 3;
         /**
           <p>
           @attr description
@@ -6415,7 +6415,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:popupMenuStyle
         */
-        public static final int Theme_popupMenuStyle = 2;
+        public static int Theme_popupMenuStyle = 2;
         /** Attributes that can be used with a TimePreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -6446,7 +6446,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name org.holoeverywhere.preference:is24HourView
         */
-        public static final int TimePreference_is24HourView = 0;
+        public static int TimePreference_is24HourView = 0;
         /** Attributes that can be used with a TwoStatePreference.
            <p>Includes the following attributes:</p>
            <table>
@@ -6469,19 +6469,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           attribute's value can be found in the {@link #TwoStatePreference} array.
           @attr name android:disableDependentsState
         */
-        public static final int TwoStatePreference_android_disableDependentsState = 2;
+        public static int TwoStatePreference_android_disableDependentsState = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#summaryOff}
           attribute's value can be found in the {@link #TwoStatePreference} array.
           @attr name android:summaryOff
         */
-        public static final int TwoStatePreference_android_summaryOff = 1;
+        public static int TwoStatePreference_android_summaryOff = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#summaryOn}
           attribute's value can be found in the {@link #TwoStatePreference} array.
           @attr name android:summaryOn
         */
-        public static final int TwoStatePreference_android_summaryOn = 0;
+        public static int TwoStatePreference_android_summaryOn = 0;
         /** Attributes that can be used with a View.
            <p>Includes the following attributes:</p>
            <table>
@@ -6512,7 +6512,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           resource symbol {@link android.R.attr#focusable}.
           @attr name android:focusable
         */
-        public static final int View_android_focusable = 0;
+        public static int View_android_focusable = 0;
         /**
           <p>
           @attr description
@@ -6530,7 +6530,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:paddingEnd
         */
-        public static final int View_paddingEnd = 2;
+        public static int View_paddingEnd = 2;
         /**
           <p>
           @attr description
@@ -6548,7 +6548,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name org.holoeverywhere.preference:paddingStart
         */
-        public static final int View_paddingStart = 1;
+        public static int View_paddingStart = 1;
         /** Attributes that can be used with a ViewStub.
            <p>Includes the following attributes:</p>
            <table>
@@ -6569,13 +6569,13 @@ containing a value of this type.
           attribute's value can be found in the {@link #ViewStub} array.
           @attr name android:inflatedId
         */
-        public static final int ViewStub_android_inflatedId = 1;
+        public static int ViewStub_android_inflatedId = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#layout}
           attribute's value can be found in the {@link #ViewStub} array.
           @attr name android:layout
         */
-        public static final int ViewStub_android_layout = 0;
+        public static int ViewStub_android_layout = 0;
         /** Attributes that can be used with a WindowSizes.
            <p>Includes the following attributes:</p>
            <table>
@@ -6622,7 +6622,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowFixedHeightMajor
         */
-        public static final int WindowSizes_windowFixedHeightMajor = 0;
+        public static int WindowSizes_windowFixedHeightMajor = 0;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowFixedHeightMinor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6641,7 +6641,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowFixedHeightMinor
         */
-        public static final int WindowSizes_windowFixedHeightMinor = 1;
+        public static int WindowSizes_windowFixedHeightMinor = 1;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowFixedWidthMajor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6660,7 +6660,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowFixedWidthMajor
         */
-        public static final int WindowSizes_windowFixedWidthMajor = 2;
+        public static int WindowSizes_windowFixedWidthMajor = 2;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowFixedWidthMinor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6679,7 +6679,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowFixedWidthMinor
         */
-        public static final int WindowSizes_windowFixedWidthMinor = 3;
+        public static int WindowSizes_windowFixedWidthMinor = 3;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowMinHeightMajor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6698,7 +6698,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowMinHeightMajor
         */
-        public static final int WindowSizes_windowMinHeightMajor = 4;
+        public static int WindowSizes_windowMinHeightMajor = 4;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowMinHeightMinor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6717,7 +6717,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name org.holoeverywhere.preference:windowMinHeightMinor
         */
-        public static final int WindowSizes_windowMinHeightMinor = 5;
+        public static int WindowSizes_windowMinHeightMinor = 5;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowMinWidthMajor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6727,7 +6727,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:windowMinWidthMajor
         */
-        public static final int WindowSizes_windowMinWidthMajor = 6;
+        public static int WindowSizes_windowMinWidthMajor = 6;
         /**
           <p>This symbol is the offset where the {@link org.holoeverywhere.preference.R.attr#windowMinWidthMinor}
           attribute's value can be found in the {@link #WindowSizes} array.
@@ -6737,6 +6737,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name org.holoeverywhere.preference:windowMinWidthMinor
         */
-        public static final int WindowSizes_windowMinWidthMinor = 7;
+        public static int WindowSizes_windowMinWidthMinor = 7;
     };
 }

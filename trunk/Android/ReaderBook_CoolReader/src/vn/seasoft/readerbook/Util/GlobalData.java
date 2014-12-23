@@ -15,12 +15,11 @@ import java.text.SimpleDateFormat;
  * Time: 9:44 AM
  */
 public class GlobalData {
-    public static RepoController repo;
     public static final String LOCATION_SAVE_BOOK = "SSBooks";
     public static final String PICTURE_BOOK = "Picture_Books";
-
-    static ProgressDialog progressDialog;
     public static final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static RepoController repo;
+    static ProgressDialog progressDialog;
 
     public static void ShowProgressDialog(Context context, String msg) {
         progressDialog = new ProgressDialog(context);

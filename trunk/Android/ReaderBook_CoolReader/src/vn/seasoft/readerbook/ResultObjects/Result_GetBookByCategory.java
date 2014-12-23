@@ -29,7 +29,7 @@ public class Result_GetBookByCategory implements ResultObject {
                 book.setCountview(Obj.getInt("countview"));
                 book.setCountdownload(Obj.getInt("countdownload"));
                 if (!Obj.isNull("imagecover"))
-                    book.setImagecover(Obj.getString("imagecover").replace(" ","%20"));
+                    book.setImagecover(Obj.getString("imagecover").replace(" ", "%20"));
                 lstBooks.add(book);
             }
         } catch (JSONException e) {

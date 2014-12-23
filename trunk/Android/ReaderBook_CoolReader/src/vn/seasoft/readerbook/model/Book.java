@@ -12,9 +12,6 @@ import java.util.List;
  * Time: 9:32 AM
  */
 public class Book {
-    public Book() {
-    }
-
     @DatabaseField(id = true)
     Integer idbook;
     @DatabaseField
@@ -37,14 +34,15 @@ public class Book {
     Boolean isnew;
     @DatabaseField
     Date date_created;
-
-
-    public void setIdbook(Integer idbook) {
-        this.idbook = idbook;
+    public Book() {
     }
 
     public Integer getIdbook() {
         return idbook;
+    }
+
+    public void setIdbook(Integer idbook) {
+        this.idbook = idbook;
     }
 
     public String getTitle() {

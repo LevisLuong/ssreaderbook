@@ -35,7 +35,8 @@ public class DeviceInfo {
     public final static String DEF_FONT_FACE;
     public final static boolean USE_BITMAP_MEMORY_HACK; // revert volume keys in landscape mode
     public final static boolean ONE_COLUMN_IN_LANDSCAPE;
-
+    public final static int ICE_CREAM_SANDWICH = 14;
+    public final static int HONEYCOMB = 11;
     // minimal screen backlight level percent for different devices
     private static final String[] MIN_SCREEN_BRIGHTNESS_DB = {
             "LGE;LG-P500", "6", // LG Optimus One
@@ -58,10 +59,6 @@ public class DeviceInfo {
             "Foxconn;PocketBook A10", "3",
             // TODO: more devices here
     };
-
-    public final static int ICE_CREAM_SANDWICH = 14;
-    public final static int HONEYCOMB = 11;
-
     private static int sdkInt = 0;
 
     public static int getSDKLevel() {

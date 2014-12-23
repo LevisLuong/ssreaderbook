@@ -212,23 +212,23 @@ containing a value of this type.
         public static int hlv_overscroll_glow=0x7f020001;
     }
     public static final class id {
-        public static int alwaysScroll=0x7f030002;
-        public static int bottom=0x7f030004;
-        public static int center=0x7f03000b;
-        public static int center_horizontal=0x7f030009;
-        public static int center_vertical=0x7f030007;
-        public static int clip_horizontal=0x7f03000e;
-        public static int clip_vertical=0x7f03000d;
-        public static int disabled=0x7f030000;
-        public static int end=0x7f030010;
-        public static int fill=0x7f03000c;
-        public static int fill_horizontal=0x7f03000a;
-        public static int fill_vertical=0x7f030008;
-        public static int left=0x7f030005;
-        public static int normal=0x7f030001;
-        public static int right=0x7f030006;
+        public static int alwaysScroll=0x7f030000;
+        public static int bottom=0x7f030003;
+        public static int center=0x7f030004;
+        public static int center_horizontal=0x7f030005;
+        public static int center_vertical=0x7f030006;
+        public static int clip_horizontal=0x7f030007;
+        public static int clip_vertical=0x7f030008;
+        public static int disabled=0x7f030001;
+        public static int end=0x7f030009;
+        public static int fill=0x7f03000a;
+        public static int fill_horizontal=0x7f03000b;
+        public static int fill_vertical=0x7f03000c;
+        public static int left=0x7f03000d;
+        public static int normal=0x7f030002;
+        public static int right=0x7f03000e;
         public static int start=0x7f03000f;
-        public static int top=0x7f030003;
+        public static int top=0x7f030010;
     }
     public static final class styleable {
         /** Attributes that can be used with a AbsHListView.
@@ -264,37 +264,37 @@ containing a value of this type.
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:cacheColorHint
         */
-        public static final int AbsHListView_android_cacheColorHint = 3;
+        public static int AbsHListView_android_cacheColorHint = 3;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#choiceMode}
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:choiceMode
         */
-        public static final int AbsHListView_android_choiceMode = 4;
+        public static int AbsHListView_android_choiceMode = 4;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#drawSelectorOnTop}
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:drawSelectorOnTop
         */
-        public static final int AbsHListView_android_drawSelectorOnTop = 1;
+        public static int AbsHListView_android_drawSelectorOnTop = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#listSelector}
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:listSelector
         */
-        public static final int AbsHListView_android_listSelector = 0;
+        public static int AbsHListView_android_listSelector = 0;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#scrollingCache}
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:scrollingCache
         */
-        public static final int AbsHListView_android_scrollingCache = 2;
+        public static int AbsHListView_android_scrollingCache = 2;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#smoothScrollbar}
           attribute's value can be found in the {@link #AbsHListView} array.
           @attr name android:smoothScrollbar
         */
-        public static final int AbsHListView_android_smoothScrollbar = 5;
+        public static int AbsHListView_android_smoothScrollbar = 5;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_stackFromRight}
           attribute's value can be found in the {@link #AbsHListView} array.
@@ -308,7 +308,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_stackFromRight
         */
-        public static final int AbsHListView_hlv_stackFromRight = 6;
+        public static int AbsHListView_hlv_stackFromRight = 6;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_transcriptMode}
           attribute's value can be found in the {@link #AbsHListView} array.
@@ -326,7 +326,7 @@ containing a value of this type.
 </table>
           @attr name it.sephiroth.android.library:hlv_transcriptMode
         */
-        public static final int AbsHListView_hlv_transcriptMode = 7;
+        public static int AbsHListView_hlv_transcriptMode = 7;
         /** Attributes that can be used with a ExpandableHListView.
            <p>Includes the following attributes:</p>
            <table>
@@ -371,7 +371,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name it.sephiroth.android.library:hlv_childDivider
         */
-        public static final int ExpandableHListView_hlv_childDivider = 2;
+        public static int ExpandableHListView_hlv_childDivider = 2;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_childIndicator}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -381,7 +381,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name it.sephiroth.android.library:hlv_childIndicator
         */
-        public static final int ExpandableHListView_hlv_childIndicator = 4;
+        public static int ExpandableHListView_hlv_childIndicator = 4;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_childIndicatorGravity}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -410,7 +410,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name it.sephiroth.android.library:hlv_childIndicatorGravity
         */
-        public static final int ExpandableHListView_hlv_childIndicatorGravity = 1;
+        public static int ExpandableHListView_hlv_childIndicatorGravity = 1;
         /**
           <p>
           @attr description
@@ -429,7 +429,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name it.sephiroth.android.library:hlv_childIndicatorPaddingLeft
         */
-        public static final int ExpandableHListView_hlv_childIndicatorPaddingLeft = 7;
+        public static int ExpandableHListView_hlv_childIndicatorPaddingLeft = 7;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_childIndicatorPaddingTop}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -445,7 +445,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_childIndicatorPaddingTop
         */
-        public static final int ExpandableHListView_hlv_childIndicatorPaddingTop = 8;
+        public static int ExpandableHListView_hlv_childIndicatorPaddingTop = 8;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_groupIndicator}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -455,7 +455,7 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name it.sephiroth.android.library:hlv_groupIndicator
         */
-        public static final int ExpandableHListView_hlv_groupIndicator = 3;
+        public static int ExpandableHListView_hlv_groupIndicator = 3;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_indicatorGravity}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -484,7 +484,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name it.sephiroth.android.library:hlv_indicatorGravity
         */
-        public static final int ExpandableHListView_hlv_indicatorGravity = 0;
+        public static int ExpandableHListView_hlv_indicatorGravity = 0;
         /**
           <p>
           @attr description
@@ -503,7 +503,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name it.sephiroth.android.library:hlv_indicatorPaddingLeft
         */
-        public static final int ExpandableHListView_hlv_indicatorPaddingLeft = 5;
+        public static int ExpandableHListView_hlv_indicatorPaddingLeft = 5;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_indicatorPaddingTop}
           attribute's value can be found in the {@link #ExpandableHListView} array.
@@ -519,7 +519,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_indicatorPaddingTop
         */
-        public static final int ExpandableHListView_hlv_indicatorPaddingTop = 6;
+        public static int ExpandableHListView_hlv_indicatorPaddingTop = 6;
         /** Attributes that can be used with a HListView.
            <p>Includes the following attributes:</p>
            <table>
@@ -554,13 +554,13 @@ containing a value of this type.
           attribute's value can be found in the {@link #HListView} array.
           @attr name android:divider
         */
-        public static final int HListView_android_divider = 1;
+        public static int HListView_android_divider = 1;
         /**
           <p>This symbol is the offset where the {@link android.R.attr#entries}
           attribute's value can be found in the {@link #HListView} array.
           @attr name android:entries
         */
-        public static final int HListView_android_entries = 0;
+        public static int HListView_android_entries = 0;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_dividerWidth}
           attribute's value can be found in the {@link #HListView} array.
@@ -576,7 +576,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_dividerWidth
         */
-        public static final int HListView_hlv_dividerWidth = 2;
+        public static int HListView_hlv_dividerWidth = 2;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_footerDividersEnabled}
           attribute's value can be found in the {@link #HListView} array.
@@ -590,7 +590,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_footerDividersEnabled
         */
-        public static final int HListView_hlv_footerDividersEnabled = 4;
+        public static int HListView_hlv_footerDividersEnabled = 4;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_headerDividersEnabled}
           attribute's value can be found in the {@link #HListView} array.
@@ -604,7 +604,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name it.sephiroth.android.library:hlv_headerDividersEnabled
         */
-        public static final int HListView_hlv_headerDividersEnabled = 3;
+        public static int HListView_hlv_headerDividersEnabled = 3;
         /**
           <p>
           @attr description
@@ -624,7 +624,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name it.sephiroth.android.library:hlv_measureWithChild
         */
-        public static final int HListView_hlv_measureWithChild = 7;
+        public static int HListView_hlv_measureWithChild = 7;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_overScrollFooter}
           attribute's value can be found in the {@link #HListView} array.
@@ -636,7 +636,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name it.sephiroth.android.library:hlv_overScrollFooter
         */
-        public static final int HListView_hlv_overScrollFooter = 6;
+        public static int HListView_hlv_overScrollFooter = 6;
         /**
           <p>This symbol is the offset where the {@link it.sephiroth.android.library.R.attr#hlv_overScrollHeader}
           attribute's value can be found in the {@link #HListView} array.
@@ -648,6 +648,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
           @attr name it.sephiroth.android.library:hlv_overScrollHeader
         */
-        public static final int HListView_hlv_overScrollHeader = 5;
+        public static int HListView_hlv_overScrollHeader = 5;
     };
 }

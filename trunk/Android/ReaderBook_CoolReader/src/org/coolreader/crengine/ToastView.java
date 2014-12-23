@@ -19,20 +19,8 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * Time: 2:51 PM
  */
 public class ToastView {
-    private static class Toast {
-        private View anchor;
-        private String msg;
-        private int duration;
-
-        private Toast(View anchor, String msg, int duration) {
-            this.anchor = anchor;
-            this.msg = msg;
-            this.duration = duration;
-        }
-    }
-
-
-	private static View mReaderView;
+    static int fontSize = 24;
+    private static View mReaderView;
     private static LinkedBlockingQueue<Toast> queue = new LinkedBlockingQueue<Toast>();
     private static AtomicBoolean showing = new AtomicBoolean(false);
     private static Handler mHandler = new Handler();
@@ -48,10 +36,9 @@ public class ToastView {
         }
     };
 
-    static int fontSize = 24;
     public static void showToast(View anchor, String msg, int duration, int textSize) {
-    	mReaderView = anchor;
-    	fontSize = textSize;
+        mReaderView = anchor;
+        fontSize = textSize;
         try {
             queue.put(new Toast(anchor, msg, duration));
         } catch (InterruptedException e) {
@@ -90,5 +77,17 @@ public class ToastView {
         tv.setGravity(Gravity.CENTER);
         window.showAtLocation(t.anchor, Gravity.NO_GRAVITY, 0, 0);
         mHandler.postDelayed(handleDismiss, t.duration == 0 ? 2000 : 3000);
+    }
+
+    private static class Toast {
+        private View anchor;
+        private String msg;
+        private int duration;
+
+        private Toast(View anchor, String msg, int duration) {
+            this.anchor = anchor;
+            this.msg = msg;
+            this.duration = duration;
+        }
     }
 }

@@ -2,23 +2,23 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="@string/mi_book_root"
-        android:titleCondensed="@null"
         android:id="@+id/book_root"
-        android:icon="@drawable/ic_menu_home"></item>
+        android:icon="@drawable/ic_menu_home"
+        android:title="@string/mi_book_root"
+        android:titleCondensed="@null"></item>
     <item
-        android:title="@string/mi_book_recent_books"
-        android:titleCondensed="@null"
         android:id="@+id/book_recent_books"
-        android:icon="@drawable/ic_menu_star"></item>
+        android:icon="@drawable/ic_menu_star"
+        android:title="@string/mi_book_recent_books"
+        android:titleCondensed="@null"></item>
     <item
+        android:id="@+id/book_opds_root"
         android:title="@string/mi_book_opds_root"
-        android:titleCondensed="@string/mi_book_opds_root"
-        android:id="@+id/book_opds_root"></item>
+        android:titleCondensed="@string/mi_book_opds_root"></item>
     <item
-        android:title="@string/mi_book_back_to_reading"
-        android:numericShortcut="2"
-        android:titleCondensed="@null"
         android:id="@+id/book_back_to_reading"
-        android:icon="@android:drawable/ic_menu_view"></item>
+        android:icon="@android:drawable/ic_menu_view"
+        android:numericShortcut="2"
+        android:title="@string/mi_book_back_to_reading"
+        android:titleCondensed="@null"></item>
 </menu>

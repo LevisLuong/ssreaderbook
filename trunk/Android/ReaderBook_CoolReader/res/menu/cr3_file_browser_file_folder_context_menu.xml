@@ -3,15 +3,15 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/folder_open"
         android:title="@string/mi_folder_open"
-        android:titleCondensed="@string/mi_folder_open"
-        android:id="@+id/folder_open"></item>
+        android:titleCondensed="@string/mi_folder_open"></item>
     <item
+        android:id="@+id/folder_to_favorites"
         android:title="@string/mi_folder_to_favorites"
-        android:titleCondensed="@string/mi_folder_to_favorites"
-        android:id="@+id/folder_to_favorites"></item>
+        android:titleCondensed="@string/mi_folder_to_favorites"></item>
     <item
+        android:id="@+id/book_root"
         android:title="@string/mi_book_root"
-        android:titleCondensed="@string/mi_book_root"
-        android:id="@+id/book_root"></item>
+        android:titleCondensed="@string/mi_book_root"></item>
 </menu>

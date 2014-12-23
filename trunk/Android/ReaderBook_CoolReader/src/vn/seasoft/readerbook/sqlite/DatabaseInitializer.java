@@ -15,9 +15,8 @@ public class DatabaseInitializer extends SQLiteOpenHelper {
 
     private static String DB_PATH;
     private static String DB_NAME = "dbssbook.db";
-
-    private SQLiteDatabase database;
     private final Context context;
+    private SQLiteDatabase database;
 
     public DatabaseInitializer(Context context) {
         super(context, DB_NAME, null, 1);
@@ -27,6 +26,26 @@ public class DatabaseInitializer extends SQLiteOpenHelper {
             DB_PATH = "/data/data/" + context.getPackageName() + "/databases/";
         }
         this.context = context;
+    }
+
+    /**
+     * Create an empty database into the default application database folder.So
+     * we are gonna be able to overwrite that database with our database
+     */
+    private static void createEmptyDatabase(Context context) {
+        // use anonimous helper to create empty database
+        new SQLiteOpenHelper(context, DB_NAME, null, 1) {
+            // Methods are empty. We don`t need to override them
+            @Override
+            public void onUpgrade(SQLiteDatabase db, int oldVersion,
+                                  int newVersion) {
+            }
+
+            @Override
+            public void onCreate(SQLiteDatabase db) {
+
+            }
+        }.getReadableDatabase().close();
     }
 
     public void createDatabase() throws IOException {
@@ -114,26 +133,6 @@ public class DatabaseInitializer extends SQLiteOpenHelper {
         myOutput.flush();
         myInput.close();
         myOutput.close();
-    }
-
-    /**
-     * Create an empty database into the default application database folder.So
-     * we are gonna be able to overwrite that database with our database
-     */
-    private static void createEmptyDatabase(Context context) {
-        // use anonimous helper to create empty database
-        new SQLiteOpenHelper(context, DB_NAME, null, 1) {
-            // Methods are empty. We don`t need to override them
-            @Override
-            public void onUpgrade(SQLiteDatabase db, int oldVersion,
-                                  int newVersion) {
-            }
-
-            @Override
-            public void onCreate(SQLiteDatabase db) {
-
-            }
-        }.getReadableDatabase().close();
     }
 
     @Override

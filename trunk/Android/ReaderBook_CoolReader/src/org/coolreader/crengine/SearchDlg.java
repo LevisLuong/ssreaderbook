@@ -10,11 +10,11 @@ import android.widget.EditText;
 public class SearchDlg extends Dialog {
     BaseActivity mCoolReader;
     ReaderView mReaderView;
-    private LayoutInflater mInflater;
     View mDialogView;
     EditText mEditView;
     CheckBox mCaseSensitive;
     CheckBox mReverse;
+    private LayoutInflater mInflater;
 
 //	@Override
 //	protected void onPositiveButtonClick()

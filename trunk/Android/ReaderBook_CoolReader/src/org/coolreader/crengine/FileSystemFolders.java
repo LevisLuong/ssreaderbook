@@ -12,7 +12,7 @@ import static org.coolreader.db.CRDBService.FileInfoLoadingCallback;
  * Manages all content of the 'Browse file system' shelf
  */
 public class FileSystemFolders extends FileInfoChangeSource {
-    private static final FileInfoLoadingCallback NOOP = new FileInfoLoadingCallback(){
+    private static final FileInfoLoadingCallback NOOP = new FileInfoLoadingCallback() {
         @Override
         public void onFileInfoListLoaded(ArrayList<FileInfo> list) {
 
@@ -26,7 +26,7 @@ public class FileSystemFolders extends FileInfoChangeSource {
         this.mScanner = scanner;
     }
 
-    private ArrayList<FileInfo> updateEntries(List<FileInfo> favoriteFolders){
+    private ArrayList<FileInfo> updateEntries(List<FileInfo> favoriteFolders) {
         ArrayList<FileInfo> dirs = new ArrayList<FileInfo>();
         File[] roots = Engine.getStorageDirectories(false);
         for (File f : roots) {
@@ -45,8 +45,8 @@ public class FileSystemFolders extends FileInfoChangeSource {
 
     private ArrayList<FileInfo> filter(List<FileInfo> favoriteFolders) {
         ArrayList<FileInfo> filtered = new ArrayList<FileInfo>();
-        for(FileInfo fi: favoriteFolders){
-            if(mScanner.isValidFolder(fi))
+        for (FileInfo fi : favoriteFolders) {
+            if (mScanner.isValidFolder(fi))
                 filtered.add(fi);
         }
         return filtered;
@@ -63,23 +63,23 @@ public class FileSystemFolders extends FileInfoChangeSource {
 
     public boolean canMove(FileInfo folder, boolean left) {
         int folderIndex = findFavoriteFolder(folder);
-        if(folderIndex == -1)
+        if (folderIndex == -1)
             return false;
-        int increment = left? -1: 1;
+        int increment = left ? -1 : 1;
         int newIndex = folderIndex + increment;
         return newIndex >= 0 && newIndex < favoriteFolders.size();
     }
 
-    public void addFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder){
-        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback(){
+    public void addFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder) {
+        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback() {
             @Override
             public void onFileInfoListLoaded(ArrayList<FileInfo> list) {
-                if(findFavoriteFolder(folder) != -1)
+                if (findFavoriteFolder(folder) != -1)
                     return;
                 FileInfo dbFolder = new FileInfo(folder);
                 int maxPos = 0;
-                if(!favoriteFolders.isEmpty()){
-                    FileInfo lastFolder = favoriteFolders.get(favoriteFolders.size()-1);
+                if (!favoriteFolders.isEmpty()) {
+                    FileInfo lastFolder = favoriteFolders.get(favoriteFolders.size() - 1);
                     maxPos = lastFolder.seriesNumber;
                 }
                 dbFolder.seriesNumber = maxPos + 1;
@@ -90,17 +90,17 @@ public class FileSystemFolders extends FileInfoChangeSource {
         });
     }
 
-    public void moveFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder, final boolean left){
-        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback(){
+    public void moveFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder, final boolean left) {
+        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback() {
             @Override
             public void onFileInfoListLoaded(ArrayList<FileInfo> list) {
                 int folderIndex = findFavoriteFolder(folder);
-                if(folderIndex == -1)
+                if (folderIndex == -1)
                     return;
                 //find new place
-                int increment = left? -1: 1;
+                int increment = left ? -1 : 1;
                 int newIndex = folderIndex + increment;
-                if(newIndex < 0 || newIndex >= favoriteFolders.size()){
+                if (newIndex < 0 || newIndex >= favoriteFolders.size()) {
                     return;
                 }
                 //update this folder index and neighbor's one
@@ -119,12 +119,12 @@ public class FileSystemFolders extends FileInfoChangeSource {
         });
     }
 
-    public void removeFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder){
-        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback(){
+    public void removeFavoriteFolder(final CRDBService.LocalBinder binder, final FileInfo folder) {
+        loadFavoriteFoldersAndDo(binder, new FileInfoLoadingCallback() {
             @Override
             public void onFileInfoListLoaded(ArrayList<FileInfo> list) {
                 int folderIndex = findFavoriteFolder(folder);
-                if(folderIndex == -1)
+                if (folderIndex == -1)
                     return;
                 binder.deleteFavoriteFolder(folder);
                 favoriteFolders.remove(folderIndex);
@@ -135,13 +135,13 @@ public class FileSystemFolders extends FileInfoChangeSource {
 
 
     private void loadFavoriteFoldersAndDo(final CRDBService.LocalBinder binder, final FileInfoLoadingCallback callback) {
-        if(favoriteFolders == null) {
+        if (favoriteFolders == null) {
             binder.loadFavoriteFolders(new FileInfoLoadingCallback() {
                 @Override
                 public void onFileInfoListLoaded(ArrayList<FileInfo> list) {
                     favoriteFolders = new ArrayList<FileInfo>(list);
                     callback.onFileInfoListLoaded(favoriteFolders);
-                    onChange(null,false);
+                    onChange(null, false);
                 }
             });
         } else {
@@ -150,12 +150,12 @@ public class FileSystemFolders extends FileInfoChangeSource {
 
     }
 
-    private int findFavoriteFolder(FileInfo folder){
-        if(folder == null || favoriteFolders == null)
+    private int findFavoriteFolder(FileInfo folder) {
+        if (folder == null || favoriteFolders == null)
             return -1;
         int size = favoriteFolders.size();
-        for(int idx = 0; idx < size; ++idx){
-            if(favoriteFolders.get(idx).pathNameEquals(folder)){
+        for (int idx = 0; idx < size; ++idx) {
+            if (favoriteFolders.get(idx).pathNameEquals(folder)) {
                 return idx;
             }
         }

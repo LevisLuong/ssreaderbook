@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/option_item_body"
+<LinearLayout android:id="@+id/option_item_body"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:minHeight="?android:attr/listPreferredItemHeight"
               android:gravity="center_vertical"
+              android:minHeight="?android:attr/listPreferredItemHeight"
               android:paddingRight="?android:attr/scrollbarSize"
     >
 
@@ -20,23 +20,23 @@
         />
 
     <TextView
-        style="@style/Holo.TextAppearance.Medium"
         android:id="@+id/option_value_text"
+        style="@style/Holo.TextAppearance.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_weight="1"
+        android:maxLines="2"
         android:singleLine="false"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:maxLines="2"
-        android:layout_centerVertical="true"
         />
 
     <ImageView
         android:id="@+id/option_value_image"
         android:layout_width="64dip"
         android:layout_height="64dip"
+        android:layout_centerVertical="true"
         android:layout_gravity="center_vertical|right"
         android:layout_margin="4dip"
-        android:layout_centerVertical="true"
         />
 </LinearLayout>
