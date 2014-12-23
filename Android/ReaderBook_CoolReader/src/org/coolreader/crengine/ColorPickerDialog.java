@@ -27,10 +27,8 @@ import vn.seasoft.readerbook.R;
 
 public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener {
 
-    public interface OnColorChangedListener {
-        public void colorChanged(int color);
-    }
-
+    static final int[] STATE_FOCUSED = {android.R.attr.state_focused};
+    static final int[] STATE_PRESSED = {android.R.attr.state_pressed};
     private SeekBar mR;
     private SeekBar mG;
     private SeekBar mB;
@@ -89,6 +87,19 @@ public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener
         updatePreview(color);
     }
 
+    private static String byteToHex(int n) {
+        String s = Integer.toHexString(n & 255);
+        if (s.length() < 2)
+            s = "0" + s;
+        return s;
+    }
+
+    private static String colorToHex(int n) {
+        return ("#" + byteToHex(Color.red(n))
+                + byteToHex(Color.green(n))
+                + byteToHex(Color.blue(n))).toUpperCase();
+    }
+
     private void setupSeekBar(SeekBar seekBar, int id, int value, Resources res) {
         seekBar.setProgressDrawable(new TextSeekBarDrawable(res, id, value < seekBar.getMax() / 2));
         seekBar.setProgress(value);
@@ -121,19 +132,6 @@ public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener
         updatePreview(mColor);
     }
 
-    private static String byteToHex(int n) {
-        String s = Integer.toHexString(n & 255);
-        if (s.length() < 2)
-            s = "0" + s;
-        return s;
-    }
-
-    private static String colorToHex(int n) {
-        return ("#" + byteToHex(Color.red(n))
-                + byteToHex(Color.green(n))
-                + byteToHex(Color.blue(n))).toUpperCase();
-    }
-
     private void updatePreview(int color) {
         mPreviewDrawable.setColor(color);
         mPreviewDrawable.invalidateSelf();
@@ -152,13 +150,17 @@ public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener
     public void onStartTrackingTouch(SeekBar seekBar) {
     }
 
-    public void onStopTrackingTouch(SeekBar seekBar) {
-    }
-
 //	@Override
 //	protected void onNegativeButtonClick() {
 //		onPositiveButtonClick();
 //	}
+
+    public void onStopTrackingTouch(SeekBar seekBar) {
+    }
+
+    public interface OnColorChangedListener {
+        public void colorChanged(int color);
+    }
 
     static class IconPreviewDrawable extends Drawable {
         private Bitmap mBitmap;
@@ -212,9 +214,6 @@ public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener
             mTintColor = color;
         }
     }
-
-    static final int[] STATE_FOCUSED = {android.R.attr.state_focused};
-    static final int[] STATE_PRESSED = {android.R.attr.state_pressed};
 
     static class TextSeekBarDrawable extends Drawable implements Runnable {
 

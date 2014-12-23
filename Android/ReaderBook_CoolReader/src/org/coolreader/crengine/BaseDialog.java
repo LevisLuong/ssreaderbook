@@ -8,6 +8,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.View.OnTouchListener;
 
 public class BaseDialog extends Dialog {
+    protected View view;
     BaseActivity activity;
 
     public BaseDialog(BaseActivity activity) {
@@ -50,7 +51,6 @@ public class BaseDialog extends Dialog {
         // when dialog is closed
     }
 
-
     /**
      * Set View's gesture handlers for LTR and RTL horizontal fling
      *
@@ -81,6 +81,19 @@ public class BaseDialog extends Dialog {
             }
         });
     }
+
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        activity.onUserActivity();
+//        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            return true;
+//        }
+//        if (this.view != null) {
+//            if (this.view.onKeyDown(keyCode, event))
+//                return true;
+//        }
+//        return super.onKeyDown(keyCode, event);
+//    }
 
     private class MyGestureListener extends SimpleOnGestureListener {
         Runnable ltrHandler;
@@ -128,19 +141,4 @@ public class BaseDialog extends Dialog {
         }
 
     }
-
-//    @Override
-//    public boolean onKeyDown(int keyCode, KeyEvent event) {
-//        activity.onUserActivity();
-//        if (keyCode == KeyEvent.KEYCODE_BACK) {
-//            return true;
-//        }
-//        if (this.view != null) {
-//            if (this.view.onKeyDown(keyCode, event))
-//                return true;
-//        }
-//        return super.onKeyDown(keyCode, event);
-//    }
-
-    protected View view;
 }

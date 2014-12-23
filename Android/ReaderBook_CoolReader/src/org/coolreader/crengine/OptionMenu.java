@@ -24,23 +24,33 @@ import java.util.ArrayList;
  * Time: 10:31 AM
  */
 public class OptionMenu extends LinearLayout {
+    final String[] mInterlineSpacesTitle = new String[]{"Hẹp", "Bình thường", "Nới rộng"};
     BaseActivity mActivity;
     ReaderView mReaderView;
     Properties mProperties;
-
-    public OptionMenu(BaseActivity context, ReaderView readerView) {
-        super(context);
-        mActivity = context;
-        mReaderView = readerView;
-        initView();
-    }
-
+    String[] mFontSizes = new String[]{
+            "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+            "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "42", "44", "48", "52", "56", "60", "64", "68", "72"
+    };
+    String[] mInterlineSpaces = new String[]{
+            "100", "150", "200"
+    };
+    String[] mFontColor = new String[]{String.valueOf(Color.BLACK), String.valueOf(Color.WHITE), String.valueOf(Color.RED)};
+    String[] mFontColorTitle = new String[]{"Đen", "Trắng", "Đỏ"};
+    ThumbnailCache textureSampleCache = new ThumbnailCache(64, 64, 100);
+    BackgroundTextureInfo[] textures;
     private Button optionmenuBtnSizeFontSmaller;
     private Button optionmenuBtnSizeFontBigger;
     private Spinner optionmenuSpinFontFace;
     private Spinner optionmenuSpinLineSpace;
     private ImageView optionmenuImgFontColor;
     private Spinner optionmenuImgBackground;
+    public OptionMenu(BaseActivity context, ReaderView readerView) {
+        super(context);
+        mActivity = context;
+        mReaderView = readerView;
+        initView();
+    }
 
     private void assignViews(View root) {
         optionmenuBtnSizeFontBigger = (Button) root.findViewById(R.id.optionmenu_btnSizeFontBigger);
@@ -101,20 +111,6 @@ public class OptionMenu extends LinearLayout {
 
         initListener();
     }
-
-    String[] mFontSizes = new String[]{
-            "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-            "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "42", "44", "48", "52", "56", "60", "64", "68", "72"
-    };
-    String[] mInterlineSpaces = new String[]{
-            "100", "150", "200"
-    };
-    final String[] mInterlineSpacesTitle = new String[]{"Hẹp", "Bình thường", "Nới rộng"};
-
-
-    String[] mFontColor = new String[]{String.valueOf(Color.BLACK), String.valueOf(Color.WHITE), String.valueOf(Color.RED)};
-    String[] mFontColorTitle = new String[]{"Đen", "Trắng", "Đỏ"};
-
 
     private int getPositionArr(String[] arr, String value) {
         for (int i = 0; i < arr.length; i++) {
@@ -277,28 +273,10 @@ public class OptionMenu extends LinearLayout {
         }
     }
 
-
     class ThumbnailCache {
         final int maxcount;
         final int dx;
         final int dy;
-
-        class Item {
-            Drawable drawable;
-            Bitmap bmp;
-            String path;
-            int id;
-
-            public void clear() {
-                if (bmp != null) {
-                    //bmp.recycle();
-                    bmp = null;
-                }
-                if (drawable != null)
-                    drawable = null;
-            }
-        }
-
         ArrayList<Item> list = new ArrayList<Item>();
 
         public ThumbnailCache(int dx, int dy, int maxcount) {
@@ -391,11 +369,23 @@ public class OptionMenu extends LinearLayout {
         public void clear() {
             remove(0);
         }
+
+        class Item {
+            Drawable drawable;
+            Bitmap bmp;
+            String path;
+            int id;
+
+            public void clear() {
+                if (bmp != null) {
+                    //bmp.recycle();
+                    bmp = null;
+                }
+                if (drawable != null)
+                    drawable = null;
+            }
+        }
     }
-
-    ThumbnailCache textureSampleCache = new ThumbnailCache(64, 64, 100);
-    BackgroundTextureInfo[] textures;
-
 
     public class AdapterBackground extends BaseAdapter {
 

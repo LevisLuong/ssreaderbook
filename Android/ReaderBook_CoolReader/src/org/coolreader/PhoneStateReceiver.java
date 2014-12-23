@@ -9,6 +9,20 @@ import android.util.Log;
 
 public class PhoneStateReceiver extends BroadcastReceiver {
 
+    private static Runnable onPhoneActivityStartedHandler;
+
+    public static void setPhoneActivityHandler(Runnable handler) {
+        onPhoneActivityStartedHandler = handler;
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        CustomPhoneStateListener customPhoneListener = new CustomPhoneStateListener();
+
+        telephony.listen(customPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+    }
+
     public static class CustomPhoneStateListener extends PhoneStateListener {
 
         int lastState = -1;
@@ -38,19 +52,5 @@ public class PhoneStateReceiver extends BroadcastReceiver {
             }
         }
     }
-
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        TelephonyManager telephony = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        CustomPhoneStateListener customPhoneListener = new CustomPhoneStateListener();
-
-        telephony.listen(customPhoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-    }
-
-    public static void setPhoneActivityHandler(Runnable handler) {
-        onPhoneActivityStartedHandler = handler;
-    }
-
-    private static Runnable onPhoneActivityStartedHandler;
 
 }

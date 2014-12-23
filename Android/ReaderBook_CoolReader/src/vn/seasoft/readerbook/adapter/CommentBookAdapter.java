@@ -31,6 +31,7 @@ public class CommentBookAdapter extends BaseAdapter {
     boolean isLoading;
     boolean isHaveNew;
     int tempIndex;
+    IAdapterComment listener;
 
     public CommentBookAdapter(Context _ct) {
         context = _ct;
@@ -107,7 +108,6 @@ public class CommentBookAdapter extends BaseAdapter {
         return isNew;
     }
 
-
     @Override
     public int getCount() {
         return lstComments.size();
@@ -176,6 +176,15 @@ public class CommentBookAdapter extends BaseAdapter {
         return view;
     }
 
+    public void setListener(IAdapterComment _listener) {
+        this.listener = _listener;
+    }
+
+    public interface IAdapterComment {
+        public void DeleteComment(Comment comment);
+
+        public void EditComment(Comment comment);
+    }
 
     private class ViewHolder {
         public final ImageView commentavatar;
@@ -193,17 +202,5 @@ public class CommentBookAdapter extends BaseAdapter {
             commentcontent = (TextView) root.findViewById(R.id.comment_content);
             this.root = root;
         }
-    }
-
-    IAdapterComment listener;
-
-    public void setListener(IAdapterComment _listener) {
-        this.listener = _listener;
-    }
-
-    public interface IAdapterComment {
-        public void DeleteComment(Comment comment);
-
-        public void EditComment(Comment comment);
     }
 }

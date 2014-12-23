@@ -6,65 +6,65 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 
 public abstract class BaseListAdapter extends BaseAdapter {
-	private ArrayList<DataSetObserver> observers = new ArrayList<DataSetObserver>();
-	
-	public void registerDataSetObserver(DataSetObserver observer) {
-		observers.add(observer);
-	}
+    private ArrayList<DataSetObserver> observers = new ArrayList<DataSetObserver>();
 
-	public void unregisterDataSetObserver(DataSetObserver observer) {
-		observers.remove(observer);
-	}
-	
-	public void notifyDataSetChanged() {
-		for (DataSetObserver observer : observers) {
-			observer.onChanged();
-		}
-	}
+    public void registerDataSetObserver(DataSetObserver observer) {
+        observers.add(observer);
+    }
 
-	public void notifyInvalidated() {
-		for (DataSetObserver observer : observers) {
-			observer.onChanged();
-			//observer.onInvalidated();
-		}
-	}
+    public void unregisterDataSetObserver(DataSetObserver observer) {
+        observers.remove(observer);
+    }
 
-	
-	// default behavior implementation: single item view type, all items enabled, ids == positions
-	
-	@Override
-	public boolean isEmpty() {
-		return getCount() > 0;
-	}
+    public void notifyDataSetChanged() {
+        for (DataSetObserver observer : observers) {
+            observer.onChanged();
+        }
+    }
 
-	@Override
-	public boolean areAllItemsEnabled() {
-		return true;
-	}
+    public void notifyInvalidated() {
+        for (DataSetObserver observer : observers) {
+            observer.onChanged();
+            //observer.onInvalidated();
+        }
+    }
 
-	@Override
-	public boolean isEnabled(int position) {
-		return true;
-	}
 
-	@Override
-	public long getItemId(int position) {
-		return position;
-	}
+    // default behavior implementation: single item view type, all items enabled, ids == positions
 
-	@Override
-	public int getItemViewType(int position) {
-		return 0;
-	}
+    @Override
+    public boolean isEmpty() {
+        return getCount() > 0;
+    }
 
-	@Override
-	public int getViewTypeCount() {
-		return 1;
-	}
+    @Override
+    public boolean areAllItemsEnabled() {
+        return true;
+    }
 
-	@Override
-	public boolean hasStableIds() {
-		return true;
-	}
+    @Override
+    public boolean isEnabled(int position) {
+        return true;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return 0;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 1;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
 
 }

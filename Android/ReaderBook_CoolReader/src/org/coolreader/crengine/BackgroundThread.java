@@ -14,9 +14,25 @@ import java.util.concurrent.Callable;
  */
 public class BackgroundThread extends Thread {
 
+    public final static boolean CHECK_THREAD_CONTEXT = true;
     private final static Object LOCK = new Object();
-
+    private final static boolean DBG = false;
+    static int delayedTaskId = 0;
     private static BackgroundThread instance;
+    private final ArrayList<Runnable> posted = new ArrayList<Runnable>();
+    private final ArrayList<Runnable> postedGUI = new ArrayList<Runnable>();
+    //
+    private Handler handler;
+    private Handler guiHandler;
+    private boolean mStopped = false;
+    /**
+     * Create background thread executor.
+     */
+    private BackgroundThread() {
+        super();
+        setName("BackgroundThread" + Integer.toHexString(hashCode()));
+        Log.i("cr3", "Created new background thread instance");
+    }
 
     // singleton
     public static BackgroundThread instance() {
@@ -43,7 +59,22 @@ public class BackgroundThread extends Thread {
         return instance().guiHandler;
     }
 
-    public final static boolean CHECK_THREAD_CONTEXT = true;
+    /**
+     * Set view to post GUI tasks to.
+     *
+     * @param guiHandler is view to post GUI tasks to.
+     */
+    public void setGUIHandler(Handler guiHandler) {
+        this.guiHandler = guiHandler;
+        if (guiHandler != null) {
+            // forward already posted events
+            synchronized (postedGUI) {
+                L.d("Engine.setGUI: " + postedGUI.size() + " posted tasks to copy");
+                for (Runnable task : postedGUI)
+                    guiHandler.post(task);
+            }
+        }
+    }
 
     /**
      * Throws exception if not in background thread.
@@ -65,36 +96,13 @@ public class BackgroundThread extends Thread {
         }
     }
 
-    //
-    private Handler handler;
-    private final ArrayList<Runnable> posted = new ArrayList<Runnable>();
-    private Handler guiHandler;
-    private final ArrayList<Runnable> postedGUI = new ArrayList<Runnable>();
-
-    /**
-     * Set view to post GUI tasks to.
-     *
-     * @param guiHandler is view to post GUI tasks to.
-     */
-    public void setGUIHandler(Handler guiHandler) {
-        this.guiHandler = guiHandler;
-        if (guiHandler != null) {
-            // forward already posted events
-            synchronized (postedGUI) {
-                L.d("Engine.setGUI: " + postedGUI.size() + " posted tasks to copy");
-                for (Runnable task : postedGUI)
-                    guiHandler.post(task);
-            }
-        }
+    // assume there are only two threads: main GUI and background
+    public static boolean isGUIThread() {
+        return !isBackgroundThread();
     }
 
-    /**
-     * Create background thread executor.
-     */
-    private BackgroundThread() {
-        super();
-        setName("BackgroundThread" + Integer.toHexString(hashCode()));
-        Log.i("cr3", "Created new background thread instance");
+    public static boolean isBackgroundThread() {
+        return (Thread.currentThread() == instance);
     }
 
     @Override
@@ -166,8 +174,6 @@ public class BackgroundThread extends Thread {
         postGUI(task, 0);
     }
 
-    static int delayedTaskId = 0;
-
     /**
      * Post runnable to be executed in GUI thread
      *
@@ -209,15 +215,6 @@ public class BackgroundThread extends Thread {
             postBackground(task); // post
     }
 
-    // assume there are only two threads: main GUI and background
-    public static boolean isGUIThread() {
-        return !isBackgroundThread();
-    }
-
-    public static boolean isBackgroundThread() {
-        return (Thread.currentThread() == instance);
-    }
-
     public void executeGUI(Runnable task) {
         //Handler guiHandler = guiTarget.getHandler();
         //if ( guiHandler!=null && guiHandler.getLooper().getThread()==Thread.currentThread() )
@@ -234,7 +231,6 @@ public class BackgroundThread extends Thread {
             }
         };
     }
-
 
     /**
      * Waits until all pending background tasks are executed.
@@ -277,8 +273,6 @@ public class BackgroundThread extends Thread {
         return res;
     }
 
-    private final static boolean DBG = false;
-
     public <T> T callGUI(final Callable<T> task) {
         if (isGUIThread()) {
             try {
@@ -315,8 +309,6 @@ public class BackgroundThread extends Thread {
         if (DBG) L.d("callGUI : returned from get " + Thread.currentThread().getName());
         return res;
     }
-
-    private boolean mStopped = false;
 
     public void waitForBackgroundCompletion() {
         Engine.suspendLongOperation();

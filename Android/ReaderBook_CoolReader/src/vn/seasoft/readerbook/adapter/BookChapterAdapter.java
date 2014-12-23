@@ -1,5 +1,15 @@
 package vn.seasoft.readerbook.adapter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+
+import org.holoeverywhere.widget.Toast;
+
+import vn.seasoft.readerbook.R;
+import vn.seasoft.readerbook.Util.GlobalData;
+import vn.seasoft.readerbook.Util.SSUtil;
+import vn.seasoft.readerbook.model.Book_Chapter;
 import android.content.Context;
 import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
@@ -10,14 +20,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import org.holoeverywhere.widget.Toast;
-import vn.seasoft.readerbook.R;
-import vn.seasoft.readerbook.Util.GlobalData;
-import vn.seasoft.readerbook.Util.SSUtil;
-import vn.seasoft.readerbook.model.Book_Chapter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * User: XuanTrung
@@ -33,6 +35,7 @@ public class BookChapterAdapter extends BaseAdapter {
     boolean isHaveNew;
 
     int tempIndex;
+    IAdapterBookChapter listener;
 
     public BookChapterAdapter(Context _ct) {
         context = _ct;
@@ -161,14 +164,14 @@ public class BookChapterAdapter extends BaseAdapter {
         return view;
     }
 
-    public void setLoadBook(int position) {
-        for (Book_Chapter bookchap : lstBookChap) {
-            bookchap.setCurrentread(false);
-            bookchap.updateData();
-        }
-        getItem(position).setCurrentread(true);
-        getItem(position).setIsDownloaded(true);
-        getItem(position).updateData();
+    public void setLoadBook(final int position) {  
+    	for (Book_Chapter bookchap : lstBookChap) {
+			bookchap.setCurrentread(false);
+			bookchap.updateData();
+		}
+		getItem(position).setCurrentread(true);
+		getItem(position).setIsDownloaded(true);
+		getItem(position).updateData();
     }
 
     public void deleteBook(int position) {
@@ -178,6 +181,16 @@ public class BookChapterAdapter extends BaseAdapter {
         book_chapter.updateData();
         notifyDataSetChanged();
         Toast.makeText(context, "Đã xóa khỏi máy", Toast.LENGTH_SHORT).show();
+    }
+
+    public void setListener(IAdapterBookChapter _listener) {
+        listener = _listener;
+    }
+
+    public interface IAdapterBookChapter {
+        public void DownloadAll(Book_Chapter book_chapter);
+
+        public void DeleteAll(Book_Chapter book_chapter);
     }
 
     private class ViewHolder {
@@ -194,18 +207,5 @@ public class BookChapterAdapter extends BaseAdapter {
             bookchapterpopupmenu = (ImageView) root.findViewById(R.id.bookchapter_popupmenu);
             this.root = root;
         }
-    }
-
-
-    IAdapterBookChapter listener;
-
-    public void setListener(IAdapterBookChapter _listener) {
-        listener = _listener;
-    }
-
-    public interface IAdapterBookChapter {
-        public void DownloadAll(Book_Chapter book_chapter);
-
-        public void DeleteAll(Book_Chapter book_chapter);
     }
 }

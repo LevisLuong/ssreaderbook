@@ -8,6 +8,7 @@ import vn.seasoft.readerbook.sqlite.DatabaseHelper;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 /**
  * Controller for Book
@@ -27,35 +28,48 @@ public class BookChapterController {
         }
     }
 
-    public Dao<Book_Chapter,Integer> getDao(){
+    public Dao<Book_Chapter, Integer> getDao() {
         return Dao;
     }
 
-    public int create(Book_Chapter item) {
+    public int create(final Book_Chapter item) {
         try {
-            return Dao.create(item);
+        	 return Dao.create(item);
         } catch (SQLException e) {
             // TODO: Exception Handling
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
 
-    public int update(Book_Chapter item) {
+    public int update(final Book_Chapter item) {
+
         try {
-            return Dao.update(item);
+        	return Dao.update(item);
         } catch (SQLException e) {
             // TODO: Exception Handling
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;
     }
 
-    public int delete(Book_Chapter item) {
+    public int delete(final Book_Chapter item) {
         try {
-            return Dao.delete(item);
+            Dao.callBatchTasks(new Callable<Integer>() {
+                @Override
+                public Integer call() throws Exception {
+                    return Dao.delete(item);
+                }
+            });
+            return 1;
         } catch (SQLException e) {
             // TODO: Exception Handling
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 0;

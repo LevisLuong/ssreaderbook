@@ -21,166 +21,30 @@ import java.util.Map;
 
 public class CoolReader extends BaseActivity {
     public static final Logger log = L.create("cr");
-    private ReaderView mReaderView;
-    private ReaderViewLayout mReaderFrame;
-    private View mBrowserTitleBar;
-    private Engine mEngine;
-    //View startupView;
-    //CRDB mDB;
-    private ViewGroup mCurrentFrame;
-    private ViewGroup mPreviousFrame;
-
-
-    String fileToLoadOnStart = null;
-
-    private boolean isFirstStart = true;
-    int initialBatteryState = -1;
-    BroadcastReceiver intentReceiver;
-
-    private boolean justCreated = false;
-
-
-    /**
-     * Called when the activity is first created.
-     */
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        log.i("CoolReader.onCreate() entered");
-        startServices();
-        super.onCreate(savedInstanceState);
-
-        // apply settings
-        onSettingsChanged(settings(), null);
-
-        isFirstStart = true;
-        justCreated = true;
-
-
-        mEngine = Engine.getInstance(this);
-
-
-        //requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-
-        //==========================================
-        // Battery state listener
-        intentReceiver = new BroadcastReceiver() {
-
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                int level = intent.getIntExtra("level", 0);
-                if (mReaderView != null)
-                    mReaderView.setBatteryState(level);
-                else
-                    initialBatteryState = level;
-            }
-
-        };
-        registerReceiver(intentReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-
-        setVolumeControlStream(AudioManager.STREAM_MUSIC);
-
-        if (initialBatteryState >= 0 && mReaderView != null)
-            mReaderView.setBatteryState(initialBatteryState);
-
-
-        N2EpdController.n2MainActivity = this;
-
-
-        //Services.getEngine().showProgress( 0, R.string.progress_starting_cool_reader );
-
-        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-        //       WindowManager.LayoutParams.FLAG_FULLSCREEN );
-//		startupView = new View(this) {
-//		};
-//		startupView.setBackgroundColor(Color.BLACK);
-
-
-//		if ( DeviceInfo.FORCE_LIGHT_THEME ) {
-//			setTheme(android.R.style.Theme_Light);
-//			getWindow().setBackgroundDrawableResource(drawable.editbox_background);
-//		}
-//		if ( DeviceInfo.FORCE_LIGHT_THEME ) {
-//			mFrame.setBackgroundColor( Color.WHITE );
-//			setTheme(R.style.Dialog_Fullscreen_Day);
-//		}
-
-//		mFrame.addView(startupView);
-//        log.i("initializing browser");
-//        log.i("initializing reader");
-//        
-//        fileToLoadOnStart = null;
-//		Intent intent = getIntent();
-//		if ( intent!=null && Intent.ACTION_VIEW.equals(intent.getAction()) ) {
-//			Uri uri = intent.getData();
-//			if ( uri!=null ) {
-//				fileToLoadOnStart = extractFileName(uri);
-//			}
-//			intent.setData(null);
-//		}
-
-        //showRootWindow();
-
-        log.i("CoolReader.onCreate() exiting");
-    }
-
     public final static boolean CLOSE_BOOK_ON_STOP = false;
-
-    boolean mDestroyed = false;
-
-    @Override
-    protected void onDestroy() {
-
-        log.i("CoolReader.onDestroy() entered");
-        if (!CLOSE_BOOK_ON_STOP && mReaderView != null)
-            mReaderView.close();
-
-        if (tts != null) {
-            tts.shutdown();
-            tts = null;
-            ttsInitialized = false;
-            ttsError = false;
-        }
-        mDestroyed = true;
-
-        //if ( mReaderView!=null )
-        //	mReaderView.close();
-
-        //if ( mHistory!=null && mDB!=null ) {
-        //history.saveToDB();
-        //}
-
-
-//		if ( BackgroundThread.instance()!=null ) {
-//			BackgroundThread.instance().quit();
-//		}
-
-        //mEngine = null;
-        if (intentReceiver != null) {
-            unregisterReceiver(intentReceiver);
-            intentReceiver = null;
-        }
-
-        //===========================
-        // Donations support code
-        //if (billingSupported) {
-        //mPurchaseDatabase.close();
-        //}
-
-        if (mReaderView != null) {
-            mReaderView.destroy();
-        }
-        mReaderView = null;
-
-        log.i("CoolReader.onDestroy() exiting");
-        super.onDestroy();
-
-        Services.stopServices();
-    }
-
-    public ReaderView getReaderView() {
-        return mReaderView;
-    }
+    public static final String OPEN_FILE_PARAM = "FILE_TO_OPEN";
+    public static final String OPEN_DIR_PARAM = "DIR_TO_OPEN";
+    static final boolean LOAD_LAST_DOCUMENT_ON_START = true;
+    private final static int DICTAN_ARTICLE_REQUEST_CODE = 100;
+    private final static String DICTAN_ARTICLE_WORD = "article.word";
+    private final static String DICTAN_ERROR_MESSAGE = "error.message";
+    private final static int FLAG_ACTIVITY_CLEAR_TASK = 0x00008000;
+    /**
+     * Used for storing the log text.
+     */
+    private static final String LOG_TEXT_KEY = "DUNGEONS_LOG_TEXT";
+    /**
+     * The SharedPreferences key for recording whether we initialized the
+     * database.  If false, then we perform a RestoreTransactions request
+     * to get all the purchases for this user.
+     */
+    private static final String DB_INITIALIZED = "db_initialized";
+    private final static String BOOK_LOCATION_PREFIX = "@book:";
+    private final static String DIRECTORY_LOCATION_PREFIX = "@dir:";
+    private static Debug.MemoryInfo info = new Debug.MemoryInfo();
+    private static Field[] infoFields = Debug.MemoryInfo.class.getFields();
+    String fileToLoadOnStart = null;
+    int initialBatteryState = -1;
 
 //    @Override
 //    public void applyAppSetting(String key, String value) {
@@ -233,264 +97,26 @@ public class CoolReader extends BaseActivity {
 //        }
 //        //
 //    }
-
-    @Override
-    public void setFullscreen(boolean fullscreen) {
-        super.setFullscreen(fullscreen);
-        if (mReaderFrame != null)
-            mReaderFrame.updateFullscreen(fullscreen);
-    }
-
-    private String extractFileName(Uri uri) {
-        if (uri != null) {
-            if (uri.equals(Uri.parse("file:///")))
-                return null;
-            else
-                return uri.getPath();
-        }
-        return null;
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        log.i("onNewIntent : " + intent);
-        if (mDestroyed) {
-            log.e("engine is already destroyed");
-            return;
-        }
-        processIntent(intent);
-//		String fileToOpen = null;
-//		if ( Intent.ACTION_VIEW.equals(intent.getAction()) ) {
-//			Uri uri = intent.getData();
-//			if ( uri!=null ) {
-//				fileToOpen = extractFileName(uri);
-//			}
-//			intent.setData(null);
-//		}
-//		log.v("onNewIntent, fileToOpen=" + fileToOpen);
-//		if ( fileToOpen!=null ) {
-//			// load document
-//			final String fn = fileToOpen;
-//			BackgroundThread.instance().postGUI(new Runnable() {
-//				@Override
-//				public void run() {
-//					loadDocument(fn, new Runnable() {
-//						public void run() {
-//							log.v("onNewIntent, loadDocument error handler called");
-//							showToast("Error occured while loading " + fn);
-//							Services.getEngine().hideProgress();
-//						}
-//					});
-//				}
-//			}, 100);
-//		}
-    }
-
-    private boolean processIntent(Intent intent) {
-        log.d("intent=" + intent);
-        if (intent == null)
-            return false;
-        String fileToOpen = null;
-        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-            Uri uri = intent.getData();
-            intent.setData(null);
-            if (uri != null) {
-                fileToOpen = uri.getPath();
-//				if (fileToOpen.startsWith("file://"))
-//					fileToOpen = fileToOpen.substring("file://".length());
-            }
-        }
-        if (fileToOpen == null && intent.getExtras() != null) {
-            log.d("extras=" + intent.getExtras());
-            fileToOpen = intent.getExtras().getString(OPEN_FILE_PARAM);
-        }
-        if (fileToOpen != null) {
-            // patch for opening of books from ReLaunch (under Nook Simple Touch)
-            while (fileToOpen.indexOf("%2F") >= 0) {
-                fileToOpen = fileToOpen.replace("%2F", "/");
-            }
-            log.d("FILE_TO_OPEN = " + fileToOpen);
-            loadDocument(fileToOpen, new Runnable() {
-                @Override
-                public void run() {
-                    showToast("Cannot open book");
-                    //showRootWindow();
-                }
-            });
-            return true;
-        } else {
-            log.d("No file to open");
-            return false;
-        }
-    }
-
-    public void showToast(int stringResourceId) {
-        showToast(stringResourceId, Toast.LENGTH_LONG);
-    }
-
-    public void showToast(int stringResourceId, int duration) {
-        String s = SSReaderApplication.getInstance().getString(stringResourceId);
-        if (s != null)
-            showToast(s, duration);
-    }
-
-    public void showToast(String msg) {
-        showToast(msg, Toast.LENGTH_LONG);
-    }
-
-    public void showToast(String msg, int duration) {
-        log.v("showing toast: " + msg);
-        if (DeviceInfo.USE_CUSTOM_TOAST) {
-            ToastView.showToast(getContentView(), msg, duration, 20);
-        } else {
-            // classic Toast
-            Toast toast = Toast.makeText(this, msg, duration);
-            toast.show();
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mReaderView != null)
-            mReaderView.onAppPause();
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        log.i("CoolReader.onPostCreate()");
-        super.onPostCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void onPostResume() {
-        log.i("CoolReader.onPostResume()");
-        super.onPostResume();
-    }
-
-    //	private boolean restarted = false;
-    @Override
-    protected void onRestart() {
-        log.i("CoolReader.onRestart()");
-        //restarted = true;
-        super.onRestart();
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        log.i("CoolReader.onRestoreInstanceState()");
-        super.onRestoreInstanceState(savedInstanceState);
-    }
-
-    @Override
-    protected void onResume() {
-        log.i("CoolReader.onResume()");
-        super.onResume();
-        //Properties props = SettingsManager.instance(this).get();
-
-        if (mReaderView != null)
-            mReaderView.onAppResume();
-
-        if (DeviceInfo.EINK_SCREEN) {
-            if (DeviceInfo.EINK_SONY) {
-                SharedPreferences pref = getSharedPreferences(PREF_FILE, 0);
-                String res = pref.getString(PREF_LAST_BOOK, null);
-                if (res != null && res.length() > 0) {
-                    SonyBookSelector selector = new SonyBookSelector(this);
-                    long l = selector.getContentId(res);
-                    if (l != 0) {
-                        selector.setReadingTime(l);
-                        selector.requestBookSelection(l);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        log.i("CoolReader.onSaveInstanceState()");
-        super.onSaveInstanceState(outState);
-    }
-
-    static final boolean LOAD_LAST_DOCUMENT_ON_START = true;
-
-    @Override
-    protected void onStart() {
-        log.i("CoolReader.onStart() version=" + getVersion() + ", fileToLoadOnStart=" + fileToLoadOnStart);
-        super.onStart();
-
-
-        PhoneStateReceiver.setPhoneActivityHandler(new Runnable() {
-            @Override
-            public void run() {
-                if (mReaderView != null) {
-                    mReaderView.stopTTS();
-                    mReaderView.save();
-                }
-            }
-        });
-
-//		BackgroundThread.instance().postGUI(new Runnable() {
-//			public void run() {
-//				// fixing font settings
-//				Properties settings = mReaderView.getSettings();
-//				if (SettingsManager.instance(CoolReader.this).fixFontSettings(settings)) {
-//					log.i("Missing font settings were fixed");
-//					mBrowser.setCoverPageFontFace(settings.getProperty(ReaderView.PROP_FONT_FACE, DeviceInfo.DEF_FONT_FACE));
-//					mReaderView.setSettings(settings, null);
-//				}
-//			}
-//		});
-
-
-        if (isBookOpened()) {
-            showOpenedBook();
-            return;
-        }
-
-        if (!isFirstStart)
-            return;
-        isFirstStart = false;
-
-        if (justCreated) {
-            justCreated = false;
-            if (!processIntent(getIntent()))
-                showLastLocation();
-        }
-
-
-//		if ( fileToLoadOnStart==null ) {
-//			if ( mReaderView!=null && currentView==mReaderView && mReaderView.isBookLoaded() ) {
-//				log.v("Book is already opened, showing ReaderView");
-//				showReader();
-//				return;
-//			}
-//			
-//			//!stopped && 
-////			if ( restarted && mReaderView!=null && mReaderView.isBookLoaded() ) {
-////				log.v("Book is already opened, showing ReaderView");
-////		        restarted = false;
-////		        return;
-////			}
-//		}
-        if (!stopped) {
-            //Services.getEngine().showProgress( 500, R.string.progress_starting_cool_reader );
-        }
-        //log.i("waiting for engine tasks completion");
-        //engine.waitTasksCompletion();
-//		restarted = false;
-        stopped = false;
-
-        final String fileName = fileToLoadOnStart;
-//		BackgroundThread.instance().postGUI(new Runnable() {
-//			public void run() {
-//				log.i("onStart, scheduled runnable: load document");
-//				Services.getEngine().execute(new LoadLastDocumentTask(fileName));
-//			}
-//		});
-        log.i("CoolReader.onStart() exiting");
-    }
+    BroadcastReceiver intentReceiver;
+    boolean mDestroyed = false;
+    TTS tts;
+    boolean ttsInitialized;
+    boolean ttsError;
+    int CURRENT_NOTIFICATOIN_VERSION = 1;
+    private ReaderView mReaderView;
+    private ReaderViewLayout mReaderFrame;
+    private View mBrowserTitleBar;
+    private Engine mEngine;
+    //View startupView;
+    //CRDB mDB;
+    private ViewGroup mCurrentFrame;
+    private ViewGroup mPreviousFrame;
+    private boolean isFirstStart = true;
+    private boolean justCreated = false;
+    private boolean stopped = false;
+    private DictInfo currentDict = getDictList()[0];
+    // ============================================================
+    private AudioManager am;
 
 //	class LoadLastDocumentTask implements Engine.EngineTask {
 //
@@ -537,22 +163,8 @@ public class CoolReader extends BaseActivity {
 //	        log.v("onStart, scheduled task work()");
 //		}
 //    }
-
-
-    private boolean stopped = false;
-
-    @Override
-    protected void onStop() {
-        log.i("CoolReader.onStop() entering");
-        super.onStop();
-        stopped = true;
-        // will close book at onDestroy()
-        if (CLOSE_BOOK_ON_STOP)
-            mReaderView.close();
-
-
-        log.i("CoolReader.onStop() exiting");
-    }
+    private int maxVolume;
+    private SharedPreferences mPreferences;
 
 //	public void showView( View view, boolean hideProgress )
 //	{
@@ -764,9 +376,6 @@ public class CoolReader extends BaseActivity {
 //	
 //	File propsFile;
 
-    private static Debug.MemoryInfo info = new Debug.MemoryInfo();
-    private static Field[] infoFields = Debug.MemoryInfo.class.getFields();
-
     private static String dumpFields(Field[] fields, Object obj) {
         StringBuilder buf = new StringBuilder();
         try {
@@ -786,6 +395,140 @@ public class CoolReader extends BaseActivity {
     public static void dumpHeapAllocation() {
         Debug.getMemoryInfo(info);
         log.d("nativeHeapAlloc=" + Debug.getNativeHeapAllocatedSize() + ", nativeHeapSize=" + Debug.getNativeHeapSize() + ", info: " + dumpFields(infoFields, info));
+    }
+
+    /**
+     * Called when the activity is first created.
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        log.i("CoolReader.onCreate() entered");
+        startServices();
+        super.onCreate(savedInstanceState);
+
+        // apply settings
+        onSettingsChanged(settings(), null);
+
+        isFirstStart = true;
+        justCreated = true;
+
+
+        mEngine = Engine.getInstance(this);
+
+
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+
+        //==========================================
+        // Battery state listener
+        intentReceiver = new BroadcastReceiver() {
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                int level = intent.getIntExtra("level", 0);
+                if (mReaderView != null)
+                    mReaderView.setBatteryState(level);
+                else
+                    initialBatteryState = level;
+            }
+
+        };
+        registerReceiver(intentReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
+
+        if (initialBatteryState >= 0 && mReaderView != null)
+            mReaderView.setBatteryState(initialBatteryState);
+
+
+        N2EpdController.n2MainActivity = this;
+
+
+        //Services.getEngine().showProgress( 0, R.string.progress_starting_cool_reader );
+
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        //       WindowManager.LayoutParams.FLAG_FULLSCREEN );
+//		startupView = new View(this) {
+//		};
+//		startupView.setBackgroundColor(Color.BLACK);
+
+
+//		if ( DeviceInfo.FORCE_LIGHT_THEME ) {
+//			setTheme(android.R.style.Theme_Light);
+//			getWindow().setBackgroundDrawableResource(drawable.editbox_background);
+//		}
+//		if ( DeviceInfo.FORCE_LIGHT_THEME ) {
+//			mFrame.setBackgroundColor( Color.WHITE );
+//			setTheme(R.style.Dialog_Fullscreen_Day);
+//		}
+
+//		mFrame.addView(startupView);
+//        log.i("initializing browser");
+//        log.i("initializing reader");
+//
+//        fileToLoadOnStart = null;
+//		Intent intent = getIntent();
+//		if ( intent!=null && Intent.ACTION_VIEW.equals(intent.getAction()) ) {
+//			Uri uri = intent.getData();
+//			if ( uri!=null ) {
+//				fileToLoadOnStart = extractFileName(uri);
+//			}
+//			intent.setData(null);
+//		}
+
+        //showRootWindow();
+
+        log.i("CoolReader.onCreate() exiting");
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        log.i("CoolReader.onDestroy() entered");
+        if (!CLOSE_BOOK_ON_STOP && mReaderView != null)
+            mReaderView.close();
+
+        if (tts != null) {
+            tts.shutdown();
+            tts = null;
+            ttsInitialized = false;
+            ttsError = false;
+        }
+        mDestroyed = true;
+
+        //if ( mReaderView!=null )
+        //	mReaderView.close();
+
+        //if ( mHistory!=null && mDB!=null ) {
+        //history.saveToDB();
+        //}
+
+
+//		if ( BackgroundThread.instance()!=null ) {
+//			BackgroundThread.instance().quit();
+//		}
+
+        //mEngine = null;
+        if (intentReceiver != null) {
+            unregisterReceiver(intentReceiver);
+            intentReceiver = null;
+        }
+
+        //===========================
+        // Donations support code
+        //if (billingSupported) {
+        //mPurchaseDatabase.close();
+        //}
+
+        if (mReaderView != null) {
+            mReaderView.destroy();
+        }
+        mReaderView = null;
+
+        log.i("CoolReader.onDestroy() exiting");
+        super.onDestroy();
+
+        Services.stopServices();
     }
 
 
@@ -808,96 +551,102 @@ public class CoolReader extends BaseActivity {
 //        directoryUpdated(dir, null);
 //    }
 
+    public ReaderView getReaderView() {
+        return mReaderView;
+    }
+
     @Override
-    public void onSettingsChanged(Properties props, Properties oldProps) {
-        Properties changedProps = oldProps != null ? props.diff(oldProps) : props;
-        if (mReaderFrame != null) {
-            mReaderFrame.updateSettings(props);
-            if (mReaderView != null)
-                mReaderView.updateSettings(props);
+    public void setFullscreen(boolean fullscreen) {
+        super.setFullscreen(fullscreen);
+        if (mReaderFrame != null)
+            mReaderFrame.updateFullscreen(fullscreen);
+    }
 
+    private String extractFileName(Uri uri) {
+        if (uri != null) {
+            if (uri.equals(Uri.parse("file:///")))
+                return null;
+            else
+                return uri.getPath();
         }
-        for (Map.Entry<Object, Object> entry : changedProps.entrySet()) {
-            String key = (String) entry.getKey();
-            String value = (String) entry.getValue();
-            applyAppSetting(key, value);
+        return null;
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        log.i("onNewIntent : " + intent);
+        if (mDestroyed) {
+            log.e("engine is already destroyed");
+            return;
         }
+        processIntent(intent);
+//		String fileToOpen = null;
+//		if ( Intent.ACTION_VIEW.equals(intent.getAction()) ) {
+//			Uri uri = intent.getData();
+//			if ( uri!=null ) {
+//				fileToOpen = extractFileName(uri);
+//			}
+//			intent.setData(null);
+//		}
+//		log.v("onNewIntent, fileToOpen=" + fileToOpen);
+//		if ( fileToOpen!=null ) {
+//			// load document
+//			final String fn = fileToOpen;
+//			BackgroundThread.instance().postGUI(new Runnable() {
+//				@Override
+//				public void run() {
+//					loadDocument(fn, new Runnable() {
+//						public void run() {
+//							log.v("onNewIntent, loadDocument error handler called");
+//							showToast("Error occured while loading " + fn);
+//							Services.getEngine().hideProgress();
+//						}
+//					});
+//				}
+//			}, 100);
+//		}
     }
 
-    protected boolean allowLowBrightness() {
-        // override to force higher brightness in non-reading mode (to avoid black screen on some devices when brightness level set to small value)
-        return mCurrentFrame == mReaderFrame;
-    }
-
-
-    public ViewGroup getPreviousFrame() {
-        return mPreviousFrame;
-    }
-
-    public void showReader() {
-        runInReader(new Runnable() {
-            @Override
-            public void run() {
-                // do nothing
+    private boolean processIntent(Intent intent) {
+        log.d("intent=" + intent);
+        if (intent == null)
+            return false;
+        String fileToOpen = null;
+        if (Intent.ACTION_VIEW.equals(intent.getAction())) {
+            Uri uri = intent.getData();
+            intent.setData(null);
+            if (uri != null) {
+                fileToOpen = uri.getPath();
+//				if (fileToOpen.startsWith("file://"))
+//					fileToOpen = fileToOpen.substring("file://".length());
             }
-        });
-    }
-
-    private void setCurrentFrame(ViewGroup newFrame) {
-        if (mCurrentFrame != newFrame) {
-            mPreviousFrame = mCurrentFrame;
-            log.i("New current frame: " + newFrame.getClass().toString());
-            mCurrentFrame = newFrame;
-            setContentView(mCurrentFrame);
-            mCurrentFrame.requestFocus();
-            if (mCurrentFrame != mReaderFrame)
-                releaseBacklightControl();
-//            if (mCurrentFrame == mHomeFrame) {
-//                // update recent books
-//                mHomeFrame.refreshRecentBooks();
-//                setLastLocationRoot();
-//                mCurrentFrame.invalidate();
-//            }
-//            if (mCurrentFrame == mBrowserFrame) {
-//                // update recent books directory
-//                mBrowser.refreshDirectory(Services.getScanner().getRecentDir(), null);
-//            }
-            onUserActivity();
         }
-    }
-
-    private void runInReader(final Runnable task) {
-        waitForCRDBService(new Runnable() {
-            @Override
-            public void run() {
-                if (mReaderFrame != null) {
-                    task.run();
-                    setCurrentFrame(mReaderFrame);
-                    mReaderView.getSurface().setFocusable(true);
-                    mReaderView.getSurface().setFocusableInTouchMode(true);
-                    mReaderView.getSurface().requestFocus();
-                } else {
-                    mReaderView = new ReaderView(CoolReader.this, mEngine, settings());
-                    mReaderFrame = new ReaderViewLayout(CoolReader.this, mReaderView);
-//                    mReaderFrame.getToolBar().setOnActionHandler(new OnActionHandler() {
-//                        @Override
-//                        public boolean onActionSelected(ReaderAction item) {
-//                            if (mReaderView != null)
-//                                mReaderView.onAction(item);
-//                            return true;
-//                        }
-//                    });
-                    task.run();
-                    setCurrentFrame(mReaderFrame);
-                    mReaderView.getSurface().setFocusable(true);
-                    mReaderView.getSurface().setFocusableInTouchMode(true);
-                    mReaderView.getSurface().requestFocus();
-                    if (initialBatteryState >= 0)
-                        mReaderView.setBatteryState(initialBatteryState);
+        if (fileToOpen == null && intent.getExtras() != null) {
+            log.d("extras=" + intent.getExtras());
+            fileToOpen = intent.getExtras().getString(OPEN_FILE_PARAM);
+        }
+        if (fileToOpen != null) {
+            // patch for opening of books from ReLaunch (under Nook Simple Touch)
+            while (fileToOpen.indexOf("%2F") >= 0) {
+                fileToOpen = fileToOpen.replace("%2F", "/");
+            }
+            log.d("FILE_TO_OPEN = " + fileToOpen);
+            loadDocument(fileToOpen, new Runnable() {
+                @Override
+                public void run() {
+                    showToast("Cannot open book");
+                    //showRootWindow();
                 }
-            }
-        });
+            });
+            return true;
+        } else {
+            log.d("No file to open");
+            return false;
+        }
+    }
 
+    public void showToast(int stringResourceId) {
+        showToast(stringResourceId, Toast.LENGTH_LONG);
     }
 
 //    private void runInBrowser(final Runnable task) {
@@ -992,35 +741,53 @@ public class CoolReader extends BaseActivity {
 //        });
 //    }
 
-    public void showManual() {
-        loadDocument("@manual", null);
+    public void showToast(int stringResourceId, int duration) {
+        String s = SSReaderApplication.getInstance().getString(stringResourceId);
+        if (s != null)
+            showToast(s, duration);
     }
 
-    public static final String OPEN_FILE_PARAM = "FILE_TO_OPEN";
-
-    public void loadDocument(final String item, final Runnable callback) {
-        runInReader(new Runnable() {
-            @Override
-            public void run() {
-                mReaderView.loadDocument(item, callback);
-            }
-        });
+    public void showToast(String msg) {
+        showToast(msg, Toast.LENGTH_LONG);
     }
 
-    public void loadDocument(FileInfo item) {
-        loadDocument(item, null);
+    public void showToast(String msg, int duration) {
+        log.v("showing toast: " + msg);
+        if (DeviceInfo.USE_CUSTOM_TOAST) {
+            ToastView.showToast(getContentView(), msg, duration, 20);
+        } else {
+            // classic Toast
+            Toast toast = Toast.makeText(this, msg, duration);
+            toast.show();
+        }
     }
 
-    public void loadDocument(FileInfo item, Runnable callback) {
-        log.d("Activities.loadDocument(" + item.pathname + ")");
-        loadDocument(item.getPathName(), null);
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mReaderView != null)
+            mReaderView.onAppPause();
     }
 
-    public void showOpenedBook() {
-        showReader();
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        log.i("CoolReader.onPostCreate()");
+        super.onPostCreate(savedInstanceState);
     }
 
-    public static final String OPEN_DIR_PARAM = "DIR_TO_OPEN";
+    @Override
+    protected void onPostResume() {
+        log.i("CoolReader.onPostResume()");
+        super.onPostResume();
+    }
+
+    //	private boolean restarted = false;
+    @Override
+    protected void onRestart() {
+        log.i("CoolReader.onRestart()");
+        //restarted = true;
+        super.onRestart();
+    }
 
 //    public void showBrowser(final FileInfo dir) {
 //        runInBrowser(new Runnable() {
@@ -1078,6 +845,259 @@ public class CoolReader extends BaseActivity {
 
     // Dictionary support
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        log.i("CoolReader.onRestoreInstanceState()");
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        log.i("CoolReader.onResume()");
+        super.onResume();
+        //Properties props = SettingsManager.instance(this).get();
+
+        if (mReaderView != null)
+            mReaderView.onAppResume();
+
+        if (DeviceInfo.EINK_SCREEN) {
+            if (DeviceInfo.EINK_SONY) {
+                SharedPreferences pref = getSharedPreferences(PREF_FILE, 0);
+                String res = pref.getString(PREF_LAST_BOOK, null);
+                if (res != null && res.length() > 0) {
+                    SonyBookSelector selector = new SonyBookSelector(this);
+                    long l = selector.getContentId(res);
+                    if (l != 0) {
+                        selector.setReadingTime(l);
+                        selector.requestBookSelection(l);
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        log.i("CoolReader.onSaveInstanceState()");
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onStart() {
+        log.i("CoolReader.onStart() version=" + getVersion() + ", fileToLoadOnStart=" + fileToLoadOnStart);
+        super.onStart();
+
+
+        PhoneStateReceiver.setPhoneActivityHandler(new Runnable() {
+            @Override
+            public void run() {
+                if (mReaderView != null) {
+                    mReaderView.stopTTS();
+                    mReaderView.save();
+                }
+            }
+        });
+
+//		BackgroundThread.instance().postGUI(new Runnable() {
+//			public void run() {
+//				// fixing font settings
+//				Properties settings = mReaderView.getSettings();
+//				if (SettingsManager.instance(CoolReader.this).fixFontSettings(settings)) {
+//					log.i("Missing font settings were fixed");
+//					mBrowser.setCoverPageFontFace(settings.getProperty(ReaderView.PROP_FONT_FACE, DeviceInfo.DEF_FONT_FACE));
+//					mReaderView.setSettings(settings, null);
+//				}
+//			}
+//		});
+
+
+        if (isBookOpened()) {
+            showOpenedBook();
+            return;
+        }
+
+        if (!isFirstStart)
+            return;
+        isFirstStart = false;
+
+        if (justCreated) {
+            justCreated = false;
+            if (!processIntent(getIntent()))
+                showLastLocation();
+        }
+
+
+//		if ( fileToLoadOnStart==null ) {
+//			if ( mReaderView!=null && currentView==mReaderView && mReaderView.isBookLoaded() ) {
+//				log.v("Book is already opened, showing ReaderView");
+//				showReader();
+//				return;
+//			}
+//
+//			//!stopped &&
+////			if ( restarted && mReaderView!=null && mReaderView.isBookLoaded() ) {
+////				log.v("Book is already opened, showing ReaderView");
+////		        restarted = false;
+////		        return;
+////			}
+//		}
+        if (!stopped) {
+            //Services.getEngine().showProgress( 500, R.string.progress_starting_cool_reader );
+        }
+        //log.i("waiting for engine tasks completion");
+        //engine.waitTasksCompletion();
+//		restarted = false;
+        stopped = false;
+
+        final String fileName = fileToLoadOnStart;
+//		BackgroundThread.instance().postGUI(new Runnable() {
+//			public void run() {
+//				log.i("onStart, scheduled runnable: load document");
+//				Services.getEngine().execute(new LoadLastDocumentTask(fileName));
+//			}
+//		});
+        log.i("CoolReader.onStart() exiting");
+    }
+
+    @Override
+    protected void onStop() {
+        log.i("CoolReader.onStop() entering");
+        super.onStop();
+        stopped = true;
+        // will close book at onDestroy()
+        if (CLOSE_BOOK_ON_STOP)
+            mReaderView.close();
+
+
+        log.i("CoolReader.onStop() exiting");
+    }
+
+    @Override
+    public void onSettingsChanged(Properties props, Properties oldProps) {
+        Properties changedProps = oldProps != null ? props.diff(oldProps) : props;
+        if (mReaderFrame != null) {
+            mReaderFrame.updateSettings(props);
+            if (mReaderView != null)
+                mReaderView.updateSettings(props);
+
+        }
+        for (Map.Entry<Object, Object> entry : changedProps.entrySet()) {
+            String key = (String) entry.getKey();
+            String value = (String) entry.getValue();
+            applyAppSetting(key, value);
+        }
+    }
+
+    protected boolean allowLowBrightness() {
+        // override to force higher brightness in non-reading mode (to avoid black screen on some devices when brightness level set to small value)
+        return mCurrentFrame == mReaderFrame;
+    }
+
+    public ViewGroup getPreviousFrame() {
+        return mPreviousFrame;
+    }
+
+    public void showReader() {
+        runInReader(new Runnable() {
+            @Override
+            public void run() {
+                // do nothing
+            }
+        });
+    }
+
+    private void setCurrentFrame(ViewGroup newFrame) {
+        if (mCurrentFrame != newFrame) {
+            mPreviousFrame = mCurrentFrame;
+            log.i("New current frame: " + newFrame.getClass().toString());
+            mCurrentFrame = newFrame;
+            setContentView(mCurrentFrame);
+            mCurrentFrame.requestFocus();
+            if (mCurrentFrame != mReaderFrame)
+                releaseBacklightControl();
+//            if (mCurrentFrame == mHomeFrame) {
+//                // update recent books
+//                mHomeFrame.refreshRecentBooks();
+//                setLastLocationRoot();
+//                mCurrentFrame.invalidate();
+//            }
+//            if (mCurrentFrame == mBrowserFrame) {
+//                // update recent books directory
+//                mBrowser.refreshDirectory(Services.getScanner().getRecentDir(), null);
+//            }
+            onUserActivity();
+        }
+    }
+
+
+    //==============================================================
+    //
+    // Donations related code
+    // (from Dungeons sample)
+    //
+    //==============================================================
+    //private static final int DIALOG_CANNOT_CONNECT_ID = 1;
+    //private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 2;
+
+    private void runInReader(final Runnable task) {
+        waitForCRDBService(new Runnable() {
+            @Override
+            public void run() {
+                if (mReaderFrame != null) {
+                    task.run();
+                    setCurrentFrame(mReaderFrame);
+                    mReaderView.getSurface().setFocusable(true);
+                    mReaderView.getSurface().setFocusableInTouchMode(true);
+                    mReaderView.getSurface().requestFocus();
+                } else {
+                    mReaderView = new ReaderView(CoolReader.this, mEngine, settings());
+                    mReaderFrame = new ReaderViewLayout(CoolReader.this, mReaderView);
+//                    mReaderFrame.getToolBar().setOnActionHandler(new OnActionHandler() {
+//                        @Override
+//                        public boolean onActionSelected(ReaderAction item) {
+//                            if (mReaderView != null)
+//                                mReaderView.onAction(item);
+//                            return true;
+//                        }
+//                    });
+                    task.run();
+                    setCurrentFrame(mReaderFrame);
+                    mReaderView.getSurface().setFocusable(true);
+                    mReaderView.getSurface().setFocusableInTouchMode(true);
+                    mReaderView.getSurface().requestFocus();
+                    if (initialBatteryState >= 0)
+                        mReaderView.setBatteryState(initialBatteryState);
+                }
+            }
+        });
+
+    }
+
+    public void showManual() {
+        loadDocument("@manual", null);
+    }
+
+    public void loadDocument(final String item, final Runnable callback) {
+        runInReader(new Runnable() {
+            @Override
+            public void run() {
+                mReaderView.loadDocument(item, callback);
+            }
+        });
+    }
+
+    public void loadDocument(FileInfo item) {
+        loadDocument(item, null);
+    }
+
+    public void loadDocument(FileInfo item, Runnable callback) {
+        log.d("Activities.loadDocument(" + item.pathname + ")");
+        loadDocument(item.getPathName(), null);
+    }
+
+    public void showOpenedBook() {
+        showReader();
+    }
 
     public void findInDictionary(String s) {
         if (s != null && s.length() != 0) {
@@ -1108,14 +1128,6 @@ public class CoolReader extends BaseActivity {
             }
         }
     }
-
-    private final static int DICTAN_ARTICLE_REQUEST_CODE = 100;
-
-    private final static String DICTAN_ARTICLE_WORD = "article.word";
-
-    private final static String DICTAN_ERROR_MESSAGE = "error.message";
-
-    private final static int FLAG_ACTIVITY_CLEAR_TASK = 0x00008000;
 
     private void findInDictionaryInternal(String s) {
         switch (currentDict.internal) {
@@ -1206,8 +1218,6 @@ public class CoolReader extends BaseActivity {
         }
     }
 
-    private DictInfo currentDict = getDictList()[0];
-
     public void setDict(String id) {
         for (DictInfo d : getDictList()) {
             if (d.id.equals(id)) {
@@ -1217,31 +1227,19 @@ public class CoolReader extends BaseActivity {
         }
     }
 
-
-    //==============================================================
-    //
-    // Donations related code
-    // (from Dungeons sample)
-    //
-    //==============================================================
-    //private static final int DIALOG_CANNOT_CONNECT_ID = 1;
-    //private static final int DIALOG_BILLING_NOT_SUPPORTED_ID = 2;
-    /**
-     * Used for storing the log text.
-     */
-    private static final String LOG_TEXT_KEY = "DUNGEONS_LOG_TEXT";
-
-    /**
-     * The SharedPreferences key for recording whether we initialized the
-     * database.  If false, then we perform a RestoreTransactions request
-     * to get all the purchases for this user.
-     */
-    private static final String DB_INITIALIZED = "db_initialized";
-
-
-    TTS tts;
-    boolean ttsInitialized;
-    boolean ttsError;
+//    public void showOptionsDialog(final OptionsDialog.Mode mode) {
+//        BackgroundThread.instance().postBackground(new Runnable() {
+//            public void run() {
+//                final String[] mFontFaces = Engine.getFontFaceList();
+//                BackgroundThread.instance().executeGUI(new Runnable() {
+//                    public void run() {
+//                        OptionsDialog dlg = new OptionsDialog(CoolReader.this, mReaderView, mFontFaces, mode);
+//                        dlg.show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 
     public boolean initTTS(final OnTTSCreatedListener listener) {
         if (ttsError || !TTS.isFound()) {
@@ -1292,11 +1290,6 @@ public class CoolReader extends BaseActivity {
         return true;
     }
 
-
-    // ============================================================
-    private AudioManager am;
-    private int maxVolume;
-
     public AudioManager getAudioManager() {
         if (am == null) {
             am = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -1320,25 +1313,10 @@ public class CoolReader extends BaseActivity {
         }
     }
 
-//    public void showOptionsDialog(final OptionsDialog.Mode mode) {
-//        BackgroundThread.instance().postBackground(new Runnable() {
-//            public void run() {
-//                final String[] mFontFaces = Engine.getFontFaceList();
-//                BackgroundThread.instance().executeGUI(new Runnable() {
-//                    public void run() {
-//                        OptionsDialog dlg = new OptionsDialog(CoolReader.this, mReaderView, mFontFaces, mode);
-//                        dlg.show();
-//                    }
-//                });
-//            }
-//        });
-//    }
-
     public void updateCurrentPosition(FileInfo book, Bookmark position, PositionProperties props) {
         mReaderFrame.getStatusBar().updateCurrentPositionStatus(book, position, props);
         mReaderFrame.getToolBar().updateCurrrentPosition(book, props);
     }
-
 
     @Override
     protected void setDimmingAlpha(int dimmingAlpha) {
@@ -1361,7 +1339,6 @@ public class CoolReader extends BaseActivity {
         startActivity(Intent.createChooser(emailIntent, null));
     }
 
-
     public void showBookmarksDialog() {
         BackgroundThread.instance().executeGUI(new Runnable() {
             @Override
@@ -1382,7 +1359,6 @@ public class CoolReader extends BaseActivity {
             showToast("Cannot open URL " + url);
         }
     }
-
 
     public boolean isBookOpened() {
         if (mReaderView == null)
@@ -1413,6 +1389,30 @@ public class CoolReader extends BaseActivity {
             }
         });
     }
+
+//    public void editOPDSCatalog(FileInfo opds) {
+//        if (opds == null) {
+//            opds = new FileInfo();
+//            opds.isDirectory = true;
+//            opds.pathname = FileInfo.OPDS_DIR_PREFIX + "http://";
+//            opds.filename = "New Catalog";
+//            opds.isListed = true;
+//            opds.isScanned = true;
+//            opds.parent = Services.getScanner().getOPDSRoot();
+//        }
+//        OPDSCatalogEditDialog dlg = new OPDSCatalogEditDialog(CoolReader.this, opds, new Runnable() {
+//            @Override
+//            public void run() {
+//                refreshOPDSRootDirectory(true);
+//            }
+//        });
+//        dlg.show();
+//    }
+//
+//    public void refreshOPDSRootDirectory(boolean showInBrowser) {
+//        if (mBrowser != null)
+//            mBrowser.refreshOPDSRootDirectory(showInBrowser);
+//    }
 
     public void askDeleteRecent(final FileInfo item) {
         askConfirmation(R.string.win_title_confirm_history_record_delete, new Runnable() {
@@ -1455,35 +1455,6 @@ public class CoolReader extends BaseActivity {
         });
     }
 
-//    public void editOPDSCatalog(FileInfo opds) {
-//        if (opds == null) {
-//            opds = new FileInfo();
-//            opds.isDirectory = true;
-//            opds.pathname = FileInfo.OPDS_DIR_PREFIX + "http://";
-//            opds.filename = "New Catalog";
-//            opds.isListed = true;
-//            opds.isScanned = true;
-//            opds.parent = Services.getScanner().getOPDSRoot();
-//        }
-//        OPDSCatalogEditDialog dlg = new OPDSCatalogEditDialog(CoolReader.this, opds, new Runnable() {
-//            @Override
-//            public void run() {
-//                refreshOPDSRootDirectory(true);
-//            }
-//        });
-//        dlg.show();
-//    }
-//
-//    public void refreshOPDSRootDirectory(boolean showInBrowser) {
-//        if (mBrowser != null)
-//            mBrowser.refreshOPDSRootDirectory(showInBrowser);
-//    }
-
-
-    private SharedPreferences mPreferences;
-    private final static String BOOK_LOCATION_PREFIX = "@book:";
-    private final static String DIRECTORY_LOCATION_PREFIX = "@dir:";
-
     private SharedPreferences getPrefs() {
         if (mPreferences == null)
             mPreferences = getSharedPreferences(PREF_FILE, 0);
@@ -1502,25 +1473,11 @@ public class CoolReader extends BaseActivity {
         setLastLocation(FileInfo.ROOT_DIR_TAG);
     }
 
-    /**
-     * Store last location - to resume after program restart.
-     *
-     * @param location is file name, directory, or special folder tag
-     */
-    public void setLastLocation(String location) {
-        try {
-            String oldLocation = getPrefs().getString(PREF_LAST_LOCATION, null);
-            if (oldLocation != null && oldLocation.equals(location))
-                return; // not changed
-            SharedPreferences.Editor editor = getPrefs().edit();
-            editor.putString(PREF_LAST_LOCATION, location);
-            editor.commit();
-        } catch (Exception e) {
-            // ignore
-        }
+    public int getLastNotificationId() {
+        int res = getPrefs().getInt(PREF_LAST_NOTIFICATION, 0);
+        log.i("getLastNotification() = " + res);
+        return res;
     }
-
-    int CURRENT_NOTIFICATOIN_VERSION = 1;
 
     public void setLastNotificationId(int notificationId) {
         try {
@@ -1531,13 +1488,6 @@ public class CoolReader extends BaseActivity {
             // ignore
         }
     }
-
-    public int getLastNotificationId() {
-        int res = getPrefs().getInt(PREF_LAST_NOTIFICATION, 0);
-        log.i("getLastNotification() = " + res);
-        return res;
-    }
-
 
     public void showNotifications() {
         int lastNoticeId = getLastNotificationId();
@@ -1586,6 +1536,24 @@ public class CoolReader extends BaseActivity {
         }
         log.i("getLastLocation() = " + res);
         return res;
+    }
+
+    /**
+     * Store last location - to resume after program restart.
+     *
+     * @param location is file name, directory, or special folder tag
+     */
+    public void setLastLocation(String location) {
+        try {
+            String oldLocation = getPrefs().getString(PREF_LAST_LOCATION, null);
+            if (oldLocation != null && oldLocation.equals(location))
+                return; // not changed
+            SharedPreferences.Editor editor = getPrefs().edit();
+            editor.putString(PREF_LAST_LOCATION, location);
+            editor.commit();
+        } catch (Exception e) {
+            // ignore
+        }
     }
 
     /**

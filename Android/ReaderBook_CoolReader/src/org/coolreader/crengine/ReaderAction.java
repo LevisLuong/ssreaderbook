@@ -5,68 +5,6 @@ import vn.seasoft.readerbook.R;
 import java.util.ArrayList;
 
 public class ReaderAction {
-    final public String id;
-    final public int nameId;
-    public int iconId;
-    final public ReaderCommand cmd;
-    final public int param;
-    final public int menuItemId;
-    private boolean canRepeat = false;
-    private boolean mayAssignOnKey = true;
-    private boolean mayAssignOnTap = true;
-
-    private ReaderAction setIconId(int iconId) {
-        this.iconId = iconId;
-        return this;
-    }
-
-    private ReaderAction setCanRepeat() {
-        canRepeat = true;
-        return this;
-    }
-
-    //private ReaderAction dontAssignOnKey() { mayAssignOnKey=false; return this; }
-    private ReaderAction dontAssignOnTap() {
-        mayAssignOnTap = false;
-        return this;
-    }
-
-    public boolean canRepeat() {
-        return canRepeat;
-    }
-
-    public boolean mayAssignOnKey() {
-        return mayAssignOnKey;
-    }
-
-    public boolean mayAssignOnTap() {
-        return mayAssignOnTap;
-    }
-
-    public ReaderAction(String id, int nameId, ReaderCommand cmd, int param) {
-        super();
-        this.id = id;
-        this.nameId = nameId;
-        this.cmd = cmd;
-        this.param = param;
-        this.menuItemId = 0;
-        this.iconId = 0;
-    }
-
-    public ReaderAction(String id, int nameId, ReaderCommand cmd, int param, int menuItemId) {
-        super();
-        this.id = id;
-        this.nameId = nameId;
-        this.cmd = cmd;
-        this.param = param;
-        this.menuItemId = menuItemId;
-        this.iconId = 0;
-    }
-
-    public String toString() {
-        return id;
-    }
-
     public final static ReaderAction NONE = new ReaderAction("NONE", R.string.action_none, ReaderCommand.DCMD_NONE, 0);
     public final static ReaderAction REPEAT = new ReaderAction("REPEAT", R.string.action_repeat, ReaderCommand.DCMD_REPEAT, 0);
     public final static ReaderAction PAGE_DOWN = new ReaderAction("PAGE_DOWN", R.string.action_pagedown, ReaderCommand.DCMD_PAGEDOWN, 1).setCanRepeat();
@@ -96,7 +34,6 @@ public class ReaderAction {
     public final static ReaderAction FILE_BROWSER_UP = new ReaderAction("FILE_BROWSER_UP", R.string.action_go_back, ReaderCommand.DCMD_FILE_BROWSER_UP, 0);
     public final static ReaderAction CURRENT_BOOK_DIRECTORY = new ReaderAction("DCMD_CURRENT_BOOK_DIRECTORY", R.string.mi_book_recent_goto, ReaderCommand.DCMD_CURRENT_BOOK_DIRECTORY, 0);
     public final static ReaderAction CURRENT_BOOK = new ReaderAction("DCMD_CURRENT_BOOK", R.string.mi_book_back_to_reading, ReaderCommand.DCMD_CURRENT_BOOK, 0);
-
     public final static ReaderAction FONT_PREVIOUS = new ReaderAction("FONT_PREVIOUS", R.string.mi_font_previous, ReaderCommand.DCMD_FONT_PREVIOUS, 0); //, R.id.cr3_mi_font_previous
     public final static ReaderAction FONT_NEXT = new ReaderAction("FONT_NEXT", R.string.mi_font_next, ReaderCommand.DCMD_FONT_NEXT, 0); //, R.id.cr3_mi_font_next
     public final static ReaderAction TOGGLE_TOUCH_SCREEN_LOCK = new ReaderAction("TOGGLE_TOUCH_SCREEN_LOCK", R.string.action_touch_screen_toggle_lock, ReaderCommand.DCMD_TOGGLE_TOUCH_SCREEN_LOCK, 0).dontAssignOnTap();
@@ -120,8 +57,6 @@ public class ReaderAction {
     public final static ReaderAction NEXT_CHAPTER = new ReaderAction("NEXT_CHAPTER", R.string.action_chapter_next, ReaderCommand.DCMD_MOVE_BY_CHAPTER, 1);
     public final static ReaderAction PREV_CHAPTER = new ReaderAction("PREV_CHAPTER", R.string.action_chapter_prev, ReaderCommand.DCMD_MOVE_BY_CHAPTER, -1);
     public final static ReaderAction EXIT = new ReaderAction("EXIT", R.string.action_exit, ReaderCommand.DCMD_EXIT, 0, R.id.cr3_mi_exit);
-
-
     public final static ReaderAction[] AVAILABLE_ACTIONS = {
             NONE,
             PAGE_DOWN,
@@ -170,13 +105,41 @@ public class ReaderAction {
 //		AUTOSCROLL_SPEED_INCREASE,
 //		AUTOSCROLL_SPEED_DECREASE,
     };
-
-    public boolean isNone() {
-        return cmd == NONE.cmd;
+    public final static String NORMAL_PROP = ".";
+    public final static String LONG_PROP = ".long.";
+    public final static String DOUBLECLICK_PROP = ".dbl.";
+    public final static int NORMAL = 0;
+    public final static int LONG = 1;
+    public final static int DOUBLE = 2;
+    public final static String[] TYPE_PROP_SUBPATH = new String[]{NORMAL_PROP, LONG_PROP, DOUBLECLICK_PROP};
+    final public String id;
+    final public int nameId;
+    final public ReaderCommand cmd;
+    final public int param;
+    final public int menuItemId;
+    public int iconId;
+    private boolean canRepeat = false;
+    private boolean mayAssignOnKey = true;
+    private boolean mayAssignOnTap = true;
+    public ReaderAction(String id, int nameId, ReaderCommand cmd, int param) {
+        super();
+        this.id = id;
+        this.nameId = nameId;
+        this.cmd = cmd;
+        this.param = param;
+        this.menuItemId = 0;
+        this.iconId = 0;
     }
 
-    public boolean isRepeat() {
-        return cmd == REPEAT.cmd;
+
+    public ReaderAction(String id, int nameId, ReaderCommand cmd, int param, int menuItemId) {
+        super();
+        this.id = id;
+        this.nameId = nameId;
+        this.cmd = cmd;
+        this.param = param;
+        this.menuItemId = menuItemId;
+        this.iconId = 0;
     }
 
     public static ReaderAction findById(String id) {
@@ -200,15 +163,6 @@ public class ReaderAction {
         }
         return NONE;
     }
-
-    public final static String NORMAL_PROP = ".";
-    public final static String LONG_PROP = ".long.";
-    public final static String DOUBLECLICK_PROP = ".dbl.";
-
-    public final static int NORMAL = 0;
-    public final static int LONG = 1;
-    public final static int DOUBLE = 2;
-    public final static String[] TYPE_PROP_SUBPATH = new String[]{NORMAL_PROP, LONG_PROP, DOUBLECLICK_PROP};
 
     public static String getTypeString(int type) {
         return TYPE_PROP_SUBPATH[type];
@@ -257,6 +211,46 @@ public class ReaderAction {
         for (ReaderAction item : actions)
             list.add(item);
         return list;
+    }
+
+    private ReaderAction setIconId(int iconId) {
+        this.iconId = iconId;
+        return this;
+    }
+
+    private ReaderAction setCanRepeat() {
+        canRepeat = true;
+        return this;
+    }
+
+    //private ReaderAction dontAssignOnKey() { mayAssignOnKey=false; return this; }
+    private ReaderAction dontAssignOnTap() {
+        mayAssignOnTap = false;
+        return this;
+    }
+
+    public boolean canRepeat() {
+        return canRepeat;
+    }
+
+    public boolean mayAssignOnKey() {
+        return mayAssignOnKey;
+    }
+
+    public boolean mayAssignOnTap() {
+        return mayAssignOnTap;
+    }
+
+    public String toString() {
+        return id;
+    }
+
+    public boolean isNone() {
+        return cmd == NONE.cmd;
+    }
+
+    public boolean isRepeat() {
+        return cmd == REPEAT.cmd;
     }
 
 }

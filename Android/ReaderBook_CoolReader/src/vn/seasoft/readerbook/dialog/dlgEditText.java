@@ -24,14 +24,8 @@ public class dlgEditText extends DialogFragment {
     IDialogEditText listener;
     String message;
     String title;
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    EditText editText;
+    private int typeEditText = InputType.TYPE_CLASS_NUMBER;
 
     public dlgEditText(Context _context) {
         setDialogType(DialogType.AlertDialog);
@@ -46,19 +40,23 @@ public class dlgEditText extends DialogFragment {
         title = _title;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
 
-    private int typeEditText = InputType.TYPE_CLASS_NUMBER;
-
     public void setTypeEditText(int type) {
         typeEditText = type;
     }
-
-    EditText editText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -14,111 +14,15 @@ import org.coolreader.CoolReader;
 import vn.seasoft.readerbook.R;
 
 public class SelectionToolbarDlg {
+    private final static int SELECTION_CONTROL_STEP = 10;
     PopupWindow mWindow;
     View mAnchor;
     CoolReader mCoolReader;
     ReaderView mReaderView;
     View mPanel;
     Selection selection;
-
-    static public void showDialog(CoolReader coolReader, ReaderView readerView, final Selection selection) {
-        SelectionToolbarDlg dlg = new SelectionToolbarDlg(coolReader, readerView, selection);
-        //dlg.mWindow.update(dlg.mAnchor, width, height)
-        Log.d("cr3", "popup: " + dlg.mWindow.getWidth() + "x" + dlg.mWindow.getHeight());
-        //dlg.update();
-        //dlg.showAtLocation(readerView, Gravity.LEFT|Gravity.TOP, readerView.getLeft()+50, readerView.getTop()+50);
-        //dlg.showAsDropDown(readerView);
-        //dlg.update();
-    }
-
     private boolean pageModeSet;
     private boolean changedPageMode;
-
-    private void setReaderMode() {
-        if (pageModeSet)
-            return;
-        //if (DeviceInfo.EINK_SCREEN) { return; } // switching to scroll view doesn't work well on eink screens
-
-        String oldViewSetting = mReaderView.getSetting(ReaderView.PROP_PAGE_VIEW_MODE);
-        if ("1".equals(oldViewSetting)) {
-            changedPageMode = true;
-            mReaderView.setSetting(ReaderView.PROP_PAGE_VIEW_MODE, "0");
-        }
-        pageModeSet = true;
-    }
-
-    private void restoreReaderMode() {
-        if (changedPageMode) {
-            mReaderView.setSetting(ReaderView.PROP_PAGE_VIEW_MODE, "1");
-        }
-    }
-
-    private void changeSelectionBound(boolean start, int delta) {
-        L.d("changeSelectionBound(" + (start ? "start" : "end") + ", " + delta + ")");
-        setReaderMode();
-        ReaderCommand cmd = start ? ReaderCommand.DCMD_SELECT_MOVE_LEFT_BOUND_BY_WORDS : ReaderCommand.DCMD_SELECT_MOVE_RIGHT_BOUND_BY_WORDS;
-        mReaderView.moveSelection(cmd, delta, new ReaderView.MoveSelectionCallback() {
-
-            @Override
-            public void onNewSelection(Selection selection) {
-                Log.d("cr3", "onNewSelection: " + selection.text);
-                SelectionToolbarDlg.this.selection = selection;
-            }
-
-            @Override
-            public void onFail() {
-                Log.d("cr3", "fail()");
-                //currentSelection = null;
-            }
-        });
-    }
-
-    private final static int SELECTION_CONTROL_STEP = 10;
-
-    private class BoundControlListener implements OnSeekBarChangeListener {
-
-        public BoundControlListener(SeekBar sb, boolean start) {
-            this.start = start;
-            this.sb = sb;
-            sb.setOnSeekBarChangeListener(this);
-        }
-
-        final boolean start;
-        final SeekBar sb;
-        int lastProgress = 50;
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-            sb.setProgress(50);
-            lastProgress = 50;
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            sb.setProgress(50);
-        }
-
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int progress,
-                                      boolean fromUser) {
-            if (!fromUser)
-                return;
-            int diff = (progress - lastProgress) / SELECTION_CONTROL_STEP * SELECTION_CONTROL_STEP;
-            if (diff != 0) {
-                lastProgress += diff;
-                changeSelectionBound(start, diff / SELECTION_CONTROL_STEP);
-            }
-        }
-    }
-
-    ;
-
-    private void closeDialog(boolean clearSelection) {
-        if (clearSelection)
-            mReaderView.clearSelection();
-        restoreReaderMode();
-        mWindow.dismiss();
-    }
 
     public SelectionToolbarDlg(CoolReader coolReader, ReaderView readerView, Selection sel) {
         this.selection = sel;
@@ -274,6 +178,99 @@ public class SelectionToolbarDlg {
                     });
                 }
             });
+        }
+    }
+
+    static public void showDialog(CoolReader coolReader, ReaderView readerView, final Selection selection) {
+        SelectionToolbarDlg dlg = new SelectionToolbarDlg(coolReader, readerView, selection);
+        //dlg.mWindow.update(dlg.mAnchor, width, height)
+        Log.d("cr3", "popup: " + dlg.mWindow.getWidth() + "x" + dlg.mWindow.getHeight());
+        //dlg.update();
+        //dlg.showAtLocation(readerView, Gravity.LEFT|Gravity.TOP, readerView.getLeft()+50, readerView.getTop()+50);
+        //dlg.showAsDropDown(readerView);
+        //dlg.update();
+    }
+
+    private void setReaderMode() {
+        if (pageModeSet)
+            return;
+        //if (DeviceInfo.EINK_SCREEN) { return; } // switching to scroll view doesn't work well on eink screens
+
+        String oldViewSetting = mReaderView.getSetting(ReaderView.PROP_PAGE_VIEW_MODE);
+        if ("1".equals(oldViewSetting)) {
+            changedPageMode = true;
+            mReaderView.setSetting(ReaderView.PROP_PAGE_VIEW_MODE, "0");
+        }
+        pageModeSet = true;
+    }
+
+    private void restoreReaderMode() {
+        if (changedPageMode) {
+            mReaderView.setSetting(ReaderView.PROP_PAGE_VIEW_MODE, "1");
+        }
+    }
+
+    private void changeSelectionBound(boolean start, int delta) {
+        L.d("changeSelectionBound(" + (start ? "start" : "end") + ", " + delta + ")");
+        setReaderMode();
+        ReaderCommand cmd = start ? ReaderCommand.DCMD_SELECT_MOVE_LEFT_BOUND_BY_WORDS : ReaderCommand.DCMD_SELECT_MOVE_RIGHT_BOUND_BY_WORDS;
+        mReaderView.moveSelection(cmd, delta, new ReaderView.MoveSelectionCallback() {
+
+            @Override
+            public void onNewSelection(Selection selection) {
+                Log.d("cr3", "onNewSelection: " + selection.text);
+                SelectionToolbarDlg.this.selection = selection;
+            }
+
+            @Override
+            public void onFail() {
+                Log.d("cr3", "fail()");
+                //currentSelection = null;
+            }
+        });
+    }
+
+    ;
+
+    private void closeDialog(boolean clearSelection) {
+        if (clearSelection)
+            mReaderView.clearSelection();
+        restoreReaderMode();
+        mWindow.dismiss();
+    }
+
+    private class BoundControlListener implements OnSeekBarChangeListener {
+
+        final boolean start;
+        final SeekBar sb;
+        int lastProgress = 50;
+        public BoundControlListener(SeekBar sb, boolean start) {
+            this.start = start;
+            this.sb = sb;
+            sb.setOnSeekBarChangeListener(this);
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            sb.setProgress(50);
+            lastProgress = 50;
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            sb.setProgress(50);
+        }
+
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress,
+                                      boolean fromUser) {
+            if (!fromUser)
+                return;
+            int diff = (progress - lastProgress) / SELECTION_CONTROL_STEP * SELECTION_CONTROL_STEP;
+            if (diff != 0) {
+                lastProgress += diff;
+                changeSelectionBound(start, diff / SELECTION_CONTROL_STEP);
+            }
         }
     }
 

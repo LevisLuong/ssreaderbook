@@ -16,10 +16,6 @@ public class BookCategoryController {
 
     Dao<Book_Category, Integer> Dao;
 
-    public Dao<Book_Category, Integer> getDao() {
-        return Dao;
-    }
-
     public BookCategoryController(DatabaseHelper db) {
         try {
             Dao = db.getBookcategoryDao();
@@ -27,6 +23,10 @@ public class BookCategoryController {
             // TODO: Exception Handling
             e.printStackTrace();
         }
+    }
+
+    public Dao<Book_Category, Integer> getDao() {
+        return Dao;
     }
 
     public int create(Book_Category item) {

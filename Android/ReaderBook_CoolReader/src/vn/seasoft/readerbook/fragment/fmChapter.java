@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings.Global;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ import vn.seasoft.readerbook.widget.ViewError;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.concurrent.Callable;
 
 /**
  * User: XuanTrung
@@ -51,15 +53,15 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     ListView listview;
 
     Context mContext;
-
+    boolean asc = true;
+    boolean old_asc = false;
+    private RelativeLayout dlginfoContainer;
 
     public fmChapter(Context _ct, Book book) {
         super();
         mContext = _ct;
         this.book = book;
     }
-
-    private RelativeLayout dlginfoContainer;
 
     private void assignViews(View root) {
         dlginfoContainer = (RelativeLayout) root.findViewById(R.id.fmchapter_container);
@@ -240,12 +242,12 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
                 adapter.SetListBooks((new Book_Chapter()).getByidBook(book.getIdbook()));
                 sortChapter(old_asc);
                 ((actInfoBook) getActivity()).setCountChapter(adapter.getCount() + "");
+                if (!adapter.getList().isEmpty()) {
+                    SSUtil.addViewContainer(dlginfoContainer, listview, false);
+                }
             }
         });
     }
-
-    boolean asc = true;
-    boolean old_asc = false;
 
     public void gotochapter() {
         if (!adapter.getList().isEmpty()) {
@@ -358,37 +360,49 @@ public class fmChapter extends Fragment implements OnHttpServicesListener {
     }
 
     public void loadBook(final int position) {
-        final Book_Chapter book_chapter = adapter.getList().get(position);
-        if (book.getIdcategory() == 8) {
-            book.addNewData();
-            adapter.setLoadBook(position);
-            Intent t = new Intent(mContext, actReadPictureBook.class);
-            t.putExtra("arrbook", book_chapter.getFilename());
-            t.putExtra("idbook", book_chapter.getIdbook());
-            t.putExtra("idbookchapter", book_chapter.getIdbook_chapter());
-            t.putExtra("position", book_chapter.getReadposition());
-            mContext.startActivity(t);
-        } else {
-            AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(book_chapter));
-            download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
-                @Override
-                public void onDownloadComplete(String urlResultMood) {
-                    book.addNewData();
-                    adapter.setLoadBook(position);
-                    Intent t = new Intent(mContext, CoolReader.class);
-                    t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
-                    mContext.startActivity(t);
-                }
+    	try {
+			GlobalData.repo.book_chapter.getDao().callBatchTasks(new Callable<Void>() {
+			@Override
+			public Void call() throws Exception {
+				// TODO Auto-generated method stub
+				 final Book_Chapter book_chapter = adapter.getList().get(position);
+			        if (book.getIdcategory() == 8) {
+			            book.addNewData();
+			            adapter.setLoadBook(position);
+			            Intent t = new Intent(mContext, actReadPictureBook.class);
+			            t.putExtra("arrbook", book_chapter.getFilename());
+			            t.putExtra("idbook", book_chapter.getIdbook());
+			            t.putExtra("idbookchapter", book_chapter.getIdbook_chapter());
+			            t.putExtra("position", book_chapter.getReadposition());
+			            mContext.startActivity(t);
+			        } else {
+			            AsyntaskDownloadFile download = new AsyntaskDownloadFile(mContext, GlobalData.getUrlBook(book_chapter));
+			            download.setListenerDownload(new AsyntaskDownloadFile.IDownLoadMood() {
+			                @Override
+			                public void onDownloadComplete(String urlResultMood) {
+			                    book.addNewData();
+			                    adapter.setLoadBook(position);
+			                    Intent t = new Intent(mContext, CoolReader.class);
+			                    t.putExtra(CoolReader.OPEN_FILE_PARAM, urlResultMood);
+			                    mContext.startActivity(t);
+			                }
 
-                @Override
-                public void onCanceled() {
-                    org.holoeverywhere.widget.Toast.makeText(mContext, R.string.download_fail, org.holoeverywhere.widget.Toast.LENGTH_SHORT).show();
-                }
-            });
-            download.startDownload();
-        }
-        //thong ke download
-        SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
+			                @Override
+			                public void onCanceled() {
+			                    org.holoeverywhere.widget.Toast.makeText(mContext, R.string.download_fail, org.holoeverywhere.widget.Toast.LENGTH_SHORT).show();
+			                }
+			            });
+			            download.startDownload();
+			        }
+			        //thong ke download
+			        SSReaderApplication.getRequestServer(mContext).addCountBook(book.getIdbook());
+				return null;
+			}
+			});
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     @Override

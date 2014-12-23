@@ -20,9 +20,9 @@ import java.util.concurrent.TimeUnit;
 public class HttpServicesConnection {
     private final static int MAX_DOWN_THREAD = 3;
     private final static int MAX_LENGTH = 15;
+    public OnHttpServicesListener mCallback;
     private ArrayBlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(
             MAX_LENGTH);
-    public OnHttpServicesListener mCallback;
     private ThreadPoolExecutor pool;
 
     public HttpServicesConnection(OnHttpServicesListener mCallback) {

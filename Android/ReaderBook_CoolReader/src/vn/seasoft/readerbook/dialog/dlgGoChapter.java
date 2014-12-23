@@ -26,18 +26,9 @@ public class dlgGoChapter extends DialogFragment {
     String message;
     String title;
     String textview;
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setTextView(String content) {
-        this.textview = content;
-    }
+    EditText editText;
+    TextView textView;
+    private int typeEditText = InputType.TYPE_CLASS_NUMBER;
 
     public dlgGoChapter(Context _context) {
         setDialogType(DialogType.AlertDialog);
@@ -52,20 +43,27 @@ public class dlgGoChapter extends DialogFragment {
         title = _title;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setTextView(String content) {
+        this.textview = content;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
 
-    private int typeEditText = InputType.TYPE_CLASS_NUMBER;
-
     public void setTypeEditText(int type) {
         typeEditText = type;
     }
-
-    EditText editText;
-    TextView textView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

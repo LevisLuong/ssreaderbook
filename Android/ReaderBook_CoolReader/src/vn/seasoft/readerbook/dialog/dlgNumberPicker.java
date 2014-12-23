@@ -22,6 +22,7 @@ public class dlgNumberPicker extends DialogFragment {
     IDialogNumberPicker listener;
     String message;
     int MinValue, MaxValue, DefaultValue;
+    NumberPicker numberPicker;
 
     public dlgNumberPicker(Context _context, int minValue, int maxValue, int defaultValue) {
         setDialogType(DialogType.AlertDialog);
@@ -36,8 +37,6 @@ public class dlgNumberPicker extends DialogFragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
-
-    NumberPicker numberPicker;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -11,11 +11,6 @@ import java.util.List;
  * Time: 9:32 AM
  */
 public class Book_Chapter {
-    public Book_Chapter() {
-        currentread = false;
-        isDownloaded = false;
-    }
-
     @DatabaseField(id = true)
     Integer idbook_chapter;
     @DatabaseField
@@ -32,6 +27,10 @@ public class Book_Chapter {
     Boolean isDownloaded;
     @DatabaseField
     Integer readposition;
+    public Book_Chapter() {
+        currentread = false;
+        isDownloaded = false;
+    }
 
     public Integer getIdbook_chapter() {
         return idbook_chapter;
@@ -69,16 +68,16 @@ public class Book_Chapter {
         return filesize;
     }
 
+    public void setFilesize(String filesize) {
+        this.filesize = filesize;
+    }
+
     public Boolean getCurrentread() {
         return currentread;
     }
 
     public void setCurrentread(Boolean currentread) {
         this.currentread = currentread;
-    }
-
-    public void setFilesize(String filesize) {
-        this.filesize = filesize;
     }
 
     public Boolean getIsDownloaded() {

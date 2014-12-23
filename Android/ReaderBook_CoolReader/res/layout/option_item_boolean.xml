@@ -3,12 +3,12 @@
    Option item layout for CR3 options dialog
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/option_item_body"
+<LinearLayout android:id="@+id/option_item_body"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:minHeight="?android:attr/listPreferredItemHeight"
               android:gravity="center_vertical"
+              android:minHeight="?android:attr/listPreferredItemHeight"
               android:paddingRight="?android:attr/scrollbarSize"
     >
 
@@ -22,19 +22,19 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="6dip"
         android:layout_marginLeft="15dip"
         android:layout_marginRight="6dip"
         android:layout_marginTop="6dip"
-        android:layout_marginBottom="6dip"
         android:layout_weight="1">
 
         <TextView
             android:id="@+id/option_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLines="2"
             android:singleLine="false"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:maxLines="2"
             />
         <!--android:ellipsize="marquee"
             android:fadingEdge="horizontal"
@@ -46,10 +46,10 @@
         android:id="@+id/option_value_cb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="0dip"
-        android:focusable="false"
-        android:clickable="false"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="0dip"
+        android:clickable="false"
+        android:focusable="false"
         />
 </LinearLayout>

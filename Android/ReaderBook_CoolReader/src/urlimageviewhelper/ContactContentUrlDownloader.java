@@ -19,8 +19,7 @@ public class ContactContentUrlDownloader implements UrlDownloader {
                     InputStream is = ContactsContract.Contacts.openContactPhotoInputStream(cr, Uri.parse(url));
                     callback.onDownloadComplete(ContactContentUrlDownloader.this, is, null);
                     return null;
-                }
-                catch (final Throwable e) {
+                } catch (final Throwable e) {
                     e.printStackTrace();
                     return null;
                 }

@@ -5,458 +5,482 @@ import android.graphics.Bitmap;
 
 public class DocView {
 
-	public static final Logger log = L.create("dv");
+    public static final Logger log = L.create("dv");
 
-	public static final int SWAP_DONE = 0;
-	public static final int SWAP_TIMEOUT = 1;
-	public static final int SWAP_ERROR = 2;
+    public static final int SWAP_DONE = 0;
+    public static final int SWAP_TIMEOUT = 1;
+    public static final int SWAP_ERROR = 2;
 
-	private Object mutex;
+    private Object mutex;
+    private int mNativeObject; // used from JNI
+    private ReaderCallback readerCallback;
 
-	public DocView(Object mutex) {
-		this.mutex = mutex;
-	}
-	
-	/**
-	 * Create native object.
-	 */
-	public void create() {
-		synchronized(mutex) {
-			createInternal();
-		}
-	}
+    public DocView(Object mutex) {
+        this.mutex = mutex;
+    }
 
-	/**
-	 * Destroy native object.
-	 */
-	public void destroy() {
-		synchronized(mutex) {
-			destroyInternal();
-		}
-	}
+    /**
+     * Create native object.
+     */
+    public void create() {
+        synchronized (mutex) {
+            createInternal();
+        }
+    }
 
-	/**
-	 * Set document callback.
-	 * @param readerCallback is callback to set
-	 */
-	public void setReaderCallback(ReaderCallback readerCallback) {
-		this.readerCallback = readerCallback;
-	}
+    /**
+     * Destroy native object.
+     */
+    public void destroy() {
+        synchronized (mutex) {
+            destroyInternal();
+        }
+    }
 
-	/**
-	 * If document uses cache file, swap all unsaved data to it.
-	 * @return either SWAP_DONE, SWAP_TIMEOUT, SWAP_ERROR
-	 */
-	public int swapToCache() {
-		
-		synchronized(mutex) {
-			return swapToCacheInternal();
-		}
-	}
+    /**
+     * Set document callback.
+     *
+     * @param readerCallback is callback to set
+     */
+    public void setReaderCallback(ReaderCallback readerCallback) {
+        this.readerCallback = readerCallback;
+    }
 
-	/**
-	 * Follow link.
-	 * @param link
-	 * @return
-	 */
-	public int goLink(String link) {
-		synchronized(mutex) {
-			return goLinkInternal(link);
-		}
-	}
-	
-	/**
-	 * Find a link near to specified window coordinates.
-	 * @param x
-	 * @param y
-	 * @param delta
-	 * @return
-	 */
-	public String checkLink(int x, int y, int delta) {
-		synchronized(mutex) {
-			return checkLinkInternal(x, y, delta);
-		}
-	}
-	
-	/**
-	 * Set selection range.
-	 * @param sel
-	 */
-	public void updateSelection(Selection sel) {
-		synchronized(mutex) {
-			updateSelectionInternal(sel);
-		}
-	}
+    /**
+     * If document uses cache file, swap all unsaved data to it.
+     *
+     * @return either SWAP_DONE, SWAP_TIMEOUT, SWAP_ERROR
+     */
+    public int swapToCache() {
 
-	/**
-	 * Move selection.
-	 * @param sel
-	 * @param moveCmd
-	 * @param params
-	 * @return
-	 */
-	public boolean moveSelection(Selection sel,
-			int moveCmd, int params) {
-		synchronized(mutex) {
-			return moveSelectionInternal(sel, moveCmd, params);
-		}
-	}
+        synchronized (mutex) {
+            return swapToCacheInternal();
+        }
+    }
 
-	/**
-	 * Send battery state to native object.
-	 * @param state
-	 */
-	public void setBatteryState(int state) {
-		synchronized(mutex) {
-			setBatteryStateInternal(state);
-		}
-	}
+    /**
+     * Follow link.
+     *
+     * @param link
+     * @return
+     */
+    public int goLink(String link) {
+        synchronized (mutex) {
+            return goLinkInternal(link);
+        }
+    }
 
-	/**
-	 * Get current book coverpage data bytes.
-	 * @return
-	 */
-	public byte[] getCoverPageData() {
-		synchronized(mutex) {
-			return getCoverPageDataInternal();
-		}
-	}
+    /**
+     * Find a link near to specified window coordinates.
+     *
+     * @param x
+     * @param y
+     * @param delta
+     * @return
+     */
+    public String checkLink(int x, int y, int delta) {
+        synchronized (mutex) {
+            return checkLinkInternal(x, y, delta);
+        }
+    }
 
-	/**
-	 * Set texture for page background.
-	 * @param imageBytes
-	 * @param tileFlags
-	 */
-	public void setPageBackgroundTexture(
-			byte[] imageBytes, int tileFlags) {
-		synchronized(mutex) {
-			setPageBackgroundTextureInternal(imageBytes, tileFlags);
-		}
-	}
+    /**
+     * Set selection range.
+     *
+     * @param sel
+     */
+    public void updateSelection(Selection sel) {
+        synchronized (mutex) {
+            updateSelectionInternal(sel);
+        }
+    }
 
-	/**
-	 * Load document from file.
-	 * @param fileName
-	 * @return
-	 */
-	public boolean loadDocument(String fileName) {
-		synchronized(mutex) {
-			return loadDocumentInternal(fileName);
-		}
-	}
+    /**
+     * Move selection.
+     *
+     * @param sel
+     * @param moveCmd
+     * @param params
+     * @return
+     */
+    public boolean moveSelection(Selection sel,
+                                 int moveCmd, int params) {
+        synchronized (mutex) {
+            return moveSelectionInternal(sel, moveCmd, params);
+        }
+    }
 
-	/**
-	 * Get settings from native object.
-	 * @return
-	 */
-	public java.util.Properties getSettings() {
-		synchronized(mutex) {
-			return getSettingsInternal();
-		}
-	}
+    /**
+     * Send battery state to native object.
+     *
+     * @param state
+     */
+    public void setBatteryState(int state) {
+        synchronized (mutex) {
+            setBatteryStateInternal(state);
+        }
+    }
 
-	/**
-	 * Apply settings.
-	 * @param settings
-	 * @return
-	 */
-	public boolean applySettings(java.util.Properties settings) {
-		synchronized(mutex) {
-			return applySettingsInternal(settings);
-		}
-	}
+    /**
+     * Get current book coverpage data bytes.
+     *
+     * @return
+     */
+    public byte[] getCoverPageData() {
+        synchronized (mutex) {
+            return getCoverPageDataInternal();
+        }
+    }
 
-	/**
-	 * Set stylesheet for document.
-	 * @param stylesheet
-	 */
-	public void setStylesheet(String stylesheet) {
-		synchronized(mutex) {
-			setStylesheetInternal(stylesheet);
-		}
-	}
-	
-	public void requestRender() {
-		doCommand(ReaderCommand.DCMD_REQUEST_RENDER.getNativeId(), 0);
-	}
+    /**
+     * Set texture for page background.
+     *
+     * @param imageBytes
+     * @param tileFlags
+     */
+    public void setPageBackgroundTexture(
+            byte[] imageBytes, int tileFlags) {
+        synchronized (mutex) {
+            setPageBackgroundTextureInternal(imageBytes, tileFlags);
+        }
+    }
 
-	/**
-	 * Change window size.
-	 * @param dx
-	 * @param dy
-	 */
-	public void resize(int dx, int dy) {
-		synchronized(mutex) {
-			log.d("DocView.resize(" + dx + ", "+ dy + ")");
-			resizeInternal(dx, dy);
-		}
-	}
+    /**
+     * Load document from file.
+     *
+     * @param fileName
+     * @return
+     */
+    public boolean loadDocument(String fileName) {
+        synchronized (mutex) {
+            return loadDocumentInternal(fileName);
+        }
+    }
 
-	/**
-	 * Execute command by native object.
-	 * @param command
-	 * @param param
-	 * @return
-	 */
-	public boolean doCommand(int command, int param) {
-		synchronized(mutex) {
-			return doCommandInternal(command, param);
-		}
-	}
+    /**
+     * Get settings from native object.
+     *
+     * @return
+     */
+    public java.util.Properties getSettings() {
+        synchronized (mutex) {
+            return getSettingsInternal();
+        }
+    }
 
-	/**
-	 * Get current page bookmark info.
-	 * @return
-	 */
-	public Bookmark getCurrentPageBookmark() {
-		synchronized(mutex) {
-			return getCurrentPageBookmarkInternal();
-		}
-	}
-	
-	/**
-	 * Get current page bookmark info, returning null if document is not yet rendered (to avoid long call).
-	 * @return bookmark for current page, null if cannot be determined fast
-	 */
-	public Bookmark getCurrentPageBookmarkNoRender() {
-		if (!isRenderedInternal())
-			return null;
-		synchronized(mutex) {
-			return getCurrentPageBookmarkInternal();
-		}
-	}
-	
-	/**
-	 * Check whether document is formatted/rendered.
-	 * @return true if document is rendered, and e.g. retrieving of page image will not cause long activity (formatting etc.)
-	 */
-	public boolean isRendered() {
-		// thread safe
-		return isRenderedInternal();
-	}
+    /**
+     * Apply settings.
+     *
+     * @param settings
+     * @return
+     */
+    public boolean applySettings(java.util.Properties settings) {
+        synchronized (mutex) {
+            return applySettingsInternal(settings);
+        }
+    }
 
-	/**
-	 * Move reading position to specified xPath.
-	 * @param xPath
-	 * @return
-	 */
-	public boolean goToPosition(String xPath, boolean saveToHistory) {
-		synchronized(mutex) {
-			return goToPositionInternal(xPath, saveToHistory);
-		}
-	}
+    /**
+     * Set stylesheet for document.
+     *
+     * @param stylesheet
+     */
+    public void setStylesheet(String stylesheet) {
+        synchronized (mutex) {
+            setStylesheetInternal(stylesheet);
+        }
+    }
 
-	/**
-	 * Get position properties by xPath.
-	 * @param xPath
-	 * @return
-	 */
-	public PositionProperties getPositionProps(String xPath) {
-		synchronized(mutex) {
-			return getPositionPropsInternal(xPath);
-		}
-	}
+    public void requestRender() {
+        doCommand(ReaderCommand.DCMD_REQUEST_RENDER.getNativeId(), 0);
+    }
 
-	/**
-	 * Fill book info fields using metadata from current book. 
-	 * @param info
-	 */
-	public void updateBookInfo(BookInfo info) {
-		synchronized(mutex) {
-			updateBookInfoInternal(info);
-		}
-	}
+    /**
+     * Change window size.
+     *
+     * @param dx
+     * @param dy
+     */
+    public void resize(int dx, int dy) {
+        synchronized (mutex) {
+            log.d("DocView.resize(" + dx + ", " + dy + ")");
+            resizeInternal(dx, dy);
+        }
+    }
 
-	/**
-	 * Get TOC tree from current book.
-	 * @return
-	 */
-	public TOCItem getTOC() {
-		synchronized(mutex) {
-			return getTOCInternal();
-		}
-	}
+    /**
+     * Execute command by native object.
+     *
+     * @param command
+     * @param param
+     * @return
+     */
+    public boolean doCommand(int command, int param) {
+        synchronized (mutex) {
+            return doCommandInternal(command, param);
+        }
+    }
 
-	/**
-	 * Clear selection.
-	 */
-	public void clearSelection() {
-		synchronized(mutex) {
-			clearSelectionInternal();
-		}
-	}
+    /**
+     * Get current page bookmark info.
+     *
+     * @return
+     */
+    public Bookmark getCurrentPageBookmark() {
+        synchronized (mutex) {
+            return getCurrentPageBookmarkInternal();
+        }
+    }
 
-	/**
-	 * Find text in book.
-	 * @param pattern
-	 * @param origin
-	 * @param reverse
-	 * @param caseInsensitive
-	 * @return
-	 */
-	public boolean findText(String pattern, int origin,
-			int reverse, int caseInsensitive) {
-		synchronized(mutex) {
-			return findTextInternal(pattern, origin, reverse, caseInsensitive);
-		}
-	}
+    /**
+     * Get current page bookmark info, returning null if document is not yet rendered (to avoid long call).
+     *
+     * @return bookmark for current page, null if cannot be determined fast
+     */
+    public Bookmark getCurrentPageBookmarkNoRender() {
+        if (!isRenderedInternal())
+            return null;
+        synchronized (mutex) {
+            return getCurrentPageBookmarkInternal();
+        }
+    }
 
-	/**
-	 * Get current page image.
-	 * @param bitmap is buffer to put data to.
-	 */
-	public void getPageImage(Bitmap bitmap) {
-		synchronized(mutex) {
-			getPageImageInternal(bitmap, DeviceInfo.EINK_SCREEN ? 4 : 32);
-		}
-	}
+    /**
+     * Check whether document is formatted/rendered.
+     *
+     * @return true if document is rendered, and e.g. retrieving of page image will not cause long activity (formatting etc.)
+     */
+    public boolean isRendered() {
+        // thread safe
+        return isRenderedInternal();
+    }
 
-	private void getPageImageTexture(int[] buf, int width, int height) {
-		synchronized(mutex) {
-			getPageImageTextureInternal(buf, width, height, DeviceInfo.EINK_SCREEN ? 4 : 32);
-		}
-	}
+    /**
+     * Move reading position to specified xPath.
+     *
+     * @param xPath
+     * @return
+     */
+    public boolean goToPosition(String xPath, boolean saveToHistory) {
+        synchronized (mutex) {
+            return goToPositionInternal(xPath, saveToHistory);
+        }
+    }
 
-	/**
-	 * Check whether point of current document contains image.
-	 * If image is found, image becomes current image to be drawn by drawImage(), dstImage fields are set to image dimension.
-	 *  
-	 * @param x is X coordinate in document window
-	 * @param y is Y coordinate in document window
-	 * @param dstImage is to place found image dimensions to
-	 * @return true if point belongs to image
-	 */
-	public boolean checkImage(int x, int y, ImageInfo dstImage) {
-		synchronized(mutex) {
-			return checkImageInternal(x, y, dstImage);
-		}
-	}
+    /**
+     * Get position properties by xPath.
+     *
+     * @param xPath
+     * @return
+     */
+    public PositionProperties getPositionProps(String xPath) {
+        synchronized (mutex) {
+            return getPositionPropsInternal(xPath);
+        }
+    }
 
-	/**
-	 * Check whether point of current document belongs to bookmark.
-	 *  
-	 * @param x is X coordinate in document window
-	 * @param y is Y coordinate in document window
-	 * @return bookmark if point belongs to bookmark, null otherwise
-	 */
-	public Bookmark checkBookmark(int x, int y) {
-		synchronized(mutex) {
-			Bookmark dstBookmark = new Bookmark();
-			if (checkBookmarkInternal(x, y, dstBookmark)) {
-				return dstBookmark;
-			}
-			return null;
-		}
-	}
-	
-	
-	/**
-	 * Draws currently opened image to bitmap.
-	 * @param bitmap is destination bitmap
-	 * @param imageInfo contains image position and scaling parameters.
-	 * @return true if current image is drawn successfully.
-	 */
-	public boolean drawImage(Bitmap bitmap, ImageInfo imageInfo) {
-		synchronized(mutex) {
-			return drawImageInternal(bitmap, DeviceInfo.EINK_SCREEN ? 4 : 32, imageInfo);
-		}
-	}
+    /**
+     * Fill book info fields using metadata from current book.
+     *
+     * @param info
+     */
+    public void updateBookInfo(BookInfo info) {
+        synchronized (mutex) {
+            updateBookInfoInternal(info);
+        }
+    }
 
-	/**
-	 * Close currently opened image, free resources.
-	 * @return true if there was opened current image, and it's now closed 
-	 */
-	public boolean closeImage() {
-		synchronized(mutex) {
-			return closeImageInternal();
-		}
-	}
-	
-	/**
-	 * Highlight bookmarks.
-	 * Remove highlight using clearSelection().
-	 * @params bookmarks is array of bookmarks to highlight 
-	 */
-	public void hilightBookmarks(Bookmark[] bookmarks) {
-		synchronized(mutex) {
-			hilightBookmarksInternal(bookmarks);
-		}
-	}
-	
-	//========================================================================================
-	// Native functions
-	/* implementend by libcr3engine.so */
-	//========================================================================================
-	private native void getPageImageInternal(Bitmap bitmap, int bpp);
+    /**
+     * Get TOC tree from current book.
+     *
+     * @return
+     */
+    public TOCItem getTOC() {
+        synchronized (mutex) {
+            return getTOCInternal();
+        }
+    }
 
-	private native void createInternal();
+    /**
+     * Clear selection.
+     */
+    public void clearSelection() {
+        synchronized (mutex) {
+            clearSelectionInternal();
+        }
+    }
 
-	private native void destroyInternal();
+    /**
+     * Find text in book.
+     *
+     * @param pattern
+     * @param origin
+     * @param reverse
+     * @param caseInsensitive
+     * @return
+     */
+    public boolean findText(String pattern, int origin,
+                            int reverse, int caseInsensitive) {
+        synchronized (mutex) {
+            return findTextInternal(pattern, origin, reverse, caseInsensitive);
+        }
+    }
 
-	private native boolean loadDocumentInternal(String fileName);
+    /**
+     * Get current page image.
+     *
+     * @param bitmap is buffer to put data to.
+     */
+    public void getPageImage(Bitmap bitmap) {
+        synchronized (mutex) {
+            getPageImageInternal(bitmap, DeviceInfo.EINK_SCREEN ? 4 : 32);
+        }
+    }
 
-	private native java.util.Properties getSettingsInternal();
+    private void getPageImageTexture(int[] buf, int width, int height) {
+        synchronized (mutex) {
+            getPageImageTextureInternal(buf, width, height, DeviceInfo.EINK_SCREEN ? 4 : 32);
+        }
+    }
 
-	private native boolean applySettingsInternal(
-			java.util.Properties settings);
+    /**
+     * Check whether point of current document contains image.
+     * If image is found, image becomes current image to be drawn by drawImage(), dstImage fields are set to image dimension.
+     *
+     * @param x        is X coordinate in document window
+     * @param y        is Y coordinate in document window
+     * @param dstImage is to place found image dimensions to
+     * @return true if point belongs to image
+     */
+    public boolean checkImage(int x, int y, ImageInfo dstImage) {
+        synchronized (mutex) {
+            return checkImageInternal(x, y, dstImage);
+        }
+    }
 
-	private native void setStylesheetInternal(String stylesheet);
+    /**
+     * Check whether point of current document belongs to bookmark.
+     *
+     * @param x is X coordinate in document window
+     * @param y is Y coordinate in document window
+     * @return bookmark if point belongs to bookmark, null otherwise
+     */
+    public Bookmark checkBookmark(int x, int y) {
+        synchronized (mutex) {
+            Bookmark dstBookmark = new Bookmark();
+            if (checkBookmarkInternal(x, y, dstBookmark)) {
+                return dstBookmark;
+            }
+            return null;
+        }
+    }
 
-	private native void resizeInternal(int dx, int dy);
+    /**
+     * Draws currently opened image to bitmap.
+     *
+     * @param bitmap    is destination bitmap
+     * @param imageInfo contains image position and scaling parameters.
+     * @return true if current image is drawn successfully.
+     */
+    public boolean drawImage(Bitmap bitmap, ImageInfo imageInfo) {
+        synchronized (mutex) {
+            return drawImageInternal(bitmap, DeviceInfo.EINK_SCREEN ? 4 : 32, imageInfo);
+        }
+    }
 
-	private native boolean doCommandInternal(int command, int param);
+    /**
+     * Close currently opened image, free resources.
+     *
+     * @return true if there was opened current image, and it's now closed
+     */
+    public boolean closeImage() {
+        synchronized (mutex) {
+            return closeImageInternal();
+        }
+    }
 
-	private native Bookmark getCurrentPageBookmarkInternal();
+    /**
+     * Highlight bookmarks.
+     * Remove highlight using clearSelection().
+     *
+     * @params bookmarks is array of bookmarks to highlight
+     */
+    public void hilightBookmarks(Bookmark[] bookmarks) {
+        synchronized (mutex) {
+            hilightBookmarksInternal(bookmarks);
+        }
+    }
 
-	private native boolean goToPositionInternal(String xPath, boolean saveToHistory);
+    //========================================================================================
+    // Native functions
+    /* implementend by libcr3engine.so */
+    //========================================================================================
+    private native void getPageImageInternal(Bitmap bitmap, int bpp);
 
-	private native PositionProperties getPositionPropsInternal(String xPath);
-	
-	private native void updateBookInfoInternal(BookInfo info);
+    private native void createInternal();
 
-	private native TOCItem getTOCInternal();
+    private native void destroyInternal();
 
-	private native void clearSelectionInternal();
+    private native boolean loadDocumentInternal(String fileName);
 
-	private native boolean findTextInternal(String pattern, int origin,
-			int reverse, int caseInsensitive);
+    private native java.util.Properties getSettingsInternal();
 
-	private native void setBatteryStateInternal(int state);
+    private native boolean applySettingsInternal(
+            java.util.Properties settings);
 
-	private native byte[] getCoverPageDataInternal();
+    private native void setStylesheetInternal(String stylesheet);
 
-	private native void setPageBackgroundTextureInternal(
-			byte[] imageBytes, int tileFlags);
+    private native void resizeInternal(int dx, int dy);
 
-	private native void updateSelectionInternal(Selection sel);
+    private native boolean doCommandInternal(int command, int param);
 
-	private native boolean moveSelectionInternal(Selection sel,
-			int moveCmd, int params);
+    private native Bookmark getCurrentPageBookmarkInternal();
 
-	private native String checkLinkInternal(int x, int y, int delta);
+    private native boolean goToPositionInternal(String xPath, boolean saveToHistory);
 
-	private native boolean checkImageInternal(int x, int y, ImageInfo dstImage);
+    private native PositionProperties getPositionPropsInternal(String xPath);
 
-	private native boolean checkBookmarkInternal(int x, int y, Bookmark dstBookmark);
+    private native void updateBookInfoInternal(BookInfo info);
 
-	private native boolean drawImageInternal(Bitmap bitmap, int bpp, ImageInfo dstImage);
+    private native TOCItem getTOCInternal();
 
-	private native boolean closeImageInternal();
+    private native void clearSelectionInternal();
 
-	private native boolean isRenderedInternal();
+    private native boolean findTextInternal(String pattern, int origin,
+                                            int reverse, int caseInsensitive);
 
-	private native int goLinkInternal(String link);
+    private native void setBatteryStateInternal(int state);
 
-	private native void hilightBookmarksInternal(Bookmark[] bookmarks);
+    private native byte[] getCoverPageDataInternal();
 
-	// / returns either SWAP_DONE, SWAP_TIMEOUT or SWAP_ERROR
-	private native int swapToCacheInternal();
+    private native void setPageBackgroundTextureInternal(
+            byte[] imageBytes, int tileFlags);
 
-	private native void getPageImageTextureInternal(int[] buf, int width, int height, int bpp);
-	
-	private int mNativeObject; // used from JNI
+    private native void updateSelectionInternal(Selection sel);
 
-	private ReaderCallback readerCallback;
-	
+    private native boolean moveSelectionInternal(Selection sel,
+                                                 int moveCmd, int params);
+
+    private native String checkLinkInternal(int x, int y, int delta);
+
+    private native boolean checkImageInternal(int x, int y, ImageInfo dstImage);
+
+    private native boolean checkBookmarkInternal(int x, int y, Bookmark dstBookmark);
+
+    private native boolean drawImageInternal(Bitmap bitmap, int bpp, ImageInfo dstImage);
+
+    private native boolean closeImageInternal();
+
+    private native boolean isRenderedInternal();
+
+    private native int goLinkInternal(String link);
+
+    private native void hilightBookmarksInternal(Bookmark[] bookmarks);
+
+    // / returns either SWAP_DONE, SWAP_TIMEOUT or SWAP_ERROR
+    private native int swapToCacheInternal();
+
+    private native void getPageImageTextureInternal(int[] buf, int width, int height, int bpp);
+
 
 }

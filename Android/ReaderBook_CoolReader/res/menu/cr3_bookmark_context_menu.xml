@@ -2,27 +2,27 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/bookmark_goto"
         android:title="@string/mi_bookmark_goto"
-        android:titleCondensed="@string/mi_bookmark_goto"
-        android:id="@+id/bookmark_goto"></item>
+        android:titleCondensed="@string/mi_bookmark_goto"></item>
     <item
+        android:id="@+id/bookmark_add"
         android:title="@string/mi_bookmark_add"
-        android:titleCondensed="@string/mi_bookmark_add"
-        android:id="@+id/bookmark_add"></item>
+        android:titleCondensed="@string/mi_bookmark_add"></item>
     <item
+        android:id="@+id/bookmark_edit"
         android:title="@string/mi_bookmark_edit"
-        android:titleCondensed="@string/mi_bookmark_edit"
-        android:id="@+id/bookmark_edit"></item>
+        android:titleCondensed="@string/mi_bookmark_edit"></item>
     <item
+        android:id="@+id/bookmark_delete"
         android:title="@string/mi_bookmark_delete"
-        android:titleCondensed="@string/mi_bookmark_delete"
-        android:id="@+id/bookmark_delete"></item>
+        android:titleCondensed="@string/mi_bookmark_delete"></item>
     <item
+        android:id="@+id/bookmark_export"
         android:title="@string/mi_bookmark_export"
-        android:titleCondensed="@string/mi_bookmark_export"
-        android:id="@+id/bookmark_export"></item>
+        android:titleCondensed="@string/mi_bookmark_export"></item>
     <item
+        android:id="@+id/bookmark_send"
         android:title="@string/mi_bookmark_send"
-        android:titleCondensed="@string/mi_bookmark_send"
-        android:id="@+id/bookmark_send"></item>
+        android:titleCondensed="@string/mi_bookmark_send"></item>
 </menu>

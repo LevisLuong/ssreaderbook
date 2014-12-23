@@ -23,14 +23,12 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 
 class LayerDrawable extends Drawable implements Drawable.Callback {
+    private final Rect mTmpRect = new Rect();
     LayerState mLayerState;
-
     private int[] mPaddingL;
     private int[] mPaddingT;
     private int[] mPaddingR;
     private int[] mPaddingB;
-
-    private final Rect mTmpRect = new Rect();
     private Drawable mParent;
     private boolean mBlockSetBounds;
 

@@ -13,16 +13,15 @@ import android.widget.ImageView;
  * To guarantee a callback is invoked, one can do the following:
  * First call loadUrlDrawable (with a callback), and then setUrlDrawable. Both loads just get queued into the same request,
  * so you don't need to worry about that being inefficient or that it is making two network calls.
- * @author koush
  *
+ * @author koush
  */
 public interface UrlImageViewCallback {
     /**
-     * 
-     * @param imageView ImageView for the load request.
-     * @param loadedBitmap The bitmap that was loaded by the request.
-     *                          If the drawable failed to load, this will be null.
-     * @param url The url that was loaded.
+     * @param imageView       ImageView for the load request.
+     * @param loadedBitmap    The bitmap that was loaded by the request.
+     *                        If the drawable failed to load, this will be null.
+     * @param url             The url that was loaded.
      * @param loadedFromCache This will indicate whether the load operation result came from cache, or was retrieved.
      */
     void onLoaded(ImageView imageView, Bitmap loadedBitmap, String url, boolean loadedFromCache);

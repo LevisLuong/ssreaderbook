@@ -15,15 +15,15 @@ import java.util.ArrayList;
 
 public class BookSearchDialog extends Dialog {
 
-    private final CoolReader mCoolReader;
-    private final LayoutInflater mInflater;
+    private final static int MAX_RESULTS = 50;
     final EditText authorEdit;
     final EditText titleEdit;
     final EditText seriesEdit;
     final EditText filenameEdit;
     final TextView statusText;
     final SearchCallback callback;
-
+    private final CoolReader mCoolReader;
+    private final LayoutInflater mInflater;
     private int searchTaskId = 0;
     private boolean searchActive = false;
     private boolean closing = false;
@@ -90,10 +90,6 @@ public class BookSearchDialog extends Dialog {
         }, 3000);
     }
 
-    public interface SearchCallback {
-        public void done(FileInfo[] results);
-    }
-
 //	private static String addWildcard( String s, boolean before, boolean after ) {
 //		if ( s==null || s.length()==0 )
 //			return s;
@@ -103,8 +99,6 @@ public class BookSearchDialog extends Dialog {
 //			s = s + "%";
 //		return s;
 //	}
-
-    private final static int MAX_RESULTS = 50;
 
     protected void find(final SearchCallback cb) {
         final String author = authorEdit.getText().toString().trim();
@@ -119,6 +113,10 @@ public class BookSearchDialog extends Dialog {
                 cb.done(fileList.toArray(new FileInfo[fileList.size()]));
             }
         });
+    }
+
+    public interface SearchCallback {
+        public void done(FileInfo[] results);
     }
 
 //    @Override

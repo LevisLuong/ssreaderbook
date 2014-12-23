@@ -25,6 +25,31 @@ import java.util.HashSet;
 import java.util.Hashtable;
 
 public final class UrlImageViewHelper {
+    public static final int CACHE_DURATION_INFINITE = Integer.MAX_VALUE;
+    public static final int CACHE_DURATION_ONE_DAY = 1000 * 60 * 60 * 24;
+    public static final int CACHE_DURATION_TWO_DAYS = CACHE_DURATION_ONE_DAY * 2;
+    public static final int CACHE_DURATION_THREE_DAYS = CACHE_DURATION_ONE_DAY * 3;
+    public static final int CACHE_DURATION_FOUR_DAYS = CACHE_DURATION_ONE_DAY * 4;
+    public static final int CACHE_DURATION_FIVE_DAYS = CACHE_DURATION_ONE_DAY * 5;
+    public static final int CACHE_DURATION_SIX_DAYS = CACHE_DURATION_ONE_DAY * 6;
+    public static final int CACHE_DURATION_ONE_WEEK = CACHE_DURATION_ONE_DAY * 7;
+    static Resources mResources;
+    static DisplayMetrics mMetrics;
+    private static boolean mUseBitmapScaling = true;
+    private static boolean mHasCleaned = false;
+    private static HttpUrlDownloader mHttpDownloader = new HttpUrlDownloader();
+    private static ContentUrlDownloader mContentDownloader = new ContentUrlDownloader();
+    private static ContactContentUrlDownloader mContactDownloader = new ContactContentUrlDownloader();
+    private static AssetUrlDownloader mAssetDownloader = new AssetUrlDownloader();
+    private static FileUrlDownloader mFileDownloader = new FileUrlDownloader();
+    private static ArrayList<UrlDownloader> mDownloaders = new ArrayList<UrlDownloader>();
+    private static RequestPropertiesCallback mRequestPropertiesCallback;
+    private static DrawableCache mLiveCache = DrawableCache.getInstance();
+    private static LruBitmapCache mDeadCache;
+    private static HashSet<Bitmap> mAllCache = new HashSet<Bitmap>();
+    private static Hashtable<ImageView, String> mPendingViews = new Hashtable<ImageView, String>();
+    private static Hashtable<String, ArrayList<ImageView>> mPendingDownloads = new Hashtable<String, ArrayList<ImageView>>();
+
     static void clog(String format, Object... args) {
         String log;
         if (args.length == 0)
@@ -46,9 +71,6 @@ public final class UrlImageViewHelper {
         return total;
     }
 
-    static Resources mResources;
-    static DisplayMetrics mMetrics;
-
     private static void prepareResources(final Context context) {
         if (mMetrics != null) {
             return;
@@ -62,7 +84,15 @@ public final class UrlImageViewHelper {
         mResources = new Resources(mgr, mMetrics, context.getResources().getConfiguration());
     }
 
-    private static boolean mUseBitmapScaling = true;
+    /**
+     * Bitmap scaling will use smart/sane values to limit the maximum
+     * dimension of the bitmap during decode. This will prevent any dimension of the
+     * bitmap from being larger than the dimensions of the device itself.
+     * Doing this will conserve memory.
+     */
+    public static boolean getUseBitmapScaling() {
+        return mUseBitmapScaling;
+    }
 
     /**
      * Bitmap scaling will use smart/sane values to limit the maximum
@@ -74,16 +104,6 @@ public final class UrlImageViewHelper {
      */
     public static void setUseBitmapScaling(boolean useBitmapScaling) {
         mUseBitmapScaling = useBitmapScaling;
-    }
-
-    /**
-     * Bitmap scaling will use smart/sane values to limit the maximum
-     * dimension of the bitmap during decode. This will prevent any dimension of the
-     * bitmap from being larger than the dimensions of the device itself.
-     * Doing this will conserve memory.
-     */
-    public static boolean getUseBitmapScaling() {
-        return mUseBitmapScaling;
     }
 
     private static Bitmap loadBitmapFromStream(final Context context, final String url, final String filename, final int targetWidth, final int targetHeight) {
@@ -124,15 +144,6 @@ public final class UrlImageViewHelper {
             }
         }
     }
-
-    public static final int CACHE_DURATION_INFINITE = Integer.MAX_VALUE;
-    public static final int CACHE_DURATION_ONE_DAY = 1000 * 60 * 60 * 24;
-    public static final int CACHE_DURATION_TWO_DAYS = CACHE_DURATION_ONE_DAY * 2;
-    public static final int CACHE_DURATION_THREE_DAYS = CACHE_DURATION_ONE_DAY * 3;
-    public static final int CACHE_DURATION_FOUR_DAYS = CACHE_DURATION_ONE_DAY * 4;
-    public static final int CACHE_DURATION_FIVE_DAYS = CACHE_DURATION_ONE_DAY * 5;
-    public static final int CACHE_DURATION_SIX_DAYS = CACHE_DURATION_ONE_DAY * 6;
-    public static final int CACHE_DURATION_ONE_WEEK = CACHE_DURATION_ONE_DAY * 7;
 
     /**
      * Download and shrink an Image located at a specified URL, and display it
@@ -367,8 +378,6 @@ public final class UrlImageViewHelper {
     private static boolean isNullOrEmpty(final CharSequence s) {
         return (s == null || s.equals("") || s.equals("null") || s.equals("NULL"));
     }
-
-    private static boolean mHasCleaned = false;
 
     public static String getFilenameForUrl(final String url) {
         return url.hashCode() + ".urlimage";
@@ -682,21 +691,9 @@ public final class UrlImageViewHelper {
         imageView.setImageDrawable(defaultDrawable);
     }
 
-    private static abstract class Loader implements UrlDownloader.UrlDownloaderCallback {
-        Bitmap result;
-    }
-
-    private static HttpUrlDownloader mHttpDownloader = new HttpUrlDownloader();
-    private static ContentUrlDownloader mContentDownloader = new ContentUrlDownloader();
-    private static ContactContentUrlDownloader mContactDownloader = new ContactContentUrlDownloader();
-    private static AssetUrlDownloader mAssetDownloader = new AssetUrlDownloader();
-    private static FileUrlDownloader mFileDownloader = new FileUrlDownloader();
-    private static ArrayList<UrlDownloader> mDownloaders = new ArrayList<UrlDownloader>();
-
     public static ArrayList<UrlDownloader> getDownloaders() {
         return mDownloaders;
     }
-
     static {
         mDownloaders.add(mHttpDownloader);
         mDownloaders.add(mContactDownloader);
@@ -705,12 +702,6 @@ public final class UrlImageViewHelper {
         mDownloaders.add(mFileDownloader);
     }
 
-    public static interface RequestPropertiesCallback {
-        public ArrayList<NameValuePair> getHeadersForRequest(Context context, String url);
-    }
-
-    private static RequestPropertiesCallback mRequestPropertiesCallback;
-
     public static RequestPropertiesCallback getRequestPropertiesCallback() {
         return mRequestPropertiesCallback;
     }
@@ -718,10 +709,6 @@ public final class UrlImageViewHelper {
     public static void setRequestPropertiesCallback(final RequestPropertiesCallback callback) {
         mRequestPropertiesCallback = callback;
     }
-
-    private static DrawableCache mLiveCache = DrawableCache.getInstance();
-    private static LruBitmapCache mDeadCache;
-    private static HashSet<Bitmap> mAllCache = new HashSet<Bitmap>();
 
     private static int getHeapSize(final Context context) {
         return ((ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass() * 1024 * 1024;
@@ -746,20 +733,41 @@ public final class UrlImageViewHelper {
         return null;
     }
 
+    static void executeTask(final AsyncTask<Void, Void, Void> task) {
+        if (Build.VERSION.SDK_INT < Constants.HONEYCOMB) {
+            task.execute();
+        } else {
+            executeTaskHoneycomb(task);
+        }
+    }
+
+    @TargetApi(Constants.HONEYCOMB)
+    private static void executeTaskHoneycomb(final AsyncTask<Void, Void, Void> task) {
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
+
+    public static int getPendingDownloads() {
+        return mPendingDownloads.size();
+    }
+
+    public static interface RequestPropertiesCallback {
+        public ArrayList<NameValuePair> getHeadersForRequest(Context context, String url);
+    }
+
+    private static abstract class Loader implements UrlDownloader.UrlDownloaderCallback {
+        Bitmap result;
+    }
+
     /**
      * ZombieDrawable refcounts Bitmaps by hooking the finalizer.
      */
     private static class ZombieDrawable extends BitmapDrawable {
-        private static class Brains {
-            int mRefCounter;
-            boolean mHeadshot;
-        }
+        Brains mBrains;
+        String mUrl;
 
         public ZombieDrawable(final String url, Resources resources, final Bitmap bitmap) {
             this(url, resources, bitmap, new Brains());
         }
-
-        Brains mBrains;
 
         private ZombieDrawable(final String url, Resources resources, final Bitmap bitmap, Brains brains) {
             super(resources, bitmap);
@@ -776,8 +784,6 @@ public final class UrlImageViewHelper {
         public ZombieDrawable clone(Resources resources) {
             return new ZombieDrawable(mUrl, resources, getBitmap(), mBrains);
         }
-
-        String mUrl;
 
         @Override
         protected void finalize() throws Throwable {
@@ -800,25 +806,10 @@ public final class UrlImageViewHelper {
             mLiveCache.remove(mUrl);
             mAllCache.remove(getBitmap());
         }
-    }
 
-    static void executeTask(final AsyncTask<Void, Void, Void> task) {
-        if (Build.VERSION.SDK_INT < Constants.HONEYCOMB) {
-            task.execute();
-        } else {
-            executeTaskHoneycomb(task);
+        private static class Brains {
+            int mRefCounter;
+            boolean mHeadshot;
         }
     }
-
-    @TargetApi(Constants.HONEYCOMB)
-    private static void executeTaskHoneycomb(final AsyncTask<Void, Void, Void> task) {
-        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-    }
-
-    public static int getPendingDownloads() {
-        return mPendingDownloads.size();
-    }
-
-    private static Hashtable<ImageView, String> mPendingViews = new Hashtable<ImageView, String>();
-    private static Hashtable<String, ArrayList<ImageView>> mPendingDownloads = new Hashtable<String, ArrayList<ImageView>>();
 }

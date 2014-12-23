@@ -104,7 +104,7 @@
                     />
             </LinearLayout>
 
-            <SeekBar
+            <org.holoeverywhere.widget.SeekBar
                 android:id="@+id/vp_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

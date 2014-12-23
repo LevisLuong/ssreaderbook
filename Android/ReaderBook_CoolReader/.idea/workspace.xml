@@ -15,6 +15,22 @@
       </filter>
     </filters>
   </component>
+  <component name="AndroidDataSourceStorage">
+    <data-sources>
+      <data-source>
+        <option name="deviceId" value="SERIAL_NUMBER_192_168_56_102_5555" />
+        <option name="name" value="Nexus 5 db SCT" />
+        <option name="packageName" value="vn.seasoft.readerbook" />
+        <option name="databaseName" value="dbssbook.db" />
+        <classpath-elements>
+          <url>file://$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+        </classpath-elements>
+        <classpath-elements>
+          <url>file://$USER_HOME$/.IntelliJIdea13/config/jdbc-drivers/sqlite-jdbc-3.7.6.3-20110609.081603-3.jar</url>
+        </classpath-elements>
+      </data-source>
+    </data-sources>
+  </component>
   <component name="AndroidLayoutPreviewToolWindow">
     <option name="state">
       <GlobalState />
@@ -160,13 +176,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="703e863b-272d-4e3e-8367-f29dda8e50b0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/addon/AddonSlider.java" afterPath="$PROJECT_DIR$/../slider/src/org/holoeverywhere/addon/AddonSlider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn/java/com/etiennelawlor/quickreturn/library/listeners/SpeedyQuickReturnListViewOnScrollListener.java" afterPath="$PROJECT_DIR$/../lb_QuickReturn/src/lb_QuickReturn/java/com/etiennelawlor/quickreturn/library/listeners/SpeedyQuickReturnListViewOnScrollListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values-land/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values-land/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/values-w720dp/dimens.xml" afterPath="$PROJECT_DIR$/../slider/res/values-w720dp/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_viewpagerindicator/project.properties" afterPath="$PROJECT_DIR$/../lb_viewpagerindicator/project.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/res/layout/slider_default_list_layout.xml" afterPath="$PROJECT_DIR$/../slider/res/layout/slider_default_list_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../lb_QuickReturn/lb_QuickReturn.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna/Manifest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna/R.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/BuildConfig.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/Manifest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/R.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\Project SSC\Android\SSReaderBook\lb_AmbilWarna\AmbilWarna.iml" afterPath="" />
+      <change type="DELETED" beforePath="E:\Project SSC\Android\SSReaderBook\lb_holoeverywhere\lb_holyeverywhere.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku/ambilwarna" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/gen/org" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/gen/yuku" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna" afterPath="$PROJECT_DIR$/../lb_AmbilWarna" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere" afterPath="$PROJECT_DIR$/../lb_holoeverywhere" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../preferences/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/AndroidManifest.xml" afterPath="$PROJECT_DIR$/../slider/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/GenericInflater.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/GenericInflater.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/gen/it/sephiroth/android/library/R.java" afterPath="$PROJECT_DIR$/../lb_horizontallistview/gen/it/sephiroth/android/library/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_viewpagerindicator/gen/com/viewpagerindicator/R.java" afterPath="$PROJECT_DIR$/../lb_viewpagerindicator/gen/com/viewpagerindicator/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/gen/org/holoeverywhere/preference/R.java" afterPath="$PROJECT_DIR$/../preferences/gen/org/holoeverywhere/preference/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/gen/org/holoeverywhere/slider/R.java" afterPath="$PROJECT_DIR$/../slider/gen/org/holoeverywhere/slider/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/XmlUtils.java" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/XmlUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" afterPath="$PROJECT_DIR$/../lb_AmbilWarna/lb_AmbilWarna.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" afterPath="$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" afterPath="$PROJECT_DIR$/../lb_horizontallistview/lb_horizontallistview.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../lb_viewpagerindicator/lb_viewpagerindicator.iml" afterPath="$PROJECT_DIR$/../lb_viewpagerindicator/lb_viewpagerindicator.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../preferences/preferences.iml" afterPath="$PROJECT_DIR$/../preferences/preferences.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../slider/slider.iml" afterPath="$PROJECT_DIR$/../slider/slider.iml" />
     </list>
     <ignored path="ReaderBook.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -187,11 +227,16 @@
     <disable_hints />
   </component>
   <component name="DatabaseView">
-    <option name="SHOW_TOOLBAR" value="true" />
     <option name="FLATTEN" value="false" />
     <option name="GROUP_BY_TYPE" value="true" />
     <option name="SORT_CHILDREN" value="false" />
     <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="autoscrollToSource" value="true" />
@@ -205,31 +250,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fmComment.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmComment.java">
+      <file leaf-file-name="actInfoBook.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actInfoBook.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3978" max-vertical-offset="4641">
-              <caret line="266" column="58" selection-start-line="266" selection-start-column="58" selection-end-line="266" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="4743">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fmChapter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmChapter.java">
+      <file leaf-file-name="BookController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34517765" vertical-offset="663" max-vertical-offset="5916">
-              <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1462">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <file leaf-file-name="BookChapterController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookChapterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2754">
-              <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1955">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="510">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Comment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Comment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="884">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Book_Chapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Book_Chapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1011" max-vertical-offset="1615">
+              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/sqlite/DatabaseHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1547">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request_Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/RequestObjects/Request_Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1878" max-vertical-offset="2482">
+              <caret line="134" column="83" selection-start-line="134" selection-start-column="83" selection-end-line="134" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="COMMAND_API.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.95695364" vertical-offset="0" max-vertical-offset="697">
+              <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -264,8 +369,22 @@
         <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/asynPostFacebook.java" />
         <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmComment.java" />
         <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/actInfoBook.java" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Book_Chapter.java" />
+        <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookChapterController.java" />
+        <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/ResultObjects/Result_GetBookChapter.java" />
         <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmChapter.java" />
+        <option value="$PROJECT_DIR$/../lb_QuickReturn/gen/com/etiennelawlor/quickreturn/library/BuildConfig.java" />
+        <option value="$PROJECT_DIR$/../slider/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/../preferences/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml" />
+        <option value="$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/Arrays.java" />
+        <option value="$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_styles.xml" />
+        <option value="$PROJECT_DIR$/res/values-v14/styles.xml" />
+        <option value="$PROJECT_DIR$/project.properties" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
+        <option value="dbtable:/b4af1da3/97a4762a-5126-489e-ba94-7041db687d7c/..book" />
+        <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/sqlite/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java" />
       </list>
     </option>
   </component>
@@ -397,7 +516,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
+              <option name="myItemId" value="RequestObjects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,144 +531,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readerbook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readerbook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readerbook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dialog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="readerbook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="adapter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ReaderBook_CoolReader" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,10 +550,10 @@
     <property name="recentsLimit" value="5" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.25114155" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="LayoutCode.rearrangeEntriesJava" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../AppFacebook" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lb_AmbilWarna" />
     <property name="FullScreen" value="false" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="192.168.56.102:5555" />
     <property name="SearchEverywhereHistoryKey" value="config&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;holob&#9;PSI&#9;JAVA://org.holoeverywhere.R.color#holo_blue_bright&#10;command&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;ss&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;ssuti&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;view&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/widget/ViewError.java&#10;ssu&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;fmcom&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/fragment/fmComment.java&#10;str&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/res/values/strings.xml&#10;String&#9;PSI&#9;JAVA://vn.seasoft.readerbook.R.string&#10;n&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/mSharedPreferences.java&#10;msh&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/mSharedPreferences.java&#10;ssut&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/SSUtil.java&#10;string&#9;PSI&#9;JAVA://vn.seasoft.readerbook.R.string&#10;oncreate&#9;PSI&#9;JAVA://org.coolreader.crengine.TTS.OnTTSCreatedListener&#10;appthem&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/res/values/colors_apptheme.xml&#10;dlginfo&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java&#10;status&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Status.java&#10;global&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/Util/GlobalData.java&#10;globa&#9;FILE&#9;file://E:/Source tham khao/FoodMob_V3/src/vn/foodmob/activity/GlobalData.java&#10;sta&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Status.java&#10;dlgin&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java&#10;about&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgAboutApp.java&#10;coolre&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/CoolReader.java&#10;main&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/MainActivity.java&#10;optio&#9;PSI&#9;JAVA://org.coolreader.crengine.OptionMenu&#10;as&#9;PSI&#9;JAVA://vn.seasoft.readerbook.Util.asynPostFacebook&#10;con&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;reader&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/ReaderView.java&#10;confi&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/Config.java&#10;com&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.COMMAND_API&#10;comm&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java&#10;actse&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/actSearchBooks.java&#10;fmma&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/fmMain.java&#10;dlg&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java&#10;error&#9;PSI&#9;JAVA://vn.seasoft.readerbook.HttpServices.ErrorType&#10;base&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;imageview&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/vn/seasoft/readerbook/widget/ImageViewTouchViewPager.java&#10;baseac&#9;FILE&#9;file://E:/Project SSC/Android/SSReaderBook/ReaderBook_CoolReader/src/org/coolreader/crengine/BaseActivity.java&#10;sear&#9;PSI&#9;JAVA://vn.seasoft.readerbook.adapter.SearchBookAdapter" />
@@ -583,7 +564,7 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="ExportedModule" value="ReaderBook_CoolReader" />
-    <property name="ExportedApkPath" value="E:\ReleaseApps\ssbook_v1.2.apk" />
+    <property name="ExportedApkPath" value="E:\ReleaseApps\ssbook_v1.3.apk" />
     <property name="AndroidRunProguardForReleaseBuild" value="true" />
     <property name="AndroidProguardConfigPaths" value="E:\Project SSC\Android\SSReaderBook\ReaderBook_CoolReader\proguard.cfg" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
@@ -592,6 +573,8 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/vn/seasoft/readerbook" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD_for_Nexus_One_by_Google" />
+    <property name="LayoutCode.rearrangeEntries" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2011,6 +1994,12 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -2084,8 +2073,8 @@
           <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_horizontallistview" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn\src\lb_QuickReturn" />
-          <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn\src\lb_QuickReturn" />
+          <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn" />
+          <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
           <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_viewpagerindicator" />
@@ -2116,8 +2105,8 @@
           <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_horizontallistview" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
-          <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn\src\lb_QuickReturn" />
-          <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn\src\lb_QuickReturn" />
+          <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn" />
+          <option name="myCopyRoot" value="E:\Project SSC\Android\SSReaderBook\lb_QuickReturn" />
         </SvnCopyRootSimple>
         <SvnCopyRootSimple>
           <option name="myVcsRoot" value="E:\Project SSC\Android\SSReaderBook\lb_viewpagerindicator" />
@@ -2148,9 +2137,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32646593" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.64826024" sideWeight="0.67064846" order="11" side_tool="false" content_ui="tabs" x="378" y="76" width="806" height="586" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27452415" sideWeight="0.67064846" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18154311" sideWeight="0.5712025" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19667171" sideWeight="0.5712025" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.5" order="17" side_tool="true" content_ui="tabs" x="22" y="260" width="1322" height="208" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1913767" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.67064846" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18154311" sideWeight="0.4272152" order="4" side_tool="true" content_ui="tabs" />
@@ -2254,374 +2243,374 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/java/lang/Enum.class">
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Comment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2642487" vertical-offset="0" max-vertical-offset="663">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="884">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/RequestObjects/Request_Server.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Book_Chapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83112586" vertical-offset="1113" max-vertical-offset="2482">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1011" max-vertical-offset="1615">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v7/app/ActionBarActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/sqlite/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50165564" vertical-offset="2638" max-vertical-offset="6358">
-          <caret line="228" column="7" selection-start-line="228" selection-start-column="7" selection-end-line="228" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proguard.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.42218542" vertical-offset="612" max-vertical-offset="2278">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/AlertController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3675" max-vertical-offset="12903">
-          <caret line="272" column="0" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/socialauth-4.6.jar!/org/brickred/socialauth/SocialAuthManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9717314" vertical-offset="2335" max-vertical-offset="3638">
-          <caret line="230" column="0" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/layout/slider_default_menu_stub.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="574">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1547">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/values-w720dp/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/values/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05629139" vertical-offset="0" max-vertical-offset="604">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/values-land/dimens.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05629139" vertical-offset="0" max-vertical-offset="604">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actSearchBooks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5177665" vertical-offset="102" max-vertical-offset="1989">
-          <caret line="44" column="51" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgInfoBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25211507" vertical-offset="4169" max-vertical-offset="5831">
-          <caret line="337" column="57" selection-start-line="337" selection-start-column="57" selection-end-line="337" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33774835" vertical-offset="0" max-vertical-offset="604">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fmMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23011844" vertical-offset="1173" max-vertical-offset="5355">
-          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/SSUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="4675">
-          <caret line="33" column="23" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/android/widget/Toast.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20552677" vertical-offset="0" max-vertical-offset="952">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/AsyntaskDownloadFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3228476" vertical-offset="960" max-vertical-offset="2992">
-          <caret line="151" column="5" selection-start-line="151" selection-start-column="5" selection-end-line="151" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/socialauth-4.6.jar!/org/brickred/socialauth/AuthProvider.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.058721934" vertical-offset="306" max-vertical-offset="969">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/socialauth-4.6.jar!/org/brickred/socialauth/provider/FacebookImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.84" vertical-offset="3951" max-vertical-offset="6783">
-          <caret line="270" column="20" selection-start-line="270" selection-start-column="20" selection-end-line="270" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libs/socialauth-android-3.2.jar!/org/brickred/socialauth/android/SocialAuthAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.6" vertical-offset="12035" max-vertical-offset="13345">
-          <caret line="831" column="110" selection-start-line="831" selection-start-column="76" selection-end-line="831" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderMenuFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/IAddonBasicAttacher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81125826" vertical-offset="275" max-vertical-offset="2958">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/IAddon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5894039" vertical-offset="0" max-vertical-offset="1921">
-          <caret line="103" column="15" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/Addons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6040609" vertical-offset="0" max-vertical-offset="591">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/SliderMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10013">
-          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/android/view/ViewGroup.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34805652" vertical-offset="4189" max-vertical-offset="8942">
-          <caret line="436" column="16" selection-start-line="436" selection-start-column="16" selection-end-line="436" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/IAddonBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7317881" vertical-offset="0" max-vertical-offset="816">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/layout-w720dp/slider_default_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="425">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../slider/libs/support-v4-19.1.0.jar!/android/support/v4/widget/DrawerLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="8414" max-vertical-offset="19006">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/values/ids.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/IAddonActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278146" vertical-offset="819" max-vertical-offset="1836">
-          <caret line="88" column="16" selection-start-line="88" selection-start-column="16" selection-end-line="88" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/android/support/v4/app/_HoloActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5749" max-vertical-offset="9316">
-          <caret line="425" column="19" selection-start-line="425" selection-start-column="19" selection-end-line="425" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/mSharedPreferences.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278146" vertical-offset="224" max-vertical-offset="1292">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/values/rb_attrs.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08443709" vertical-offset="0" max-vertical-offset="604">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgConfirmFacebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33774835" vertical-offset="51" max-vertical-offset="918">
-          <caret line="20" column="49" selection-start-line="20" selection-start-column="49" selection-end-line="20" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030035336" vertical-offset="0" max-vertical-offset="8959">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/slider_menu_main.xml">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1241">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://E:/Project from github/Facebook SDK/socialauth-java-sdk-4.6/src/socialauth/src/main/java/org/brickred/socialauth/provider/FlickerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.34517765" vertical-offset="510" max-vertical-offset="8058">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actInfoBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.21150592" vertical-offset="1689" max-vertical-offset="4573">
-          <caret line="135" column="43" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/SSReaderApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22335026" vertical-offset="1041" max-vertical-offset="4437">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/Util/asynPostFacebook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40270728" vertical-offset="0" max-vertical-offset="1547">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actTutorial.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.013245" vertical-offset="0" max-vertical-offset="884">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4534687" vertical-offset="2163" max-vertical-offset="3689">
-          <caret line="186" column="73" selection-start-line="186" selection-start-column="73" selection-end-line="186" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/addon/AddonSlider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42384106" vertical-offset="1240" max-vertical-offset="4930">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33278146" vertical-offset="2264" max-vertical-offset="4828">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../slider/res/layout/slider_default_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38501742" vertical-offset="0" max-vertical-offset="574">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="527" max-vertical-offset="2754">
-          <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1381" max-vertical-offset="4318">
-          <caret line="266" column="58" selection-start-line="266" selection-start-column="58" selection-end-line="266" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/adt android/sdk/platforms/android-19/android.jar!/java/lang/System.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45595855" vertical-offset="705" max-vertical-offset="1343">
-          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/coolreader/crengine/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2402706" vertical-offset="2761" max-vertical-offset="24939">
-          <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/fragment/fmChapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34517765" vertical-offset="663" max-vertical-offset="5916">
-          <caret line="94" column="33" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="5916">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actReadPictureBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5627">
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16887417" vertical-offset="0" max-vertical-offset="604">
+          <caret line="6" column="39" selection-start-line="4" selection-start-column="3" selection-end-line="6" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/res/values-v11/rb_styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08443709" vertical-offset="0" max-vertical-offset="680">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../slider/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../preferences/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../preferences/res/values/rb_styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25331125" vertical-offset="0" max-vertical-offset="2397">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../preferences/res/values/rb_strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/gen/org/holoeverywhere/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31641287" vertical-offset="51" max-vertical-offset="99586">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/ArrayUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3043">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/lb_holoeverywhere.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028145695" vertical-offset="0" max-vertical-offset="604">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/.classpath">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/XmlUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="10965">
+          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/util/Arrays.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16887417" vertical-offset="0" max-vertical-offset="604">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-v14/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30960265" vertical-offset="0" max-vertical-offset="604">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values-v11/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/res/values/rb_styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22202">
+          <caret line="3" column="15" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/widget/datetimepicker/date/DatePickerDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.534687" vertical-offset="194" max-vertical-offset="7837">
+          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/dialog/dlgConfirm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0695364" vertical-offset="0" max-vertical-offset="918">
+          <caret line="45" column="64" selection-start-line="45" selection-start-column="64" selection-end-line="45" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.634106" vertical-offset="263" max-vertical-offset="1683">
+          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/slider/BaseSliderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="3145">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../slider/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33774835" vertical-offset="0" max-vertical-offset="604">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28145695" vertical-offset="0" max-vertical-offset="604">
+          <caret line="10" column="81" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_viewpagerindicator/src/com/viewpagerindicator/CirclePageIndicator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44536424" vertical-offset="768" max-vertical-offset="8806">
+          <caret line="78" column="38" selection-start-line="78" selection-start-column="38" selection-end-line="78" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_horizontallistview/src/it/sephiroth/android/library/widget/ExpandableHListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.89170897" vertical-offset="0" max-vertical-offset="19482">
+          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../preferences/src/org/holoeverywhere/preference/Preference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2384106" vertical-offset="765" max-vertical-offset="16116">
+          <caret line="118" column="9" selection-start-line="118" selection-start-column="9" selection-end-line="118" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_QuickReturn/gen/com/etiennelawlor/quickreturn/library/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11258278" vertical-offset="0" max-vertical-offset="604">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_QuickReturn/src/com/etiennelawlor/quickreturn/library/enums/QuickReturnType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28145695" vertical-offset="0" max-vertical-offset="604">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_QuickReturn/project.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42218542" vertical-offset="0" max-vertical-offset="604">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_QuickReturn/src/com/etiennelawlor/quickreturn/library/listeners/SpeedyQuickReturnListViewOnScrollListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40270728" vertical-offset="0" max-vertical-offset="3451">
+          <caret line="14" column="3" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_AmbilWarna/src/yuku/ambilwarna/widget/AmbilWarnaPreference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30960265" vertical-offset="0" max-vertical-offset="2363">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_QuickReturn/lb_QuickReturn.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="604">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/vn/seasoft/readerbook/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.4382403" vertical-offset="918" max-vertical-offset="168351">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/coolreader/crengine/StatusBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.19701986" vertical-offset="425" max-vertical-offset="3332">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../slider/src/org/holoeverywhere/addon/AddonSlider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="5185">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84437084" vertical-offset="0" max-vertical-offset="2754">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../lb_holoeverywhere/src/org/holoeverywhere/addon/AddonTabber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05629139" vertical-offset="391" max-vertical-offset="4437">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../slider/res/values/rb_styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15562914" vertical-offset="76" max-vertical-offset="680">
+          <caret line="10" column="59" selection-start-line="10" selection-start-column="59" selection-end-line="10" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/actInfoBook.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3086" max-vertical-offset="4488">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="858" max-vertical-offset="1462">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/repocontroller/BookChapterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1870">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Comment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="884">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/model/Book_Chapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1011" max-vertical-offset="1615">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/ormlite-core-4.48.jar!/com/j256/ormlite/table/TableUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18021202" vertical-offset="0" max-vertical-offset="7191">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/sqlite/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="433" max-vertical-offset="1547">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/RequestObjects/Request_Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1878" max-vertical-offset="2482">
+          <caret line="134" column="83" selection-start-line="134" selection-start-column="83" selection-end-line="134" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vn/seasoft/readerbook/HttpServices/COMMAND_API.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.95695364" vertical-offset="0" max-vertical-offset="697">
+          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -2635,7 +2624,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>
@@ -2643,11 +2632,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Android</last-edited>
+          <last-edited>Android (lb_AmbilWarna)|Android</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>
@@ -2655,10 +2644,11 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>nineoldandroids-2.4.0</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>
@@ -2666,11 +2656,11 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>Android API 19 Platform</last-edited>
+          <last-edited>Android API 21 Platform</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>
@@ -2682,7 +2672,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>
@@ -2702,10 +2692,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>libs</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.25114155" />
               </list>
             </option>
           </splitter-proportions>

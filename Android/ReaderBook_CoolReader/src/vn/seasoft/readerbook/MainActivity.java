@@ -36,15 +36,13 @@ public class MainActivity extends Activity {
     Context context;
     SliderMenu sliderMenu;
     AddonSlider.AddonSliderA addonSlider;
-
+    private ImageView sliderMenuAvatar;
+    private TextView sliderMenuUsername;
+    private Button sliderMenuBtnlogin;
 
     public AddonSlider.AddonSliderA addonSlider() {
         return addon(AddonSlider.class);
     }
-
-    private ImageView sliderMenuAvatar;
-    private TextView sliderMenuUsername;
-    private Button sliderMenuBtnlogin;
 
     private void assignViews(View v) {
         sliderMenuAvatar = (ImageView) v.findViewById(R.id.slider_menu_avatar);

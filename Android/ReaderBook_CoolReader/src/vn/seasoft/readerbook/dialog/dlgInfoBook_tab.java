@@ -39,18 +39,6 @@ public class dlgInfoBook_tab extends DialogFragment {
     Context mContext;
     Book book;
     fmChapter fmchapter;
-
-
-    public dlgInfoBook_tab() {
-
-    }
-
-    public dlgInfoBook_tab(Context _context, Book _book) {
-        setDialogType(DialogType.Dialog);
-        mContext = _context;
-        book = _book;
-    }
-
     private ImageView dlginfoImgcover;
     private TextView dlginfoTxtTitle;
     private TextView dlginfoTxtAuthor;
@@ -61,6 +49,14 @@ public class dlgInfoBook_tab extends DialogFragment {
     private LinearLayout dlginfoSharefb;
     private TabPageIndicator dlginfoIndicator;
     private ViewPager dlginfoViewpager;
+    public dlgInfoBook_tab() {
+
+    }
+    public dlgInfoBook_tab(Context _context, Book _book) {
+        setDialogType(DialogType.Dialog);
+        mContext = _context;
+        book = _book;
+    }
 
     private void assignViews(View root) {
         dlginfoImgcover = (ImageView) root.findViewById(R.id.dlginfo_imgcover);
@@ -196,47 +192,6 @@ public class dlgInfoBook_tab extends DialogFragment {
         return v;
     }
 
-
-    private class ViewpagerAdapter extends FragmentPagerAdapter {
-
-
-        public ViewpagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            switch (i) {
-                case 0:
-                    return new fmSummary(book.getSummary());
-                case 1:
-                    return fmchapter;
-                case 2:
-                    return new fmComment(mContext, book.getIdbook());
-
-            }
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Tóm Tắt";
-                case 1:
-                    return "Chương";
-                case 2:
-                    return "Bình Luận";
-            }
-            return super.getPageTitle(position);
-        }
-    }
-
     public void setCountChapter(String number) {
         dlginfoTxtchapters.setText(number);
     }
@@ -303,5 +258,45 @@ public class dlgInfoBook_tab extends DialogFragment {
             }
         });
         return adialog;
+    }
+
+    private class ViewpagerAdapter extends FragmentPagerAdapter {
+
+
+        public ViewpagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int i) {
+            switch (i) {
+                case 0:
+                    return new fmSummary(book.getSummary());
+                case 1:
+                    return fmchapter;
+                case 2:
+                    return new fmComment(mContext, book.getIdbook());
+
+            }
+            return null;
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "Tóm Tắt";
+                case 1:
+                    return "Chương";
+                case 2:
+                    return "Bình Luận";
+            }
+            return super.getPageTitle(position);
+        }
     }
 }

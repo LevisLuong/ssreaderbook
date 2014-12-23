@@ -1,4 +1,3 @@
-
 package urlimageviewhelper;
 
 import android.content.Context;
@@ -9,7 +8,7 @@ import java.io.InputStream;
 public class AssetUrlDownloader implements UrlDownloader {
     @Override
     public void download(final Context context, final String url, final String filename,
-            final UrlDownloaderCallback callback, final Runnable completion) {
+                         final UrlDownloaderCallback callback, final Runnable completion) {
         final AsyncTask<Void, Void, Void> downloader = new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(final Void... params) {
@@ -18,8 +17,7 @@ public class AssetUrlDownloader implements UrlDownloader {
                     InputStream is = context.getAssets().open(relativePath);
                     callback.onDownloadComplete(AssetUrlDownloader.this, is, null);
                     return null;
-                }
-                catch (final Throwable e) {
+                } catch (final Throwable e) {
                     e.printStackTrace();
                     return null;
                 }

@@ -9,12 +9,6 @@ public class Properties extends java.util.Properties {
         super();
     }
 
-    synchronized public void setAll(java.util.Properties props) {
-        for (Entry<Object, Object> entry : props.entrySet()) {
-            setProperty((String) entry.getKey(), (String) entry.getValue());
-        }
-    }
-
     public Properties(java.util.Properties props) {
         synchronized (props) {
             setAll(props);
@@ -25,6 +19,20 @@ public class Properties extends java.util.Properties {
         return color & 0xFFFFFF;
         // return ((color & 0xFF)<<16)|((color & 0xFF00)<<0)|((color &
         // 0xFF0000)>>16);
+    }
+
+    public static boolean eq(Object obj1, Object obj2) {
+        if (obj1 == null && obj2 == null)
+            return true;
+        if (obj1 == null || obj2 == null)
+            return false;
+        return obj1.equals(obj2);
+    }
+
+    synchronized public void setAll(java.util.Properties props) {
+        for (Entry<Object, Object> entry : props.entrySet()) {
+            setProperty((String) entry.getKey(), (String) entry.getValue());
+        }
     }
 
     public void setColor(String key, int color) {
@@ -95,14 +103,6 @@ public class Properties extends java.util.Properties {
     public void applyDefault(String prop, int defValue) {
         if (getProperty(prop) == null)
             setInt(prop, defValue);
-    }
-
-    public static boolean eq(Object obj1, Object obj2) {
-        if (obj1 == null && obj2 == null)
-            return true;
-        if (obj1 == null || obj2 == null)
-            return false;
-        return obj1.equals(obj2);
     }
 
     synchronized public Properties diff(Properties oldValue) {

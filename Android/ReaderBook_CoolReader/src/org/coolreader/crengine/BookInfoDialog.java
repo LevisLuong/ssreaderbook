@@ -15,6 +15,20 @@ public class BookInfoDialog extends Dialog {
     private final LayoutInflater mInflater;
     private Map<String, Integer> mLabelMap;
 
+    public BookInfoDialog(BaseActivity activity, Collection<String> items) {
+        super(activity);
+        mCoolReader = activity;
+        setTitle(mCoolReader.getString(R.string.dlg_book_info));
+        fillMap();
+        mInflater = LayoutInflater.from(getContext());
+        View view = mInflater.inflate(R.layout.dialog_book_info, null);
+//        TableLayout table = (TableLayout) view.findViewById(R.id.table);
+//        for (String item : items) {
+//            addItem(table, item);
+//        }
+        setContentView(view);
+    }
+
     private void fillMap() {
         mLabelMap = new HashMap<String, Integer>();
         mLabelMap.put("section.system", R.string.book_info_section_system);
@@ -70,20 +84,6 @@ public class BookInfoDialog extends Dialog {
 //        nameView.setText(name);
 //        valueView.setText(value);
 //        table.addView(tableRow);
-    }
-
-    public BookInfoDialog(BaseActivity activity, Collection<String> items) {
-        super(activity);
-        mCoolReader = activity;
-        setTitle(mCoolReader.getString(R.string.dlg_book_info));
-        fillMap();
-        mInflater = LayoutInflater.from(getContext());
-        View view = mInflater.inflate(R.layout.dialog_book_info, null);
-//        TableLayout table = (TableLayout) view.findViewById(R.id.table);
-//        for (String item : items) {
-//            addItem(table, item);
-//        }
-        setContentView(view);
     }
 
 }

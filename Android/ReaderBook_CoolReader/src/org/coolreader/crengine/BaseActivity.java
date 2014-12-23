@@ -37,10 +37,88 @@ import java.util.Locale;
 
 public class BaseActivity extends Activity implements Settings {
 
+    public static final int DEF_SCREEN_BACKLIGHT_TIMER_INTERVAL = 3 * 60 * 1000;
+    static final DictInfo dicts[] = {
+            new DictInfo("Fora", "Fora Dictionary", "com.ngc.fora", "com.ngc.fora.ForaDictionary", Intent.ACTION_SEARCH, 0),
+            new DictInfo("ColorDict", "ColorDict", "com.socialnmobile.colordict", "com.socialnmobile.colordict.activity.Main", Intent.ACTION_SEARCH, 0),
+            new DictInfo("ColorDictApi", "ColorDict new / GoldenDict", "com.socialnmobile.colordict", "com.socialnmobile.colordict.activity.Main", Intent.ACTION_SEARCH, 1),
+            new DictInfo("AardDict", "Aard Dictionary", "aarddict.android", "aarddict.android.Article", Intent.ACTION_SEARCH, 0),
+            new DictInfo("AardDictLookup", "Aard Dictionary Lookup", "aarddict.android", "aarddict.android.Lookup", Intent.ACTION_SEARCH, 0),
+            new DictInfo("Dictan", "Dictan Dictionary", "info.softex.dictan", "", Intent.ACTION_VIEW, 2),
+            new DictInfo("FreeDictionary.org", "Free Dictionary . org", "org.freedictionary.MainActivity", "org.freedictionary", Intent.ACTION_VIEW, 0),
+            new DictInfo("LingoQuizLite", "Lingo Quiz Lite", "mnm.lite.lingoquiz", "mnm.lite.lingoquiz.ExchangeActivity", "lingoquiz.intent.action.ADD_WORD", 0).setDataKey("EXTRA_WORD"),
+            new DictInfo("LingoQuiz", "Lingo Quiz", "mnm.lingoquiz", "mnm.lingoquiz.ExchangeActivity", "lingoquiz.intent.action.ADD_WORD", 0).setDataKey("EXTRA_WORD"),
+            new DictInfo("LEODictionary", "LEO Dictionary", "org.leo.android.dict", "org.leo.android.dict.LeoDict", "android.intent.action.SEARCH", 0),
+    };
     private static final Logger log = L.create("ba");
+    private final static int SYSTEM_UI_FLAG_LOW_PROFILE = 1;
+    private final static int MIN_BACKLIGHT_LEVEL_PERCENT = DeviceInfo.MIN_SCREEN_BRIGHTNESS_PERCENT;
+    private final static int MIN_BRIGHTNESS_IN_BROWSER = 12;
+    // Store system locale here, on class creation
+    private static final Locale defaultLocale = Locale.getDefault();
+    protected static String PREF_FILE = "CR3LastBook";
+    protected static String PREF_LAST_BOOK = "LastBook";
+    protected static String PREF_LAST_LOCATION = "LastLocation";
+    protected static String PREF_LAST_NOTIFICATION = "LastNoticeNumber";
+    private static long lastUserActivityTime;
+    private static String PREF_HELP_FILE = "HelpFile";
+    protected View contentView;
 
+//    @Override
+//    public void onWindowFocusChanged(boolean hasFocus) {
+//        super.onWindowFocusChanged(hasFocus);
+//        if (hasFocus && (DeviceInfo.getSDKLevel() >= 19)) {
+//            int flag = 0;
+//            if (mFullscreen)
+//                flag |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+//                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+//                        | View.SYSTEM_UI_FLAG_FULLSCREEN;
+//
+//            mDecorView.setSystemUiVisibility(flag);
+//        }
+//    }
+    ScreenBacklightControl backlightControl = new ScreenBacklightControl();
     private CRDBServiceAccessor mCRDBService;
     private SyncServiceAccessor mSyncService;
+    private SettingsManager mSettingsManager;
+    private boolean mIsStarted = false;
+    private boolean mPaused = false;
+    private String mVersion = "3.1";
+    private int densityDpi = 160;
+    private float diagonalInches = 4;
+    private int preferredItemHeight = 36;
+    private boolean mFullscreen = false;
+    private int lastSystemUiVisibility = -1;
+    private int currentKeyBacklightLevel = 1;
+    private boolean keyBacklightOff = true;
+    private int screenBacklightBrightness = -1; // use default
+    //private boolean brightnessHackError = false;
+    private boolean brightnessHackError = DeviceInfo.SAMSUNG_BUTTONS_HIGHLIGHT_PATCH;
+    private Runnable backlightTimerTask = null;
+    private int screenBacklightDuration = DEF_SCREEN_BACKLIGHT_TIMER_INTERVAL;
+    private int mScreenUpdateMode = 0;
+    private int mScreenUpdateInterval = 0;
+    private boolean mNightMode = false;
+    private String currentLanguage;
+    private int currentProfile = 0;
+    private Boolean hasHardwareMenuKey = null;
+
+    static public int stringToInt(String value, int defValue) {
+        if (value == null)
+            return defValue;
+        try {
+            return Integer.valueOf(value);
+        } catch (NumberFormatException e) {
+            return defValue;
+        }
+    }
+
+    public static DictInfo[] getDictList() {
+        return dicts;
+    }
 
     protected void unbindCRDBService() {
         if (mCRDBService != null) {
@@ -48,6 +126,20 @@ public class BaseActivity extends Activity implements Settings {
             mCRDBService = null;
         }
     }
+
+
+//    private InterfaceTheme currentTheme = InterfaceTheme.LIGHT;
+//
+//    public InterfaceTheme getCurrentTheme() {
+//        return currentTheme;
+//    }
+//
+//    public void setCurrentTheme(String themeCode) {
+//        InterfaceTheme theme = InterfaceTheme.findByCode(themeCode);
+//        if (theme != null && currentTheme != theme) {
+//            setCurrentTheme(theme);
+//        }
+//    }
 
     protected void unbindSyncService() {
         if (mSyncService != null) {
@@ -76,13 +168,20 @@ public class BaseActivity extends Activity implements Settings {
         }
     }
 
-
     protected void bindCRDBService() {
         if (mCRDBService == null) {
             mCRDBService = new CRDBServiceAccessor(this, Engine.getInstance(this).getPathCorrector());
         }
         mCRDBService.bind(null);
     }
+
+//    public void setCurrentTheme(InterfaceTheme theme) {
+//        log.i("setCurrentTheme(" + theme + ")");
+//        currentTheme = theme;
+//        getApplication().setTheme(theme.getThemeId());
+//        setTheme(theme.getThemeId());
+//        updateBackground();
+//    }
 
     /**
      * Wait until database is bound.
@@ -111,8 +210,43 @@ public class BaseActivity extends Activity implements Settings {
     public Properties settings() {
         return mSettingsManager.mSettings;
     }
+//	private final static int SYSTEM_UI_FLAG_HIDE_NAVIGATION = 2;
+//
+//	private final static int SYSTEM_UI_FLAG_VISIBLE = 0;
 
-    private SettingsManager mSettingsManager;
+//	public void simulateTouch() {
+//		// Obtain MotionEvent object
+//		long downTime = SystemClock.uptimeMillis();
+//		long eventTime = SystemClock.uptimeMillis() + 10;
+//		float x = 0.0f;
+//		float y = 0.0f;
+//		// List of meta states found here: developer.android.com/reference/android/view/KeyEvent.html#getMetaState()
+//		int metaState = 0;
+//		MotionEvent motionEvent = MotionEvent.obtain(
+//		    downTime,
+//		    downTime,
+//		    MotionEvent.ACTION_DOWN,
+//		    x,
+//		    y,
+//		    metaState
+//		);
+//		MotionEvent motionEvent2 = MotionEvent.obtain(
+//			    downTime,
+//			    eventTime,
+//			    MotionEvent.ACTION_UP,
+//			    x,
+//			    y,
+//			    metaState
+//			);
+//		//motionEvent.setEdgeFlags(flags)
+//		// Dispatch touch event to view
+//		//new Handler().dispatchMessage(motionEvent);
+//		if (getContentView() != null) {
+//			getContentView().dispatchTouchEvent(motionEvent);
+//			getContentView().dispatchTouchEvent(motionEvent2);
+//		}
+//
+//	}
 
     protected void startServices() {
         // create settings
@@ -120,23 +254,6 @@ public class BaseActivity extends Activity implements Settings {
         // create rest of settings
         Services.startServices(this);
     }
-
-//    @Override
-//    public void onWindowFocusChanged(boolean hasFocus) {
-//        super.onWindowFocusChanged(hasFocus);
-//        if (hasFocus && (DeviceInfo.getSDKLevel() >= 19)) {
-//            int flag = 0;
-//            if (mFullscreen)
-//                flag |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-//                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-//                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-//                        | View.SYSTEM_UI_FLAG_FULLSCREEN;
-//
-//            mDecorView.setSystemUiVisibility(flag);
-//        }
-//    }
 
     /**
      * Called when the activity is first created.
@@ -266,12 +383,6 @@ public class BaseActivity extends Activity implements Settings {
         EinkScreen.Refresh();
     }
 
-
-    protected static String PREF_FILE = "CR3LastBook";
-    protected static String PREF_LAST_BOOK = "LastBook";
-    protected static String PREF_LAST_LOCATION = "LastLocation";
-    protected static String PREF_LAST_NOTIFICATION = "LastNoticeNumber";
-
     @Override
     protected void onResume() {
         log.i("CoolReader.onResume()");
@@ -281,14 +392,9 @@ public class BaseActivity extends Activity implements Settings {
         super.onResume();
     }
 
-    private boolean mIsStarted = false;
-    private boolean mPaused = false;
-
     public boolean isStarted() {
         return mIsStarted;
     }
-
-    private String mVersion = "3.1";
 
     public String getVersion() {
         return mVersion;
@@ -321,25 +427,6 @@ public class BaseActivity extends Activity implements Settings {
     public boolean isSmartphone() {
         return diagonalInches <= 5.8;
     }
-
-    private int densityDpi = 160;
-    private float diagonalInches = 4;
-
-
-//    private InterfaceTheme currentTheme = InterfaceTheme.LIGHT;
-//
-//    public InterfaceTheme getCurrentTheme() {
-//        return currentTheme;
-//    }
-//
-//    public void setCurrentTheme(String themeCode) {
-//        InterfaceTheme theme = InterfaceTheme.findByCode(themeCode);
-//        if (theme != null && currentTheme != theme) {
-//            setCurrentTheme(theme);
-//        }
-//    }
-
-    private int preferredItemHeight = 36;
 
     public int getPreferredItemHeight() {
         return preferredItemHeight;
@@ -374,18 +461,15 @@ public class BaseActivity extends Activity implements Settings {
         a.recycle();
     }
 
-//    public void setCurrentTheme(InterfaceTheme theme) {
-//        log.i("setCurrentTheme(" + theme + ")");
-//        currentTheme = theme;
-//        getApplication().setTheme(theme.getThemeId());
-//        setTheme(theme.getThemeId());
-//        updateBackground();
-//    }
-
-    private boolean mFullscreen = false;
-
     public boolean isFullscreen() {
         return mFullscreen;
+    }
+
+    public void setFullscreen(boolean fullscreen) {
+        if (mFullscreen != fullscreen) {
+            mFullscreen = fullscreen;
+            applyFullscreen(getWindow());
+        }
     }
 
     public void applyFullscreen(Window wnd) {
@@ -399,52 +483,6 @@ public class BaseActivity extends Activity implements Settings {
         }
         setSystemUiVisibility();
     }
-
-    public void setFullscreen(boolean fullscreen) {
-        if (mFullscreen != fullscreen) {
-            mFullscreen = fullscreen;
-            applyFullscreen(getWindow());
-        }
-    }
-
-    private final static int SYSTEM_UI_FLAG_LOW_PROFILE = 1;
-//	private final static int SYSTEM_UI_FLAG_HIDE_NAVIGATION = 2;
-//
-//	private final static int SYSTEM_UI_FLAG_VISIBLE = 0;
-
-//	public void simulateTouch() {
-//		// Obtain MotionEvent object
-//		long downTime = SystemClock.uptimeMillis();
-//		long eventTime = SystemClock.uptimeMillis() + 10;
-//		float x = 0.0f;
-//		float y = 0.0f;
-//		// List of meta states found here: developer.android.com/reference/android/view/KeyEvent.html#getMetaState()
-//		int metaState = 0;
-//		MotionEvent motionEvent = MotionEvent.obtain(
-//		    downTime,
-//		    downTime,
-//		    MotionEvent.ACTION_DOWN,
-//		    x,
-//		    y,
-//		    metaState
-//		);
-//		MotionEvent motionEvent2 = MotionEvent.obtain(
-//			    downTime,
-//			    eventTime,
-//			    MotionEvent.ACTION_UP,
-//			    x,
-//			    y,
-//			    metaState
-//			);
-//		//motionEvent.setEdgeFlags(flags)
-//		// Dispatch touch event to view
-//		//new Handler().dispatchMessage(motionEvent);
-//		if (getContentView() != null) {
-//			getContentView().dispatchTouchEvent(motionEvent);
-//			getContentView().dispatchTouchEvent(motionEvent2);
-//		}
-//
-//	}
 
     protected boolean wantHideNavbarInFullscreen() {
         return false;
@@ -464,9 +502,6 @@ public class BaseActivity extends Activity implements Settings {
         }
         return false;
     }
-
-
-    private int lastSystemUiVisibility = -1;
 
     //private boolean systemUiVisibilityListenerIsSet = false;
     @TargetApi(11)
@@ -518,8 +553,6 @@ public class BaseActivity extends Activity implements Settings {
         return false;
     }
 
-    private int currentKeyBacklightLevel = 1;
-
     public int getKeyBacklight() {
         return currentKeyBacklightLevel;
     }
@@ -533,9 +566,6 @@ public class BaseActivity extends Activity implements Settings {
         // thread safe
         return Engine.getInstance(this).setKeyBacklight(value);
     }
-
-
-    private boolean keyBacklightOff = true;
 
     public boolean isKeyBacklightDisabled() {
         return keyBacklightOff;
@@ -554,10 +584,6 @@ public class BaseActivity extends Activity implements Settings {
         screenBacklightBrightness = percent;
         onUserActivity();
     }
-
-    private int screenBacklightBrightness = -1; // use default
-    //private boolean brightnessHackError = false;
-    private boolean brightnessHackError = DeviceInfo.SAMSUNG_BUTTONS_HIGHLIGHT_PATCH;
 
     private void turnOffKeyBacklight() {
         if (!isStarted())
@@ -641,8 +667,6 @@ public class BaseActivity extends Activity implements Settings {
         }
     }
 
-    private final static int MIN_BACKLIGHT_LEVEL_PERCENT = DeviceInfo.MIN_SCREEN_BRIGHTNESS_PERCENT;
-
     protected void setDimmingAlpha(int alpha) {
         // override it
     }
@@ -651,8 +675,6 @@ public class BaseActivity extends Activity implements Settings {
         // override to force higher brightness in non-reading mode (to avoid black screen on some devices when brightness level set to small value)
         return true;
     }
-
-    private final static int MIN_BRIGHTNESS_IN_BROWSER = 12;
 
     public void onUserActivity() {
         if (backlightControl != null)
@@ -699,7 +721,6 @@ public class BaseActivity extends Activity implements Settings {
         });
     }
 
-
     public boolean isWakeLockEnabled() {
         return screenBacklightDuration > 0;
     }
@@ -719,104 +740,9 @@ public class BaseActivity extends Activity implements Settings {
         }
     }
 
-    private Runnable backlightTimerTask = null;
-    private static long lastUserActivityTime;
-    public static final int DEF_SCREEN_BACKLIGHT_TIMER_INTERVAL = 3 * 60 * 1000;
-    private int screenBacklightDuration = DEF_SCREEN_BACKLIGHT_TIMER_INTERVAL;
-
-    private class ScreenBacklightControl {
-        PowerManager.WakeLock wl = null;
-
-        public ScreenBacklightControl() {
-        }
-
-        long lastUpdateTimeStamp;
-
-        public void onUserActivity() {
-            lastUserActivityTime = Utils.timeStamp();
-            if (Utils.timeInterval(lastUpdateTimeStamp) < 5000)
-                return;
-            lastUpdateTimeStamp = android.os.SystemClock.uptimeMillis();
-            if (!isWakeLockEnabled())
-                return;
-            if (wl == null) {
-                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-                wl = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK
-                /* | PowerManager.ON_AFTER_RELEASE */, "cr3");
-                log.d("ScreenBacklightControl: WakeLock created");
-            }
-            if (!isStarted()) {
-                log.d("ScreenBacklightControl: user activity while not started");
-                release();
-                return;
-            }
-
-            if (!isHeld()) {
-                log.d("ScreenBacklightControl: acquiring WakeLock");
-                wl.acquire();
-            }
-
-            if (backlightTimerTask == null) {
-                log.v("ScreenBacklightControl: timer task started");
-                backlightTimerTask = new BacklightTimerTask();
-                BackgroundThread.instance().postGUI(backlightTimerTask,
-                        screenBacklightDuration / 10);
-            }
-        }
-
-        public boolean isHeld() {
-            return wl != null && wl.isHeld();
-        }
-
-        public void release() {
-            if (wl != null && wl.isHeld()) {
-                log.d("ScreenBacklightControl: wl.release()");
-                wl.release();
-            }
-            backlightTimerTask = null;
-            lastUpdateTimeStamp = 0;
-        }
-
-        private class BacklightTimerTask implements Runnable {
-
-            @Override
-            public void run() {
-                if (backlightTimerTask == null)
-                    return;
-                long interval = Utils.timeInterval(lastUserActivityTime);
-//				log.v("ScreenBacklightControl: timer task, lastActivityMillis = "
-//						+ interval);
-                int nextTimerInterval = screenBacklightDuration / 20;
-                boolean dim = false;
-                if (interval > screenBacklightDuration * 8 / 10) {
-                    nextTimerInterval = nextTimerInterval / 8;
-                    dim = true;
-                }
-                if (interval > screenBacklightDuration) {
-                    log.v("ScreenBacklightControl: interval is expired");
-                    release();
-                } else {
-                    BackgroundThread.instance().postGUI(backlightTimerTask, nextTimerInterval);
-                    if (dim) {
-                        updateBacklightBrightness(-0.9f); // reduce by 9%
-                    }
-                }
-            }
-
-        }
-
-        ;
-
-    }
-
     public void releaseBacklightControl() {
         backlightControl.release();
     }
-
-    ScreenBacklightControl backlightControl = new ScreenBacklightControl();
-
-
-    private int mScreenUpdateMode = 0;
 
     public int getScreenUpdateMode() {
         return mScreenUpdateMode;
@@ -831,8 +757,6 @@ public class BaseActivity extends Activity implements Settings {
         //}
     }
 
-    private int mScreenUpdateInterval = 0;
-
     public int getScreenUpdateInterval() {
         return mScreenUpdateInterval;
     }
@@ -844,8 +768,6 @@ public class BaseActivity extends Activity implements Settings {
             EinkScreen.ResetController(mScreenUpdateMode, view);
         }
     }
-
-    protected View contentView;
 
     public View getContentView() {
         return contentView;
@@ -859,9 +781,6 @@ public class BaseActivity extends Activity implements Settings {
         //setCurrentTheme(currentTheme);
     }
 
-
-    private boolean mNightMode = false;
-
     public boolean isNightMode() {
         return mNightMode;
     }
@@ -870,20 +789,15 @@ public class BaseActivity extends Activity implements Settings {
         mNightMode = nightMode;
     }
 
-
     public ClipboardManager getClipboardmanager() {
         return (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
     }
-
 
     public void showHomeScreen() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
         intent.addCategory(Intent.CATEGORY_HOME);
         startActivity(intent);
     }
-
-
-    private static String PREF_HELP_FILE = "HelpFile";
 
     public String getLastGeneratedHelpFileSignature() {
         SharedPreferences pref = getSharedPreferences(PREF_FILE, 0);
@@ -895,9 +809,6 @@ public class BaseActivity extends Activity implements Settings {
         SharedPreferences pref = getSharedPreferences(PREF_FILE, 0);
         pref.edit().putString(PREF_HELP_FILE, v).commit();
     }
-
-
-    private String currentLanguage;
 
     public String getCurrentLanguage() {
         return currentLanguage;
@@ -918,20 +829,6 @@ public class BaseActivity extends Activity implements Settings {
             res.updateConfiguration(conf, dm);
         } catch (Exception e) {
             log.e("error while setting locale " + lang, e);
-        }
-    }
-
-    // Store system locale here, on class creation
-    private static final Locale defaultLocale = Locale.getDefault();
-
-
-    static public int stringToInt(String value, int defValue) {
-        if (value == null)
-            return defValue;
-        try {
-            return Integer.valueOf(value);
-        } catch (NumberFormatException e) {
-            return defValue;
         }
     }
 
@@ -983,7 +880,6 @@ public class BaseActivity extends Activity implements Settings {
             Services.getScanner().setHideEmptyDirs(flg);
         }
     }
-
 
     public void showNotice(int questionResourceId, final Runnable action, final Runnable cancelAction) {
         NoticeDialog dlg = new NoticeDialog(this, this.getString(questionResourceId));
@@ -1041,8 +937,6 @@ public class BaseActivity extends Activity implements Settings {
 
     }
 
-    private int currentProfile = 0;
-
     public int getCurrentProfile() {
         if (currentProfile == 0) {
             currentProfile = mSettingsManager.getInt(PROP_PROFILE_NUMBER, 1);
@@ -1074,82 +968,52 @@ public class BaseActivity extends Activity implements Settings {
         setSettings(mSettingsManager.get(), -1, true);
     }
 
+    public boolean isPackageInstalled(String packageName) {
+        PackageManager pm = getPackageManager();
+        try {
+            pm.getPackageInfo(packageName, 0); //PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+
+    public boolean hasHardwareMenuKey() {
+        if (hasHardwareMenuKey == null) {
+            ViewConfiguration vc = ViewConfiguration.get(this);
+            if (DeviceInfo.getSDKLevel() >= 14) {
+                //boolean vc.hasPermanentMenuKey();
+                try {
+                    Method m = vc.getClass().getMethod("hasPermanentMenuKey", new Class<?>[]{});
+                    try {
+                        hasHardwareMenuKey = (Boolean) m.invoke(vc, new Object[]{});
+                    } catch (IllegalArgumentException e) {
+                        hasHardwareMenuKey = false;
+                    } catch (IllegalAccessException e) {
+                        hasHardwareMenuKey = false;
+                    } catch (InvocationTargetException e) {
+                        hasHardwareMenuKey = false;
+                    }
+                } catch (NoSuchMethodException e) {
+                    hasHardwareMenuKey = false;
+                }
+            }
+            if (hasHardwareMenuKey == null) {
+                if (DeviceInfo.EINK_SCREEN)
+                    hasHardwareMenuKey = false;
+                else if (DeviceInfo.getSDKLevel() < DeviceInfo.ICE_CREAM_SANDWICH)
+                    hasHardwareMenuKey = true;
+                else
+                    hasHardwareMenuKey = false;
+            }
+        }
+        return hasHardwareMenuKey;
+    }
+
     private static class SettingsManager {
 
         public static final Logger log = L.create("cr");
-
-        private BaseActivity mActivity;
-        private Properties mSettings;
-        private boolean isSmartphone;
-
-        private final DisplayMetrics displayMetrics = new DisplayMetrics();
-        private final File defaultSettingsDir;
-
-        public SettingsManager(BaseActivity activity) {
-            this.mActivity = activity;
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            defaultSettingsDir = activity.getDir("settings", Context.MODE_PRIVATE);
-            isSmartphone = activity.isSmartphone();
-            mSettings = loadSettings();
-        }
-
-        //int lastSaveId = 0;
-        public void setSettings(Properties settings, int delayMillis, boolean notify) {
-            Properties oldSettings = mSettings;
-            mSettings = new Properties(settings);
-            if (delayMillis >= 0) {
-                saveSettingsTask.postDelayed(new Runnable() {
-                    public void run() {
-                        BackgroundThread.instance().postGUI(new Runnable() {
-                            @Override
-                            public void run() {
-                                saveSettings(mSettings);
-                            }
-                        });
-                    }
-                }, delayMillis);
-            }
-            if (notify)
-                mActivity.onSettingsChanged(mSettings, oldSettings);
-        }
-
-        public void setSetting(String name, String value, boolean notify) {
-            Properties props = new Properties(mSettings);
-            if (value.equals(mSettings.getProperty(name)))
-                return;
-            props.setProperty(name, value);
-            setSettings(props, 1000, notify);
-        }
-
-        private static class DefKeyAction {
-            public int keyCode;
-            public int type;
-            public ReaderAction action;
-
-            public DefKeyAction(int keyCode, int type, ReaderAction action) {
-                this.keyCode = keyCode;
-                this.type = type;
-                this.action = action;
-            }
-
-            public String getProp() {
-                return ReaderView.PROP_APP_KEY_ACTIONS_PRESS + ReaderAction.getTypeString(type) + keyCode;
-            }
-        }
-
-
-        private static class DefTapAction {
-            public int zone;
-            public boolean longPress;
-            public ReaderAction action;
-
-            public DefTapAction(int zone, boolean longPress, ReaderAction action) {
-                this.zone = zone;
-                this.longPress = longPress;
-                this.action = action;
-            }
-        }
-
+        private static final String SETTINGS_FILE_NAME = "cr3.ini";
         private static DefKeyAction[] DEF_KEY_ACTIONS = {
                 new DefKeyAction(KeyEvent.KEYCODE_BACK, ReaderAction.NORMAL, ReaderAction.EXIT),
                 new DefKeyAction(KeyEvent.KEYCODE_BACK, ReaderAction.LONG, ReaderAction.EXIT),
@@ -1236,7 +1100,77 @@ public class BaseActivity extends Activity implements Settings {
 //                new DefTapAction(9, false, ReaderAction.PAGE_DOWN_10),
 //                new DefTapAction(5, false, ReaderAction.OPTIONS),
         };
+        private static boolean DEBUG_RESET_OPTIONS = false;
+        private final DisplayMetrics displayMetrics = new DisplayMetrics();
+        private final File defaultSettingsDir;
+        File propsFile;
+        DelayedExecutor saveSettingsTask = DelayedExecutor.createBackground("saveSettings");
+        private BaseActivity mActivity;
+        private Properties mSettings;
+        private boolean isSmartphone;
+        public SettingsManager(BaseActivity activity) {
+            this.mActivity = activity;
+            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            defaultSettingsDir = activity.getDir("settings", Context.MODE_PRIVATE);
+            isSmartphone = activity.isSmartphone();
+            mSettings = loadSettings();
+        }
 
+        public static Properties filterProfileSettings(Properties settings) {
+            Properties res = new Properties();
+            res.entrySet();
+            for (Object k : settings.keySet()) {
+                String key = (String) k;
+                String value = settings.getProperty(key);
+                boolean found = false;
+                for (String pattern : Settings.PROFILE_SETTINGS) {
+                    if (pattern.endsWith("*")) {
+                        if (key.startsWith(pattern.substring(0, pattern.length() - 1))) {
+                            found = true;
+                            break;
+                        }
+                    } else if (pattern.equalsIgnoreCase(key)) {
+                        found = true;
+                        break;
+                    } else if (key.startsWith("styles.")) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) {
+                    res.setProperty(key, value);
+                }
+            }
+            return res;
+        }
+
+        //int lastSaveId = 0;
+        public void setSettings(Properties settings, int delayMillis, boolean notify) {
+            Properties oldSettings = mSettings;
+            mSettings = new Properties(settings);
+            if (delayMillis >= 0) {
+                saveSettingsTask.postDelayed(new Runnable() {
+                    public void run() {
+                        BackgroundThread.instance().postGUI(new Runnable() {
+                            @Override
+                            public void run() {
+                                saveSettings(mSettings);
+                            }
+                        });
+                    }
+                }, delayMillis);
+            }
+            if (notify)
+                mActivity.onSettingsChanged(mSettings, oldSettings);
+        }
+
+        public void setSetting(String name, String value, boolean notify) {
+            Properties props = new Properties(mSettings);
+            if (value.equals(mSettings.getProperty(name)))
+                return;
+            props.setProperty(name, value);
+            setSettings(props, 1000, notify);
+        }
 
         private boolean isValidFontFace(String face) {
             String[] fontFaces = Engine.getFontFaceList();
@@ -1464,7 +1398,9 @@ public class BaseActivity extends Activity implements Settings {
 
             props.setProperty(ReaderView.PROP_MIN_FILE_SIZE_TO_CACHE, "100000");
             props.setProperty(ReaderView.PROP_FORCED_MIN_FILE_SIZE_TO_CACHE, "32768");
-            props.applyDefault(ReaderView.PROP_HYPHENATION_DICT, Engine.HyphDict.RUSSIAN.toString());
+            
+            //props.applyDefault(ReaderView.PROP_HYPHENATION_DICT, Engine.HyphDict.NONE.toString());
+            
             props.applyDefault(ReaderView.PROP_APP_FILE_BROWSER_SIMPLE_MODE, "0");
 
             props.applyDefault(ReaderView.PROP_TOOLBAR_LOCATION, DeviceInfo.getSDKLevel() < DeviceInfo.HONEYCOMB ? Settings.VIEWER_TOOLBAR_NONE : Settings.VIEWER_TOOLBAR_SHORT_SIDE);
@@ -1497,10 +1433,6 @@ public class BaseActivity extends Activity implements Settings {
                 return propsFile;
             return new File(propsFile.getAbsolutePath() + ".profile" + profile);
         }
-
-        File propsFile;
-        private static final String SETTINGS_FILE_NAME = "cr3.ini";
-        private static boolean DEBUG_RESET_OPTIONS = false;
 
         //Load exist file setting
         private Properties loadSettings() {
@@ -1545,34 +1477,6 @@ public class BaseActivity extends Activity implements Settings {
             return res;
         }
 
-        public static Properties filterProfileSettings(Properties settings) {
-            Properties res = new Properties();
-            res.entrySet();
-            for (Object k : settings.keySet()) {
-                String key = (String) k;
-                String value = settings.getProperty(key);
-                boolean found = false;
-                for (String pattern : Settings.PROFILE_SETTINGS) {
-                    if (pattern.endsWith("*")) {
-                        if (key.startsWith(pattern.substring(0, pattern.length() - 1))) {
-                            found = true;
-                            break;
-                        }
-                    } else if (pattern.equalsIgnoreCase(key)) {
-                        found = true;
-                        break;
-                    } else if (key.startsWith("styles.")) {
-                        found = true;
-                        break;
-                    }
-                }
-                if (found) {
-                    res.setProperty(key, value);
-                }
-            }
-            return res;
-        }
-
         public void saveSettings(int profile, Properties settings) {
             if (settings == null)
                 settings = mSettings;
@@ -1583,8 +1487,6 @@ public class BaseActivity extends Activity implements Settings {
             }
             saveSettings(f, settings);
         }
-
-        DelayedExecutor saveSettingsTask = DelayedExecutor.createBackground("saveSettings");
 
         public void saveSettings(File f, Properties settings) {
             try {
@@ -1600,7 +1502,6 @@ public class BaseActivity extends Activity implements Settings {
         public void saveSettings(Properties settings) {
             saveSettings(propsFile, settings);
         }
-
 
         public String getSetting(String name) {
             return mSettings.getProperty(name);
@@ -1622,67 +1523,118 @@ public class BaseActivity extends Activity implements Settings {
             return new Properties(mSettings);
         }
 
-    }
+        private static class DefKeyAction {
+            public int keyCode;
+            public int type;
+            public ReaderAction action;
 
-    static final DictInfo dicts[] = {
-            new DictInfo("Fora", "Fora Dictionary", "com.ngc.fora", "com.ngc.fora.ForaDictionary", Intent.ACTION_SEARCH, 0),
-            new DictInfo("ColorDict", "ColorDict", "com.socialnmobile.colordict", "com.socialnmobile.colordict.activity.Main", Intent.ACTION_SEARCH, 0),
-            new DictInfo("ColorDictApi", "ColorDict new / GoldenDict", "com.socialnmobile.colordict", "com.socialnmobile.colordict.activity.Main", Intent.ACTION_SEARCH, 1),
-            new DictInfo("AardDict", "Aard Dictionary", "aarddict.android", "aarddict.android.Article", Intent.ACTION_SEARCH, 0),
-            new DictInfo("AardDictLookup", "Aard Dictionary Lookup", "aarddict.android", "aarddict.android.Lookup", Intent.ACTION_SEARCH, 0),
-            new DictInfo("Dictan", "Dictan Dictionary", "info.softex.dictan", "", Intent.ACTION_VIEW, 2),
-            new DictInfo("FreeDictionary.org", "Free Dictionary . org", "org.freedictionary.MainActivity", "org.freedictionary", Intent.ACTION_VIEW, 0),
-            new DictInfo("LingoQuizLite", "Lingo Quiz Lite", "mnm.lite.lingoquiz", "mnm.lite.lingoquiz.ExchangeActivity", "lingoquiz.intent.action.ADD_WORD", 0).setDataKey("EXTRA_WORD"),
-            new DictInfo("LingoQuiz", "Lingo Quiz", "mnm.lingoquiz", "mnm.lingoquiz.ExchangeActivity", "lingoquiz.intent.action.ADD_WORD", 0).setDataKey("EXTRA_WORD"),
-            new DictInfo("LEODictionary", "LEO Dictionary", "org.leo.android.dict", "org.leo.android.dict.LeoDict", "android.intent.action.SEARCH", 0),
-    };
+            public DefKeyAction(int keyCode, int type, ReaderAction action) {
+                this.keyCode = keyCode;
+                this.type = type;
+                this.action = action;
+            }
 
-    public static DictInfo[] getDictList() {
-        return dicts;
-    }
-
-    public boolean isPackageInstalled(String packageName) {
-        PackageManager pm = getPackageManager();
-        try {
-            pm.getPackageInfo(packageName, 0); //PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
+            public String getProp() {
+                return ReaderView.PROP_APP_KEY_ACTIONS_PRESS + ReaderAction.getTypeString(type) + keyCode;
+            }
         }
+
+        private static class DefTapAction {
+            public int zone;
+            public boolean longPress;
+            public ReaderAction action;
+
+            public DefTapAction(int zone, boolean longPress, ReaderAction action) {
+                this.zone = zone;
+                this.longPress = longPress;
+                this.action = action;
+            }
+        }
+
     }
 
-    private Boolean hasHardwareMenuKey = null;
+    private class ScreenBacklightControl {
+        PowerManager.WakeLock wl = null;
+        long lastUpdateTimeStamp;
 
-    public boolean hasHardwareMenuKey() {
-        if (hasHardwareMenuKey == null) {
-            ViewConfiguration vc = ViewConfiguration.get(this);
-            if (DeviceInfo.getSDKLevel() >= 14) {
-                //boolean vc.hasPermanentMenuKey();
-                try {
-                    Method m = vc.getClass().getMethod("hasPermanentMenuKey", new Class<?>[]{});
-                    try {
-                        hasHardwareMenuKey = (Boolean) m.invoke(vc, new Object[]{});
-                    } catch (IllegalArgumentException e) {
-                        hasHardwareMenuKey = false;
-                    } catch (IllegalAccessException e) {
-                        hasHardwareMenuKey = false;
-                    } catch (InvocationTargetException e) {
-                        hasHardwareMenuKey = false;
+        public ScreenBacklightControl() {
+        }
+
+        public void onUserActivity() {
+            lastUserActivityTime = Utils.timeStamp();
+            if (Utils.timeInterval(lastUpdateTimeStamp) < 5000)
+                return;
+            lastUpdateTimeStamp = android.os.SystemClock.uptimeMillis();
+            if (!isWakeLockEnabled())
+                return;
+            if (wl == null) {
+                PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+                wl = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK
+                /* | PowerManager.ON_AFTER_RELEASE */, "cr3");
+                log.d("ScreenBacklightControl: WakeLock created");
+            }
+            if (!isStarted()) {
+                log.d("ScreenBacklightControl: user activity while not started");
+                release();
+                return;
+            }
+
+            if (!isHeld()) {
+                log.d("ScreenBacklightControl: acquiring WakeLock");
+                wl.acquire();
+            }
+
+            if (backlightTimerTask == null) {
+                log.v("ScreenBacklightControl: timer task started");
+                backlightTimerTask = new BacklightTimerTask();
+                BackgroundThread.instance().postGUI(backlightTimerTask,
+                        screenBacklightDuration / 10);
+            }
+        }
+
+        public boolean isHeld() {
+            return wl != null && wl.isHeld();
+        }
+
+        public void release() {
+            if (wl != null && wl.isHeld()) {
+                log.d("ScreenBacklightControl: wl.release()");
+                wl.release();
+            }
+            backlightTimerTask = null;
+            lastUpdateTimeStamp = 0;
+        }
+
+        private class BacklightTimerTask implements Runnable {
+
+            @Override
+            public void run() {
+                if (backlightTimerTask == null)
+                    return;
+                long interval = Utils.timeInterval(lastUserActivityTime);
+//				log.v("ScreenBacklightControl: timer task, lastActivityMillis = "
+//						+ interval);
+                int nextTimerInterval = screenBacklightDuration / 20;
+                boolean dim = false;
+                if (interval > screenBacklightDuration * 8 / 10) {
+                    nextTimerInterval = nextTimerInterval / 8;
+                    dim = true;
+                }
+                if (interval > screenBacklightDuration) {
+                    log.v("ScreenBacklightControl: interval is expired");
+                    release();
+                } else {
+                    BackgroundThread.instance().postGUI(backlightTimerTask, nextTimerInterval);
+                    if (dim) {
+                        updateBacklightBrightness(-0.9f); // reduce by 9%
                     }
-                } catch (NoSuchMethodException e) {
-                    hasHardwareMenuKey = false;
                 }
             }
-            if (hasHardwareMenuKey == null) {
-                if (DeviceInfo.EINK_SCREEN)
-                    hasHardwareMenuKey = false;
-                else if (DeviceInfo.getSDKLevel() < DeviceInfo.ICE_CREAM_SANDWICH)
-                    hasHardwareMenuKey = true;
-                else
-                    hasHardwareMenuKey = false;
-            }
+
         }
-        return hasHardwareMenuKey;
+
+        ;
+
     }
 
 }

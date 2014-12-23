@@ -8,6 +8,9 @@ import org.coolreader.CoolReader;
 import vn.seasoft.readerbook.R;
 
 public class StatusBar extends LinearLayout implements Settings {
+    FileInfo book;
+    Bookmark position;
+    PositionProperties props;
     private CoolReader activity;
     private LinearLayout content;
     private TextView lblTitle;
@@ -24,9 +27,61 @@ public class StatusBar extends LinearLayout implements Settings {
     private boolean fullscreen;
     private boolean nightMode;
 
-    FileInfo book;
-    Bookmark position;
-    PositionProperties props;
+    public StatusBar(CoolReader context) {
+        super(context);
+        this.activity = context;
+        setOrientation(VERTICAL);
+
+        this.color = context.settings().getColor(Settings.PROP_STATUS_FONT_COLOR, 0);
+
+        LayoutInflater inflater = LayoutInflater.from(activity);
+        content = (LinearLayout) inflater.inflate(R.layout.reader_status_bar, null);
+        lblTitle = (TextView) content.findViewById(R.id.title);
+        lblPosition = (TextView) content.findViewById(R.id.position);
+
+        lblTitle.setText("Cool Reader " + activity.getVersion());
+        lblTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        lblTitle.setTextColor(0xFF000000 | color);
+
+        lblPosition.setText("");
+        lblPosition.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
+        lblPosition.setTextColor(0xFF000000 | color);
+
+        addView(content);
+        indicator = new PositionIndicator(activity);
+        addView(indicator);
+        //content.addView(indicator);
+        //onThemeChanged(context.getCurrentTheme());
+        //updateSettings(context.settings());
+    }
+
+    private static boolean empty(String s) {
+        return s == null || s.length() == 0;
+    }
+
+    private static void append(StringBuilder buf, String text, String delimiter) {
+        if (!Utils.empty(text)) {
+            if (buf.length() != 0 && !empty(delimiter)) {
+                buf.append(delimiter);
+            }
+            buf.append(text);
+        }
+    }
+
+//    public void onThemeChanged(InterfaceTheme theme) {
+////			//color = nightMode ? 0x606060 : theme.getStatusTextColor();
+////			lblTitle.setTextColor(0xFF000000 | color);
+////			lblPosition.setTextColor(0xFF000000 | color);
+//////			if (DeviceInfo.EINK_SCREEN)
+//////				setBackgroundColor(0xFFFFFFFF);
+//////			else if (nightMode)
+//////				setBackgroundColor(0xFF000000);
+//////			else
+//////				setBackgroundResource(theme.getReaderStatusBackground());
+////			indicator.setColor(color);
+////			if (isShown())
+////				invalidate();
+//    }
 
     public void updateFullscreen(boolean fullscreen) {
         if (this.fullscreen == fullscreen)
@@ -70,66 +125,10 @@ public class StatusBar extends LinearLayout implements Settings {
         return needRelayout;
     }
 
-    public StatusBar(CoolReader context) {
-        super(context);
-        this.activity = context;
-        setOrientation(VERTICAL);
-
-        this.color = context.settings().getColor(Settings.PROP_STATUS_FONT_COLOR, 0);
-
-        LayoutInflater inflater = LayoutInflater.from(activity);
-        content = (LinearLayout) inflater.inflate(R.layout.reader_status_bar, null);
-        lblTitle = (TextView) content.findViewById(R.id.title);
-        lblPosition = (TextView) content.findViewById(R.id.position);
-
-        lblTitle.setText("Cool Reader " + activity.getVersion());
-        lblTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
-        lblTitle.setTextColor(0xFF000000 | color);
-
-        lblPosition.setText("");
-        lblPosition.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSize);
-        lblPosition.setTextColor(0xFF000000 | color);
-
-        addView(content);
-        indicator = new PositionIndicator(activity);
-        addView(indicator);
-        //content.addView(indicator);
-        //onThemeChanged(context.getCurrentTheme());
-        //updateSettings(context.settings());
-    }
-
-//    public void onThemeChanged(InterfaceTheme theme) {
-////			//color = nightMode ? 0x606060 : theme.getStatusTextColor();
-////			lblTitle.setTextColor(0xFF000000 | color);
-////			lblPosition.setTextColor(0xFF000000 | color);
-//////			if (DeviceInfo.EINK_SCREEN)
-//////				setBackgroundColor(0xFFFFFFFF);
-//////			else if (nightMode)
-//////				setBackgroundColor(0xFF000000);
-//////			else
-//////				setBackgroundResource(theme.getReaderStatusBackground());
-////			indicator.setColor(color);
-////			if (isShown())
-////				invalidate();
-//    }
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         content.measure(widthMeasureSpec, heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    private static boolean empty(String s) {
-        return s == null || s.length() == 0;
-    }
-
-    private static void append(StringBuilder buf, String text, String delimiter) {
-        if (!Utils.empty(text)) {
-            if (buf.length() != 0 && !empty(delimiter)) {
-                buf.append(delimiter);
-            }
-            buf.append(text);
-        }
     }
 
     public void updateCurrentPositionStatus(FileInfo book, Bookmark position, PositionProperties props) {

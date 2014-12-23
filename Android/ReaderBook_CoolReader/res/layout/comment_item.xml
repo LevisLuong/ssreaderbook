@@ -3,18 +3,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:descendantFocusability="beforeDescendants"
               android:orientation="vertical"
               android:paddingBottom="4dp"
               android:paddingLeft="8dp"
               android:paddingRight="8dp"
-              android:paddingTop="4dp"
-              android:descendantFocusability="beforeDescendants">
+              android:paddingTop="4dp">
 
     <LinearLayout
-        android:descendantFocusability="afterDescendants"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/card_background_selector"
+        android:descendantFocusability="afterDescendants"
         android:orientation="vertical"
         android:padding="4dp">
 
