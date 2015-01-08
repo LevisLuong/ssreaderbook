@@ -85,7 +85,6 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
                 }
             }
         });
-
         GlobalData.ShowProgressDialog(mContext, R.string.loading);
         SSReaderApplication.getRequestServer(this, this).SearchBook(query, index);
     }
@@ -121,6 +120,7 @@ public class actSearchBooks extends Activity implements OnHttpServicesListener {
                     if (!adapter.isHaveNew()) {
                         listview.removeFooterView(footerLoadmore);
                     }
+
                     adapter.notifyDataSetChanged();
                     listview.requestLayout();
 

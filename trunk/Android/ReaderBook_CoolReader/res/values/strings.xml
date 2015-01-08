@@ -182,8 +182,8 @@
     <string name="options_app_double_tap_selection">"Lựa chọn văn bản với vòi nước đôi"</string>
     <string name="mi_select_text">"Chọn văn bản"</string>
     <string name="action_toggle_selection_mode">"Chế độ lựa chọn chuyển đổi"</string>
-    <string name="action_toggle_selection_mode_off">"Chế độ lựa chọn là tắt"</string>
-    <string name="action_toggle_selection_mode_on">"Chế độ lựa chọn là trên. Chọn văn bản sử dụng màn hình cảm ứng."</string>
+    <string name="action_toggle_selection_mode_off">"Chế độ lựa chọn đã tắt"</string>
+    <string name="action_toggle_selection_mode_on">"Đã bật chế độ lựa chọn văn bản."</string>
     <string name="action_go_forward">"HƯỚNG ĐẾN TƯƠNG LAI"</string>
     <string name="action_go_back">"Trước"</string>
     <string name="action_toggle_screen_orientation">"Định hướng màn hình chuyển đổi"</string>

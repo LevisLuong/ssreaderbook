@@ -20,16 +20,18 @@ import org.holoeverywhere.LayoutInflater;
 import org.holoeverywhere.ThemeManager;
 import org.holoeverywhere.app.Application;
 import org.holoeverywhere.widget.Toast;
+import vn.seasoft.readerbook.GCMService.GCMUtilities;
 import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
 import vn.seasoft.readerbook.HttpServices.ResultObject;
 import vn.seasoft.readerbook.RequestObjects.Request_Server;
 import vn.seasoft.readerbook.ResultObjects.Result_LoginByFacebook;
+import vn.seasoft.readerbook.ResultObjects.Result_RegisterGCM;
 import vn.seasoft.readerbook.Util.GlobalData;
 import vn.seasoft.readerbook.Util.SSUtil;
 import vn.seasoft.readerbook.Util.mSharedPreferences;
-import vn.seasoft.readerbook.listener.ILoginFacebook;
+import vn.seasoft.readerbook.listener.IActionFacebook;
 import vn.seasoft.readerbook.sqlite.RepoController;
 
 import java.util.HashMap;
@@ -64,10 +66,11 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
 
         ThemeManager.setDefaultTheme(ThemeManager.LIGHT);
     }
+
     // The following line should be changed to include the correct property id.
     private static final String PROPERTY_ID = "UA-54609330-1";
-    public static ILoginFacebook loginfacebooklistener;
-    public static boolean isLogoutFB = false;
+    public static IActionFacebook actionFBListener;
+    public static int actionFB = 0;//0: login | 1: post | 2: sign out
     static SSReaderApplication instance;
     //adapter provider for social
     private static SocialAuthAdapter socialAdapter = null;
@@ -101,15 +104,21 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
         return instance;
     }
 
-    public static void authorizeFB(Context context, ILoginFacebook listener) {
-        isLogoutFB = false;
-        loginfacebooklistener = listener;
+    public static void authorizeFB(Context context, IActionFacebook listener) {
+        actionFB = 0;
+        actionFBListener = listener;
         socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
     }
 
-    public static void signOutFB(Context context, ILoginFacebook listener) {
-        isLogoutFB = true;
-        loginfacebooklistener = listener;
+    public static void signOutFB(Context context, IActionFacebook listener) {
+        actionFB = 2;
+        actionFBListener = listener;
+        socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
+    }
+
+    public static void postToWall(Context context, IActionFacebook listener) {
+        actionFB = 1;
+        actionFBListener = listener;
         socialAdapter.authorize(context, SocialAuthAdapter.Provider.FACEBOOK);
     }
 
@@ -186,23 +195,32 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
     public void onCreate() {
         super.onCreate();
         instance = this;
+        GCMUtilities.registerGCM(instance);
         GlobalData.repo = new RepoController(this);
         socialAdapter = new SocialAuthAdapter((new DialogListener() {
             @Override
             public void onComplete(Bundle bundle) {
-                if (isLogoutFB) {
-                    //dang xuat provider
-                    SSReaderApplication.getSocialAdapter().signOut(instance, "facebook");
-                    //clear shared preference
-                    mSharedPreferences.saveUserDisplay(instance, "");
-                    mSharedPreferences.saveUserId(instance, 0);
-                    mSharedPreferences.saveUserIdFacebook(instance, "");
-                    Toast.makeText(instance, "Đăng xuất thành công !", Toast.LENGTH_SHORT).show();
-                    if (loginfacebooklistener != null) {
-                        loginfacebooklistener.LoginSuccess();
-                    }
-                } else {
-                    socialAdapter.getUserProfileAsync(new ProfileDataListener());
+                switch (actionFB) {
+                    case 0://Login
+                        socialAdapter.getUserProfileAsync(new ProfileDataListener());
+                        break;
+                    case 1://Post to wall
+                        if (actionFBListener != null) {
+                            actionFBListener.LoginSuccess();
+                        }
+                        break;
+                    case 2://Logout
+                        //dang xuat provider
+                        SSReaderApplication.getSocialAdapter().signOut(instance, "facebook");
+                        //clear shared preference
+                        mSharedPreferences.saveUserDisplay(instance, "");
+                        mSharedPreferences.saveUserId(instance, 0);
+                        mSharedPreferences.saveUserIdFacebook(instance, "");
+                        Toast.makeText(instance, "Đăng xuất thành công !", Toast.LENGTH_SHORT).show();
+                        if (actionFBListener != null) {
+                            actionFBListener.LoginSuccess();
+                        }
+                        break;
                 }
             }
 
@@ -242,9 +260,15 @@ public class SSReaderApplication extends Application implements OnHttpServicesLi
             mSharedPreferences.saveUserId(instance, data.idUser);
             mSharedPreferences.saveUserIdFacebook(instance, data.idUserFacebook);
             mSharedPreferences.saveUserDisplay(instance, data.displayName);
-            if (loginfacebooklistener != null) {
-                loginfacebooklistener.LoginSuccess();
+            if (actionFBListener != null) {
+                actionFBListener.LoginSuccess();
             }
+        }
+        if (urlMethod.equals(COMMAND_API.REGISTER_GCM)) {
+            Result_RegisterGCM data = (Result_RegisterGCM) resultData;
+            SSUtil.App_Log(GCMUtilities.TAG, "Server trả về RegId: " + data.regId);
+            mSharedPreferences.saveRegIdGcm(instance, data.regId);
+            mSharedPreferences.saveAppVersion(instance, SSUtil.getAppVersion(instance));
         }
         GlobalData.DissmissProgress();
     }

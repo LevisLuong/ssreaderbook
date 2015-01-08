@@ -26,6 +26,8 @@ import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.preference.SharedPreferences;
 import org.holoeverywhere.widget.TextView;
 import vn.seasoft.readerbook.R;
+import vn.seasoft.readerbook.Util.SSUtil;
+import vn.seasoft.readerbook.Util.mSharedPreferences;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -64,7 +66,7 @@ public class BaseActivity extends Activity implements Settings {
     private static String PREF_HELP_FILE = "HelpFile";
     protected View contentView;
 
-//    @Override
+    //    @Override
 //    public void onWindowFocusChanged(boolean hasFocus) {
 //        super.onWindowFocusChanged(hasFocus);
 //        if (hasFocus && (DeviceInfo.getSDKLevel() >= 19)) {
@@ -1108,6 +1110,7 @@ public class BaseActivity extends Activity implements Settings {
         private BaseActivity mActivity;
         private Properties mSettings;
         private boolean isSmartphone;
+
         public SettingsManager(BaseActivity activity) {
             this.mActivity = activity;
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -1275,7 +1278,7 @@ public class BaseActivity extends Activity implements Settings {
             props.applyDefault(ReaderView.PROP_APP_THEME, "LIGHT");
             props.applyDefault(ReaderView.PROP_APP_THEME_DAY, "LIGHT");
             props.applyDefault(ReaderView.PROP_APP_THEME_NIGHT, "DARK");
-            props.applyDefault(ReaderView.PROP_APP_SELECTION_PERSIST, "0");
+            props.applyDefault(ReaderView.PROP_APP_SELECTION_PERSIST, "1");
             props.applyDefault(ReaderView.PROP_APP_SCREEN_BACKLIGHT_LOCK, "3");
             if ("1".equals(props.getProperty(ReaderView.PROP_APP_SCREEN_BACKLIGHT_LOCK)))
                 props.setProperty(ReaderView.PROP_APP_SCREEN_BACKLIGHT_LOCK, "3");
@@ -1336,7 +1339,7 @@ public class BaseActivity extends Activity implements Settings {
             props.setProperty(ReaderView.PROP_ROTATE_ANGLE, "0"); // crengine's rotation will not be user anymore
             props.setProperty(ReaderView.PROP_DISPLAY_INVERSE, "0");
             props.applyDefault(ReaderView.PROP_APP_FULLSCREEN, "1");
-            props.applyDefault(ReaderView.PROP_APP_VIEW_AUTOSCROLL_SPEED, "1500");
+            props.applyDefault(ReaderView.PROP_APP_VIEW_AUTOSCROLL_SPEED, "1020");
             props.applyDefault(ReaderView.PROP_APP_SCREEN_BACKLIGHT, "-1");
             props.applyDefault(ReaderView.PROP_SHOW_BATTERY, "1");
             props.applyDefault(ReaderView.PROP_SHOW_POS_PERCENT, "0");
@@ -1352,8 +1355,8 @@ public class BaseActivity extends Activity implements Settings {
             props.applyDefault(ReaderView.PROP_APP_BOOK_SORT_ORDER, FileInfo.DEF_SORT_ORDER.name());
             props.applyDefault(ReaderView.PROP_APP_DICTIONARY, dicts[0].id);
             props.applyDefault(ReaderView.PROP_APP_FILE_BROWSER_HIDE_EMPTY_FOLDERS, "0");
-            props.applyDefault(ReaderView.PROP_APP_SELECTION_ACTION, "1");
-            props.applyDefault(ReaderView.PROP_APP_MULTI_SELECTION_ACTION, "1");
+            props.applyDefault(ReaderView.PROP_APP_SELECTION_ACTION, "0");
+            props.applyDefault(ReaderView.PROP_APP_MULTI_SELECTION_ACTION, "0");
 
             props.applyDefault(ReaderView.PROP_EMBEDDED_STYLES, "0");
             props.applyDefault(ReaderView.PROP_EMBEDDED_FONTS, "0");
@@ -1366,14 +1369,14 @@ public class BaseActivity extends Activity implements Settings {
             props.applyDefault(ReaderView.PROP_FONT_KERNING_ENABLED, "0");
 
 
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_BLOCK_MODE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_BLOCK_MODE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_INLINE_MODE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_INLINE_MODE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_BLOCK_SCALE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_BLOCK_SCALE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_INLINE_SCALE, "0");
-            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_INLINE_SCALE, "0");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_BLOCK_MODE, "2");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_BLOCK_MODE, "2");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_INLINE_MODE, "2");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_INLINE_MODE, "2");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_BLOCK_SCALE, "3");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_BLOCK_SCALE, "3");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMOUT_INLINE_SCALE, "3");
+            props.applyDefault(ReaderView.PROP_IMG_SCALING_ZOOMIN_INLINE_SCALE, "3");
 
             props.applyDefault(ReaderView.PROP_PAGE_MARGIN_LEFT, hmargin);
             props.applyDefault(ReaderView.PROP_PAGE_MARGIN_RIGHT, hmargin);
@@ -1398,9 +1401,9 @@ public class BaseActivity extends Activity implements Settings {
 
             props.setProperty(ReaderView.PROP_MIN_FILE_SIZE_TO_CACHE, "100000");
             props.setProperty(ReaderView.PROP_FORCED_MIN_FILE_SIZE_TO_CACHE, "32768");
-            
+
             //props.applyDefault(ReaderView.PROP_HYPHENATION_DICT, Engine.HyphDict.NONE.toString());
-            
+
             props.applyDefault(ReaderView.PROP_APP_FILE_BROWSER_SIMPLE_MODE, "0");
 
             props.applyDefault(ReaderView.PROP_TOOLBAR_LOCATION, DeviceInfo.getSDKLevel() < DeviceInfo.HONEYCOMB ? Settings.VIEWER_TOOLBAR_NONE : Settings.VIEWER_TOOLBAR_SHORT_SIDE);
@@ -1441,8 +1444,13 @@ public class BaseActivity extends Activity implements Settings {
             for (File dir : dataDirs) {
                 File f = new File(dir, SETTINGS_FILE_NAME);
                 if (f.exists() && f.isFile()) {
-                    existingFile = f;
-//                    f.delete();
+                    if (SSUtil.getAppVersion(mActivity.getApplicationContext()) != mSharedPreferences.getAppVersionSettingBook(mActivity.getApplicationContext())) {
+                        f.delete();
+                        mSharedPreferences.saveAppVersionSettingBook(mActivity.getApplicationContext(), SSUtil.getAppVersion(mActivity.getApplicationContext()));
+                    } else {
+                        existingFile = f;
+                    }
+
                     break;
                 }
             }

@@ -67,8 +67,14 @@ public class SearchBookAdapter extends BaseAdapter {
             isNew = true;
         }
         for (Book book : _lst) {
-            Book checkBook = (new Book()).getByID(book.getIdbook());
-            if (checkBook == null) {
+            boolean isDup = false;
+            for (Book chkBook : lstBooks) {
+                if (chkBook.getIdbook().equals(book.getIdbook())) {
+                    isDup = true;
+                    break;
+                }
+            }
+            if (!isDup) {
                 lstBooks.add(book);
             }
         }

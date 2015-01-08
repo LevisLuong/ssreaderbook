@@ -5,6 +5,7 @@ import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.sqlite.DatabaseHelper;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -74,12 +75,19 @@ public class BookController {
         return null;
     }
 
-    public List<Book> getSearchBook(String key) {
+    public List<Book> getSearchBook(String keysearch) {
         try {
-            return Dao.queryBuilder().where().like("title", "%" + key + "%").or().like("author", "%" + key + "%").query();
+            String subKey = keysearch;
+            if (keysearch.contains("d")) {
+                subKey = keysearch.replace("d", "đ");
+            }
+            return Dao.queryBuilder().where().like("title", "%" + keysearch + "%").or().like("author", "%" + keysearch + "%")
+                    .or().like("title", "%" + subKey + "%").or().like("author", "%" + subKey + "%")
+                    .query();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return new ArrayList<Book>();
     }
 }

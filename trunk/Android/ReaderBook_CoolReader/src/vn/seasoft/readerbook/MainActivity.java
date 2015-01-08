@@ -26,7 +26,7 @@ import vn.seasoft.readerbook.Util.mSharedPreferences;
 import vn.seasoft.readerbook.dialog.dlgAboutApp;
 import vn.seasoft.readerbook.dialog.dlgConfirm;
 import vn.seasoft.readerbook.dialog.dlgFeedback;
-import vn.seasoft.readerbook.listener.ILoginFacebook;
+import vn.seasoft.readerbook.listener.IActionFacebook;
 import vn.seasoft.readerbook.model.Book_Category;
 
 import java.util.List;
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 int iduser = mSharedPreferences.getUserID(context);
                 if (iduser == 0) {
-                    SSReaderApplication.authorizeFB(context, new ILoginFacebook() {
+                    SSReaderApplication.authorizeFB(context, new IActionFacebook() {
                         @Override
                         public void LoginSuccess() {
                             sliderMenuAvatar.setVisibility(View.VISIBLE);
@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
-                            SSReaderApplication.signOutFB(context, new ILoginFacebook() {
+                            SSReaderApplication.signOutFB(context, new IActionFacebook() {
                                 @Override
                                 public void LoginSuccess() {
                                     //refresh state UI
@@ -146,7 +146,6 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         // Get the SearchView and set the searchable configuration
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         final MenuItem searchItem = menu.findItem(R.id.action_search);

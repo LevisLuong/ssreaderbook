@@ -27,4 +27,9 @@ public class COMMAND_API {
     public final static String USER_EDIT_COMMENT = "api/user/UserEditComment";
     public final static String USER_DELETE_COMMENT = "api/user/UserDeleteComment";
     public final static String GET_COMMENTS = "api/user/GetCommentsBook";
+
+
+    //GCM
+    public final static String REGISTER_GCM = "api/gcmservice/RegisterGCM";
+    public final static String UNREGISTER_GCM = "api/gcmservice/UnRegisterGCM";
 }

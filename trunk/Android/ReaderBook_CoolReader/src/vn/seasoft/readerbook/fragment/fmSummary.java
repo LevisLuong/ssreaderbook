@@ -18,6 +18,9 @@ public class fmSummary extends Fragment {
     String summary;
     private TextView fmsummaryTxtSummary;
 
+    public fmSummary() {
+    }
+
     public fmSummary(String _sm) {
         super();
         summary = _sm;
