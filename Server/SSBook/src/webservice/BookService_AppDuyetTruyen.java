@@ -14,6 +14,7 @@ import model.Book_Category;
 import model.Book_Chapter;
 import model.FeedBack;
 import model.User_Online;
+import Others.SSUtil;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -24,13 +25,7 @@ public class BookService_AppDuyetTruyen {
 	@Context
 	HttpServletRequest request;
 
-	public String convertToJson(Object obj) {
-		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
-				.create();
-		String json = gson.toJson(obj);
-		json = "{\"data\":" + json + "}";
-		return json;
-	}
+	
 
 	@POST
 	@Path("/GetCategory")
@@ -40,7 +35,7 @@ public class BookService_AppDuyetTruyen {
 		try {
 			ArrayList<Book_Category> bookCategory = (new Book_Category())
 					.getAllCategory();
-			bookjson = convertToJson(bookCategory);
+			bookjson = SSUtil.convertToJson(bookCategory);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -107,7 +102,7 @@ public class BookService_AppDuyetTruyen {
 			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
 					.getByIdBook(idbook, index);
 			// convert array chapter to json
-			bookjson = convertToJson(bookchaps);
+			bookjson = SSUtil.convertToJson(bookchaps);
 			if (index <= 1) {
 				(new Book()).getById(idbook).updateCountView();
 			}
@@ -127,7 +122,7 @@ public class BookService_AppDuyetTruyen {
 			ArrayList<Book_Chapter> bookchaps = (new Book_Chapter())
 					.getAllByIdBook(idbook);
 			// convert array chapter to json
-			bookjson = convertToJson(bookchaps);
+			bookjson = SSUtil.convertToJson(bookchaps);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -166,7 +161,7 @@ public class BookService_AppDuyetTruyen {
 		try {
 			ArrayList<Book> books = (new Book()).getAllBookByCategory(
 					idcategory, index, false);
-			bookjson = convertToJson(books);
+			bookjson = SSUtil.convertToJson(books);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -183,7 +178,7 @@ public class BookService_AppDuyetTruyen {
 		try {
 			ArrayList<Book> books = (new Book()).searchBook(keywork, 0, index,
 					false);
-			bookjson = convertToJson(books);
+			bookjson = SSUtil.convertToJson(books);
 			bookjson = bookjson + keywork + "}";
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
@@ -203,7 +198,7 @@ public class BookService_AppDuyetTruyen {
 			}
 			ArrayList<Book> books = (new Book()).getMostRead(index, false);
 			// convert array chapter to json
-			bookjson = convertToJson(books);
+			bookjson = SSUtil.convertToJson(books);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -222,7 +217,7 @@ public class BookService_AppDuyetTruyen {
 			}
 			ArrayList<Book> books = (new Book()).getNewest(index, false);
 			// convert array chapter to json
-			bookjson = convertToJson(books);
+			bookjson = SSUtil.convertToJson(books);
 			System.out.println("book to json: " + bookjson);
 		} catch (Exception e) {
 			e.printStackTrace();

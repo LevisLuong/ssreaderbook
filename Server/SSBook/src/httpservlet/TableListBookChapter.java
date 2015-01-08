@@ -51,11 +51,11 @@ public class TableListBookChapter extends HttpServlet {
 				if (bookchap.getApproved() == 0) {
 					out.println("<tr class=\"not-approved\">");
 				} else {
-//					if (i % 2 == 0) {
-//						out.println("<tr class=\"alternate-row\">");
-//					} else {
-//						out.println("<tr>");
-//					}
+					// if (i % 2 == 0) {
+					// out.println("<tr class=\"alternate-row\">");
+					// } else {
+					// out.println("<tr>");
+					// }
 					out.println("<tr>");
 				}
 
@@ -73,18 +73,20 @@ public class TableListBookChapter extends HttpServlet {
 				out.println("<td>" + bookchap.getFilesize() + "</td>");
 				out.println("<td  class=\"options-width\">");
 
-				if (bookchap.getApproved() == 0) {
-					out.println("<a title='Duyệt' class=\"icon-5 info-tooltip\" href=\"ApproveBookChapter?idbookchapter="
-							+ bookchap.getIdbook_chapter()
-							+ "&status="
-							+ 1
-							+ "&titlebook=" + titlebook + "\"></a>");
-				} else {
-					out.println("<a title='Không duyệt' class=\"icon-5 info-tooltip\" href=\"ApproveBookChapter?idbookchapter="
-							+ bookchap.getIdbook_chapter()
-							+ "&status="
-							+ 0
-							+ "&titlebook=" + titlebook + "\"></a>");
+				if (role != 3) {
+					if (bookchap.getApproved() == 0) {
+						out.println("<a title='Duyệt' class=\"icon-5 info-tooltip\" href=\"ApproveBookChapter?idbookchapter="
+								+ bookchap.getIdbook_chapter()
+								+ "&status="
+								+ 1
+								+ "&titlebook=" + titlebook + "\"></a>");
+					} else {
+						out.println("<a title='Không duyệt' class=\"icon-5 info-tooltip\" href=\"ApproveBookChapter?idbookchapter="
+								+ bookchap.getIdbook_chapter()
+								+ "&status="
+								+ 0
+								+ "&titlebook=" + titlebook + "\"></a>");
+					}
 				}
 
 				if (role == 1) {

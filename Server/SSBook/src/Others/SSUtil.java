@@ -13,6 +13,9 @@ import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 public class SSUtil {
 	public static String humanReadableByteCount(long bytes, boolean si) {
 		int unit = si ? 1000 : 1024;
@@ -150,5 +153,12 @@ public class SSUtil {
 		result = result + "]}";
 		System.out.println("convert to char : " + result);
 		return result;
+	}
+	public static String convertToJson(Object obj) {
+		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss")
+				.create();
+		String json = gson.toJson(obj);
+		json = "{\"data\":" + json + "}";
+		return json;
 	}
 }

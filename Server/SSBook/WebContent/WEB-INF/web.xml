@@ -11,6 +11,11 @@
     <res-auth>Container</res-auth>
     <res-sharing-scope>Shareable</res-sharing-scope>
   </resource-ref>
+  <listener>
+    <listener-class>
+      GCMService.ApiKeyInitializer
+    </listener-class>
+  </listener>
   <filter>
     <filter-name>AuthenticationFilter</filter-name>
     <filter-class>httpservlet.AuthenticationFilter</filter-class>
@@ -59,5 +64,21 @@
   <servlet-mapping>
     <servlet-name>DeleteBook</servlet-name>
     <url-pattern>/deletebook</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>GCMService.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/GuiTinNhan</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SendAllMessage</servlet-name>
+    <servlet-class>GCMService.SendAllMessagesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendAllMessage</servlet-name>
+    <url-pattern>/SendAllMessage</url-pattern>
   </servlet-mapping>
 </web-app>

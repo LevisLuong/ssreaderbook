@@ -68,7 +68,6 @@ public class UserService {
 			} else {
 				return returnError(Status.ERROR_INTERNALSERVERERROR);
 			}
-
 		}
 		return json;
 	}
@@ -202,20 +201,25 @@ public class UserService {
 		try {
 			List<Comment> comments = new Comment().getListCommentByIdBook(
 					idbook, index);
-			json = "{\"data\":[";
-			for (Comment comment : comments) {
-				User_Login user = new User_Login().getByID(comment.getIduser());
-				json = json + "{\"idcomment\":" + comment.getIdcomment()
-						+ ",\"content\":\"" + comment.getContent()
-						+ "\",\"iduser\":" + comment.getIduser()
-						+ ",\"username\":\"" + user.getDisplayname()
-						+ "\",\"iduserfacebook\":\"" + user.getIdfacebook()
-						+ "\",\"idbook\":" + comment.getIdbook()
-						+ ",\"datecreated\":\"" + comment.getDatecreated()
-						+ "\"},";
+			if (comments.isEmpty()) {
+				json = "{}";
+			} else {
+				json = "{\"data\":[";
+				for (Comment comment : comments) {
+					User_Login user = new User_Login().getByID(comment
+							.getIduser());
+					json = json + "{\"idcomment\":" + comment.getIdcomment()
+							+ ",\"content\":\"" + comment.getContent()
+							+ "\",\"iduser\":" + comment.getIduser()
+							+ ",\"username\":\"" + user.getDisplayname()
+							+ "\",\"iduserfacebook\":\"" + user.getIdfacebook()
+							+ "\",\"idbook\":" + comment.getIdbook()
+							+ ",\"datecreated\":\"" + comment.getDatecreated()
+							+ "\"},";
 
+				}
+				json = json.substring(0, json.length() - 1) + "]}";
 			}
-			json = json + "]}";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

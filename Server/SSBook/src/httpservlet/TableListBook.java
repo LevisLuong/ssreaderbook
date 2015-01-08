@@ -86,14 +86,14 @@ public class TableListBook extends HttpServlet {
 						.getIdcategory());
 				if (book.getApproved() == 0) {
 					out.println("<tr class=\"not-approved\">");
-				}else{
+				} else {
 					if (i % 2 == 0) {
 						out.println("<tr class=\"alternate-row\">");
 					} else {
 						out.println("<tr>");
 					}
 				}
-				
+
 				String summary = book.getSummary();
 				if (summary.length() > 100) {
 					summary = summary.substring(0, 100) + "...";
@@ -101,7 +101,7 @@ public class TableListBook extends HttpServlet {
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
 						+ book.getIdBook() + "&titlebook=" + book.getTitle()
 						+ "\">" + book.getIdBook() + "</a></td>");
-				
+
 				out.println("<td><a href=\"managebookchapter.jsp?idbook="
 						+ book.getIdBook() + "&titlebook=" + book.getTitle()
 						+ "\">" + book.getTitle() + "</a></td>");
@@ -125,7 +125,7 @@ public class TableListBook extends HttpServlet {
 				}
 
 				out.println("<td>" + book.countChapter() + "</td>");
-				
+
 				if (book.getUploader() == null) {
 					out.println("<td></td>");
 				} else {
@@ -135,9 +135,15 @@ public class TableListBook extends HttpServlet {
 				if (role == 1) {
 					out.println("<a title='Delete' class=\"icon-2 info-tooltip\" href=\"#\" onclick=\"confirmSubmit("
 							+ book.getIdBook() + ")\"></a>");
+					out.println("<a title='Thông Báo' class=\"icon-3 info-tooltip\" href=\"sendnotify.jsp?titlebook="
+							+ book.getTitle()
+							+ " &idbook="
+							+ book.getIdBook()
+							+ " \"></a>");
 				}
 				out.println("<a title='Edit' class=\"icon-1 info-tooltip\" href=\"editbook.jsp?idbook="
-						+ book.getIdBook() + " \"></a>" + "</td>");
+						+ book.getIdBook() + " \"></a>");	
+				out.println("</td>");
 				out.println("</tr>");
 				i++;
 			}
