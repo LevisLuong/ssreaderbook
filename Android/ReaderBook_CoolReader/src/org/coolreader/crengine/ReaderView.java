@@ -15,12 +15,12 @@ import android.view.View.OnKeyListener;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 import org.coolreader.CoolReader;
-import org.coolreader.crengine.Engine.HyphDict;
 import org.coolreader.crengine.InputDialog.InputHandler;
 import org.coolreader.sync.ChangeInfo;
 import org.coolreader.sync.SyncServiceAccessor;
 import org.koekak.android.ebookdownloader.SonyBookSelector;
 import vn.seasoft.readerbook.R;
+import vn.seasoft.readerbook.dialog.mDialogShowImage;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -132,7 +132,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
     private boolean repeatActionActive = false;
     private SparseArray<Long> keyDownTimestampMap = new SparseArray<Long>();
 
-//	private void cancelSelection() {
+    //	private void cancelSelection() {
 //		//
 //		selectionInProgress = false;
 //		clearSelection();
@@ -430,6 +430,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
         }
         return c;
     }
+
     static {
         for (int i = 0; i <= SIN_TABLE_SIZE; i++) {
             double angle = Math.PI / 2 * i / SIN_TABLE_SIZE;
@@ -727,8 +728,11 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
     }
 
     private void startImageViewer(ImageInfo image) {
-        currentImageViewer = new ImageViewer(image);
-        drawPage();
+//        currentImageViewer = new ImageViewer(image);
+//        drawPage();
+        BitmapInfo getBitmapImg = prepareImageForBitmap(image);
+        mDialogShowImage dlgImg = new mDialogShowImage(mActivity, getBitmapImg.bitmap);
+        dlgImg.show();
     }
 
     private boolean isImageViewMode() {
@@ -759,7 +763,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                     TOCDlg dlg = new TOCDlg(mActivity, view, toc, pos.pageNumber);
                     dlg.show();
                 } else {
-                    mActivity.showToast("No Table of Contents found");
+                    mActivity.showToast("Không có mục lục !");
                 }
             }
         });
@@ -1824,7 +1828,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                 // TODO: redesign all this mess!
                     ) {
                 newSettings.setProperty(key, value);
-            } 
+            }
 //            else if (PROP_HYPHENATION_DICT.equals(key)) {
 //                Engine.HyphDict dict = HyphDict.byCode(value);
 //                if (mEngine.setHyphenationDictionary(dict)) {
@@ -1973,14 +1977,14 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                 errorHandler.run();
             return false;
         }
-        if ("@manual".equals(fileName)) {
-            fileName = getManualFileName();
-            log.i("Manual document: " + fileName);
-        }
+//        if ("@manual".equals(fileName)) {
+//            fileName = getManualFileName();
+//            log.i("Manual document: " + fileName);
+//        }
         String normalized = mEngine.getPathCorrector().normalize(fileName);
         if (normalized == null) {
             log.e("Trying to load book from non-standard path " + fileName);
-            mActivity.showToast("Trying to load book from non-standard path " + fileName);
+            //mActivity.showToast("Trying to load book from non-standard path " + fileName);
             hideProgress();
             if (errorHandler != null)
                 errorHandler.run();
@@ -1989,15 +1993,15 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
             log.w("Filename normalized to " + normalized);
             fileName = normalized;
         }
-        if (fileName.equals(getManualFileName())) {
-            // ensure manual file is up to date
-            if (generateManual() == null) {
-                log.v("loadDocument() : no filename specified");
-                if (errorHandler != null)
-                    errorHandler.run();
-                return false;
-            }
-        }
+//        if (fileName.equals(getManualFileName())) {
+//            // ensure manual file is up to date
+//            if (generateManual() == null) {
+//                log.v("loadDocument() : no filename specified");
+//                if (errorHandler != null)
+//                    errorHandler.run();
+//                return false;
+//            }
+//        }
         BookInfo book = Services.getHistory().getBookInfo(fileName);
         if (book != null)
             log.v("loadDocument() : found book in history : " + book);
@@ -3918,6 +3922,20 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
         }
     }
 
+    public BitmapInfo prepareImageForBitmap(ImageInfo imageinfo) {
+        // called from background thread
+        ImageInfo img = imageinfo;
+        img.bufWidth = internalDX;
+        img.bufHeight = internalDY;
+        PositionProperties currpos = doc.getPositionProps(null);
+        BitmapInfo bi = new BitmapInfo();
+        bi.imageInfo = new ImageInfo(img);
+        bi.bitmap = factory.get(internalDX, internalDY);
+        bi.position = currpos;
+        return bi;
+    }
+
+
     private class ImageViewer extends SimpleOnGestureListener {
         final GestureDetector detector;
         int oldOrientation;
@@ -4282,7 +4300,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                     if (link == null && image == null && bookmark == null) {
                         onAction(action);
                     } else if (image != null) {
-                        startImageViewer(image);
+//                        startImageViewer(image);
                     } else if (bookmark != null) {
 //                        BookmarkEditDialog dlg = new BookmarkEditDialog(mActivity, ReaderView.this, bookmark, false);
 //                        dlg.show();
@@ -4324,7 +4342,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                                     }
                                 }
                             }
-                            mActivity.showToast("Cannot open link " + link);
+                            mActivity.showToast("Không thể mở liên kết: " + link);
                         }
                     }
                 }
@@ -4356,7 +4374,7 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                         bookmark = mBookInfo.findBookmark(bookmark);
                     if (image != null) {
                         cancel();
-                        startImageViewer(image);
+//                        startImageViewer(image);
                     } else if (bookmark != null) {
                         cancel();
 //                        BookmarkEditDialog dlg = new BookmarkEditDialog(mActivity, ReaderView.this, bookmark, false);
@@ -4388,8 +4406,10 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                     if (currentTapHandler == TapHandler.this && state == STATE_DOWN_1) {
                         if (longTapAction == ReaderAction.START_SELECTION)
                             startSelection();
-                        else
+                        else {
                             performAction(longTapAction, true);
+                            toggleSelectionMode();
+                        }
                     }
                 }
             }, LONG_KEYPRESS_TIME);
@@ -5817,11 +5837,11 @@ public class ReaderView implements SurfaceHolder.Callback, Settings, OnKeyListen
                 // Should we use another fileInfo flag or a new flag?
                 mEngine.scanBookProperties(fileInfo);
             }
-            
+
 //            String language = fileInfo.getLanguage();
 //            log.v("update hyphenation language: " + language + " for " + fileInfo.getTitle());
 //            mEngine.setHyphenationLanguage(language);
-            
+
             this.filename = fileInfo.getPathName();
             this.path = fileInfo.arcname != null ? fileInfo.arcname : fileInfo.pathname;
             this.errorHandler = errorHandler;

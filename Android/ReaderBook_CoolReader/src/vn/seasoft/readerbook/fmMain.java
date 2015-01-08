@@ -19,6 +19,7 @@ import vn.seasoft.readerbook.HttpServices.COMMAND_API;
 import vn.seasoft.readerbook.HttpServices.ErrorType;
 import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
 import vn.seasoft.readerbook.HttpServices.ResultObject;
+import vn.seasoft.readerbook.RequestObjects.Request_Server;
 import vn.seasoft.readerbook.ResultObjects.Result_GetCategory;
 import vn.seasoft.readerbook.ResultObjects.Result_GetMostRead;
 import vn.seasoft.readerbook.ResultObjects.Result_GetNewest;
@@ -47,6 +48,8 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
     private RelativeLayout fmmainContainerread;
     private RelativeLayout fmmainContainernewbook;
     private RelativeLayout fmmainContainerhotbook;
+
+    Request_Server request_server;
 
     private void assignViews(View root) {
 
@@ -164,7 +167,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvNewBook.canLoadMoreData()) {
                     System.out.println("Load more data newbook");
-                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getNewest(adapterlvNewBook.loadMoreData());
+                    request_server.getNewest(adapterlvNewBook.loadMoreData());
                 }
             }
         });
@@ -200,7 +203,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvHotBook.canLoadMoreData()) {
                     System.out.println("Load more data hotbook");
-                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getMostBook(adapterlvHotBook.loadMoreData());
+                    request_server.getMostBook(adapterlvHotBook.loadMoreData());
                 }
             }
         });
@@ -222,14 +225,25 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Retain this fragment across configuration changes.
         setRetainInstance(true);
 
         mContext = getActivity();
+
+        request_server = new Request_Server(mContext);
+        request_server.SetListener(this);
+
         adapterlvRead = new AdapterHListViewBook(mContext);
         adapterlvNewBook = new AdapterHListViewBook(mContext);
         adapterlvHotBook = new AdapterHListViewBook(mContext);
-        getSupportActionBar().setSubtitle("Trang chủ");
+
+        try {
+            getSupportActionBar().setSubtitle("Trang chủ");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -263,8 +277,8 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
         addViewContainer(fmmainContainerread, fmmainLvread);
 
         //Request server
-        SSReaderApplication.getRequestServer(mContext, this).getMostBook(1);
-        SSReaderApplication.getRequestServer(mContext, this).getNewest(1);
+        request_server.getMostBook(1);
+        request_server.getNewest(1);
 
         return rootView;
     }
@@ -289,7 +303,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 @Override
                 public void onClick(View view) {
                     addViewContainer(fmmainContainerhotbook, new ProgressBar(mContext));
-                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getMostBook(adapterlvHotBook.reloadData());
+                    request_server.getMostBook(adapterlvHotBook.reloadData());
 
                 }
             }));
@@ -299,7 +313,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
                 @Override
                 public void onClick(View view) {
                     addViewContainer(fmmainContainernewbook, new ProgressBar(mContext));
-                    SSReaderApplication.getRequestServer(mContext, (OnHttpServicesListener) fmMain.this).getNewest(adapterlvNewBook.reloadData());
+                    request_server.getNewest(adapterlvNewBook.reloadData());
 
                 }
             }));

@@ -14,6 +14,18 @@ public class Request_Server extends RequestObject {
         mContext = context;
     }
 
+    public void unRegisterGCM(String regId) {
+        request.initParam();
+        request.addParam("regId", regId);
+        request.requestStringToServer(null, COMMAND_API.UNREGISTER_GCM);
+    }
+
+    public void registerGCM(String regId) {
+        request.initParam();
+        request.addParam("regId", regId);
+        request.requestStringToServer(new Result_RegisterGCM(), COMMAND_API.REGISTER_GCM);
+    }
+
     public void getCommentsBook(int idbook, int index) {
         request.initParam();
         request.addParam("idbook", idbook);

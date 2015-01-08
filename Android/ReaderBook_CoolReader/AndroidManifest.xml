@@ -3,8 +3,8 @@
     package="vn.seasoft.readerbook"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="preferExternal"
-    android:versionCode="7"
-    android:versionName="1.2">
+    android:versionCode="10"
+    android:versionName="1.2.2">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -14,6 +14,26 @@
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!--
+     Creates a custom permission so only this app can receive its messages.
+
+     NOTE: the permission *must* be called PACKAGE.permission.C2D_MESSAGE,
+           where PACKAGE is the application's package name.
+    -->
+    <permission
+        android:name="vn.seasoft.readerbook.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission
+        android:name="vn.seasoft.readerbook.permission.C2D_MESSAGE" />
+
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+
 
     <supports-screens
         android:anyDensity="true"
@@ -151,6 +171,33 @@
         <!--<meta-data-->
         <!--android:name="com.facebook.sdk.ApplicationId"-->
         <!--android:value="@string/app_id"/>-->
+        <!--
+         BroadcastReceiver that will receive intents from GCM
+         services and handle them to the custom IntentService.
+
+         The com.google.android.c2dm.permission.SEND permission is necessary
+         so only GCM services can send data messages for the app.
+       -->
+        <receiver
+            android:name=".GCMService.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <!-- Receives the actual messages. -->
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <!-- Receives the registration id. -->
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="vn.seasoft.readerbook" />
+            </intent-filter>
+        </receiver>
+
+        <!--
+          Application-specific subclass of GCMBaseIntentService that will
+          handle received messages.
+
+          By default, it must be named .GCMIntentService, unless the
+          application uses a custom BroadcastReceiver that redefines its name.
+        -->
+        <service android:name=".GCMService.GCMIntentService" />
     </application>
 
 </manifest>

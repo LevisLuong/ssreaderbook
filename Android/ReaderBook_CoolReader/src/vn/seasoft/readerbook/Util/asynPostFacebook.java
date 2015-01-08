@@ -10,6 +10,7 @@ import org.brickred.socialauth.android.SocialAuthError;
 import org.brickred.socialauth.android.SocialAuthListener;
 import org.holoeverywhere.widget.Toast;
 import vn.seasoft.readerbook.SSReaderApplication;
+import vn.seasoft.readerbook.listener.IActionFacebook;
 
 public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
 
@@ -18,6 +19,7 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
     Context mContext;
     Bitmap image;
     String content;
+    int result = 0;
 
     public asynPostFacebook(Context context, String _content, Bitmap imgCover) {
         mContext = context;
@@ -43,39 +45,41 @@ public class asynPostFacebook extends AsyncTask<Void, Void, Integer> {
     @Override
     protected Integer doInBackground(Void... arg0) {
         // TODO Auto-generated method stub
-        int result = 0;
+        content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SáchCủaTui";
         try {
-            content = content + ". Thưởng thức thêm những cuốn Sách - Truyện hay tại: http://goo.gl/vDxSKx #SáchCủaTui";
             if (image != null) {
                 result = SSReaderApplication.getSocialAdapter().uploadImage(content, "upload_book.jpg", image, 100);
-//                SSReaderApplication.getSocialAdapter().updateStory("test update story facebook", "update name", "captio", "descrition", "http://goo.gl/vDxSKx", "http://1.bp.blogspot.com/-IWytx68TUxw/TxmawGii-BI/AAAAAAAABVk/_TusUdVRAN0/s1600/twitter+facebook.jpg", new SocialAuthListener<Integer>() {
-//                    @Override
-//                    public void onExecute(String s, Integer integer) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onError(SocialAuthError socialAuthError) {
-//
-//                    }
-//                });
+                //                SSReaderApplication.getSocialAdapter().updateStory("test update story facebook", "update name", "captio", "descrition", "http://goo.gl/vDxSKx", "http://1.bp.blogspot.com/-IWytx68TUxw/TxmawGii-BI/AAAAAAAABVk/_TusUdVRAN0/s1600/twitter+facebook.jpg", new SocialAuthListener<Integer>() {
+                //                    @Override
+                //                    public void onExecute(String s, Integer integer) {
+                //
+                //                    }
+                //
+                //                    @Override
+                //                    public void onError(SocialAuthError socialAuthError) {
+                //
+                //                    }
+                //                });
             } else {
+                SSReaderApplication.postToWall(mContext, new IActionFacebook() {
+                    @Override
+                    public void LoginSuccess() {
+                        SSReaderApplication.getSocialAdapter().updateStatus(content, new SocialAuthListener<Integer>() {
+                            @Override
+                            public void onExecute(String s, Integer integer) {
+
+                            }
+
+                            @Override
+                            public void onError(SocialAuthError socialAuthError) {
+
+                            }
+                        }, true);
+                    }
+                });
                 result = 200;
-                SSReaderApplication.getSocialAdapter().updateStatus(content, new SocialAuthListener<Integer>() {
-                    @Override
-                    public void onExecute(String s, Integer integer) {
-
-                    }
-
-                    @Override
-                    public void onError(SocialAuthError socialAuthError) {
-
-                    }
-                }, true);
             }
-
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
         return result;

@@ -29,8 +29,8 @@ import vn.seasoft.readerbook.dialog.dlgShareFacebook;
 import vn.seasoft.readerbook.fragment.fmChapter;
 import vn.seasoft.readerbook.fragment.fmComment;
 import vn.seasoft.readerbook.fragment.fmSummary;
+import vn.seasoft.readerbook.listener.IActionFacebook;
 import vn.seasoft.readerbook.listener.IDialogEditText;
-import vn.seasoft.readerbook.listener.ILoginFacebook;
 import vn.seasoft.readerbook.model.Book;
 import vn.seasoft.readerbook.model.Book_Category;
 
@@ -80,7 +80,7 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
             public void onClick(View view) {
                 int iduser = mSharedPreferences.getUserID(mContext);
                 if (iduser == 0) {
-                    SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
+                    SSReaderApplication.authorizeFB(mContext, new IActionFacebook() {
                         @Override
                         public void LoginSuccess() {
                             GlobalData.ShowProgressDialog(mContext, R.string.please_wait);
@@ -203,9 +203,14 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
         dlg.setMessage(content);
         dlg.setListener(new IDialogEditText() {
             @Override
-            public void getValue(String value) {
-                asynPostFacebook asyn = new asynPostFacebook(mContext, value, UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
-                asyn.execute();
+            public void getValue(final String value) {
+                SSReaderApplication.postToWall(mContext, new IActionFacebook() {
+                    @Override
+                    public void LoginSuccess() {
+                        asynPostFacebook asyn = new asynPostFacebook(mContext, value, UrlImageViewHelper.getCachedBitmap(GlobalData.getUrlImageCover(book)));
+                        asyn.execute();
+                    }
+                });
             }
         });
         dlg.show(getSupportFragmentManager());
@@ -217,7 +222,7 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
             case R.id.action_sharefb:
                 int iduser = mSharedPreferences.getUserID(mContext);
                 if (iduser == 0) {
-                    SSReaderApplication.authorizeFB(mContext, new ILoginFacebook() {
+                    SSReaderApplication.authorizeFB(mContext, new IActionFacebook() {
                         @Override
                         public void LoginSuccess() {
                             shareFacebook();

@@ -69,4 +69,48 @@ public class mSharedPreferences {
         editor.commit();
     }
 
+    public static String getRegIdGcm(Context context) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        return settings.getString("IDGCM", "");
+    }
+
+    public static void saveRegIdGcm(Context context, String regId) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("IDGCM", regId);
+        // Commit the edits!
+        editor.commit();
+    }
+
+    public static int getAppVersion(Context context) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        return settings.getInt("AppVersion", 0);
+    }
+
+    public static void saveAppVersion(Context context, int appversion) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("AppVersion", appversion);
+        // Commit the edits!
+        editor.commit();
+    }
+
+    public static int getAppVersionSettingBook(Context context) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        return settings.getInt("AppVersionSetting", 0);
+    }
+
+    public static void saveAppVersionSettingBook(Context context, int appversion) {
+        SharedPreferences settings = context
+                .getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("AppVersionSetting", appversion);
+        // Commit the edits!
+        editor.commit();
+    }
 }

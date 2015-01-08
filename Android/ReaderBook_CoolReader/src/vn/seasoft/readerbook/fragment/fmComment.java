@@ -24,7 +24,7 @@ import vn.seasoft.readerbook.Util.mSharedPreferences;
 import vn.seasoft.readerbook.adapter.CommentBookAdapter;
 import vn.seasoft.readerbook.dialog.dlgEditComment;
 import vn.seasoft.readerbook.listener.IDialogEditText;
-import vn.seasoft.readerbook.listener.ILoginFacebook;
+import vn.seasoft.readerbook.listener.IActionFacebook;
 import vn.seasoft.readerbook.model.Comment;
 import vn.seasoft.readerbook.widget.ViewError;
 
@@ -122,7 +122,7 @@ public class fmComment extends Fragment implements OnHttpServicesListener {
             postcomment = new Comment();
             String iduserfacebook = mSharedPreferences.getUserIDFacebook(context);
             if (iduserfacebook.equals("")) {
-                SSReaderApplication.authorizeFB(context, new ILoginFacebook() {
+                SSReaderApplication.authorizeFB(context, new IActionFacebook() {
                     @Override
                     public void LoginSuccess() {
                         String iduserfacebook = mSharedPreferences.getUserIDFacebook(context);
