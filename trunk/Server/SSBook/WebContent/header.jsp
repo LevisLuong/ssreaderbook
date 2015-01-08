@@ -130,7 +130,31 @@
 								<li><a href="managefeedback.jsp"><b>Trang xử lý
 											phản hồi</b></a></li>
 							</ul>
-							<div class="clear"></div>
+
+							<%
+								int role = (int) request.getSession().getAttribute("role");
+								if (role == 1) {
+							%>
+							<!-- Check select menu 4 -->
+							<div class="nav-divider">&nbsp;</div>
+
+							<%
+								if (request.getParameter("select").equals("4")) {
+							%>
+							<ul class="current">
+								<%
+									} else {
+								%>
+								<ul class="select">
+									<%
+										}
+									%>
+									<li><a href="sendnotify.jsp"><b>Gửi thông báo</b></a></li>
+								</ul>
+							<%
+								}
+							%>
+								<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
 		</div>
