@@ -166,7 +166,6 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             public void onScroll(AbsHListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvNewBook.canLoadMoreData()) {
-                    System.out.println("Load more data newbook");
                     request_server.getNewest(adapterlvNewBook.loadMoreData());
                 }
             }
@@ -202,7 +201,6 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             public void onScroll(AbsHListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
                 int lastInScreen = firstVisibleItem + visibleItemCount;
                 if ((lastInScreen == totalItemCount) && adapterlvHotBook.canLoadMoreData()) {
-                    System.out.println("Load more data hotbook");
                     request_server.getMostBook(adapterlvHotBook.loadMoreData());
                 }
             }
