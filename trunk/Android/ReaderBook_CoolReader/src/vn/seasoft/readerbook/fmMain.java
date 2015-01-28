@@ -278,6 +278,8 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
         request_server.getMostBook(1);
         request_server.getNewest(1);
 
+        SSReaderApplication.getRequestServer(mContext, this).getCategoryBook();
+
         return rootView;
     }
 
@@ -341,6 +343,7 @@ public class fmMain extends Fragment implements OnHttpServicesListener {
             for (Book_Category bc : data.lstBookCategory) {
                 ((MainActivity) getActivity()).addItemSliderMenu(bc);
             }
+
         }
         if (urlMethod.equals(COMMAND_API.GET_MOST_READ)) {
             Result_GetMostRead data = (Result_GetMostRead) resultData;

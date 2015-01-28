@@ -130,7 +130,6 @@ public class MainActivity extends Activity {
 
         initSliderMenu();
 
-        SSReaderApplication.getRequestServer(this).getCategoryBook();
         //Google analytics
         //add tracker google
         // Get tracker.

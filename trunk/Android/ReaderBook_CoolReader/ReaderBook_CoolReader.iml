@@ -30,5 +30,6 @@
     </orderEntry>
     <orderEntry type="module" module-name="lb_QuickReturn" />
     <orderEntry type="module" module-name="lb_AmbilWarna" />
+    <orderEntry type="module" module-name="android-pdfview" />
   </component>
 </module>
