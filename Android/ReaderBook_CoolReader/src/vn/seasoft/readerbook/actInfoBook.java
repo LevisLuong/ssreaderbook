@@ -44,7 +44,6 @@ public class actInfoBook extends Activity implements OnHttpServicesListener {
     Book book;
     fmChapter fmchapter;
     fmComment fmcomment;
-
     Request_Server request_service;
 
     boolean isUserLikeBook = false;
