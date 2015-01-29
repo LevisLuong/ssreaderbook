@@ -1,4 +1,4 @@
-//package vn.seasoft.readerbook;
+//package vn.seasoft.sachcuatui;
 //
 //import android.app.SearchManager;
 //import android.content.Context;
@@ -15,15 +15,15 @@
 //import it.gmariotti.cardslib.library.view.CardListView;
 //import org.holoeverywhere.app.Activity;
 //import org.holoeverywhere.widget.Toast;
-//import vn.seasoft.readerbook.HttpServices.COMMAND_API;
-//import vn.seasoft.readerbook.HttpServices.ErrorType;
-//import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
-//import vn.seasoft.readerbook.HttpServices.ResultObject;
-//import vn.seasoft.readerbook.ResultObjects.Result_GetSearchBook;
-//import vn.seasoft.readerbook.Util.GlobalData;
-//import vn.seasoft.readerbook.adapter.SearchBookAdapter;
-//import vn.seasoft.readerbook.dialog.dlgInfoBook;
-//import vn.seasoft.readerbook.model.Book;
+//import vn.seasoft.sachcuatui.HttpServices.COMMAND_API;
+//import vn.seasoft.sachcuatui.HttpServices.ErrorType;
+//import vn.seasoft.sachcuatui.HttpServices.OnHttpServicesListener;
+//import vn.seasoft.sachcuatui.HttpServices.ResultObject;
+//import vn.seasoft.sachcuatui.ResultObjects.Result_GetSearchBook;
+//import vn.seasoft.sachcuatui.Util.GlobalData;
+//import vn.seasoft.sachcuatui.adapter.SearchBookAdapter;
+//import vn.seasoft.sachcuatui.dialog.dlgInfoBook;
+//import vn.seasoft.sachcuatui.model.Book;
 //
 ///**
 // * User: XuanTrung

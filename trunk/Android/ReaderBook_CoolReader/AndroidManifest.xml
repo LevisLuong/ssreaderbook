@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="vn.seasoft.readerbook"
+    package="vn.seasoft.sachcuatui"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:installLocation="preferExternal"
     android:versionCode="10"
@@ -24,10 +24,11 @@
            where PACKAGE is the application's package name.
     -->
     <permission
-        android:name="vn.seasoft.readerbook.permission.C2D_MESSAGE"
+        android:name="vn.seasoft.sachcuatui.permission.C2D_MESSAGE" 
         android:protectionLevel="signature"/>
+    
     <uses-permission
-        android:name="vn.seasoft.readerbook.permission.C2D_MESSAGE"/>
+        android:name="vn.seasoft.sachcuatui.permission.C2D_MESSAGE"/>
 
     <!-- This app has permission to register and receive data message. -->
     <uses-permission
@@ -53,7 +54,7 @@
             android:value="@integer/google_play_services_version"/>
 
         <activity
-            android:name="vn.seasoft.readerbook.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|locale|screenSize"
             android:launchMode="singleTop"
             android:theme="@style/HoloThemeWithSliderMenu">
@@ -192,7 +193,7 @@
                 <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
                 <!-- Receives the registration id. -->
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-                <category android:name="vn.seasoft.readerbook"/>
+                <category android:name="vn.seasoft.sachcuatui"/>
             </intent-filter>
         </receiver>
 

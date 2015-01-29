@@ -10,7 +10,7 @@
 //import android.widget.RadioButton;
 //import android.widget.TextView;
 //import org.coolreader.CoolReader;
-//import vn.seasoft.readerbook.R;
+//import vn.seasoft.sachcuatui.R;
 //
 //public class SwitchProfileDialog extends BaseDialog {
 //	CoolReader mCoolReader;
