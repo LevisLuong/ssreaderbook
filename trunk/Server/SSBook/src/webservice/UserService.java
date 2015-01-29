@@ -202,7 +202,7 @@ public class UserService {
 			List<Comment> comments = new Comment().getListCommentByIdBook(
 					idbook, index);
 			if (comments.isEmpty()) {
-				json = "{}";
+				json = "{\"data\":\"\"}";
 			} else {
 				json = "{\"data\":[";
 				for (Comment comment : comments) {
