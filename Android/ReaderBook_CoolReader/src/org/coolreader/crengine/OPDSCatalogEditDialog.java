@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import org.coolreader.CoolReader;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class OPDSCatalogEditDialog extends Dialog {
 

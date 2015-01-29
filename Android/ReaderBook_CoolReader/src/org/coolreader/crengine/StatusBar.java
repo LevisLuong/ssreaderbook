@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import org.coolreader.CoolReader;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class StatusBar extends LinearLayout implements Settings {
     FileInfo book;

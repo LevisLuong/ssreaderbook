@@ -25,9 +25,9 @@ import org.holoeverywhere.app.Activity;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.preference.SharedPreferences;
 import org.holoeverywhere.widget.TextView;
-import vn.seasoft.readerbook.R;
-import vn.seasoft.readerbook.Util.SSUtil;
-import vn.seasoft.readerbook.Util.mSharedPreferences;
+import vn.seasoft.sachcuatui.R;
+import vn.seasoft.sachcuatui.Util.SSUtil;
+import vn.seasoft.sachcuatui.Util.mSharedPreferences;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -4,7 +4,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import org.holoeverywhere.app.AlertDialog;
 import org.holoeverywhere.app.DialogFragment;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class NoticeDialog extends DialogFragment {
 

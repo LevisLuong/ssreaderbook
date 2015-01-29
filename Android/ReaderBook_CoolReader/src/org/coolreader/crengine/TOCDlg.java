@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import org.holoeverywhere.app.Dialog;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.TextView;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.util.ArrayList;
 

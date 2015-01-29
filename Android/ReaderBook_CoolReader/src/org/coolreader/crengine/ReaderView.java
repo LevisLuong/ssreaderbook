@@ -19,8 +19,8 @@ import org.coolreader.crengine.InputDialog.InputHandler;
 import org.coolreader.sync.ChangeInfo;
 import org.coolreader.sync.SyncServiceAccessor;
 import org.koekak.android.ebookdownloader.SonyBookSelector;
-import vn.seasoft.readerbook.R;
-import vn.seasoft.readerbook.dialog.mDialogShowImage;
+import vn.seasoft.sachcuatui.R;
+import vn.seasoft.sachcuatui.dialog.mDialogShowImage;
 
 import java.io.File;
 import java.io.FileOutputStream;

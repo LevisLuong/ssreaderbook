@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.util.Log;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.io.*;
 import java.util.*;

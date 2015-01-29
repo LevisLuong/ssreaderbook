@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 /**
  * Progress dialog, based on source code of android.app.ProgressDialog

@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <vn.seasoft.readerbook.widget.ImageViewTouchViewPager
+    <vn.seasoft.sachcuatui.widget.ImageViewTouchViewPager
         android:id="@+id/vp_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

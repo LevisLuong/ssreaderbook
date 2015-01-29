@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                tools:context="vn.seasoft.readerbook.MainActivity">
+                tools:context="vn.seasoft.sachcuatui.MainActivity">
 
                 <TextView
                     style="@style/Holo.TextAppearance.Large"
@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                tools:context="vn.seasoft.readerbook.MainActivity">
+                tools:context="vn.seasoft.sachcuatui.MainActivity">
 
                 <TextView
                     style="@style/Holo.TextAppearance.Large"
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                tools:context="vn.seasoft.readerbook.MainActivity">
+                tools:context="vn.seasoft.sachcuatui.MainActivity">
 
                 <TextView
                     style="@style/Holo.TextAppearance.Large"

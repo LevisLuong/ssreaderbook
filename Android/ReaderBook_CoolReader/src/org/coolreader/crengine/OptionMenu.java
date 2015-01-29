@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import org.holoeverywhere.widget.*;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
 import java.io.File;

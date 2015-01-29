@@ -8,7 +8,7 @@ import android.view.View.OnTouchListener;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class ProgressPopup {
     private BaseActivity context;

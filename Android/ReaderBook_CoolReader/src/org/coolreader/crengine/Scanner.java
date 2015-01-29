@@ -4,7 +4,7 @@ import android.util.Log;
 import org.coolreader.db.CRDBService;
 import org.coolreader.plugins.OnlineStorePluginManager;
 import org.coolreader.plugins.OnlineStoreWrapper;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.io.File;
 import java.util.*;

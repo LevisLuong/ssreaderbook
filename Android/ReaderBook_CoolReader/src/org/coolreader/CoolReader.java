@@ -13,8 +13,8 @@ import org.coolreader.crengine.History.BookInfoLoadedCallack;
 import org.coolreader.crengine.TTS.OnTTSCreatedListener;
 import org.holoeverywhere.widget.Toast;
 import org.koekak.android.ebookdownloader.SonyBookSelector;
-import vn.seasoft.readerbook.R;
-import vn.seasoft.readerbook.SSReaderApplication;
+import vn.seasoft.sachcuatui.R;
+import vn.seasoft.sachcuatui.SSReaderApplication;
 
 import java.lang.reflect.Field;
 import java.util.Map;

@@ -14,7 +14,7 @@ import org.coolreader.CoolReader;
 import org.holoeverywhere.app.DialogFragment;
 import org.holoeverywhere.widget.ListView;
 import org.holoeverywhere.widget.TextView;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.util.ArrayList;
 

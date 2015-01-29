@@ -2,7 +2,7 @@ package org.coolreader.crengine;
 
 import android.util.Log;
 import org.coolreader.plugins.OnlineStoreBook;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.io.File;
 import java.util.ArrayList;

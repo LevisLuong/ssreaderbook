@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import org.coolreader.CoolReader;
 import org.coolreader.db.CRDBService;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.util.ArrayList;
 
