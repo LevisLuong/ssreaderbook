@@ -485,7 +485,7 @@ xml:base="http://lib.ololo.cc/opds/">
         }
 
         private void setProgressMessage(String url, int totalSize) {
-            progressMessage = coolReader.getString(vn.seasoft.readerbook.R.string.progress_downloading) + " " + url;
+            progressMessage = coolReader.getString(vn.seasoft.sachcuatui.R.string.progress_downloading) + " " + url;
             if (totalSize > 0)
                 progressMessage = progressMessage + " (" + totalSize + ")";
         }

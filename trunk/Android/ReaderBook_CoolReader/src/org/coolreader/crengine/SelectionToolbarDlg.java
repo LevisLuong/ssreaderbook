@@ -11,7 +11,7 @@ import android.widget.PopupWindow.OnDismissListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import org.coolreader.CoolReader;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class SelectionToolbarDlg {
     private final static int SELECTION_CONTROL_STEP = 10;

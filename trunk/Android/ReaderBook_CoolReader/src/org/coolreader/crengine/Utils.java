@@ -10,7 +10,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import org.coolreader.crengine.FileInfo.SortOrder;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;

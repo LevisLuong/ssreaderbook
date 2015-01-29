@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="vn.seasoft.readerbook.MainActivity">
+        tools:context="vn.seasoft.sachcuatui.MainActivity">
 
         <com.viewpagerindicator.TabPageIndicator
             android:id="@+id/indicator"

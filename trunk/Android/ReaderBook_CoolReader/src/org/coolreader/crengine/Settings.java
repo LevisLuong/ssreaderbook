@@ -2,7 +2,7 @@ package org.coolreader.crengine;
 
 import android.app.SearchManager;
 import android.util.Log;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.util.Locale;
 

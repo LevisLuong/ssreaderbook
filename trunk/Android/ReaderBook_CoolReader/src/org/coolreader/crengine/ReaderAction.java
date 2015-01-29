@@ -1,6 +1,6 @@
 package org.coolreader.crengine;
 
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 import java.util.ArrayList;
 

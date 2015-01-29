@@ -1,7 +1,7 @@
 package org.coolreader.crengine;
 
 
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public enum DocumentFormat {
     /// lvtinydom.h: source document formats

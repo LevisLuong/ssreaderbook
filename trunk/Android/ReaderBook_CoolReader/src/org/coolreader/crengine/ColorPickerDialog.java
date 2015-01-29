@@ -23,7 +23,7 @@ import android.view.animation.Transformation;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import vn.seasoft.readerbook.R;
+import vn.seasoft.sachcuatui.R;
 
 public class ColorPickerDialog extends Dialog implements OnSeekBarChangeListener {
 
