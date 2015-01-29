@@ -1,5 +1,0 @@
-int anim anticipate_slide_footer_down 0x7f020000
-int anim anticipate_slide_header_up 0x7f020001
-int anim overshoot_slide_footer_up 0x7f020002
-int anim overshoot_slide_header_down 0x7f020003
-int id scroll_threshold_key 0x7f030000
