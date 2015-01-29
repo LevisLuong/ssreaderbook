@@ -2,7 +2,9 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android" name="Android">
-      <configuration />
+      <configuration>
+        <option name="UPDATE_PROPERTY_FILES" value="true" />
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
@@ -13,10 +15,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="lb_viewpagerindicator" />
+    <orderEntry type="module" module-name="lb_QuickReturn" />
     <orderEntry type="module" module-name="preferences" />
-    <orderEntry type="module" module-name="lb_holoeverywhere" />
     <orderEntry type="module" module-name="slider" />
+    <orderEntry type="module" module-name="android-pdfview" />
+    <orderEntry type="module" module-name="lb_AmbilWarna" />
+    <orderEntry type="module" module-name="lb_viewpagerindicator" />
+    <orderEntry type="module" module-name="lb_holoeverywhere" />
     <orderEntry type="module" module-name="lb_horizontallistview" />
     <orderEntry type="module-library">
       <library>
@@ -28,8 +33,5 @@
         <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="module" module-name="lb_QuickReturn" />
-    <orderEntry type="module" module-name="lb_AmbilWarna" />
-    <orderEntry type="module" module-name="android-pdfview" />
   </component>
 </module>

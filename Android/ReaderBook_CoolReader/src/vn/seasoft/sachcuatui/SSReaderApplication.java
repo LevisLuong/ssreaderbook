@@ -37,7 +37,7 @@ import vn.seasoft.sachcuatui.sqlite.RepoController;
 import java.util.HashMap;
 
 public class SSReaderApplication extends Application implements OnHttpServicesListener {
-    final static String TAG = "SSReaderBook";
+    final static String TAG = "SSsachcuatui";
 
     static {
         HoloEverywhere.DEBUG = true;

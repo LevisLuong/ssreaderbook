@@ -1,4 +1,4 @@
-//package vn.seasoft.readerbook.fragment;
+//package vn.seasoft.sachcuatui.fragment;
 //
 //import android.content.Context;
 //import android.content.Intent;
@@ -23,23 +23,23 @@
 //import org.holoeverywhere.app.Fragment;
 //import org.holoeverywhere.widget.ProgressBar;
 //import org.holoeverywhere.widget.Toast;
-//import vn.seasoft.readerbook.HttpServices.COMMAND_API;
-//import vn.seasoft.readerbook.HttpServices.ErrorType;
-//import vn.seasoft.readerbook.HttpServices.OnHttpServicesListener;
-//import vn.seasoft.readerbook.HttpServices.ResultObject;
-//import vn.seasoft.readerbook.R;
-//import vn.seasoft.readerbook.ResultObjects.Result_GetBookChapter;
-//import vn.seasoft.readerbook.SSReaderApplication;
-//import vn.seasoft.readerbook.Util.AsyntaskDownloadFile;
-//import vn.seasoft.readerbook.Util.GlobalData;
-//import vn.seasoft.readerbook.Util.SSUtil;
-//import vn.seasoft.readerbook.actInfoBook;
-//import vn.seasoft.readerbook.actReadPictureBook;
-//import vn.seasoft.readerbook.dialog.dlgGoChapter;
-//import vn.seasoft.readerbook.listener.IDialogEditText;
-//import vn.seasoft.readerbook.model.Book;
-//import vn.seasoft.readerbook.model.Book_Chapter;
-//import vn.seasoft.readerbook.widget.ViewError;
+//import vn.seasoft.sachcuatui.HttpServices.COMMAND_API;
+//import vn.seasoft.sachcuatui.HttpServices.ErrorType;
+//import vn.seasoft.sachcuatui.HttpServices.OnHttpServicesListener;
+//import vn.seasoft.sachcuatui.HttpServices.ResultObject;
+//import vn.seasoft.sachcuatui.R;
+//import vn.seasoft.sachcuatui.ResultObjects.Result_GetBookChapter;
+//import vn.seasoft.sachcuatui.SSReaderApplication;
+//import vn.seasoft.sachcuatui.Util.AsyntaskDownloadFile;
+//import vn.seasoft.sachcuatui.Util.GlobalData;
+//import vn.seasoft.sachcuatui.Util.SSUtil;
+//import vn.seasoft.sachcuatui.actInfoBook;
+//import vn.seasoft.sachcuatui.actReadPictureBook;
+//import vn.seasoft.sachcuatui.dialog.dlgGoChapter;
+//import vn.seasoft.sachcuatui.listener.IDialogEditText;
+//import vn.seasoft.sachcuatui.model.Book;
+//import vn.seasoft.sachcuatui.model.Book_Chapter;
+//import vn.seasoft.sachcuatui.widget.ViewError;
 //
 //import java.util.ArrayList;
 //import java.util.Collections;
