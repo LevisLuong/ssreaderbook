@@ -69,14 +69,15 @@ public class Comment {
 
 	public int addComment() {
 		Database conn = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		try {
 			conn = new Database();
-			stmt = conn.Get_Connection().createStatement();
-			String sqlUpdate = String
-					.format("INSERT INTO comment (`content`, `iduser`, `idbook`) VALUES ('%s', '%d','%d')",
-							this.content, this.iduser, this.idbook);
-			int result = stmt.executeUpdate(sqlUpdate);
+			String sqlUpdate = "INSERT INTO comment (`content`, `iduser`, `idbook`) VALUES (?, ?,?)";
+			stmt = conn.Get_Connection().prepareStatement(sqlUpdate);
+			stmt.setString(1, this.content);
+			stmt.setInt(2, this.iduser);
+			stmt.setInt(3, this.idbook);
+			int result = stmt.executeUpdate();
 			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -132,15 +133,18 @@ public class Comment {
 
 	public int updateComment() {
 		Database conn = null;
-		Statement stmt = null;
+		PreparedStatement stmt = null;
 		try {
 			conn = new Database();
-			stmt = conn.Get_Connection().createStatement();
+
 			String sqlUpdate = String
-					.format("UPDATE comment SET `content`='%s', `iduser`='%d', `idbook`='%d' WHERE `idcomment`='%d';",
-							this.content, this.iduser, this.idbook,
+					.format("UPDATE comment SET `content`=?, `iduser`=?, `idbook`=? WHERE `idcomment`='%d';",
 							this.idcomment);
-			int result = stmt.executeUpdate(sqlUpdate);
+			stmt = conn.Get_Connection().prepareStatement(sqlUpdate);
+			stmt.setString(1, this.content);
+			stmt.setInt(2, this.iduser);
+			stmt.setInt(3, this.idbook);
+			int result = stmt.executeUpdate();
 			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
